@@ -1,0 +1,22 @@
+platform :ios, '11.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'EldritchHorrorCards' do
+  use_frameworks!
+  inhibit_all_warnings!
+
+  #pod 'ObjectMapper'
+  #pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa', :branch => 'tg/xcode-10', submodules: true
+  
+  pod 'Fabric'
+  pod 'Crashlytics'
+  pod 'Firebase/Core'
+  # pod 'Alamofire'
+  # pod 'AlamofireImage'
+  # pod 'ObjectMapper+Realm'
+  pod 'RealmSwift'
+  # pod 'ObjectMapper', :git => 'https://github.com/alecdoconnor/ObjectMapper.git'
+  # pod 'Charts'
+  # pod 'SwiftDate'
+  pod 'IQKeyboardManagerSwift'
+end
