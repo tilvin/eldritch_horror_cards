@@ -1,0 +1,55 @@
+{
+  "account": {
+    "solid": "FBA700",
+    "gradient_start": "FBA700",
+    "gradient_end": "FFCF3D"
+  },
+  "expense": {
+    "solid": "CC0D55",
+    "gradient_start": "CC0D55",
+    "gradient_end": "EB2F6F"
+  },
+  "income": {
+    "solid": "52A855",
+    "gradient_start": "52A855",
+    "gradient_end": "72C075"
+  },
+  "gray": "BEBFC3",
+  "light_gray": "F6F6F6",
+  "dark_blue": {
+    "solid": "313540",
+    "gradient_start": "313540",
+    "gradient_end": "3A404E",
+  },
+  "blue": {
+    "solid": "2B93E5",
+    "gradient_start": "2B93E5",
+    "gradient_end": "46A7F4"
+  },
+  "table_view": {
+    "header_background": "F6F6F6",
+    "transaction_cell" : {
+      "info" : "CDCDCD",
+      "edit": "F9D98C",
+      "delete": "CC0D55"
+    }
+  },
+  "tabs": {
+    "text_color_active": "313540",
+    "text_color_inactive": "C7C9CF"
+  },
+  "status_bar": {
+    "auth": "FFFFFF",
+    "main": "52A855",
+    "menu": "313540",
+    "profile": "313540",
+    "charts": "52A855",
+    "charts_filter": "313540",
+    "categories": "313540",
+    "transfer": "313540",
+    "transactions": "52A855",
+    "transaction": "313540",
+    "accounts": "FF8C18",
+    "dictionary": "313540"
+  }
+}
