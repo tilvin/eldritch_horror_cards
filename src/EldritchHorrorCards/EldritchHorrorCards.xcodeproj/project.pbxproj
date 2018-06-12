@@ -74,6 +74,9 @@
 		A4B816C420D01F6500FC5651 /* LoggerNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816BF20D01F6500FC5651 /* LoggerNull.swift */; };
 		A4B816C520D01F6500FC5651 /* LoggerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816C020D01F6500FC5651 /* LoggerProfile.swift */; };
 		A4B816C820D01FD000FC5651 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816C720D01FD000FC5651 /* CheckViewController.swift */; };
+		A4B816CA20D0219200FC5651 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B816C920D0219200FC5651 /* Menu.storyboard */; };
+		A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CC20D021DC00FC5651 /* MenuViewController.swift */; };
+		A4B816CF20D021DC00FC5651 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */; };
 		A4FE4CD620D01418003A33D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4FE4CD520D01418003A33D3 /* GoogleService-Info.plist */; };
 		A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE641F20D0111D0064E52E /* AppDelegate.swift */; };
 		A4FE642520D0111D0064E52E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FE642320D0111D0064E52E /* Main.storyboard */; };
@@ -153,6 +156,9 @@
 		A4B816BF20D01F6500FC5651 /* LoggerNull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerNull.swift; sourceTree = "<group>"; };
 		A4B816C020D01F6500FC5651 /* LoggerProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerProfile.swift; sourceTree = "<group>"; };
 		A4B816C720D01FD000FC5651 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
+		A4B816C920D0219200FC5651 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
+		A4B816CC20D021DC00FC5651 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		A4FE4CD520D01418003A33D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A4FE641C20D0111D0064E52E /* EldritchHorrorCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EldritchHorrorCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4FE641F20D0111D0064E52E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -297,8 +303,18 @@
 			children = (
 				A4B8161220D01D6800FC5651 /* Storyboards.swift */,
 				A4FE642320D0111D0064E52E /* Main.storyboard */,
+				A4B816C920D0219200FC5651 /* Menu.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		A4B816CB20D021D200FC5651 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */,
+				A4B816CC20D021DC00FC5651 /* MenuViewController.swift */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		A4FE4CD820D01423003A33D3 /* App */ = {
@@ -339,6 +355,7 @@
 		A4FE4CDB20D0151E003A33D3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A4B816CB20D021D200FC5651 /* Menu */,
 				A4B816C720D01FD000FC5651 /* CheckViewController.swift */,
 				A4B8161020D01D6000FC5651 /* BaseViewController.swift */,
 				A4B8158E20D01B1500FC5651 /* Main */,
@@ -451,6 +468,7 @@
 				A4FE642A20D0111E0064E52E /* LaunchScreen.storyboard in Resources */,
 				A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */,
 				A4B815FE20D01C2800FC5651 /* Style.json in Resources */,
+				A4B816CA20D0219200FC5651 /* Menu.storyboard in Resources */,
 				A4FE4CD620D01418003A33D3 /* GoogleService-Info.plist in Resources */,
 				A4FE642720D0111E0064E52E /* Assets.xcassets in Resources */,
 				A4FE642520D0111D0064E52E /* Main.storyboard in Resources */,
@@ -528,6 +546,7 @@
 			files = (
 				A4B815CA20D01BED00FC5651 /* ViewController.swift in Sources */,
 				A4B8159320D01B1F00FC5651 /* MainPageController.swift in Sources */,
+				A4B816CF20D021DC00FC5651 /* MenuTableViewController.swift in Sources */,
 				A4B8161720D01EC500FC5651 /* APIRequests.swift in Sources */,
 				A4B8161520D01E7A00FC5651 /* Reachability.swift in Sources */,
 				A4B815D120D01BED00FC5651 /* Sequence.swift in Sources */,
@@ -572,6 +591,7 @@
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
 				A4B8159220D01B1F00FC5651 /* MainPageModelController.swift in Sources */,
 				A4B815B920D01BED00FC5651 /* Array.swift in Sources */,
+				A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */,
 				A4B815E220D01BFA00FC5651 /* VideoView.swift in Sources */,
 				A4B815E020D01BFA00FC5651 /* BrushView.swift in Sources */,
 				A4B8159620D01BC500FC5651 /* Command.swift in Sources */,
