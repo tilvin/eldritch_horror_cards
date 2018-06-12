@@ -1,1 +1,3 @@
-eldritch_horror_cards
+# Eldritch Horror Cards
+
+Карточки игр.
