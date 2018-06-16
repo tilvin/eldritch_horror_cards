@@ -218,6 +218,13 @@ open class JFCardSelectionViewController: UIViewController {
   fileprivate func buildFocusedCardUI() {
     focusedView.delegate = self
     focusedViewTwo.delegate = self
+    focusedView.layer.cornerRadius = 20
+    focusedView.shadowRadius = 4
+    focusedView.shadowOpacity = 1
+    
+    focusedViewTwo.layer.cornerRadius = 20
+    focusedViewTwo.shadowRadius = 4
+    focusedViewTwo.shadowOpacity = 1
     
     focusedView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(focusedView)
@@ -227,7 +234,6 @@ open class JFCardSelectionViewController: UIViewController {
     view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(topSpace)-[focusedView]-(bottomSpace)-[collectionView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews))
     focusedViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(horizontalSpace)-[focusedView]-(horizontalSpace)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
     view.addConstraints(focusedViewHConstraints)
-    
     view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(topSpace)-[focusedViewTwo]-(bottomSpace)-[collectionView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews))
     
     switch selectionAnimationStyle {
@@ -254,8 +260,8 @@ open class JFCardSelectionViewController: UIViewController {
     
   func updateUIForCard(_ card: CardPresentable, atIndexPath indexPath: IndexPath) {
     collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    
     if !showingImageViewOne {
-      
       if backgroundImage == nil {
         bgImageView.image = card.image
       }
