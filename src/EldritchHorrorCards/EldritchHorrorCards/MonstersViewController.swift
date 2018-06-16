@@ -14,7 +14,7 @@ class MonstersViewController: JFCardSelectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIViewController.setStatusbar(with: #colorLiteral(red: 0.3803921569, green: 0.6941176471, blue: 0.6705882353, alpha: 1))
+        UIViewController.setStatusbar(with: #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
