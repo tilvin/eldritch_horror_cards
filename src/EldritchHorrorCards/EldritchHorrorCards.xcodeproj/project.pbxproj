@@ -10,9 +10,6 @@
 		442A1F7A1B830447984C57D9 /* Pods_EldritchHorrorCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */; };
 		A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CA69720D23EC600E2F817 /* AuthViewController.swift */; };
 		A4B6604520D24E5400F94719 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B6604420D24E5300F94719 /* DateHelper.swift */; };
-		A4B8159220D01B1F00FC5651 /* MainPageModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B8158F20D01B1F00FC5651 /* MainPageModelController.swift */; };
-		A4B8159320D01B1F00FC5651 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B8159020D01B1F00FC5651 /* MainPageController.swift */; };
-		A4B8159420D01B1F00FC5651 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B8159120D01B1F00FC5651 /* MainViewController.swift */; };
 		A4B8159620D01BC500FC5651 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B8159520D01BC500FC5651 /* Command.swift */; };
 		A4B815B720D01BED00FC5651 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B8159A20D01BEB00FC5651 /* Image.swift */; };
 		A4B815B820D01BED00FC5651 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B8159B20D01BEB00FC5651 /* Date.swift */; };
@@ -75,10 +72,26 @@
 		A4B816C320D01F6500FC5651 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816BE20D01F6500FC5651 /* Log.swift */; };
 		A4B816C420D01F6500FC5651 /* LoggerNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816BF20D01F6500FC5651 /* LoggerNull.swift */; };
 		A4B816C520D01F6500FC5651 /* LoggerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816C020D01F6500FC5651 /* LoggerProfile.swift */; };
-		A4B816C820D01FD000FC5651 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816C720D01FD000FC5651 /* CheckViewController.swift */; };
 		A4B816CA20D0219200FC5651 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B816C920D0219200FC5651 /* Menu.storyboard */; };
 		A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CC20D021DC00FC5651 /* MenuViewController.swift */; };
 		A4B816CF20D021DC00FC5651 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */; };
+		A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */; };
+		A4FDAFA220D3BCF000FA6E4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA120D3BCEF00FA6E4B /* Router.swift */; };
+		A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */; };
+		A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFFE20D413DC00FA6E4B /* DialView.swift */; };
+		A4FDB00B20D413DE00FA6E4B /* JFFocusedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFFF20D413DC00FA6E4B /* JFFocusedCardView.swift */; };
+		A4FDB00C20D413DE00FA6E4B /* JFCardSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB00020D413DC00FA6E4B /* JFCardSelectionCell.swift */; };
+		A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB00120D413DC00FA6E4B /* JFCardSelectionViewController+CollectionView.swift */; };
+		A4FDB00E20D413DE00FA6E4B /* JFCardSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FDB00220D413DC00FA6E4B /* JFCardSelectionCell.xib */; };
+		A4FDB00F20D413DE00FA6E4B /* AccessoryIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB00320D413DD00FA6E4B /* AccessoryIndicator.swift */; };
+		A4FDB01020D413DE00FA6E4B /* JFCardSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB00420D413DD00FA6E4B /* JFCardSelectionViewController.swift */; };
+		A4FDB01120D413DE00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB00520D413DD00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift */; };
+		A4FDB01220D413DE00FA6E4B /* JFFocusedCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FDB00620D413DD00FA6E4B /* JFFocusedCardView.xib */; };
+		A4FDB01320D413DE00FA6E4B /* ShadowAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB00720D413DD00FA6E4B /* ShadowAttributes.swift */; };
+		A4FDB01420D413DE00FA6E4B /* PointerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB00820D413DD00FA6E4B /* PointerLayer.swift */; };
+		A4FDB01520D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB00920D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift */; };
+		A4FDB01920D42CAF00FA6E4B /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB01820D42CAF00FA6E4B /* URL.swift */; };
+		A4FDB01B20D42CFB00FA6E4B /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB01A20D42CFA00FA6E4B /* UIImageView.swift */; };
 		A4FE4CD620D01418003A33D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4FE4CD520D01418003A33D3 /* GoogleService-Info.plist */; };
 		A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE641F20D0111D0064E52E /* AppDelegate.swift */; };
 		A4FE642520D0111D0064E52E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FE642320D0111D0064E52E /* Main.storyboard */; };
@@ -92,9 +105,6 @@
 		A41CA69720D23EC600E2F817 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A4B6604420D24E5300F94719 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateHelper.swift; path = ../../../../swift_libs/Utils/DateHelper.swift; sourceTree = "<group>"; };
 		A4B8158C20D0158000FC5651 /* EldritchHorrorCards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EldritchHorrorCards-Bridging-Header.h"; sourceTree = "<group>"; };
-		A4B8158F20D01B1F00FC5651 /* MainPageModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageModelController.swift; sourceTree = "<group>"; };
-		A4B8159020D01B1F00FC5651 /* MainPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
-		A4B8159120D01B1F00FC5651 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A4B8159520D01BC500FC5651 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Command.swift; path = ../../../../swift_libs/patterns/Command.swift; sourceTree = "<group>"; };
 		A4B8159A20D01BEB00FC5651 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ../../../../swift_libs/Ext/Image.swift; sourceTree = "<group>"; };
 		A4B8159B20D01BEB00FC5651 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = ../../../../swift_libs/Ext/Date.swift; sourceTree = "<group>"; };
@@ -159,10 +169,26 @@
 		A4B816BE20D01F6500FC5651 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A4B816BF20D01F6500FC5651 /* LoggerNull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerNull.swift; sourceTree = "<group>"; };
 		A4B816C020D01F6500FC5651 /* LoggerProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerProfile.swift; sourceTree = "<group>"; };
-		A4B816C720D01FD000FC5651 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		A4B816C920D0219200FC5651 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		A4B816CC20D021DC00FC5651 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
+		A4FDAFA120D3BCEF00FA6E4B /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
+		A4FDAFFE20D413DC00FA6E4B /* DialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialView.swift; sourceTree = "<group>"; };
+		A4FDAFFF20D413DC00FA6E4B /* JFFocusedCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFFocusedCardView.swift; sourceTree = "<group>"; };
+		A4FDB00020D413DC00FA6E4B /* JFCardSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCardSelectionCell.swift; sourceTree = "<group>"; };
+		A4FDB00120D413DC00FA6E4B /* JFCardSelectionViewController+CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JFCardSelectionViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		A4FDB00220D413DC00FA6E4B /* JFCardSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCardSelectionCell.xib; sourceTree = "<group>"; };
+		A4FDB00320D413DD00FA6E4B /* AccessoryIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryIndicator.swift; sourceTree = "<group>"; };
+		A4FDB00420D413DD00FA6E4B /* JFCardSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCardSelectionViewController.swift; sourceTree = "<group>"; };
+		A4FDB00520D413DD00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JFCardSelectionViewController+JFFocusedCardViewDelegate.swift"; sourceTree = "<group>"; };
+		A4FDB00620D413DD00FA6E4B /* JFFocusedCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFFocusedCardView.xib; sourceTree = "<group>"; };
+		A4FDB00720D413DD00FA6E4B /* ShadowAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowAttributes.swift; sourceTree = "<group>"; };
+		A4FDB00820D413DD00FA6E4B /* PointerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointerLayer.swift; sourceTree = "<group>"; };
+		A4FDB00920D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCardSelectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		A4FDB01820D42CAF00FA6E4B /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		A4FDB01A20D42CFA00FA6E4B /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		A4FE4CD520D01418003A33D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A4FE641C20D0111D0064E52E /* EldritchHorrorCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EldritchHorrorCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4FE641F20D0111D0064E52E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,9 +222,6 @@
 		A4B8158E20D01B1500FC5651 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A4B8159020D01B1F00FC5651 /* MainPageController.swift */,
-				A4B8158F20D01B1F00FC5651 /* MainPageModelController.swift */,
-				A4B8159120D01B1F00FC5651 /* MainViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -226,10 +249,12 @@
 				A4B815AF20D01BEC00FC5651 /* String.swift */,
 				A4B815AB20D01BEC00FC5651 /* StringImage.swift */,
 				A4B815A020D01BEB00FC5651 /* TableView.swift */,
+				A4FDB01A20D42CFA00FA6E4B /* UIImageView.swift */,
 				A4B8159D20D01BEB00FC5651 /* UIViewControllerExtension.swift */,
 				A4B815AC20D01BEC00FC5651 /* UIViewExtensions.swift */,
 				A4B815A120D01BEB00FC5651 /* UserDefaults.swift */,
 				A4B815B620D01BED00FC5651 /* UUID.swift */,
+				A4FDB01820D42CAF00FA6E4B /* URL.swift */,
 				A4B815A820D01BEC00FC5651 /* View.swift */,
 				A4B815A920D01BEC00FC5651 /* ViewAnimation.swift */,
 				A4B815AD20D01BEC00FC5651 /* ViewController.swift */,
@@ -322,6 +347,33 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		A4FDAFDC20D3F62A00FA6E4B /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				A4FDAFFD20D4139400FA6E4B /* JFCardSelectionViewController */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		A4FDAFFD20D4139400FA6E4B /* JFCardSelectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A4FDB00320D413DD00FA6E4B /* AccessoryIndicator.swift */,
+				A4FDAFFE20D413DC00FA6E4B /* DialView.swift */,
+				A4FDB00020D413DC00FA6E4B /* JFCardSelectionCell.swift */,
+				A4FDB00220D413DC00FA6E4B /* JFCardSelectionCell.xib */,
+				A4FDB00420D413DD00FA6E4B /* JFCardSelectionViewController.swift */,
+				A4FDB00120D413DC00FA6E4B /* JFCardSelectionViewController+CollectionView.swift */,
+				A4FDB00520D413DD00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift */,
+				A4FDB00920D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift */,
+				A4FDAFFF20D413DC00FA6E4B /* JFFocusedCardView.swift */,
+				A4FDB00620D413DD00FA6E4B /* JFFocusedCardView.xib */,
+				A4FDB00820D413DD00FA6E4B /* PointerLayer.swift */,
+				A4FDB00720D413DD00FA6E4B /* ShadowAttributes.swift */,
+			);
+			name = JFCardSelectionViewController;
+			sourceTree = "<group>";
+		};
 		A4FE4CD820D01423003A33D3 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +402,7 @@
 			children = (
 				A4B8161620D01EC500FC5651 /* APIRequests.swift */,
 				A4B8159520D01BC500FC5651 /* Command.swift */,
+				A4FDAFA120D3BCEF00FA6E4B /* Router.swift */,
 				A4B8159720D01BCB00FC5651 /* Ext */,
 				A4B8159820D01BCE00FC5651 /* UI */,
 				A4B8159920D01BD800FC5651 /* Utils */,
@@ -361,8 +414,9 @@
 			isa = PBXGroup;
 			children = (
 				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
+				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
+				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
 				A4B816CB20D021D200FC5651 /* Menu */,
-				A4B816C720D01FD000FC5651 /* CheckViewController.swift */,
 				A4B8161020D01D6000FC5651 /* BaseViewController.swift */,
 				A4B8158E20D01B1500FC5651 /* Main */,
 			);
@@ -396,6 +450,7 @@
 				A4FE4CD920D01448003A33D3 /* Resources */,
 				A4B816C620D01F9D00FC5651 /* Storyboards */,
 				A4FE4CDB20D0151E003A33D3 /* UI */,
+				A4FDAFDC20D3F62A00FA6E4B /* Vendor */,
 			);
 			path = EldritchHorrorCards;
 			sourceTree = "<group>";
@@ -473,9 +528,11 @@
 			files = (
 				A4FE642A20D0111E0064E52E /* LaunchScreen.storyboard in Resources */,
 				A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */,
+				A4FDB01220D413DE00FA6E4B /* JFFocusedCardView.xib in Resources */,
 				A4B815FE20D01C2800FC5651 /* Style.json in Resources */,
 				A4B816CA20D0219200FC5651 /* Menu.storyboard in Resources */,
 				A4FE4CD620D01418003A33D3 /* GoogleService-Info.plist in Resources */,
+				A4FDB00E20D413DE00FA6E4B /* JFCardSelectionCell.xib in Resources */,
 				A4FE642720D0111E0064E52E /* Assets.xcassets in Resources */,
 				A4FE642520D0111D0064E52E /* Main.storyboard in Resources */,
 				A4B8160920D01C6E00FC5651 /* Localizable.stringsdict in Resources */,
@@ -524,6 +581,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -532,6 +590,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -551,7 +610,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B815CA20D01BED00FC5651 /* ViewController.swift in Sources */,
-				A4B8159320D01B1F00FC5651 /* MainPageController.swift in Sources */,
 				A4B816CF20D021DC00FC5651 /* MenuTableViewController.swift in Sources */,
 				A4B8161720D01EC500FC5651 /* APIRequests.swift in Sources */,
 				A4B8161520D01E7A00FC5651 /* Reachability.swift in Sources */,
@@ -564,20 +622,24 @@
 				A4B815CC20D01BED00FC5651 /* String.swift in Sources */,
 				A4B815F920D01C0B00FC5651 /* LocalizationExtensions.swift in Sources */,
 				A4B815E120D01BFA00FC5651 /* CornerView.swift in Sources */,
+				A4FDB01320D413DE00FA6E4B /* ShadowAttributes.swift in Sources */,
 				A4B815F720D01C0B00FC5651 /* TimerService.swift in Sources */,
 				A4B815B720D01BED00FC5651 /* Image.swift in Sources */,
 				A4B815C220D01BED00FC5651 /* Alert.swift in Sources */,
 				A4B815BC20D01BED00FC5651 /* NSObjectExtensions.swift in Sources */,
 				A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */,
 				A4B815CD20D01BED00FC5651 /* Button.swift in Sources */,
-				A4B816C820D01FD000FC5651 /* CheckViewController.swift in Sources */,
 				A4B815FB20D01C0B00FC5651 /* KeyArray.swift in Sources */,
+				A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */,
 				A4B815BE20D01BED00FC5651 /* UserDefaults.swift in Sources */,
 				A4B815BB20D01BED00FC5651 /* Inspectable.swift in Sources */,
+				A4FDAFA220D3BCF000FA6E4B /* Router.swift in Sources */,
 				A4B815C120D01BED00FC5651 /* CollectionView.swift in Sources */,
 				A4B815F820D01C0B00FC5651 /* Keychain.swift in Sources */,
 				A4B815C020D01BED00FC5651 /* ViewControllerUI.swift in Sources */,
 				A4B816C320D01F6500FC5651 /* Log.swift in Sources */,
+				A4FDB00F20D413DE00FA6E4B /* AccessoryIndicator.swift in Sources */,
+				A4FDB00C20D413DE00FA6E4B /* JFCardSelectionCell.swift in Sources */,
 				A4B815C320D01BED00FC5651 /* Collection.swift in Sources */,
 				A4B815E520D01BFA00FC5651 /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				A4B815E920D01BFA00FC5651 /* GradientView.swift in Sources */,
@@ -597,27 +659,35 @@
 				A4B815C820D01BED00FC5651 /* StringImage.swift in Sources */,
 				A4B815E820D01BFA00FC5651 /* InsetsLayout.swift in Sources */,
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
-				A4B8159220D01B1F00FC5651 /* MainPageModelController.swift in Sources */,
 				A4B815B920D01BED00FC5651 /* Array.swift in Sources */,
 				A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */,
 				A4B815E220D01BFA00FC5651 /* VideoView.swift in Sources */,
+				A4FDB01B20D42CFB00FA6E4B /* UIImageView.swift in Sources */,
+				A4FDB01920D42CAF00FA6E4B /* URL.swift in Sources */,
+				A4FDB01420D413DE00FA6E4B /* PointerLayer.swift in Sources */,
+				A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */,
+				A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */,
 				A4B815E020D01BFA00FC5651 /* BrushView.swift in Sources */,
 				A4B8159620D01BC500FC5651 /* Command.swift in Sources */,
 				A4B816C120D01F6500FC5651 /* LoggerConsole.swift in Sources */,
+				A4FDB00B20D413DE00FA6E4B /* JFFocusedCardView.swift in Sources */,
 				A4B8161320D01D6800FC5651 /* Storyboards.swift in Sources */,
 				A4B815CF20D01BED00FC5651 /* Double.swift in Sources */,
 				A4B816C520D01F6500FC5651 /* LoggerProfile.swift in Sources */,
 				A4B815E720D01BFA00FC5651 /* VerticalProgressView.swift in Sources */,
 				A4B815D320D01BED00FC5651 /* UUID.swift in Sources */,
+				A4FDB01520D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift in Sources */,
 				A4B815FA20D01C0B00FC5651 /* JSONParser.swift in Sources */,
-				A4B8159420D01B1F00FC5651 /* MainViewController.swift in Sources */,
 				A4B815D020D01BED00FC5651 /* Bool.swift in Sources */,
 				A4B815D220D01BED00FC5651 /* Window.swift in Sources */,
+				A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */,
 				A4B816C220D01F6500FC5651 /* Logger.swift in Sources */,
 				A4B815E420D01BFA00FC5651 /* ScaleAnimationView.swift in Sources */,
+				A4FDB01020D413DE00FA6E4B /* JFCardSelectionViewController.swift in Sources */,
 				A4B815F620D01C0B00FC5651 /* TableRowBuilder.swift in Sources */,
 				A4B815E320D01BFA00FC5651 /* ProgressView.swift in Sources */,
 				A4B815FF20D01C2800FC5651 /* Style.swift in Sources */,
+				A4FDB01120D413DE00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
