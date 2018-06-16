@@ -3,37 +3,12 @@ import Fakery
 class MonstersViewController: JFCardSelectionViewController {
   
   override func viewDidLoad() {
-    
-    // You can set a permanent background by setting a UIImage on the `backgroundImage` property. If not set, the `backgroundImage` will be set using the currently selected Card's `imageURLString`.
-    // backgroundImage = UIImage(named: "bg")
-    
-    // Set the datasource so that `JFCardSelectionViewController` can get the CardPresentable data you want to dispaly
     dataSource = self
-    
-    // Set the delegate so that `JFCardSelectionViewController` can notify the `delegate` of events that take place on the focused CardPresentable.
     delegate = self
-    
-    // Set the desired `JFCardSelectionViewSelectionAnimationStyle` to either `.Slide` or `.Fade`. Defaults to `.Fade`.
     selectionAnimationStyle = .slide
     
-    // Call up to super after configuring your subclass of `JFCardSelectionViewController`. Calling super before configuring will cause undesirable side effects.
     super.viewDidLoad()
-    
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    navigationController?.setNavigationBarHidden(false, animated: false)
-    /*
-     NOTE: If you are displaying an instance of `JFCardSelectionViewController` within a `UINavigationController`, you can use the code below to hide the navigation bar. This isn't required to use `JFCardSelectionViewController` and you can display with navigation bar is you'd like. If you are not embedding it within a navigation controller then this code isn't needed.
-     */
-    let image = UIImage()
-    let navBar = navigationController?.navigationBar
-    navBar?.setBackgroundImage(image, for: .default)
-    navBar?.shadowImage = image
-    
-    // Call `reloadData()` once you are ready to display your `CardPresentable` data or when there have been changes to that data that need to be represented in the UI.
+    navigationController?.setNavigationBarHidden(true, animated: false)
     reloadData()
   }
   
@@ -43,7 +18,6 @@ class MonstersViewController: JFCardSelectionViewController {
       userDetailVC.monster = monsters[indexPath.row]
     }
   }
-  
 }
 
 extension MonstersViewController: JFCardSelectionViewControllerDataSource {

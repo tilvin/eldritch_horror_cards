@@ -40,6 +40,7 @@ class JFCardSelectionCell: UICollectionViewCell {
     let superViewCenterX = _superView.frame.midX
     return ((position.x - superViewCenterX) / superViewCenterX) / 1.3
   }
+  
   fileprivate var centerY: CGFloat {
     let height = scrollView.frame.height
     var y = rotation
@@ -80,7 +81,6 @@ class JFCardSelectionCell: UICollectionViewCell {
     center.y = centerY
     
     label.text = card.titleText
-    //attributedText = card.titleText //NSAttributedString(string: card.titleText, attributes: ShadowAttributes.forLabelSoft)
   }
   
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

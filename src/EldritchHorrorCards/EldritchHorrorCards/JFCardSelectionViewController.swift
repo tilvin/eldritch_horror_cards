@@ -76,6 +76,7 @@ open class JFCardSelectionViewController: UIViewController {
       }) 
     }
   }
+  
   open var delegate: JFCardSelectionViewControllerDelegate?
   open var dataSource: JFCardSelectionViewControllerDataSource?
   open var selectionAnimationStyle: JFCardSelectionViewSelectionAnimationStyle = .fade
@@ -124,19 +125,8 @@ open class JFCardSelectionViewController: UIViewController {
   open override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
-//    buildBGUI()
     buildCardSelectionUI()
     buildFocusedCardUI()
-    
-//    if backgroundImage == nil {
-//      let indexPath = IndexPath(row: 0, section: 0)
-//      guard let card = dataSource?.cardSelectionViewController(self, cardForItemAtIndexPath: indexPath) else {
-//        return
-//      }
-//      bgImageView.image = nil //card.image
-//      bgImageView.backgroundColor = .red
-//
-//    }
   }
   
   open override var shouldAutorotate : Bool {
@@ -301,6 +291,9 @@ open class JFCardSelectionViewController: UIViewController {
   }
   
   @objc func previousCard() {
+    let generator = UIImpactFeedbackGenerator(style: .medium)
+    generator.impactOccurred()
+    
     let count = dataSource?.numberOfCardsForCardSelectionViewController(self) ?? 0
     let row = (previouslySelectedIndexPath?.row ?? 0) - 1
     let section = previouslySelectedIndexPath?.section ?? 0
@@ -316,6 +309,9 @@ open class JFCardSelectionViewController: UIViewController {
   }
   
   @objc func nextCard() {
+    let generator = UIImpactFeedbackGenerator(style: .medium)
+    generator.impactOccurred()
+    
     let count = dataSource?.numberOfCardsForCardSelectionViewController(self) ?? 0
     let row = (previouslySelectedIndexPath?.row ?? 0) + 1
     let section = previouslySelectedIndexPath?.section ?? 0
