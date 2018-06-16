@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Log.addLogProfileToAllLevels(defaultLoggerProfile: LoggerConsole())
     IQKeyboardManager.shared.enable = true
     Fabric.with([Crashlytics.self])
+    Style.setup()
     
     var config = Realm.Configuration.defaultConfiguration
     config.schemaVersion = 1
