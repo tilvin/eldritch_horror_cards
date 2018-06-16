@@ -1,19 +1,28 @@
-import RealmSwift
 
 class Router {
-  static var completionKey: String { return "completion" }
-  
-  static func presentMonsters(parent: UIViewController, inputParams: [String: Any]) {
-//    guard let completion = inputParams[Router.completionKey] as? Command,
-//      let startIndex = inputParams[TutorialPageController.START_INDEX_KEY] as? Int,
-//      let indexesRange = inputParams[TutorialPageController.INDEXES_RANGE_KEY] as? CountableClosedRange<Int> else {
-//        Log.writeLog(logLevel: .debug, message: "presentTutorial guard message! \ninputParams: \n\(inputParams)")
-//        return
-//    }
+    static var completionKey: String { return "completion" }
     
-    let controller = MonstersViewController.controllerFromStoryboard(.main)
-    let nc = UINavigationController(rootViewController: controller)
-    controller.modalTransitionStyle = .crossDissolve
-    parent.present(nc, animated: true, completion: nil)
-  }
+    static func presentMonsters(parent: UIViewController, inputParams: [String: Any] = [:]) {
+        let controller = MonstersViewController.controllerFromStoryboard(.main)
+        let nc = UINavigationController(rootViewController: controller)
+        controller.modalTransitionStyle = .crossDissolve
+        parent.present(nc, animated: true, completion: nil)
+    }
+    
+    static func presentAuth(parent: UIViewController? = nil, inputParams: [String: Any] = [:]) {
+        var parentController: UIViewController!
+        if parent != nil {
+            parentController = parent
+        } else if let appDelegate  = UIApplication.shared.delegate as? AppDelegate,
+            let vc = appDelegate.window!.rootViewController {
+            parentController = vc
+        } else {
+            fatalError()
+        }
+        
+        let controller = AuthViewController.controllerFromStoryboard(.main)
+        controller.modalTransitionStyle = .crossDissolve
+        parentController.present(controller, animated: true, completion: nil)
+    }
+    
 }

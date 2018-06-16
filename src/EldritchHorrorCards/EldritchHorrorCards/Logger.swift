@@ -1,7 +1,7 @@
 enum LogLevels: String {
-  case fatal, error, warn, debug, info, update
+  case fatal, error, warn, debug, info, update, todo
   
-  static let allValues = [fatal, error, warn, debug, info, update]
+  static let allValues = [todo, fatal, error, warn, debug, info, update]
 }
 
 protocol Logger {

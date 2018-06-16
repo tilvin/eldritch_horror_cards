@@ -7,7 +7,7 @@ target 'EldritchHorrorCards' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'Firebase/Core'
-  # pod 'Alamofire'
+#   pod 'Alamofire'
   # pod 'AlamofireImage'
   pod 'RealmSwift'
   pod 'IQKeyboardManagerSwift'

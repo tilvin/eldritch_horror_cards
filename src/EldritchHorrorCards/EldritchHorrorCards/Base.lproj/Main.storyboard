@@ -15,7 +15,7 @@
         <!--Auth View Controller-->
         <scene sceneID="lw5-Kt-p2V">
             <objects>
-                <viewController id="Cco-b0-QlL" customClass="AuthViewController" customModule="EldritchHorrorCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cco-b0-QlL" customClass="AuthViewController" customModule="EldritchHorrorCards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ZR-PW-h7z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mFD-Mb-6gb">
+                                                    <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mFD-Mb-6gb">
                                                         <rect key="frame" x="0.0" y="-0.5" width="150" height="150"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="mFD-Mb-6gb" secondAttribute="height" multiplier="1:1" id="M6A-Gk-yMZ"/>
@@ -128,11 +128,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VoW-bh-ciw">
                                         <rect key="frame" x="3.5" y="284.5" width="213" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QyC-xT-Yhp">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="QyC-xT-Yhp">
                                                 <rect key="frame" x="10" y="11.5" width="193" height="17"/>
                                                 <color key="textColor" red="0.38039215686274508" green="0.69411764705882351" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="lzPlaceholder" value="auth.email"/>
                                                 </userDefinedRuntimeAttributes>
@@ -163,11 +163,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwp-0M-lQR">
                                         <rect key="frame" x="3.5" y="344.5" width="213" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDb-9Q-z6J">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="YDb-9Q-z6J">
                                                 <rect key="frame" x="10" y="11.5" width="193" height="17"/>
                                                 <color key="textColor" red="0.38039215686274508" green="0.69411764705882351" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="lzPlaceholder" value="auth.password"/>
                                                 </userDefinedRuntimeAttributes>
@@ -210,7 +210,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="lzTitle" value="auth.signin"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="authTap:" destination="Cco-b0-QlL" eventType="touchUpInside" id="0bw-wO-oEO"/>
+                                                    <action selector="signInAction:" destination="Cco-b0-QlL" eventType="touchUpInside" id="LWf-1d-uaC"/>
                                                 </connections>
                                             </button>
                                         </subviews>

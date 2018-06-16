@@ -75,6 +75,10 @@
 		A4B816CA20D0219200FC5651 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B816C920D0219200FC5651 /* Menu.storyboard */; };
 		A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CC20D021DC00FC5651 /* MenuViewController.swift */; };
 		A4B816CF20D021DC00FC5651 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */; };
+		A4C0ABC920D58CFC00C1B7AF /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C0ABC820D58CFC00C1B7AF /* Auth.swift */; };
+		A4C0ABCC20D5906900C1B7AF /* ROConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C0ABCB20D5906900C1B7AF /* ROConfig.swift */; };
+		A4C0ABCE20D5A77D00C1B7AF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C0ABCD20D5A77D00C1B7AF /* NetworkManager.swift */; };
+		A4C0ABD020D5AF8200C1B7AF /* ExtTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C0ABCF20D5AF8200C1B7AF /* ExtTextField.swift */; };
 		A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */; };
 		A4FDAFA220D3BCF000FA6E4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA120D3BCEF00FA6E4B /* Router.swift */; };
 		A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */; };
@@ -172,6 +176,10 @@
 		A4B816C920D0219200FC5651 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		A4B816CC20D021DC00FC5651 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		A4C0ABC820D58CFC00C1B7AF /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		A4C0ABCB20D5906900C1B7AF /* ROConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROConfig.swift; sourceTree = "<group>"; };
+		A4C0ABCD20D5A77D00C1B7AF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A4C0ABCF20D5AF8200C1B7AF /* ExtTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtTextField.swift; sourceTree = "<group>"; };
 		A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
 		A4FDAFA120D3BCEF00FA6E4B /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
@@ -219,16 +227,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A4B8158E20D01B1500FC5651 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Main;
-			sourceTree = "<group>";
-		};
 		A4B8159720D01BCB00FC5651 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				A4C0ABCF20D5AF8200C1B7AF /* ExtTextField.swift */,
 				A4B815A520D01BEB00FC5651 /* Alert.swift */,
 				A4B8159C20D01BEB00FC5651 /* Array.swift */,
 				A4B815B320D01BED00FC5651 /* Bool.swift */,
@@ -331,9 +333,9 @@
 		A4B816C620D01F9D00FC5651 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				A4B816C920D0219200FC5651 /* Menu.storyboard */,
 				A4B8161220D01D6800FC5651 /* Storyboards.swift */,
 				A4FE642320D0111D0064E52E /* Main.storyboard */,
-				A4B816C920D0219200FC5651 /* Menu.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -345,6 +347,22 @@
 				A4B816CC20D021DC00FC5651 /* MenuViewController.swift */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		A4C0ABC720D58C3100C1B7AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4C0ABCA20D5904000C1B7AF /* Realm */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A4C0ABCA20D5904000C1B7AF /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A4C0ABCB20D5906900C1B7AF /* ROConfig.swift */,
+			);
+			name = Realm;
 			sourceTree = "<group>";
 		};
 		A4FDAFDC20D3F62A00FA6E4B /* Vendor */ = {
@@ -377,11 +395,11 @@
 		A4FE4CD820D01423003A33D3 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				A4FE4CD520D01418003A33D3 /* GoogleService-Info.plist */,
-				A4FE641F20D0111D0064E52E /* AppDelegate.swift */,
 				A4B8158C20D0158000FC5651 /* EldritchHorrorCards-Bridging-Header.h */,
-				A4FE642820D0111E0064E52E /* LaunchScreen.storyboard */,
+				A4FE4CD520D01418003A33D3 /* GoogleService-Info.plist */,
 				A4FE642B20D0111E0064E52E /* Info.plist */,
+				A4FE641F20D0111D0064E52E /* AppDelegate.swift */,
+				A4FE642820D0111E0064E52E /* LaunchScreen.storyboard */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -389,10 +407,10 @@
 		A4FE4CD920D01448003A33D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A4FE642620D0111E0064E52E /* Assets.xcassets */,
 				A4B8160820D01C6700FC5651 /* Localizable.strings */,
 				A4B8160B20D01C6E00FC5651 /* Localizable.stringsdict */,
 				A4B8160020D01C2F00FC5651 /* Style */,
-				A4FE642620D0111E0064E52E /* Assets.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -400,6 +418,8 @@
 		A4FE4CDA20D01455003A33D3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A4C0ABCD20D5A77D00C1B7AF /* NetworkManager.swift */,
+				A4C0ABC820D58CFC00C1B7AF /* Auth.swift */,
 				A4B8161620D01EC500FC5651 /* APIRequests.swift */,
 				A4B8159520D01BC500FC5651 /* Command.swift */,
 				A4FDAFA120D3BCEF00FA6E4B /* Router.swift */,
@@ -414,11 +434,10 @@
 			isa = PBXGroup;
 			children = (
 				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
-				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
-				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
-				A4B816CB20D021D200FC5651 /* Menu */,
 				A4B8161020D01D6000FC5651 /* BaseViewController.swift */,
-				A4B8158E20D01B1500FC5651 /* Main */,
+				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
+				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
+				A4B816CB20D021D200FC5651 /* Menu */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -446,6 +465,7 @@
 			children = (
 				A4FE4CD820D01423003A33D3 /* App */,
 				A4FE4CDA20D01455003A33D3 /* Core */,
+				A4C0ABC720D58C3100C1B7AF /* Model */,
 				A4B8161820D01F2800FC5651 /* Modules */,
 				A4FE4CD920D01448003A33D3 /* Resources */,
 				A4B816C620D01F9D00FC5651 /* Storyboards */,
@@ -611,6 +631,7 @@
 			files = (
 				A4B815CA20D01BED00FC5651 /* ViewController.swift in Sources */,
 				A4B816CF20D021DC00FC5651 /* MenuTableViewController.swift in Sources */,
+				A4C0ABCC20D5906900C1B7AF /* ROConfig.swift in Sources */,
 				A4B8161720D01EC500FC5651 /* APIRequests.swift in Sources */,
 				A4B8161520D01E7A00FC5651 /* Reachability.swift in Sources */,
 				A4B815D120D01BED00FC5651 /* Sequence.swift in Sources */,
@@ -626,6 +647,7 @@
 				A4B815F720D01C0B00FC5651 /* TimerService.swift in Sources */,
 				A4B815B720D01BED00FC5651 /* Image.swift in Sources */,
 				A4B815C220D01BED00FC5651 /* Alert.swift in Sources */,
+				A4C0ABCE20D5A77D00C1B7AF /* NetworkManager.swift in Sources */,
 				A4B815BC20D01BED00FC5651 /* NSObjectExtensions.swift in Sources */,
 				A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */,
 				A4B815CD20D01BED00FC5651 /* Button.swift in Sources */,
@@ -657,6 +679,7 @@
 				A4B815C720D01BED00FC5651 /* DateFormatter.swift in Sources */,
 				A4B815E620D01BFA00FC5651 /* PlaceholderTextView.swift in Sources */,
 				A4B815C820D01BED00FC5651 /* StringImage.swift in Sources */,
+				A4C0ABD020D5AF8200C1B7AF /* ExtTextField.swift in Sources */,
 				A4B815E820D01BFA00FC5651 /* InsetsLayout.swift in Sources */,
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
 				A4B815B920D01BED00FC5651 /* Array.swift in Sources */,
@@ -664,6 +687,7 @@
 				A4B815E220D01BFA00FC5651 /* VideoView.swift in Sources */,
 				A4FDB01B20D42CFB00FA6E4B /* UIImageView.swift in Sources */,
 				A4FDB01920D42CAF00FA6E4B /* URL.swift in Sources */,
+				A4C0ABC920D58CFC00C1B7AF /* Auth.swift in Sources */,
 				A4FDB01420D413DE00FA6E4B /* PointerLayer.swift in Sources */,
 				A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */,
 				A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */,
