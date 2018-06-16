@@ -124,6 +124,7 @@ open class JFCardSelectionViewController: UIViewController {
   
   open override func viewDidLoad() {
     super.viewDidLoad()
+    
     view.backgroundColor = .white
     buildCardSelectionUI()
     buildFocusedCardUI()
@@ -240,31 +241,17 @@ open class JFCardSelectionViewController: UIViewController {
       view.addConstraints(focusedViewTwoHConstraints)
     }
     
-    view.layoutIfNeeded()
+    let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(JFCardSelectionViewController.previousCard))
+    swipeRightGesture.direction = .right
+    view.addGestureRecognizer(swipeRightGesture)
     
-    let color = UIColor.black.withAlphaComponent(0.4)
-    let h = 64
-    let w = 44
-    let metrics = ["w": w, "h": h]
-    var acc = AccessoryIndicator.withColor(color, facing: .left, size: CGSize(width: w, height: h))
-    acc.addTarget(self, action: #selector(previousCard), for: .touchUpInside)
-    acc.translatesAutoresizingMaskIntoConstraints = false
-    view.insertSubview(acc, belowSubview: focusedView)
-    view.addConstraint(NSLayoutConstraint(item: acc, attribute: .centerY, relatedBy: .equal, toItem: focusedView, attribute: .centerY, multiplier: 1, constant: 0))
-    view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[acc(==h)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: ["acc": acc]))
-    view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[acc(==w)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: ["acc": acc]))
-    
-    acc = AccessoryIndicator.withColor(color, facing: .right, size: CGSize(width: w, height: h))
-    acc.translatesAutoresizingMaskIntoConstraints = false
-    acc.addTarget(self, action: #selector(nextCard), for: .touchUpInside)
-    view.insertSubview(acc, belowSubview: focusedView)
-    view.addConstraint(NSLayoutConstraint(item: acc, attribute: .centerY, relatedBy: .equal, toItem: focusedView, attribute: .centerY, multiplier: 1, constant: 0))
-    view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[acc(==h)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: ["acc": acc]))
-    view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[acc(==w)]-(0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: ["acc": acc]))
+    let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(JFCardSelectionViewController.nextCard))
+    swipeLeftGesture.direction = .left
+    view.addGestureRecognizer(swipeLeftGesture)
     
     view.layoutIfNeeded()
   }
-  
+    
   func updateUIForCard(_ card: CardPresentable, atIndexPath indexPath: IndexPath) {
     collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     if !showingImageViewOne {
