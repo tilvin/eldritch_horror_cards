@@ -5,7 +5,7 @@ extension UITextField {
             completion?()
             return
         }
-        guard index < string.count - 1 else {
+        guard index < string.count else {
             completion?()
             return
         }

@@ -1,3 +1,5 @@
 "auth.email" = "Емейл";
 "auth.password" = "Пароль";
 "auth.signin" = "Войти";
+
+"call_monster" = "Вызвать этого монстра";

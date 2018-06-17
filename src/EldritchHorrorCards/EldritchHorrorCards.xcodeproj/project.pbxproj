@@ -379,15 +379,15 @@
 				A4FDB00320D413DD00FA6E4B /* AccessoryIndicator.swift */,
 				A4FDAFFE20D413DC00FA6E4B /* DialView.swift */,
 				A4FDB00020D413DC00FA6E4B /* JFCardSelectionCell.swift */,
-				A4FDB00220D413DC00FA6E4B /* JFCardSelectionCell.xib */,
 				A4FDB00420D413DD00FA6E4B /* JFCardSelectionViewController.swift */,
 				A4FDB00120D413DC00FA6E4B /* JFCardSelectionViewController+CollectionView.swift */,
 				A4FDB00520D413DD00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift */,
 				A4FDB00920D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift */,
 				A4FDAFFF20D413DC00FA6E4B /* JFFocusedCardView.swift */,
-				A4FDB00620D413DD00FA6E4B /* JFFocusedCardView.xib */,
 				A4FDB00820D413DD00FA6E4B /* PointerLayer.swift */,
 				A4FDB00720D413DD00FA6E4B /* ShadowAttributes.swift */,
+				A4FDB00220D413DC00FA6E4B /* JFCardSelectionCell.xib */,
+				A4FDB00620D413DD00FA6E4B /* JFFocusedCardView.xib */,
 			);
 			name = JFCardSelectionViewController;
 			sourceTree = "<group>";

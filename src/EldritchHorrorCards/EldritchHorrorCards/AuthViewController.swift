@@ -4,6 +4,7 @@ class AuthViewController: UIViewController {
     @IBOutlet private var emailView: UIView!
     @IBOutlet private var passwordView: UIView!
     @IBOutlet private var avatarImageView: UIImageView!
+    @IBOutlet private var singinButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,7 @@ class AuthViewController: UIViewController {
     }
     
     private func autoLogin() {
+        singinButton.isEnabled = false
         Log.writeLog(logLevel: .debug, message: "Authlogin!")
         checkLogin(login: Auth.login)
         emailTextField.typeOn(string: Auth.login) { [weak self] in

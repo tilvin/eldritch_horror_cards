@@ -75,12 +75,12 @@ class JFCardSelectionCell: UICollectionViewCell {
     self.scrollView = scrollView
     self.scrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
     
-    imageView.image = card.image // loadImageAtURL(card.imageURLString, withDefaultImage: card.placeholderImage)
+    imageView.loadImageAtURL(card.imageURLString, withDefaultImage: card.placeholderImage)
     
     self.transform = CGAffineTransform(rotationAngle: rotation)
     center.y = centerY
     
-    label.text = card.titleText
+    label.text = card.nameText
   }
   
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

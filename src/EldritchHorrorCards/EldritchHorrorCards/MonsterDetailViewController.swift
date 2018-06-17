@@ -1,28 +1,19 @@
 class MonsterDetailViewController: UIViewController {
-    var monster: Monster?
+    var monster: Monster!
     
-    @IBOutlet weak var bgImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var cityStZipLabel: UILabel!
-    @IBOutlet weak var callButton: UIButton!
-    @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet private var bgImageView: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var scoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let _item = monster else { fatalError("No user to display.") }
-        bgImageView.image = _item.image
-        titleLabel.text = _item.name
-        addressLabel.text = _item.detailTextLineOne
-        cityStZipLabel.text = _item.detailTextLineTwo
+        bgImageView.loadImageAtURL(monster.imageURLString, withDefaultImage: monster.placeholderImage)
+        nameLabel.text = _item.name
+        scoreLabel.text = "\(_item.score)"
     }
     
-    @IBAction func callButtonAction(_ sender: AnyObject) {
-        close()
+    @IBAction func callMonsterAction(_ sender: AnyObject) {
         print("Call Button Action!")
-    }
-    
-    @IBAction func emailButtonAction(_ sender: AnyObject) {
-        print("Email Button Action!")
     }
 }
