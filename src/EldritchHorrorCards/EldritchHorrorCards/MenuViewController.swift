@@ -33,7 +33,6 @@ final class MenuViewController: UIViewController {
   private var menuAction: CommandWith<Command>!
   private var setupAction: (() -> Void)?
   private var backgroundTapCmd: Command?
-//  private var realm: Realm!
   
   // MARK: - Lifecycle
   
@@ -44,8 +43,6 @@ final class MenuViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    realm = getRealm()
-//    users = realm.objects(User.self)
     reloadMenu()
     
     menuAction = CommandWith<Command>(action: { [weak self] (cmd) in

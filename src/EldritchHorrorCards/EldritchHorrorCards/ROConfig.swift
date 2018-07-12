@@ -10,7 +10,7 @@ class ROConfig: Object {
     private static var `default`: [String: Any] = [:]
     
     static func setup() {
-        let realm = getRealm()
+        let realm = try! Realm()
         let configs = realm.objects(ROConfig.self)
         if configs.count == 0  {
             let config = ROConfig()
@@ -26,7 +26,7 @@ class ROConfig: Object {
     }
     
     static func save() {
-        let realm = getRealm()
+        let realm = try! Realm()
         guard let config = realm.objects(ROConfig.self).first else {
             try! realm.write { realm.add(ROConfig()) }
             return
