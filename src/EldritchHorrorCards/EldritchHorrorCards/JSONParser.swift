@@ -1,3 +1,5 @@
+import Foundation
+
 public class JSONParser<T: Codable> {
   
   public static func parse(jsonType: JSONParserType) -> T? {

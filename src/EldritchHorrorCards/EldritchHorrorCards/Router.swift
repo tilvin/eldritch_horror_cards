@@ -1,4 +1,16 @@
 
+
+//TODO: !!!
+
+////////////////////////////////////////////////////////////////////////
+//
+// Данный класс будет переработан и все перейдет в Navigator!
+//
+//////////////////////////////////////////////////////////////////////
+
+
+import UIKit
+
 class Router {
     static var completionKey: String { return "completion" }
     
@@ -23,6 +35,5 @@ class Router {
         let controller = AuthViewController.controllerFromStoryboard(.main)
         controller.modalTransitionStyle = .crossDissolve
         parentController.present(controller, animated: true, completion: nil)
-    }
-    
+    }    
 }

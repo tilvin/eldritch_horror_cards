@@ -1,3 +1,5 @@
+import UIKit
+
 class MonsterDetailViewController: UIViewController {
     var monster: Monster!
     

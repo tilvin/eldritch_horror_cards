@@ -1,3 +1,5 @@
+import UIKit
+
 extension JFCardSelectionViewController: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

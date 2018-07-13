@@ -1,3 +1,5 @@
+import UIKit
+
 private class DownloadQueue {
   
   fileprivate var queue = [String: Download]()

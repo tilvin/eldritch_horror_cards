@@ -1,7 +1,8 @@
 struct Auth {
     private static var _token: String = ""
     private static var _login: String = ""
-    
+	private static var configService = DI.providers.resolve(ConfigProviderProtocol.self)!
+	
     static var isAuthorized: Bool {
         return !token.isEmpty
     }
@@ -22,36 +23,35 @@ struct Auth {
     
     static func clear() {
         Auth._token = ""
-        ROConfig.set(token: "")
-        ROConfig.set(login: "")
-        ROConfig.save()
+		configService.config.token = ""
+		configService.config.login = ""
+		configService.save(completion: nil)
     }
 }
 
 extension Auth {
     
     static func start(completion: @escaping (Bool) -> Void) {
-        guard !ROConfig.token.isEmpty else {
+        guard !configService.config.token.isEmpty else {
             completion(false)
             return
         }
-        Auth._token = ROConfig.token
-        Auth._login = ROConfig.login
-        APIRequest.authorization = self
-        completion(!ROConfig.login.isEmpty && !ROConfig.token.isEmpty)
+        Auth._token = configService.config.token
+        Auth._login = configService.config.login
+        completion(!configService.config.login.isEmpty && !configService.config.token.isEmpty)
     }
     
     static func authorize(with login: String,
                           password: String,
                           completion: @escaping (Bool) -> Void) {
-        NetworkManager.getToken(connector: .signin(login: login, password: password)) { (token) in
+        NetworkManager.getToken() { (token) in
             Auth._token = token
             Auth._login = login
-            ROConfig.set(token: token)
-            ROConfig.set(login: login)
-            ROConfig.save()
-            APIRequest.authorization = self
-            completion(true)
+            configService.config.token = token
+            configService.config.login = login
+			configService.save(completion: { (success) in
+				completion(success)
+			})
         }
     }
 }
@@ -63,5 +63,3 @@ extension Auth {
         case needAuthorize
     }
 }
-
-extension Auth: AuthorizationProtocol { }

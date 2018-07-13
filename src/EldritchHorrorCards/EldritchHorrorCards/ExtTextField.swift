@@ -1,3 +1,5 @@
+import UIKit
+
 extension UITextField {
     
     func typeOn(string: String, index: Int = 0, completion: (() -> Void)? = nil) {

@@ -19,14 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.schemaVersion = 1
         config.deleteRealmIfMigrationNeeded = true
         Realm.Configuration.defaultConfiguration = config
-        
-        Style.setup()
-        ROConfig.setup()
-
+		
+        DI.registerProviders()
+		DI.providers.resolve(ConfigProviderProtocol.self)!.load()
+		
         return true
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        ROConfig.save()
+		DI.providers.resolve(ConfigProviderProtocol.self)!.save { (success) in
+			if !success {
+				//TODO: Отправлять данные в Crashlytics!
+				debugPrint("Can's save config!")
+			}
+		}
     }
 }

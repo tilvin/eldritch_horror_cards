@@ -1,3 +1,5 @@
+import Foundation
+
 protocol LoggerProfile {
   var loggerProfileId: String { get }
   func writeLog(level: String, message: String)

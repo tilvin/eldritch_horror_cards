@@ -1,3 +1,13 @@
+import UIKit
+
+extension AuthViewController {
+	
+	struct Appearence {
+		let errorColor: UIColor = UIColor(hexString: "D34747")
+		let borderColor: UIColor = UIColor(hexString: "61B1AB")
+	}
+}
+
 class AuthViewController: UIViewController {
     @IBOutlet private var emailTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
@@ -5,7 +15,9 @@ class AuthViewController: UIViewController {
     @IBOutlet private var passwordView: UIView!
     @IBOutlet private var avatarImageView: UIImageView!
     @IBOutlet private var singinButton: UIButton!
-    
+	
+	private var appearence = Appearence()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,19 +33,19 @@ class AuthViewController: UIViewController {
     
     @IBAction private func signInAction(_ sender: Any) {
         guard let login = emailTextField.text, !login.isEmpty else {
-            emailView.borderColor = Style.default.error.color
+            emailView.borderColor = appearence.errorColor
             emailView.shake()
             return
         }
         
         guard let password = passwordTextField.text, !password.isEmpty else {
-            passwordView.borderColor = Style.default.error.color
+            passwordView.borderColor = appearence.errorColor
             passwordView.shake()
             return
         }
         
-        passwordView.borderColor = Style.default.mainGreen.solid.color
-        emailView.borderColor = Style.default.mainGreen.solid.color
+        passwordView.borderColor = appearence.borderColor
+        emailView.borderColor = appearence.borderColor
         
         Auth.authorize(with: login, password: password) { [weak self] (result: Bool) in
             guard let s = self else { return }
@@ -43,8 +55,8 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction private func loginChanged(_ sender: UITextField) {
-        passwordView.borderColor = Style.default.mainGreen.solid.color
-        emailView.borderColor = Style.default.mainGreen.solid.color
+        passwordView.borderColor = appearence.borderColor
+        emailView.borderColor = appearence.borderColor
         
         if emailView.tag == 0 {
             checkLogin(login: emailTextField.text ?? "")
