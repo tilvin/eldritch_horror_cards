@@ -20,14 +20,14 @@ struct Monster: Codable {
 		case detail = "title"
 		case score = "score"
 	}
-	
+	// зачем эти две инициализации если и без них все работает точно также?
 	init(name: String, imageURLString: String, detail: String, score: Int) {
 		self.name = name
 		self.imageURLString = imageURLString
 		self.detail = detail
 		self.score = score
 	}
-	
+	// зачем эти две инициализации если и без них все работает точно также?
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		
