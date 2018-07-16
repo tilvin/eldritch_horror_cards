@@ -33,6 +33,8 @@
 		A4563B0420F8810E00B65428 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0320F8810E00B65428 /* Config.swift */; };
 		A4563B0620F8819F00B65428 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0520F8819F00B65428 /* Container.swift */; };
 		A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0A20F8846100B65428 /* ConfigProvider.swift */; };
+		A48C461320FD0D8000DF1687 /* MosterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MosterDataProvider.swift */; };
+		A48C461520FD0DFD00DF1687 /* Moster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Moster.swift */; };
 		A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4B8160820D01C6700FC5651 /* Localizable.strings */; };
 		A4B8160920D01C6E00FC5651 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = A4B8160B20D01C6E00FC5651 /* Localizable.stringsdict */; };
 		A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B8161020D01D6000FC5651 /* BaseViewController.swift */; };
@@ -98,6 +100,8 @@
 		A4563B0320F8810E00B65428 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		A4563B0520F8819F00B65428 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		A4563B0A20F8846100B65428 /* ConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigProvider.swift; sourceTree = "<group>"; };
+		A48C461220FD0D8000DF1687 /* MosterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosterDataProvider.swift; sourceTree = "<group>"; };
+		A48C461420FD0DFD00DF1687 /* Moster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moster.swift; sourceTree = "<group>"; };
 		A4B8158C20D0158000FC5651 /* EldritchHorrorCards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EldritchHorrorCards-Bridging-Header.h"; sourceTree = "<group>"; };
 		A4B8160C20D01C7200FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4B8160D20D01C7600FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 			children = (
 				A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */,
 				A4563B0A20F8846100B65428 /* ConfigProvider.swift */,
+				A48C461220FD0D8000DF1687 /* MosterDataProvider.swift */,
 			);
 			name = Providers;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 		A4C0ABC720D58C3100C1B7AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A48C461420FD0DFD00DF1687 /* Moster.swift */,
 				A4C0ABCA20D5904000C1B7AF /* Realm */,
 			);
 			name = Model;
@@ -562,8 +568,10 @@
 				A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */,
 				A4563AE020F7DBF500B65428 /* Color.swift in Sources */,
 				A4FDAFA220D3BCF000FA6E4B /* Router.swift in Sources */,
+				A48C461320FD0D8000DF1687 /* MosterDataProvider.swift in Sources */,
 				A4B816C320D01F6500FC5651 /* Log.swift in Sources */,
 				A4FDB00F20D413DE00FA6E4B /* AccessoryIndicator.swift in Sources */,
+				A48C461520FD0DFD00DF1687 /* Moster.swift in Sources */,
 				A4563AEE20F7DD1200B65428 /* JSONParser.swift in Sources */,
 				A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */,
 				A4FDB00C20D413DE00FA6E4B /* JFCardSelectionCell.swift in Sources */,

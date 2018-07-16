@@ -18,5 +18,6 @@ class DI {
 		container.register(NavigatorProtocol.self, asSingleTone: true) { AppNavigator()  }
 		container.register(ConfigProviderProtocol.self, asSingleTone: true) { ConfigProvider() }
 		container.register(AuthProviderProtocol.self, asSingleTone: true) { AuthProvider() }
+		container.register(MosterDataProviderProtocol.self, asSingleTone: true) { MosterDataProvider() }
 	}
 }
