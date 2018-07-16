@@ -31,6 +31,7 @@ PODS:
   - Realm/Headers (3.7.1)
   - RealmSwift (3.7.1):
     - Realm (= 3.7.1)
+  - SnapKit (4.0.0)
 
 DEPENDENCIES:
   - Crashlytics
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - Firebase/Core
   - IQKeyboardManagerSwift
   - RealmSwift
+  - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -54,6 +56,7 @@ SPEC REPOS:
     - nanopb
     - Realm
     - RealmSwift
+    - SnapKit
 
 SPEC CHECKSUMS:
   Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
@@ -68,7 +71,8 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Realm: 906be37d52f17f25484ac01643a7f26a9d3bfbd5
   RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 1fd58dbaaaf0d8ef3237cc4c15652eda06aa3496
+PODFILE CHECKSUM: 8ba76acf6450b488b2ffe03cee862c70a805bb8e
 
 COCOAPODS: 1.5.3

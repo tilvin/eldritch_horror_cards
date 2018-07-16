@@ -16,7 +16,7 @@ class DI {
 	
 	fileprivate func register() {
 		container.register(NavigatorProtocol.self, asSingleTone: true) { AppNavigator()  }
-		
 		container.register(ConfigProviderProtocol.self, asSingleTone: true) { ConfigProvider() }
+		container.register(AuthProviderProtocol.self, asSingleTone: true) { AuthProvider() }
 	}
 }
