@@ -18,6 +18,15 @@ class MosterDataProvider: MosterDataProviderProtocol {
 	var mosters: [Monster] = []
 	
 	func load() {
+		guard let path = Bundle.main.path(forResource: "monsters", ofType: "json"),
+			let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped) else {
+				print("can't parse json!")
+				return
+		}
+		
+		Log.writeLog(logLevel: .debug, message: "Json parsed... \(data)")
+		//TODO: use parse service!
+		
 		let faker = Faker()
 		let urls = ["https://i.pinimg.com/564x/c0/7e/c0/c07ec05cac80e099374f30c2f646b7be.jpg",
 					"https://i.pinimg.com/564x/ba/57/2a/ba572a66a1e61809e16ca9d1c5eca3d7.jpg",

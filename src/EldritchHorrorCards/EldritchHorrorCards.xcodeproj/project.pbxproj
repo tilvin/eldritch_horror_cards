@@ -35,6 +35,7 @@
 		A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0A20F8846100B65428 /* ConfigProvider.swift */; };
 		A48C461320FD0D8000DF1687 /* MosterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MosterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Moster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Moster.swift */; };
+		A48C461720FD0F5300DF1687 /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* ParseService.swift */; };
 		A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4B8160820D01C6700FC5651 /* Localizable.strings */; };
 		A4B8160920D01C6E00FC5651 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = A4B8160B20D01C6E00FC5651 /* Localizable.stringsdict */; };
 		A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B8161020D01D6000FC5651 /* BaseViewController.swift */; };
@@ -102,6 +103,7 @@
 		A4563B0A20F8846100B65428 /* ConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigProvider.swift; sourceTree = "<group>"; };
 		A48C461220FD0D8000DF1687 /* MosterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Moster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moster.swift; sourceTree = "<group>"; };
+		A48C461620FD0F5300DF1687 /* ParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
 		A4B8158C20D0158000FC5651 /* EldritchHorrorCards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EldritchHorrorCards-Bridging-Header.h"; sourceTree = "<group>"; };
 		A4B8160C20D01C7200FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4B8160D20D01C7600FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -191,10 +193,10 @@
 		A4563AF520F87F7D00B65428 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A4B92D8E20FCC9B7002C9936 /* Services */,
 				A4563B0520F8819F00B65428 /* Container.swift */,
 				A4563AFA20F87FAE00B65428 /* DIContainer.swift */,
 				A4563AF320F87D6800B65428 /* ExtensionsUtils */,
+				A4B92D8E20FCC9B7002C9936 /* Services */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -278,6 +280,7 @@
 		A4B92D8E20FCC9B7002C9936 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A48C461620FD0F5300DF1687 /* ParseService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				A4563B0620F8819F00B65428 /* Container.swift in Sources */,
 				A4FDB01120D413DE00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift in Sources */,
 				A4563AF220F7DD4C00B65428 /* Queues.swift in Sources */,
+				A48C461720FD0F5300DF1687 /* ParseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
