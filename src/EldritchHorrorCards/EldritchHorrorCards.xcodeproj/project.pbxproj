@@ -46,6 +46,7 @@
 		A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CC20D021DC00FC5651 /* MenuViewController.swift */; };
 		A4B816CF20D021DC00FC5651 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */; };
 		A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */; };
+		A4BDC28820FCD3F00012F00A /* monsters.json in Resources */ = {isa = PBXBuildFile; fileRef = A4BDC28720FCD3F00012F00A /* monsters.json */; };
 		A4C0ABCC20D5906900C1B7AF /* ROConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C0ABCB20D5906900C1B7AF /* ROConfig.swift */; };
 		A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */; };
 		A4FDAFA220D3BCF000FA6E4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA120D3BCEF00FA6E4B /* Router.swift */; };
@@ -113,6 +114,7 @@
 		A4B816CC20D021DC00FC5651 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		A4BDC28720FCD3F00012F00A /* monsters.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = monsters.json; sourceTree = "<group>"; };
 		A4C0ABCB20D5906900C1B7AF /* ROConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROConfig.swift; sourceTree = "<group>"; };
 		A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
 		A4FDAFA120D3BCEF00FA6E4B /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -275,6 +277,14 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		A4BDC28620FCD3DA0012F00A /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				A4BDC28720FCD3F00012F00A /* monsters.json */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
 		A4C0ABC720D58C3100C1B7AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +343,7 @@
 		A4FE4CD920D01448003A33D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A4BDC28620FCD3DA0012F00A /* JSON */,
 				A4B8161220D01D6800FC5651 /* Storyboards.swift */,
 				A4FE642620D0111E0064E52E /* Assets.xcassets */,
 				A4B8160820D01C6700FC5651 /* Localizable.strings */,
@@ -456,6 +467,7 @@
 				A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */,
 				A4FDB01220D413DE00FA6E4B /* JFFocusedCardView.xib in Resources */,
 				A4B816CA20D0219200FC5651 /* Menu.storyboard in Resources */,
+				A4BDC28820FCD3F00012F00A /* monsters.json in Resources */,
 				A4FE4CD620D01418003A33D3 /* GoogleService-Info.plist in Resources */,
 				A4FDB00E20D413DE00FA6E4B /* JFCardSelectionCell.xib in Resources */,
 				A4FE642720D0111E0064E52E /* Assets.xcassets in Resources */,
