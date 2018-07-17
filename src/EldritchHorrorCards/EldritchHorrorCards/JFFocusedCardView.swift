@@ -77,6 +77,8 @@ class JFFocusedCardView: UIView {
     if let _action = self.card.action {
       let title = _action.title
       actionOneButton.setTitle(title, for: UIControlState())
+      actionOneButton.titleLabel?.adjustsFontSizeToFitWidth = true
+      actionOneButton.titleLabel?.minimumScaleFactor = 0.5
       actionOneButton.isHidden = false
     }
     
