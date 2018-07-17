@@ -36,7 +36,7 @@ class DialView: UIView {
     fileprivate var rotation: Double = -0.563
     fileprivate let sides = 110
     var labels: [String] {
-        return ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+        return ["А","Б","В","Г","Д","Е","Ё","Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х","Ц","Ч","Ш","Щ","Э","Ю","Я"]
     }
     
     override init(frame: CGRect) {
@@ -70,7 +70,7 @@ class DialView: UIView {
             pointerLayer.frame = rect
             layer.addSublayer(pointerLayer)
             pointerLayer.setNeedsDisplay()
-            let startingRotation = rotationForLabel("A")
+            let startingRotation = rotationForLabel(labels[0])
             pointerLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(rotationAngle: startingRotation))
         }
     }
