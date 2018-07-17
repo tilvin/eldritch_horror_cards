@@ -24,7 +24,8 @@ class MosterDataProvider: MosterDataProviderProtocol {
 				return
 		}
 		
-		Log.writeLog(logLevel: .debug, message: "Json parsed... \(data)")
+		let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers])
+		Log.writeLog(logLevel: .debug, message: "Json parsed... \(json)")
 		//TODO: use parse service!
 		
 		let faker = Faker()
