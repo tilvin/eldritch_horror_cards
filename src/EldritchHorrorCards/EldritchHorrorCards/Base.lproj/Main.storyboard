@@ -494,6 +494,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2w6-Ba-kX5">
                                 <rect key="frame" x="278" y="521" width="22" height="22"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="infoAboutMonster:" destination="6WD-dL-Md8" eventType="touchUpInside" id="64v-zl-Bms"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

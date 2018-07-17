@@ -16,4 +16,6 @@ class MonsterDetailViewController: UIViewController {
     @IBAction func callMonsterAction(_ sender: AnyObject) {
         print("Call Button Action!")
     }
+    @IBAction func infoAboutMonster(_ sender: Any) {
+    }
 }

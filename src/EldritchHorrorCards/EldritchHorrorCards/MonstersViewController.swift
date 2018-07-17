@@ -2,7 +2,7 @@ import UIKit
 
 class MonstersViewController: JFCardSelectionViewController {
 	
-	private var mosterProvider = DI.providers.resolve(MosterDataProviderProtocol.self)!
+	private var monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 	private var monsters: [Monster] = []
 	
     override func viewDidLoad() {
@@ -13,8 +13,8 @@ class MonstersViewController: JFCardSelectionViewController {
         super.viewDidLoad()
 		
         navigationController?.setNavigationBarHidden(true, animated: false)
-		mosterProvider.load()
-		monsters = mosterProvider.mosters
+		monsterProvider.load()
+		monsters = monsterProvider.monsters
         reloadData()
     }
     

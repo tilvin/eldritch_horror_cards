@@ -9,12 +9,12 @@
 import Foundation
 
 enum DataParseResult {
-	case mosters(monsters: [Monster])
+	case monsters(monsters: [Monster])
 	case error(error: String)
 }
 
 enum DataType: String {
-	case moster
+	case monster
 }
 
 protocol DataParseServiceProtocol {
@@ -22,30 +22,29 @@ protocol DataParseServiceProtocol {
 }
 
 class DataParseService: DataParseServiceProtocol {
-	
 	private var data: Data?
 	
-	func parse(type: DataType, json: Any) -> DataParseResult {
-		guard let jsonDict = json as? [String: Any] else {
-			return .error(error: "Can't parse json!")
-		}
-		
-		guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
-			let jsonStr = String(data: jsonData, encoding: .utf8) else {
-				return .error(error: "Can't parse data json!")
-		}
-		
-		data = jsonStr.data(using: .utf8)
-		if let model = value([Monster].self) {
-			switch type {
-			case .moster:
-				return .mosters(monsters: model)
-			}
-		}
-		else {
-			return .error(error: "Can't parse \(type) data!")
-		}
-	}
+    func parse(type: DataType, json: Any) -> DataParseResult {
+        guard let jsonDict = json as? [[String: Any]] else {
+            return .error(error: "Can't parse json!")
+        }
+
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
+            let jsonStr = String(data: jsonData, encoding: .utf8) else {
+                return .error(error: "Can't parse data json!")
+        }
+
+        data = jsonStr.data(using: .utf8)
+        if let model = value([Monster].self) {
+            switch type {
+            case .monster:
+                return .monsters(monsters: model)
+            }
+        }
+        else {
+            return .error(error: "Can't parse \(type) data!")
+        }
+    }
 }
 
 //MARK: - Fetch extensions
@@ -64,8 +63,7 @@ extension DataParseService {
 				}
 			}
 			catch _ {}
-			let decoder = JSONDecoder()
-			return try? decoder.decode(type, from: data)
+			return try? JSONDecoder().decode(type, from: data)
 		}
 		return nil
 	}

@@ -54,6 +54,12 @@ class JFFocusedCardView: UIView {
     recognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
     imageView.addGestureRecognizer(recognizer)
     imageView.isUserInteractionEnabled = true
+    titleLabel.clipsToBounds = true
+    subTitleLabelOne.clipsToBounds = true
+    subTitleLabelTwo.clipsToBounds = true
+    titleLabel.layer.cornerRadius = 3
+    subTitleLabelTwo.layer.cornerRadius = 3
+    subTitleLabelOne.layer.cornerRadius = 3
   }
   
   func configureForCard(_ card: CardPresentable?) {
