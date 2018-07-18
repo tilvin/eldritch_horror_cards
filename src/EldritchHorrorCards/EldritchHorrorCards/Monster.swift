@@ -9,33 +9,15 @@
 import UIKit
 
 struct Monster: Codable {
-	var name: String
+    var name: String
     var subtitle: String
-    var cultist: Cultist
+    var cultist: [Int]
     var prepeare: String
-    var myth_stack: MythStack
+    var myth_stack: [[Int]]
     var description_info: [String]
     var other: String
     var imageURLString: String
-	var score: Int
-}
-
-struct Cultist: Codable {
-    var health: Int
-    var power: Int
-    var mind: Int
-}
-
-struct MythStack: Codable {
-    var episode1: Episode
-    var episode2: Episode
-    var episode3: Episode
-}
-
-struct Episode: Codable {
-    var green: Int
-    var brown: Int
-    var blue: Int
+    var score: Int
 }
 
 extension Monster: CardPresentable {
@@ -54,7 +36,6 @@ extension Monster: CardPresentable {
 	}
 	
 	var detailText: String {
-//        return detail
         return subtitle
 	}
 	

@@ -36,8 +36,21 @@ class DialView: UIView {
     fileprivate var rotation: Double = -0.563
     fileprivate let sides = 110
     var labels: [String] {
-        return ["А","Б","В","Г","Д","Е","Ё","Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х","Ц","Ч","Ш","Щ","Э","Ю","Я"]
+        let aScalars = "A".unicodeScalars
+        let aCode = aScalars[aScalars.startIndex].value
+        let enLetters: [String] = (0..<26).map {
+            i in String(UnicodeScalar(aCode + i)!)
+        }
+        
+        let ruAScalars = "А".unicodeScalars
+        let ruACode = ruAScalars[aScalars.startIndex].value
+        let ruLetters: [String] = (0..<32).map {
+            i in String(UnicodeScalar(ruACode + i)!)
+        }
+        //TODO: - интегрировать логику выбора языка
+        return ruLetters
     }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

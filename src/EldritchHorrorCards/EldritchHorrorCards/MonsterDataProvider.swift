@@ -25,8 +25,7 @@ class MonsterDataProvider: MonsterDataProviderProtocol {
 		}
 		Log.writeLog(logLevel: .debug, message: "Json parsed... \(data)")
         
-        if let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableLeaves]) {
-            print(json)
+        if let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) {
             let jsonMonsters = DataParseService().parse(type: .monster, json: json)
             switch jsonMonsters{
             case .monsters(monsters: let monsters):
