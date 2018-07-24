@@ -33,6 +33,7 @@
 		A4563B0420F8810E00B65428 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0320F8810E00B65428 /* Config.swift */; };
 		A4563B0620F8819F00B65428 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0520F8819F00B65428 /* Container.swift */; };
 		A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0A20F8846100B65428 /* ConfigProvider.swift */; };
+		A4683A5021073E7500A0028B /* cards.json in Resources */ = {isa = PBXBuildFile; fileRef = A4683A4F21073E7500A0028B /* cards.json */; };
 		A48C461320FD0D8000DF1687 /* MosterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MosterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Moster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Moster.swift */; };
 		A48C461720FD0F5300DF1687 /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* ParseService.swift */; };
@@ -101,6 +102,7 @@
 		A4563B0320F8810E00B65428 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		A4563B0520F8819F00B65428 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		A4563B0A20F8846100B65428 /* ConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigProvider.swift; sourceTree = "<group>"; };
+		A4683A4F21073E7500A0028B /* cards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cards.json; sourceTree = "<group>"; };
 		A48C461220FD0D8000DF1687 /* MosterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Moster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* ParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		A4BDC28620FCD3DA0012F00A /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				A4683A4F21073E7500A0028B /* cards.json */,
 				A4BDC28720FCD3F00012F00A /* monsters.json */,
 			);
 			name = JSON;
@@ -478,6 +481,7 @@
 				A4B816CA20D0219200FC5651 /* Menu.storyboard in Resources */,
 				A4BDC28820FCD3F00012F00A /* monsters.json in Resources */,
 				A4FE4CD620D01418003A33D3 /* GoogleService-Info.plist in Resources */,
+				A4683A5021073E7500A0028B /* cards.json in Resources */,
 				A4FDB00E20D413DE00FA6E4B /* JFCardSelectionCell.xib in Resources */,
 				A4FE642720D0111E0064E52E /* Assets.xcassets in Resources */,
 				A4FE642520D0111D0064E52E /* Main.storyboard in Resources */,
