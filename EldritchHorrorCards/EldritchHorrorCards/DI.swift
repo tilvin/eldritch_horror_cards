@@ -19,5 +19,6 @@ class DI {
 		container.register(ConfigProviderProtocol.self, asSingleTone: true) { ConfigProvider() }
 		container.register(AuthProviderProtocol.self, asSingleTone: true) { AuthProvider() }
 		container.register(MonsterDataProviderProtocol.self, asSingleTone: true) { MonsterDataProvider() }
+        container.register(CardsDataProviderProtocol.self, asSingleTone: true) { CardsDataProvider() } 
 	}
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 protocol CardsDataProviderProtocol {
-	//	var decks: Decks! { get set }
 	var portals: [StoryCard] { get set }
 	var cities: [CityCard] { get set }
 	var expeditions: [StoryCard] { get set }
@@ -20,9 +19,7 @@ protocol CardsDataProviderProtocol {
 }
 
 class CardsDataProvider: CardsDataProviderProtocol {
-	//	var decks: Decks!
-	
-	var portals: [StoryCard] = []
+var portals: [StoryCard] = []
 	var cities: [CityCard] = []
 	var expeditions: [StoryCard] = []
 	var contacts: [PlaceCard] = []
@@ -37,25 +34,24 @@ class CardsDataProvider: CardsDataProviderProtocol {
 		}
 		
 		Log.writeLog(logLevel: .debug, message: "Json parsed... \(data)")
-		
 		if let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) {
-			let jsonDecks = DataParseService().parse(type: .decks, json: json)
-			switch jsonDecks {
-			case .decks(let decks):
-				portals = decks.portals
-				cities = decks.cities
-				expeditions = decks.expeditions
-				contacts = decks.contacts
-				evidences = decks.evidences
-				specialContacts = decks.specialContacts
-			case .error(error: let error):
-				Log.writeLog(logLevel: .error, message: error)
-			default: break
-			}
-		}
-		else {
-			Log.writeLog(logLevel: .error, message: "Invalid serialize data \(data)")
-		}
-	}
+            let jsonDecks = DataParseService().parse(type: .decks, json: json)
+            switch jsonDecks {
+            case .decks(deck: let decks):
+                portals = decks.portals
+                cities = decks.cities
+                expeditions = decks.expeditions
+                contacts = decks.contacts
+                evidences = decks.evidences
+                specialContacts = decks.specialContacts
+            case .error(error: let error):
+                Log.writeLog(logLevel: .error, message: error)
+            default: break
+            }
+        }
+        else {
+            Log.writeLog(logLevel: .error, message: "Invalid serialize data \(data)")
+        }
+    }
 }
 

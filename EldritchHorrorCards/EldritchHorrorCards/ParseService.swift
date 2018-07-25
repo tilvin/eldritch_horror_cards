@@ -26,16 +26,29 @@ class DataParseService: DataParseServiceProtocol {
 	private var data: Data?
 	
 	func parse(type: DataType, json: Any) -> DataParseResult {
-		guard let jsonDict = json as? [[String: Any]] else {
-			return .error(error: "Can't parse json!")
-		}
+
+        switch type {
+        case .monster:
+            guard let jsonDict = json as? [[String: Any]] else {
+                return .error(error: "Can't parse json!")
+            }
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
+                let jsonStr = String(data: jsonData, encoding: .utf8) else {
+                    return .error(error: "Can't parse data json!")
+            }
+            data = jsonStr.data(using: .utf8)
+        case .decks:
+            guard let jsonDict = json as? [String: Any] else {
+                return .error(error: "Can't parse json!")
+        }
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
+                let jsonStr = String(data: jsonData, encoding: .utf8) else {
+                    return .error(error: "Can't parse data json!")
+            }
+            data = jsonStr.data(using: .utf8)
+        }
+     
 		
-		guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
-			let jsonStr = String(data: jsonData, encoding: .utf8) else {
-				return .error(error: "Can't parse data json!")
-		}
-		
-		data = jsonStr.data(using: .utf8)
 		
 		switch type {
 		case .monster:
@@ -46,7 +59,7 @@ class DataParseService: DataParseServiceProtocol {
 				return .error(error: "Can't parse monsters!")
 			}
 		case .decks:
-			if let model = value((Decks).self) {
+			if let model = value(Decks.self) {
 				return .decks(deck: model)
 			}
 			else {

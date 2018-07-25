@@ -40,10 +40,10 @@ struct CityCard: Codable {
 }
 
 struct Decks: Codable {
-	let portals: [StoryCard] = []
-	let cities: [CityCard] = []
-	let expeditions: [StoryCard] = []
-	let contacts: [PlaceCard] = []
-	let evidences: [PlaceCard] = []
-	let specialContacts: [StoryCard] = []
+	let portals: [StoryCard]
+    let cities: [CityCard]
+    let expeditions: [StoryCard] 
+    let contacts: [PlaceCard]
+    let evidences: [PlaceCard]
+    let specialContacts: [StoryCard] 
 }
