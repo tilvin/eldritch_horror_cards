@@ -87,7 +87,8 @@ class AuthViewController: UIViewController {
 	private func autoLogin() {
 		singinButton.isEnabled = false
 		Log.writeLog(logLevel: .debug, message: "Authlogin!")
-		guard let login = authProvider.login else { return }
+		guard !authProvider.login.isEmpty else { return }
+		let login = authProvider.login
 		checkLogin(login: login)
 		emailTextField.typeOn(string: login) { [weak self] in
 			guard let s = self else { return }

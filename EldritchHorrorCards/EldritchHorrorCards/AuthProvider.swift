@@ -9,8 +9,8 @@
 import Foundation
 
 protocol AuthProviderProtocol {
-	var token: String? { get set }
-	var login: String? { get set }
+	var token: String { get set }
+	var login: String { get set }
 	
 	func loadToken() -> Bool
 	func authorize(with login: String, password: String, completion: @escaping (Bool) -> Void)
@@ -20,41 +20,30 @@ protocol AuthProviderProtocol {
 
 extension AuthProviderProtocol {
 	var isAuthorized: Bool {
-		guard let token = self.token,
-			!token.isEmpty else { return false }
+		guard  !token.isEmpty else { return false }
 		return true
 	}
 }
 
 class AuthProvider: AuthProviderProtocol {
-	private var configService: ConfigProviderProtocol!
 	
-	var token: String?
-	var login: String?
+	var token: String = ""
+	var login: String = ""
 	
 	func loadToken() -> Bool {
-		if configService == nil {
-			configService = DI.providers.resolve(ConfigProviderProtocol.self)
-		}
-		guard !configService.config.token.isEmpty else {
-			return false
-		}
-		token = configService.config.token
-		login = configService.config.login
-		return !configService.config.login.isEmpty && !configService.config.token.isEmpty
+		token = UserDefaults.standard.string(forKey: "token") ?? ""
+		login = UserDefaults.standard.string(forKey: "login") ?? ""
+		
+		return !token.isEmpty && !login.isEmpty
 	}
 	
 	func authorize(with login: String, password: String, completion: @escaping (Bool) -> Void) {
 		Log.writeLog(logLevel: .info, message: "Fake token!")
 		self.login = login
 		self.token = UUID().uuidString
-		configService.config.login = login
-		configService.config.token = token ?? ""
-		configService.save { (success) in
-			if !success {
-				Log.writeLog(logLevel: .error, message: "Can't save login and token!")
-			}
-		}
+		
+		UserDefaults.standard.set(login, forKey: "login")
+		UserDefaults.standard.set(token, forKey: "token")
 		completion(true)
 	}
 	
@@ -65,10 +54,10 @@ class AuthProvider: AuthProviderProtocol {
 	}
 	
 	func clear() {
-		self.token = nil
-		configService.config.token = ""
-		configService.config.login = ""
-		configService.save(completion: nil)
+		token = ""
+		login = ""
+		UserDefaults.standard.set(nil, forKey: "login")
+		UserDefaults.standard.set(nil, forKey: "token")
 	}
 }
 
