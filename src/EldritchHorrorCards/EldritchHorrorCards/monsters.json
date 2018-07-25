@@ -1,5 +1,6 @@
 [
  {
+ "uid": "1",
  "name": "Ктулху",
  "subtitle": "Безумие из глубин",
  "score": 12,
@@ -15,6 +16,7 @@
  "imageURLString": "https://i.pinimg.com/564x/54/c4/e0/54c4e0e4e535a88ca0f4ed15dc852268.jpg"
  },
  {
+ "uid": "2",
  "name": "Азатот",
  "subtitle": "Султан демонов",
  "score": 15,

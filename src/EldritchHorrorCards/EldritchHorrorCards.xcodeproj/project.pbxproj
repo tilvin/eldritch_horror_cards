@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		442A1F7A1B830447984C57D9 /* Pods_EldritchHorrorCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */; };
 		A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CA69720D23EC600E2F817 /* AuthViewController.swift */; };
+		A441BBB82108A80800EAC5DD /* cards.json in Resources */ = {isa = PBXBuildFile; fileRef = A441BBB72108A80800EAC5DD /* cards.json */; };
 		A4563AD420F7DBA300B65428 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AD320F7DBA300B65428 /* Window.swift */; };
 		A4563AD720F7DBAC00B65428 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AD520F7DBAB00B65428 /* View.swift */; };
 		A4563AD820F7DBAC00B65428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AD620F7DBAC00B65428 /* ViewController.swift */; };
@@ -77,6 +78,7 @@
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
 		9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EldritchHorrorCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41CA69720D23EC600E2F817 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		A441BBB72108A80800EAC5DD /* cards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = cards.json; path = ../../../../../../Desktop/cards.json; sourceTree = "<group>"; };
 		A4563AD320F7DBA300B65428 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		A4563AD520F7DBAB00B65428 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		A4563AD620F7DBAC00B65428 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -288,8 +290,8 @@
 		A4BDC28620FCD3DA0012F00A /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				A4683A4F21073E7500A0028B /* cards.json */,
 				A4BDC28720FCD3F00012F00A /* monsters.json */,
+				A441BBB72108A80800EAC5DD /* cards.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -424,7 +426,6 @@
 				A4FE641A20D0111D0064E52E /* Resources */,
 				B573D4556A3F09C870AD7337 /* [CP] Embed Pods Frameworks */,
 				A4B8158D20D0179F00FC5651 /* Fabric */,
-				52BB0C0061E59BE63CB08ECF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -480,7 +481,7 @@
 				A4B816CA20D0219200FC5651 /* Menu.storyboard in Resources */,
 				A4BDC28820FCD3F00012F00A /* monsters.json in Resources */,
 				A4FE4CD620D01418003A33D3 /* GoogleService-Info.plist in Resources */,
-				A4683A5021073E7500A0028B /* cards.json in Resources */,
+				A441BBB82108A80800EAC5DD /* cards.json in Resources */,
 				A4FDB00E20D413DE00FA6E4B /* JFCardSelectionCell.xib in Resources */,
 				A4FE642720D0111E0064E52E /* Assets.xcassets in Resources */,
 				A4FE642520D0111D0064E52E /* Main.storyboard in Resources */,
@@ -507,21 +508,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		52BB0C0061E59BE63CB08ECF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A4B8158D20D0179F00FC5651 /* Fabric */ = {
@@ -793,7 +779,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HDF5KZUR3R;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EldritchHorrorCards/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -813,7 +799,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HDF5KZUR3R;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EldritchHorrorCards/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
