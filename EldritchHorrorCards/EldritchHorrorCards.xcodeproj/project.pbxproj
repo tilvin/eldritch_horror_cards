@@ -10,6 +10,8 @@
 		442A1F7A1B830447984C57D9 /* Pods_EldritchHorrorCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */; };
 		A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CA69720D23EC600E2F817 /* AuthViewController.swift */; };
 		A441BBBA2108B9CB00EAC5DD /* cards.json in Resources */ = {isa = PBXBuildFile; fileRef = A441BBB92108B9CB00EAC5DD /* cards.json */; };
+		A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBB2108BB0F00EAC5DD /* Cards.swift */; };
+		A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */; };
 		A4563AD420F7DBA300B65428 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AD320F7DBA300B65428 /* Window.swift */; };
 		A4563AD720F7DBAC00B65428 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AD520F7DBAB00B65428 /* View.swift */; };
 		A4563AD820F7DBAC00B65428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AD620F7DBAC00B65428 /* ViewController.swift */; };
@@ -79,6 +81,8 @@
 		9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EldritchHorrorCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41CA69720D23EC600E2F817 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A441BBB92108B9CB00EAC5DD /* cards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = cards.json; path = ../../../../../Desktop/cards.json; sourceTree = "<group>"; };
+		A441BBBB2108BB0F00EAC5DD /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProvider.swift; sourceTree = "<group>"; };
 		A4563AD320F7DBA300B65428 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		A4563AD520F7DBAB00B65428 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		A4563AD620F7DBAC00B65428 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 				A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */,
 				A4563B0A20F8846100B65428 /* ConfigProvider.swift */,
 				A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */,
+				A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */,
 			);
 			name = Providers;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 		A4C0ABC720D58C3100C1B7AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A441BBBB2108BB0F00EAC5DD /* Cards.swift */,
 				A48C461420FD0DFD00DF1687 /* Monster.swift */,
 				A4C0ABCA20D5904000C1B7AF /* Realm */,
 			);
@@ -600,6 +606,7 @@
 				A4FDB00B20D413DE00FA6E4B /* JFFocusedCardView.swift in Sources */,
 				A4B8161320D01D6800FC5651 /* Storyboards.swift in Sources */,
 				A4563B0420F8810E00B65428 /* Config.swift in Sources */,
+				A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */,
 				A4563ADA20F7DBC200B65428 /* ViewControllerUI.swift in Sources */,
 				A4B816C520D01F6500FC5651 /* LoggerProfile.swift in Sources */,
 				A4563AEA20F7DCBF00B65428 /* DateHelper.swift in Sources */,
@@ -613,6 +620,7 @@
 				A4563B0620F8819F00B65428 /* Container.swift in Sources */,
 				A4FDB01120D413DE00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift in Sources */,
 				A4563AF220F7DD4C00B65428 /* Queues.swift in Sources */,
+				A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */,
 				A48C461720FD0F5300DF1687 /* ParseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
