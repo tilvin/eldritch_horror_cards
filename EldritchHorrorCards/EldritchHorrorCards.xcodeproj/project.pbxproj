@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		442A1F7A1B830447984C57D9 /* Pods_EldritchHorrorCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */; };
 		A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CA69720D23EC600E2F817 /* AuthViewController.swift */; };
-		A441BBBA2108B9CB00EAC5DD /* cards.json in Resources */ = {isa = PBXBuildFile; fileRef = A441BBB92108B9CB00EAC5DD /* cards.json */; };
 		A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBB2108BB0F00EAC5DD /* Cards.swift */; };
 		A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */; };
+		A441BBCA2109BA8100EAC5DD /* cards.json in Resources */ = {isa = PBXBuildFile; fileRef = A441BBC92109BA8100EAC5DD /* cards.json */; };
 		A4563AD420F7DBA300B65428 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AD320F7DBA300B65428 /* Window.swift */; };
 		A4563AD720F7DBAC00B65428 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AD520F7DBAB00B65428 /* View.swift */; };
 		A4563AD820F7DBAC00B65428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AD620F7DBAC00B65428 /* ViewController.swift */; };
@@ -80,9 +80,9 @@
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
 		9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EldritchHorrorCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41CA69720D23EC600E2F817 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		A441BBB92108B9CB00EAC5DD /* cards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = cards.json; path = ../../../../../Desktop/cards.json; sourceTree = "<group>"; };
 		A441BBBB2108BB0F00EAC5DD /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProvider.swift; sourceTree = "<group>"; };
+		A441BBC92109BA8100EAC5DD /* cards.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cards.json; sourceTree = "<group>"; };
 		A4563AD320F7DBA300B65428 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		A4563AD520F7DBAB00B65428 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		A4563AD620F7DBAC00B65428 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				A4BDC28720FCD3F00012F00A /* monsters.json */,
-				A441BBB92108B9CB00EAC5DD /* cards.json */,
+				A441BBC92109BA8100EAC5DD /* cards.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -487,7 +487,7 @@
 				A4B816CA20D0219200FC5651 /* Menu.storyboard in Resources */,
 				A4BDC28820FCD3F00012F00A /* monsters.json in Resources */,
 				A4FE4CD620D01418003A33D3 /* GoogleService-Info.plist in Resources */,
-				A441BBBA2108B9CB00EAC5DD /* cards.json in Resources */,
+				A441BBCA2109BA8100EAC5DD /* cards.json in Resources */,
 				A4FDB00E20D413DE00FA6E4B /* JFCardSelectionCell.xib in Resources */,
 				A4FE642720D0111E0064E52E /* Assets.xcassets in Resources */,
 				A4FE642520D0111D0064E52E /* Main.storyboard in Resources */,
