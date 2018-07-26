@@ -1,20 +1,22 @@
 import UIKit
 
 class MonstersViewController: JFCardSelectionViewController {
-	
-	private var monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
-	private var monsters: [Monster] = []
-	
+    
+    private var monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
+    private var monsters: [Monster] = []
+    
     override func viewDidLoad() {
         dataSource = self
         delegate = self
         selectionAnimationStyle = .slide
-		
+        
         super.viewDidLoad()
-		
+        
         navigationController?.setNavigationBarHidden(true, animated: false)
-		monsterProvider.load()
-		monsters = monsterProvider.monsters
+        monsterProvider.load()  { (result: Bool) in
+            Log.writeLog(logLevel: .debug, message: "Monster is load \(result)")
+        }
+        monsters = monsterProvider.monsters
         reloadData()
     }
     

@@ -15,7 +15,7 @@ protocol CardsDataProviderProtocol {
     var contacts: [PlaceCard] { get set }
     var evidences: [PlaceCard] { get set }
     var specialContacts: [StoryCard] { get set }
-    func load()
+    func load(completion: @escaping (Bool) -> Void)
 }
 
 class CardsDataProvider: CardsDataProviderProtocol {
@@ -26,7 +26,7 @@ class CardsDataProvider: CardsDataProviderProtocol {
     var evidences: [PlaceCard] = []
     var specialContacts: [StoryCard] = []
     
-    func load() {
+    func load(completion: @escaping (Bool) -> Void){
         guard let path = Bundle.main.path(forResource: "cards", ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped) else {
                 print("can't parse json!")
@@ -43,6 +43,7 @@ class CardsDataProvider: CardsDataProviderProtocol {
                 contacts = decks.contacts
                 evidences = decks.evidences
                 specialContacts = decks.specialContacts
+                completion(true)
             case .error(error: let error):
                 Log.writeLog(logLevel: .error, message: error)
             default: break
