@@ -33,7 +33,6 @@
 		A4563AFD20F87FF500B65428 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AFC20F87FF500B65428 /* DI.swift */; };
 		A4563B0120F880BB00B65428 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AFF20F880BB00B65428 /* Navigator.swift */; };
 		A4563B0220F880BB00B65428 /* NavigatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0020F880BB00B65428 /* NavigatorProtocol.swift */; };
-		A4563B0420F8810E00B65428 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0320F8810E00B65428 /* Config.swift */; };
 		A4563B0620F8819F00B65428 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0520F8819F00B65428 /* Container.swift */; };
 		A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0A20F8846100B65428 /* ConfigProvider.swift */; };
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
@@ -53,7 +52,6 @@
 		A4B816CF20D021DC00FC5651 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */; };
 		A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */; };
 		A4BDC28820FCD3F00012F00A /* monsters.json in Resources */ = {isa = PBXBuildFile; fileRef = A4BDC28720FCD3F00012F00A /* monsters.json */; };
-		A4C0ABCC20D5906900C1B7AF /* ROConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C0ABCB20D5906900C1B7AF /* ROConfig.swift */; };
 		A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */; };
 		A4FDAFA220D3BCF000FA6E4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA120D3BCEF00FA6E4B /* Router.swift */; };
 		A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */; };
@@ -104,7 +102,6 @@
 		A4563AFC20F87FF500B65428 /* DI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		A4563AFF20F880BB00B65428 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		A4563B0020F880BB00B65428 /* NavigatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatorProtocol.swift; sourceTree = "<group>"; };
-		A4563B0320F8810E00B65428 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		A4563B0520F8819F00B65428 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		A4563B0A20F8846100B65428 /* ConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigProvider.swift; sourceTree = "<group>"; };
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
@@ -127,7 +124,6 @@
 		A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		A4BDC28720FCD3F00012F00A /* monsters.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = monsters.json; sourceTree = "<group>"; };
-		A4C0ABCB20D5906900C1B7AF /* ROConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROConfig.swift; sourceTree = "<group>"; };
 		A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
 		A4FDAFA120D3BCEF00FA6E4B /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
@@ -227,7 +223,6 @@
 				A441BBD42109BB9100EAC5DD /* Providers */,
 				A441BBD32109BB8000EAC5DD /* Navigator */,
 				A4563AF720F87F8B00B65428 /* Command.swift */,
-				A4563B0320F8810E00B65428 /* Config.swift */,
 				A4563AFC20F87FF500B65428 /* DI.swift */,
 			);
 			path = Public;
@@ -307,19 +302,10 @@
 		A441BBD62109BC3C00EAC5DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A441BBD72109BC4600EAC5DD /* Realm */,
 				A441BBBB2108BB0F00EAC5DD /* Cards.swift */,
 				A48C461420FD0DFD00DF1687 /* Monster.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A441BBD72109BC4600EAC5DD /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				A4C0ABCB20D5906900C1B7AF /* ROConfig.swift */,
-			);
-			path = Realm;
 			sourceTree = "<group>";
 		};
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
@@ -571,7 +557,6 @@
 				A4563AF020F7DD3000B65428 /* ExtTextField.swift in Sources */,
 				A4B816CF20D021DC00FC5651 /* MenuTableViewController.swift in Sources */,
 				A4563AFB20F87FAE00B65428 /* DIContainer.swift in Sources */,
-				A4C0ABCC20D5906900C1B7AF /* ROConfig.swift in Sources */,
 				A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */,
 				A4FDB01320D413DE00FA6E4B /* ShadowAttributes.swift in Sources */,
 				A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */,
@@ -605,7 +590,6 @@
 				A4563ADC20F7DBD400B65428 /* LocalizationExtensions.swift in Sources */,
 				A4FDB00B20D413DE00FA6E4B /* JFFocusedCardView.swift in Sources */,
 				A4B8161320D01D6800FC5651 /* Storyboards.swift in Sources */,
-				A4563B0420F8810E00B65428 /* Config.swift in Sources */,
 				A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */,
 				A4563ADA20F7DBC200B65428 /* ViewControllerUI.swift in Sources */,
 				A4B816C520D01F6500FC5651 /* LoggerProfile.swift in Sources */,

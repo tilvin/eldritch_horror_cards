@@ -7,33 +7,37 @@
 //
 
 import Foundation
-import RealmSwift
 
 typealias ConfigCompletion = (Bool) -> Void
 
+protocol ConfigProtocol {
+    var token: String { get set }
+    var login: String { get set }
+}
+
+struct Config: ConfigProtocol {
+    var token: String = ""
+    var login: String = ""
+}
+
 protocol ConfigProviderProtocol {
-	var config: Config { get set }
-	func load()
-	func save(completion: ConfigCompletion?)
+    var config: Config { get set }
+    func load()
+    func save(completion: ConfigCompletion?)
 }
 
 class ConfigProvider: ConfigProviderProtocol {
-	var config: Config = Config()
-	
-	func load() {
-		let realm = try! Realm()
-		if let obj = realm.objects(ROConfig.self).first {
-			self.config = Config(managedObject: obj)
-		}
-	}
-	
-	func save(completion: ConfigCompletion? = nil) {
-		background {
-			let container = try! Container()
-			try! container.write { transaction in
-				transaction.add(self.config, update: true)
-			}
-			main { completion?(true) }
-		}
-	}
+    var config: Config = Config()
+    
+    func load() {
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let login = UserDefaults.standard.string(forKey: "login") ?? ""
+        self.config = Config(token: token, login: login)
+    }
+    
+    func save(completion: ConfigCompletion? = nil) {
+        UserDefaults.standard.set(self.config, forKey: "config")
+        completion?(true) 
+    }
 }
+
