@@ -1,6 +1,4 @@
 PODS:
-  - Crashlytics (3.10.2):
-    - Fabric (~> 1.7.7)
   - Fabric (1.7.7)
   - Fakery (3.3.0)
   - Firebase/Core (5.2.0):
@@ -26,25 +24,17 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - Realm (3.7.1):
-    - Realm/Headers (= 3.7.1)
-  - Realm/Headers (3.7.1)
-  - RealmSwift (3.7.1):
-    - Realm (= 3.7.1)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
-  - Crashlytics
   - Fabric
   - Fakery
   - Firebase/Core
   - IQKeyboardManagerSwift
-  - RealmSwift
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Crashlytics
     - Fabric
     - Fakery
     - Firebase
@@ -54,12 +44,9 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - IQKeyboardManagerSwift
     - nanopb
-    - Realm
-    - RealmSwift
     - SnapKit
 
 SPEC CHECKSUMS:
-  Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
   Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
   Fakery: 3aae11a87721c807c18c6456500d088c1230d3e5
   Firebase: 25ed0412036d7d008568d1fb4d2e9d81ea8a0a2c
@@ -69,10 +56,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  Realm: 906be37d52f17f25484ac01643a7f26a9d3bfbd5
-  RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 8ba76acf6450b488b2ffe03cee862c70a805bb8e
+PODFILE CHECKSUM: 9c1d80de15831b0f421307c30624e8553497cd33
 
 COCOAPODS: 1.5.3

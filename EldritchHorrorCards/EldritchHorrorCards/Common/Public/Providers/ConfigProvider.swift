@@ -32,4 +32,3 @@ class ConfigProvider: ConfigProviderProtocol {
         completion?(true) 
     }
 }
-

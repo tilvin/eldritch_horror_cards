@@ -1,4 +1,4 @@
-import RealmSwift
+import UIKit
 
 protocol MenuEmbedProtocol: class {
   var menuContainerView: UIView { get}

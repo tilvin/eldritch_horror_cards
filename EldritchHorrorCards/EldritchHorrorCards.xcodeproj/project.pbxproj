@@ -33,7 +33,6 @@
 		A4563AFD20F87FF500B65428 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AFC20F87FF500B65428 /* DI.swift */; };
 		A4563B0120F880BB00B65428 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AFF20F880BB00B65428 /* Navigator.swift */; };
 		A4563B0220F880BB00B65428 /* NavigatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0020F880BB00B65428 /* NavigatorProtocol.swift */; };
-		A4563B0620F8819F00B65428 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0520F8819F00B65428 /* Container.swift */; };
 		A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0A20F8846100B65428 /* ConfigProvider.swift */; };
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
@@ -102,7 +101,6 @@
 		A4563AFC20F87FF500B65428 /* DI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		A4563AFF20F880BB00B65428 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		A4563B0020F880BB00B65428 /* NavigatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatorProtocol.swift; sourceTree = "<group>"; };
-		A4563B0520F8819F00B65428 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		A4563B0A20F8846100B65428 /* ConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigProvider.swift; sourceTree = "<group>"; };
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
@@ -220,10 +218,10 @@
 		A441BBCF2109BB1900EAC5DD /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				A441BBD42109BB9100EAC5DD /* Providers */,
-				A441BBD32109BB8000EAC5DD /* Navigator */,
 				A4563AF720F87F8B00B65428 /* Command.swift */,
 				A4563AFC20F87FF500B65428 /* DI.swift */,
+				A441BBD32109BB8000EAC5DD /* Navigator */,
+				A441BBD42109BB9100EAC5DD /* Providers */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -231,7 +229,6 @@
 		A441BBD02109BB1E00EAC5DD /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A4563B0520F8819F00B65428 /* Container.swift */,
 				A4563AFA20F87FAE00B65428 /* DIContainer.swift */,
 				A441BBD22109BB5E00EAC5DD /* ExtensionsUtils */,
 				A441BBD12109BB4F00EAC5DD /* Services */,
@@ -526,8 +523,6 @@
 				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -536,8 +531,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -601,7 +594,6 @@
 				A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */,
 				A4B816C220D01F6500FC5651 /* Logger.swift in Sources */,
 				A4FDB01020D413DE00FA6E4B /* JFCardSelectionViewController.swift in Sources */,
-				A4563B0620F8819F00B65428 /* Container.swift in Sources */,
 				A4FDB01120D413DE00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift in Sources */,
 				A4563AF220F7DD4C00B65428 /* Queues.swift in Sources */,
 				A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */,
