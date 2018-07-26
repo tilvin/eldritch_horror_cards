@@ -33,7 +33,6 @@ class CardsDataProvider: CardsDataProviderProtocol {
                 return
         }
         
-        Log.writeLog(logLevel: .debug, message: "Json parsed... \(data)")
         if let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) {
             let jsonDecks = DataParseService().parse(type: .decks, json: json)
             switch jsonDecks {

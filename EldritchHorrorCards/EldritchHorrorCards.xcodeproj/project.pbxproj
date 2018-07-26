@@ -173,7 +173,86 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A4563AF320F87D6800B65428 /* ExtensionsUtils */ = {
+		A441BBCB2109BAA100EAC5DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A441BBDD2109BCAE00EAC5DD /* JSON */,
+				A4B8161220D01D6800FC5651 /* Storyboards.swift */,
+				A4FE642620D0111E0064E52E /* Assets.xcassets */,
+				A4B8160820D01C6700FC5651 /* Localizable.strings */,
+				A4B8160B20D01C6E00FC5651 /* Localizable.stringsdict */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A441BBCC2109BAE000EAC5DD /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				A441BBCD2109BAED00EAC5DD /* JFCardSelectionViewController */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		A441BBCD2109BAED00EAC5DD /* JFCardSelectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A4FDB00320D413DD00FA6E4B /* AccessoryIndicator.swift */,
+				A4FDAFFE20D413DC00FA6E4B /* DialView.swift */,
+				A4FDB00020D413DC00FA6E4B /* JFCardSelectionCell.swift */,
+				A4FDB00420D413DD00FA6E4B /* JFCardSelectionViewController.swift */,
+				A4FDB00120D413DC00FA6E4B /* JFCardSelectionViewController+CollectionView.swift */,
+				A4FDB00520D413DD00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift */,
+				A4FDB00920D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift */,
+				A4FDAFFF20D413DC00FA6E4B /* JFFocusedCardView.swift */,
+				A4FDB00820D413DD00FA6E4B /* PointerLayer.swift */,
+				A4FDB00720D413DD00FA6E4B /* ShadowAttributes.swift */,
+				A4FDB00220D413DC00FA6E4B /* JFCardSelectionCell.xib */,
+				A4FDB00620D413DD00FA6E4B /* JFFocusedCardView.xib */,
+			);
+			path = JFCardSelectionViewController;
+			sourceTree = "<group>";
+		};
+		A441BBCE2109BB1000EAC5DD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A441BBD02109BB1E00EAC5DD /* Core */,
+				A441BBCF2109BB1900EAC5DD /* Public */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A441BBCF2109BB1900EAC5DD /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				A441BBD42109BB9100EAC5DD /* Providers */,
+				A441BBD32109BB8000EAC5DD /* Navigator */,
+				A4563AF720F87F8B00B65428 /* Command.swift */,
+				A4563B0320F8810E00B65428 /* Config.swift */,
+				A4563AFC20F87FF500B65428 /* DI.swift */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		A441BBD02109BB1E00EAC5DD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A4563B0520F8819F00B65428 /* Container.swift */,
+				A4563AFA20F87FAE00B65428 /* DIContainer.swift */,
+				A441BBD22109BB5E00EAC5DD /* ExtensionsUtils */,
+				A441BBD12109BB4F00EAC5DD /* Services */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A441BBD12109BB4F00EAC5DD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A48C461620FD0F5300DF1687 /* ParseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A441BBD22109BB5E00EAC5DD /* ExtensionsUtils */ = {
 			isa = PBXGroup;
 			children = (
 				A4563AE520F7DC7500B65428 /* AlamofireViewController.swift */,
@@ -193,43 +272,20 @@
 				A4563AD920F7DBC200B65428 /* ViewControllerUI.swift */,
 				A4563AD320F7DBA300B65428 /* Window.swift */,
 			);
-			name = ExtensionsUtils;
+			path = ExtensionsUtils;
 			sourceTree = "<group>";
 		};
-		A4563AF520F87F7D00B65428 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				A4563B0520F8819F00B65428 /* Container.swift */,
-				A4563AFA20F87FAE00B65428 /* DIContainer.swift */,
-				A4563AF320F87D6800B65428 /* ExtensionsUtils */,
-				A4B92D8E20FCC9B7002C9936 /* Services */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		A4563AF620F87F8200B65428 /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				A4563AF720F87F8B00B65428 /* Command.swift */,
-				A4563B0320F8810E00B65428 /* Config.swift */,
-				A4563AFC20F87FF500B65428 /* DI.swift */,
-				A4563AFE20F880B100B65428 /* Navigator */,
-				A4563B0920F883E900B65428 /* Providers */,
-			);
-			name = Public;
-			sourceTree = "<group>";
-		};
-		A4563AFE20F880B100B65428 /* Navigator */ = {
+		A441BBD32109BB8000EAC5DD /* Navigator */ = {
 			isa = PBXGroup;
 			children = (
 				A4FDAFA120D3BCEF00FA6E4B /* Router.swift */,
 				A4563AFF20F880BB00B65428 /* Navigator.swift */,
 				A4563B0020F880BB00B65428 /* NavigatorProtocol.swift */,
 			);
-			name = Navigator;
+			path = Navigator;
 			sourceTree = "<group>";
 		};
-		A4563B0920F883E900B65428 /* Providers */ = {
+		A441BBD42109BB9100EAC5DD /* Providers */ = {
 			isa = PBXGroup;
 			children = (
 				A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */,
@@ -237,42 +293,47 @@
 				A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */,
 				A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */,
 			);
-			name = Providers;
+			path = Providers;
 			sourceTree = "<group>";
 		};
-		A4563B0C20F8884B00B65428 /* Main */ = {
+		A441BBD52109BBAE00EAC5DD /* App */ = {
 			isa = PBXGroup;
 			children = (
-				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
-				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
-				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
-				A4FE642320D0111D0064E52E /* Main.storyboard */,
+				A4FE642820D0111E0064E52E /* LaunchScreen.storyboard */,
 			);
-			name = Main;
+			path = App;
 			sourceTree = "<group>";
 		};
-		A4563B0D20F8885D00B65428 /* Menu */ = {
+		A441BBD62109BC3C00EAC5DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A4B816C920D0219200FC5651 /* Menu.storyboard */,
-				A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */,
-				A4B816CC20D021DC00FC5651 /* MenuViewController.swift */,
+				A441BBD72109BC4600EAC5DD /* Realm */,
+				A441BBBB2108BB0F00EAC5DD /* Cards.swift */,
+				A48C461420FD0DFD00DF1687 /* Monster.swift */,
 			);
-			name = Menu;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		A4B8161820D01F2800FC5651 /* Modules */ = {
+		A441BBD72109BC4600EAC5DD /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				A4C0ABCB20D5906900C1B7AF /* ROConfig.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		A441BBD82109BC5200EAC5DD /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A441BBDB2109BC7C00EAC5DD /* Menu */,
+				A441BBDA2109BC7000EAC5DD /* Main */,
+				A441BBD92109BC6300EAC5DD /* Logger */,
 				A4B8161020D01D6000FC5651 /* BaseViewController.swift */,
-				A4B816BB20D01F5400FC5651 /* Logger */,
-				A4563B0C20F8884B00B65428 /* Main */,
-				A4563B0D20F8885D00B65428 /* Menu */,
 			);
-			name = Modules;
+			path = Modules;
 			sourceTree = "<group>";
 		};
-		A4B816BB20D01F5400FC5651 /* Logger */ = {
+		A441BBD92109BC6300EAC5DD /* Logger */ = {
 			isa = PBXGroup;
 			children = (
 				A4B816BE20D01F6500FC5651 /* Log.swift */,
@@ -281,102 +342,37 @@
 				A4B816BF20D01F6500FC5651 /* LoggerNull.swift */,
 				A4B816C020D01F6500FC5651 /* LoggerProfile.swift */,
 			);
-			name = Logger;
+			path = Logger;
 			sourceTree = "<group>";
 		};
-		A4B92D8E20FCC9B7002C9936 /* Services */ = {
+		A441BBDA2109BC7000EAC5DD /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A48C461620FD0F5300DF1687 /* ParseService.swift */,
+				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
+				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
+				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
+				A4FE642320D0111D0064E52E /* Main.storyboard */,
 			);
-			name = Services;
+			path = Main;
 			sourceTree = "<group>";
 		};
-		A4BDC28620FCD3DA0012F00A /* JSON */ = {
+		A441BBDB2109BC7C00EAC5DD /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				A4BDC28720FCD3F00012F00A /* monsters.json */,
+				A4B816C920D0219200FC5651 /* Menu.storyboard */,
+				A4B816CD20D021DC00FC5651 /* MenuTableViewController.swift */,
+				A4B816CC20D021DC00FC5651 /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		A441BBDD2109BCAE00EAC5DD /* JSON */ = {
+			isa = PBXGroup;
+			children = (
 				A441BBC92109BA8100EAC5DD /* cards.json */,
+				A4BDC28720FCD3F00012F00A /* monsters.json */,
 			);
-			name = JSON;
-			sourceTree = "<group>";
-		};
-		A4C0ABC720D58C3100C1B7AF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A441BBBB2108BB0F00EAC5DD /* Cards.swift */,
-				A48C461420FD0DFD00DF1687 /* Monster.swift */,
-				A4C0ABCA20D5904000C1B7AF /* Realm */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		A4C0ABCA20D5904000C1B7AF /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				A4C0ABCB20D5906900C1B7AF /* ROConfig.swift */,
-			);
-			name = Realm;
-			sourceTree = "<group>";
-		};
-		A4FDAFDC20D3F62A00FA6E4B /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				A4FDAFFD20D4139400FA6E4B /* JFCardSelectionViewController */,
-			);
-			name = Vendor;
-			sourceTree = "<group>";
-		};
-		A4FDAFFD20D4139400FA6E4B /* JFCardSelectionViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A4FDB00320D413DD00FA6E4B /* AccessoryIndicator.swift */,
-				A4FDAFFE20D413DC00FA6E4B /* DialView.swift */,
-				A4FDB00020D413DC00FA6E4B /* JFCardSelectionCell.swift */,
-				A4FDB00420D413DD00FA6E4B /* JFCardSelectionViewController.swift */,
-				A4FDB00120D413DC00FA6E4B /* JFCardSelectionViewController+CollectionView.swift */,
-				A4FDB00520D413DD00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift */,
-				A4FDB00920D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift */,
-				A4FDAFFF20D413DC00FA6E4B /* JFFocusedCardView.swift */,
-				A4FDB00820D413DD00FA6E4B /* PointerLayer.swift */,
-				A4FDB00720D413DD00FA6E4B /* ShadowAttributes.swift */,
-				A4FDB00220D413DC00FA6E4B /* JFCardSelectionCell.xib */,
-				A4FDB00620D413DD00FA6E4B /* JFFocusedCardView.xib */,
-			);
-			name = JFCardSelectionViewController;
-			sourceTree = "<group>";
-		};
-		A4FE4CD820D01423003A33D3 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				A4B8158C20D0158000FC5651 /* EldritchHorrorCards-Bridging-Header.h */,
-				A4FE4CD520D01418003A33D3 /* GoogleService-Info.plist */,
-				A4FE642B20D0111E0064E52E /* Info.plist */,
-				A4FE641F20D0111D0064E52E /* AppDelegate.swift */,
-				A4FE642820D0111E0064E52E /* LaunchScreen.storyboard */,
-			);
-			name = App;
-			sourceTree = "<group>";
-		};
-		A4FE4CD920D01448003A33D3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A4BDC28620FCD3DA0012F00A /* JSON */,
-				A4B8161220D01D6800FC5651 /* Storyboards.swift */,
-				A4FE642620D0111E0064E52E /* Assets.xcassets */,
-				A4B8160820D01C6700FC5651 /* Localizable.strings */,
-				A4B8160B20D01C6E00FC5651 /* Localizable.stringsdict */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		A4FE4CDA20D01455003A33D3 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				A4563AF620F87F8200B65428 /* Public */,
-				A4563AF520F87F7D00B65428 /* Core */,
-			);
-			name = Common;
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		A4FE641320D0111D0064E52E = {
@@ -400,12 +396,16 @@
 		A4FE641E20D0111D0064E52E /* EldritchHorrorCards */ = {
 			isa = PBXGroup;
 			children = (
-				A4FE4CD820D01423003A33D3 /* App */,
-				A4FE4CDA20D01455003A33D3 /* Common */,
-				A4C0ABC720D58C3100C1B7AF /* Model */,
-				A4B8161820D01F2800FC5651 /* Modules */,
-				A4FE4CD920D01448003A33D3 /* Resources */,
-				A4FDAFDC20D3F62A00FA6E4B /* Vendor */,
+				A4B8158C20D0158000FC5651 /* EldritchHorrorCards-Bridging-Header.h */,
+				A4FE4CD520D01418003A33D3 /* GoogleService-Info.plist */,
+				A4FE642B20D0111E0064E52E /* Info.plist */,
+				A4FE641F20D0111D0064E52E /* AppDelegate.swift */,
+				A441BBD52109BBAE00EAC5DD /* App */,
+				A441BBCE2109BB1000EAC5DD /* Common */,
+				A441BBD62109BC3C00EAC5DD /* Model */,
+				A441BBD82109BC5200EAC5DD /* Modules */,
+				A441BBCB2109BAA100EAC5DD /* Resources */,
+				A441BBCC2109BAE000EAC5DD /* Vendor */,
 			);
 			path = EldritchHorrorCards;
 			sourceTree = "<group>";

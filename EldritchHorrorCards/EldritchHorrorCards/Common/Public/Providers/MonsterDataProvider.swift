@@ -23,22 +23,21 @@ class MonsterDataProvider: MonsterDataProviderProtocol {
 				print("can't parse json!")
 				return
 		}
+		
 		Log.writeLog(logLevel: .debug, message: "Json parsed... \(data)")
-        
-        if let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) {
-            let jsonMonsters = DataParseService().parse(type: .monster, json: json)
-            switch jsonMonsters{
-            case .monsters(monsters: let monsters):
-                self.monsters = []
-                for monster in monsters{
-                    self.monsters.append(monster)
-                }
-            case .error(error: let error):
-                Log.writeLog(logLevel: .error, message: error)
+		
+		if let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) {
+			let jsonMonsters = DataParseService().parse(type: .monster, json: json)
+			switch jsonMonsters {
+			case .monsters(let monsters):
+				self.monsters = monsters
+			case .error(let error):
+				Log.writeLog(logLevel: .error, message: error)
 			default: break
-            }
-        } else {
-            Log.writeLog(logLevel: .error, message: "Invalid serialize data \(data)")
-        }
+			}
+		}
+		else {
+			Log.writeLog(logLevel: .error, message: "Invalid serialize data \(data)")
+		}
 	}
 }
