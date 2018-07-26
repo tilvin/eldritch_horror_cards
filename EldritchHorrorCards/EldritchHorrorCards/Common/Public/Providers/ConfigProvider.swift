@@ -10,33 +10,25 @@ import Foundation
 
 typealias ConfigCompletion = (Bool) -> Void
 
-protocol ConfigProtocol {
+protocol ConfigProviderProtocol {
     var token: String { get set }
     var login: String { get set }
-}
-
-struct Config: ConfigProtocol {
-    var token: String = ""
-    var login: String = ""
-}
-
-protocol ConfigProviderProtocol {
-    var config: Config { get set }
     func load()
     func save(completion: ConfigCompletion?)
 }
 
 class ConfigProvider: ConfigProviderProtocol {
-    var config: Config = Config()
+    var token: String = ""
+    var login: String = ""
     
     func load() {
-        let token = UserDefaults.standard.string(forKey: "token") ?? ""
-        let login = UserDefaults.standard.string(forKey: "login") ?? ""
-        self.config = Config(token: token, login: login)
+        token = UserDefaults.standard.string(forKey: "token") ?? ""
+        login = UserDefaults.standard.string(forKey: "login") ?? ""
     }
     
     func save(completion: ConfigCompletion? = nil) {
-        UserDefaults.standard.set(self.config, forKey: "config")
+        UserDefaults.standard.set(login, forKey: "login")
+        UserDefaults.standard.set(token, forKey: "token")
         completion?(true) 
     }
 }
