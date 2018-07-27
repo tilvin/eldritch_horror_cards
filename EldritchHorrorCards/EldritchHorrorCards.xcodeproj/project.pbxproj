@@ -34,6 +34,7 @@
 		A4563B0120F880BB00B65428 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AFF20F880BB00B65428 /* Navigator.swift */; };
 		A4563B0220F880BB00B65428 /* NavigatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0020F880BB00B65428 /* NavigatorProtocol.swift */; };
 		A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0A20F8846100B65428 /* ConfigProvider.swift */; };
+		A45E565F210B0C8800590AE7 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E565E210B0C8800590AE7 /* Images.swift */; };
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* ParseService.swift */; };
@@ -102,6 +103,7 @@
 		A4563AFF20F880BB00B65428 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		A4563B0020F880BB00B65428 /* NavigatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatorProtocol.swift; sourceTree = "<group>"; };
 		A4563B0A20F8846100B65428 /* ConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigProvider.swift; sourceTree = "<group>"; };
+		A45E565E210B0C8800590AE7 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* ParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				A4563AF720F87F8B00B65428 /* Command.swift */,
 				A4563AFC20F87FF500B65428 /* DI.swift */,
+				A45E565E210B0C8800590AE7 /* Images.swift */,
 				A441BBD32109BB8000EAC5DD /* Navigator */,
 				A441BBD42109BB9100EAC5DD /* Providers */,
 			);
@@ -572,6 +575,7 @@
 				A4563AE220F7DC1E00B65428 /* UIViewControllerExtension.swift in Sources */,
 				A4563AD820F7DBAC00B65428 /* ViewController.swift in Sources */,
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
+				A45E565F210B0C8800590AE7 /* Images.swift in Sources */,
 				A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */,
 				A4FDB01420D413DE00FA6E4B /* PointerLayer.swift in Sources */,
 				A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */,
