@@ -14,7 +14,7 @@ protocol AuthProviderProtocol {
     
     func loadToken() -> Bool
     func authorize(with login: String, password: String, completion: @escaping (Bool) -> Void)
-    func logout(error: Swift.Error?)
+    func logout(error: String?)
     func clear()
 }
 
@@ -57,7 +57,7 @@ class AuthProvider: AuthProviderProtocol {
         completion(true)
     }
     
-    func logout(error: Swift.Error?) {
+    func logout(error: String?) {
         clear()
         Log.writeLog(logLevel: .debug, message: "show auth view controller")
         Router.presentAuth()
@@ -67,13 +67,5 @@ class AuthProvider: AuthProviderProtocol {
         configProvider.token = ""
         configProvider.login = ""
         configProvider.save(completion: nil)
-    }
-}
-
-extension AuthProvider {
-    
-    enum Error: Swift.Error {
-        case cancelled
-        case needAuthorize
     }
 }
