@@ -34,11 +34,13 @@ class MonsterDataProvider: MonsterDataProviderProtocol {
                 completion(true)
             case .error(let error):
                 Log.writeLog(logLevel: .error, message: error)
+                completion(false)
             default: break
             }
         }
         else {
             Log.writeLog(logLevel: .error, message: "Invalid serialize data \(data)")
+            completion(false)
         }
     }
     
