@@ -13,9 +13,15 @@ class MonstersViewController: JFCardSelectionViewController {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(true, animated: false)
-        monsterProvider.load()  { (result: Bool) in
-            Log.writeLog(logLevel: .debug, message: "Monster is load \(result)")
+        monsterProvider.load()  { (success) in
+            if success {
+                Log.writeLog(logLevel: .debug, message: "Monster is load!")
+            }
+            else {
+                Log.writeLog(logLevel: .error, message: "Something gone wrong!")
+            }
         }
+        
         monsters = monsterProvider.monsters
         reloadData()
     }
