@@ -39,7 +39,7 @@ extension UIViewController {
     return blurEffectView.tag
   }
   
-  public static func setStatusbar(with color: UIColor) {
+  public func setStatusbar(with color: UIColor) {
     let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
     if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
       statusBar.backgroundColor = color

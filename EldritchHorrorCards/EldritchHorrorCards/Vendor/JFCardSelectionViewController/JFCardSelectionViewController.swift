@@ -83,6 +83,7 @@ open class JFCardSelectionViewController: UIViewController {
 			"horizontalSpace": horizontalSpace
 		]
 	}
+	
 	fileprivate var focusedViewViews: [String: UIView] {
 		return [
 			"focusedView": focusedView,
@@ -91,21 +92,6 @@ open class JFCardSelectionViewController: UIViewController {
 		]
 	}
 	
-	private lazy var menuButton: UIButton = {
-		let button = UIButton()
-		button.setImage(#imageLiteral(resourceName: "menu_button"), for: .normal)
-		button.addTarget(self, action: #selector(JFCardSelectionViewController.menuButtonAction), for: .touchUpInside)
-		return button
-	}()
-	
-	private lazy var menuContainer: UIView = {
-		let view = UIView()
-		view.backgroundColor = .clear
-		return view
-	}()
-	
-	var menuContainerView: UIView { return self.menuContainer }
-	var menuAction: CommandWith<Command>!
 	
 	// MARK: - Lifecycle
 	
@@ -115,15 +101,10 @@ open class JFCardSelectionViewController: UIViewController {
 	
 	open override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		view.backgroundColor = .white
-		
 		buildCardSelectionUI()
 		buildFocusedCardUI()
-		buildMenuButton()
-		buildMenuView()
 		view.layoutIfNeeded()
-		setupMenu()
 	}
 	
 	open override var shouldAutorotate : Bool {
@@ -254,23 +235,7 @@ open class JFCardSelectionViewController: UIViewController {
 		view.layoutIfNeeded()
 	}
 	
-	private func buildMenuButton() {
-		view.addSubview(menuButton)
-		menuButton.translatesAutoresizingMaskIntoConstraints = false
-		NSLayoutConstraint(item: menuButton, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0).isActive = true
-		NSLayoutConstraint(item: menuButton, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 30.0).isActive = true
-		NSLayoutConstraint(item: menuButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: 70.0).isActive = true
-		NSLayoutConstraint(item: menuButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: 70.0).isActive = true
-	}
 	
-	private func buildMenuView() {
-		view.addSubview(menuContainer)
-		menuButton.translatesAutoresizingMaskIntoConstraints = false
-		NSLayoutConstraint(item: menuContainer, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
-		NSLayoutConstraint(item: menuContainer, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0.0).isActive = true
-		NSLayoutConstraint(item: menuContainer, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1.0, constant: 0.0).isActive = true
-		NSLayoutConstraint(item: menuContainer, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1.0, constant: 0.0).isActive = true
-	}
 	
 	func updateUIForCard(_ card: CardPresentable, atIndexPath indexPath: IndexPath) {
 		collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
@@ -333,13 +298,7 @@ open class JFCardSelectionViewController: UIViewController {
 		}
 	}
 	
-	@objc func menuButtonAction(_ sender: UIButton) {
-		print("menu execute!")
-		let reloadCmd = Command {  (_) in
-			Log.writeLog(logLevel: .info, message: "reload view!")
-		}
-		menuAction?.perform(with: reloadCmd)
-	}
+	
 	
 	func fade() {
 		UIView.animate(withDuration: 0.5, animations: { () -> Void in
@@ -499,5 +458,3 @@ open class JFCardSelectionViewController: UIViewController {
 		}
 	}
 }
-
-extension JFCardSelectionViewController: MenuEmbedProtocol { }
