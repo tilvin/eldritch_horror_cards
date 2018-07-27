@@ -16,6 +16,11 @@ class MonsterDetailViewController: BaseViewController {
     
     @IBAction func callMonsterAction(_ sender: AnyObject) {
         print("Call Button Action!")
+        let vc = CardViewController.controllerFromStoryboard(.main)
+        vc.modalTransitionStyle = .coverVertical
+        appNavigator?.go(controller: vc, mode: .modal)
+        
+       
     }
     @IBAction private func infoAboutMonster(_ sender: Any) {
     }
