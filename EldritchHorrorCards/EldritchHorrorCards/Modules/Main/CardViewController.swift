@@ -7,17 +7,12 @@
 //
 import UIKit
 
-class  CardViewController: CardsCarousel {
-    
-    private var cardsTypeProvider = DI.providers.resolve(CardsTypeDataProtocol.self)!
-    private var cardsType: [CardsType] = []
-    var arrayImage = [UIImage.artifact, UIImage.asset, UIImage.contact, UIImage.contactAsiaAustralia]
-    
+class CardViewController: CardsCarousel {
+    private var cardsTypes: [CardType] = CardType.all
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        cardsTypeProvider.load()
-        cardsType = cardsTypeProvider.cardShirt
+		isHiddenNavigationBar = true
         viewConfigrations()
     }
     
@@ -25,21 +20,18 @@ class  CardViewController: CardsCarousel {
         super.viewWillLayoutSubviews()
         updateCellsLayout()
     }
-    
 }
+
 extension CardViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cardsType.count
+        return cardsTypes.count
     }
-    
-    
+	
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
-        cell.cardImageView.image = cardsType[indexPath.row].image
-        cell.cardTypeLabel.text = cardsType[indexPath.row].title
+        cell.cardImageView.image = cardsTypes[indexPath.row].image
+        cell.cardTypeLabel.text = cardsTypes[indexPath.row].title
         return cell
     }
     
@@ -47,12 +39,49 @@ extension CardViewController: UICollectionViewDataSource, UICollectionViewDelega
         var cellSize: CGSize = collectionView.bounds.size
         cellSize.width -= collectionView.contentInset.left * 2
         cellSize.width -= collectionView.contentInset.right * 2
-        
         return cellSize
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateCellsLayout()
-        
     }
+}
+
+extension CardViewController {
+	
+	enum CardType: String {
+		case portals = "Portals"
+		case cities = "Cities"
+		case expeditions = "Expeditions"
+		case contacts = "Contacts"
+		case evidences = "Evidences"
+		case specialContacts = "Special Contacts"
+		
+		static var all: [CardType] {
+			return [CardType.portals,
+					CardType.cities,
+					CardType.expeditions,
+					CardType.contacts,
+					CardType.evidences,
+					CardType.specialContacts]
+		}
+		
+		var title: String {
+			return self.rawValue
+		}
+		
+		var image: UIImage {
+			switch self {
+			case .portals:
+				return UIImage.portal
+			case .contacts:
+				return UIImage.contact
+			case .expeditions:
+				return UIImage.expeditionAfrica
+			case .specialContacts:
+				return UIImage.specialContactCthulhu
+			default: return UIImage.asset
+			}
+		}
+	}
 }

@@ -109,5 +109,3 @@ extension UIImage {
         return UIImage(named: "specialContactYog_Sotot")!
     }
 }
-
-

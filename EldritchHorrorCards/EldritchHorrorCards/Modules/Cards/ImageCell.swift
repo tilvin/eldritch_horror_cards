@@ -3,12 +3,10 @@
 import UIKit
 
 class ImageCell: UICollectionViewCell {
-    @IBOutlet var cardImageView: UIImageView!
-    @IBOutlet weak var cardTypeLabel: UILabel!
+    @IBOutlet private(set) var cardImageView: UIImageView!
+    @IBOutlet private(set) var cardTypeLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-    
 }
