@@ -42,7 +42,11 @@ class CardsTypeDataProvider: CardsTypeDataProtocol {
         evidences = cardsDataProvider.evidences
         specialContacts = cardsDataProvider.specialContacts
         print(portals)
-        cardShirt = [CardsType(title:"Общие контакты", image: UIImage.contact),CardsType(title:"Контакты в Америке", image: UIImage.contactAmerica),CardsType(title:"Секретные карты Култху", image: UIImage.secretCthulhu),CardsType(title:"Поисковые карты Култху", image: UIImage.searchContactCthulhu),CardsType(title:"Специальные контакты Култху", image: UIImage.specialContactCthulhu)]
+        if portals.count > 0 {
+            cardShirt.append(CardsType(title: "card.type.portal".localized, image: .portal))
+        }
+        }
+//        cardShirt = [CardsType(title:"Общие контакты", image: UIImage.contact),CardsType(title:"Контакты в Америке", image: UIImage.contactAmerica),CardsType(title:"Секретные карты Култху", image: UIImage.secretCthulhu),CardsType(title:"Поисковые карты Култху", image: UIImage.searchContactCthulhu),CardsType(title:"Специальные контакты Култху", image: UIImage.specialContactCthulhu)]
         
 }
 }
