@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Fabric.with([Crashlytics.self])
         DI.registerProviders()
         DI.providers.resolve(ConfigProviderProtocol.self)!.load()
-        
+        DI.providers.resolve(NavigatorProtocol.self)?.create(self, rootController: MainViewController())
+		
         return true
     }
     

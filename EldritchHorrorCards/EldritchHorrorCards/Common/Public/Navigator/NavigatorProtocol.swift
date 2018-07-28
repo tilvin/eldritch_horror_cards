@@ -1,8 +1,8 @@
 //
 //  NavigatorProtocol.swift
-//  App-demo
+//  Ebs
 //
-//  Created by Ильнур Ягудин 16.04.2018.
+//  Created by Vitalii Poponov on 11.04.2018.
 //  Copyright © 2018 Vitalii Poponov. All rights reserved.
 //
 
@@ -30,4 +30,5 @@ protocol NavigatorProtocol {
 	var currentController: BaseViewController? {get set}
 	func go(controller: BaseViewController, mode: NavigatorPresentationMode)
 	func create(_ app: AppDelegate, rootController: BaseViewController)
+	func goMain(_ app: AppDelegate)
 }

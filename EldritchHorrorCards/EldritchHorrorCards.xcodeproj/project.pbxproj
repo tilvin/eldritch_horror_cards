@@ -38,6 +38,11 @@
 		A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5661210B32F500590AE7 /* BaseScrollView.swift */; };
 		A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5664210B33DC00590AE7 /* MenuView.swift */; };
 		A45E5667210B53B100590AE7 /* MenuContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5666210B53B100590AE7 /* MenuContentView.swift */; };
+		A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427C210C2FED00ED0851 /* MainViewController.swift */; };
+		A4794280210C311500ED0851 /* TabBarControllersProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427E210C311500ED0851 /* TabBarControllersProviderProtocol.swift */; };
+		A4794281210C311500ED0851 /* TabBarControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427F210C311500ED0851 /* TabBarControllersProvider.swift */; };
+		A4794284210C31B900ED0851 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4794283210C31B900ED0851 /* BaseTabBarController.swift */; };
+		A4794286210C31C300ED0851 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4794285210C31C300ED0851 /* BaseNavigationController.swift */; };
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* ParseService.swift */; };
@@ -108,6 +113,11 @@
 		A45E5661210B32F500590AE7 /* BaseScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 		A45E5664210B33DC00590AE7 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A45E5666210B53B100590AE7 /* MenuContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentView.swift; sourceTree = "<group>"; };
+		A479427C210C2FED00ED0851 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A479427E210C311500ED0851 /* TabBarControllersProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllersProviderProtocol.swift; sourceTree = "<group>"; };
+		A479427F210C311500ED0851 /* TabBarControllersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllersProvider.swift; sourceTree = "<group>"; };
+		A4794283210C31B900ED0851 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		A4794285210C31C300ED0851 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* ParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
@@ -222,6 +232,7 @@
 		A441BBCF2109BB1900EAC5DD /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				A4794282210C313C00ED0851 /* Controllers */,
 				A4563AF720F87F8B00B65428 /* Command.swift */,
 				A4563AFC20F87FF500B65428 /* DI.swift */,
 				A45E565E210B0C8800590AE7 /* Images.swift */,
@@ -279,6 +290,8 @@
 				A4FDAFA120D3BCEF00FA6E4B /* Router.swift */,
 				A4563AFF20F880BB00B65428 /* Navigator.swift */,
 				A4563B0020F880BB00B65428 /* NavigatorProtocol.swift */,
+				A479427F210C311500ED0851 /* TabBarControllersProvider.swift */,
+				A479427E210C311500ED0851 /* TabBarControllersProviderProtocol.swift */,
 			);
 			path = Navigator;
 			sourceTree = "<group>";
@@ -297,6 +310,7 @@
 		A441BBD52109BBAE00EAC5DD /* App */ = {
 			isa = PBXGroup;
 			children = (
+				A4FE641F20D0111D0064E52E /* AppDelegate.swift */,
 				A4FE642820D0111E0064E52E /* LaunchScreen.storyboard */,
 			);
 			path = App;
@@ -317,7 +331,6 @@
 				A441BBDB2109BC7C00EAC5DD /* Menu */,
 				A441BBDA2109BC7000EAC5DD /* Main */,
 				A441BBD92109BC6300EAC5DD /* Logger */,
-				A4B8161020D01D6000FC5651 /* BaseViewController.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -340,6 +353,7 @@
 				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
 				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
 				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
+				A479427C210C2FED00ED0851 /* MainViewController.swift */,
 				A4FE642320D0111D0064E52E /* Main.storyboard */,
 			);
 			path = Main;
@@ -380,6 +394,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A4794282210C313C00ED0851 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A4794285210C31C300ED0851 /* BaseNavigationController.swift */,
+				A4794283210C31B900ED0851 /* BaseTabBarController.swift */,
+				A4B8161020D01D6000FC5651 /* BaseViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		A4FE641320D0111D0064E52E = {
 			isa = PBXGroup;
 			children = (
@@ -404,7 +428,6 @@
 				A4B8158C20D0158000FC5651 /* EldritchHorrorCards-Bridging-Header.h */,
 				A4FE4CD520D01418003A33D3 /* GoogleService-Info.plist */,
 				A4FE642B20D0111E0064E52E /* Info.plist */,
-				A4FE641F20D0111D0064E52E /* AppDelegate.swift */,
 				A441BBD52109BBAE00EAC5DD /* App */,
 				A441BBCE2109BB1000EAC5DD /* Common */,
 				A441BBD62109BC3C00EAC5DD /* Model */,
@@ -574,6 +597,8 @@
 				A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */,
 				A4FDB01320D413DE00FA6E4B /* ShadowAttributes.swift in Sources */,
 				A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */,
+				A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */,
+				A4794286210C31C300ED0851 /* BaseNavigationController.swift in Sources */,
 				A4563B0220F880BB00B65428 /* NavigatorProtocol.swift in Sources */,
 				A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */,
 				A4563AD420F7DBA300B65428 /* Window.swift in Sources */,
@@ -589,6 +614,8 @@
 				A4FDB00C20D413DE00FA6E4B /* JFCardSelectionCell.swift in Sources */,
 				A4563AE620F7DC7500B65428 /* AlamofireViewController.swift in Sources */,
 				A4B816C420D01F6500FC5651 /* LoggerNull.swift in Sources */,
+				A4794280210C311500ED0851 /* TabBarControllersProviderProtocol.swift in Sources */,
+				A4794281210C311500ED0851 /* TabBarControllersProvider.swift in Sources */,
 				A4563AF820F87F8B00B65428 /* Command.swift in Sources */,
 				A4563AE220F7DC1E00B65428 /* UIViewControllerExtension.swift in Sources */,
 				A4563AD820F7DBAC00B65428 /* ViewController.swift in Sources */,
@@ -602,6 +629,7 @@
 				A4563AE820F7DCA800B65428 /* UIImageView.swift in Sources */,
 				A4563AFD20F87FF500B65428 /* DI.swift in Sources */,
 				A4563AEC20F7DCFA00B65428 /* ViewAnimation.swift in Sources */,
+				A4794284210C31B900ED0851 /* BaseTabBarController.swift in Sources */,
 				A4563ADC20F7DBD400B65428 /* LocalizationExtensions.swift in Sources */,
 				A4FDB00B20D413DE00FA6E4B /* JFFocusedCardView.swift in Sources */,
 				A4B8161320D01D6800FC5651 /* Storyboards.swift in Sources */,

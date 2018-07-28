@@ -1,8 +1,16 @@
 import UIKit
 import SnapKit
 
+protocol MonstersViewControllerDelegate: class {
+	func call(monster: Monster)
+	func showDetail(monster: Monster)
+}
+
 class MonstersViewController: JFCardSelectionViewController {
-    
+	var menuContainerView: UIView { return self.menuContainer }
+	var menuAction: CommandWith<Command>!
+	var monsterDelegate: MonstersViewControllerDelegate?
+	
     private var monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
     private var monsters: [Monster] = []
 	
@@ -18,12 +26,6 @@ class MonstersViewController: JFCardSelectionViewController {
 		view.backgroundColor = .clear
 		return view
 	}()
-	
-	
-	
-	var menuContainerView: UIView { return self.menuContainer }
-	var menuAction: CommandWith<Command>!
-	
 	
     override func viewDidLoad() {
         dataSource = self
@@ -54,17 +56,7 @@ class MonstersViewController: JFCardSelectionViewController {
         super.viewWillAppear(animated)
         setStatusbar(with: #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1))
     }
-	
-	
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		
-        if let userDetailVC = segue.destination as? MonsterDetailViewController {
-            guard let indexPath = sender as? IndexPath else { return }
-            userDetailVC.monster = monsters[indexPath.row]
-        }
-    }
-	
+
 	private func addSubViews() {
 		view.addSubview(menuButton)
 		view.addSubview(menuContainer)
@@ -106,14 +98,13 @@ extension MonstersViewController: JFCardSelectionViewControllerDataSource {
 extension MonstersViewController: JFCardSelectionViewControllerDelegate {
     
     func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, didSelectCardAction cardAction: CardAction, forCardAtIndexPath indexPath: IndexPath) {
-        let card = monsters[indexPath.row]
-        if let action = card.action, action.title == cardAction.title {
-            print("----------- \nCard action fired! \nAction Title: \(cardAction.title) \nIndex Path: \(indexPath)")
-        }
+		let monster = monsters[indexPath.row]
+		self.monsterDelegate?.call(monster: monster)
     }
     
     func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, didSelectDetailActionForCardAtIndexPath indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowUserDetailVC", sender: indexPath)
+		let monster = monsters[indexPath.row]
+		self.monsterDelegate?.showDetail(monster: monster)
     }
 }
 

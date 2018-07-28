@@ -1,29 +1,49 @@
 //
 //  Navigator.swift
-//  App-demo
+//  Ebs
 //
-//  Created by Ильнур Ягудин 16.04.2018.
+//  Created by Vitalii Poponov on 11.04.2018.
 //  Copyright © 2018 Vitalii Poponov. All rights reserved.
 //
 
 import UIKit
 
-class AppNavigator: NavigatorProtocol {
+class AppNavigator: NSObject, NavigatorProtocol {
 	
 	var currentController: BaseViewController?
+	var tabBarControllersProvider: TabBarControllersProviderProtocol
+	let tabBarController: BaseTabBarController
+	
+	init(tabBarControllersProvider: TabBarControllersProviderProtocol = DI.providers.resolve(TabBarControllersProviderProtocol.self)!) {
+		self.tabBarControllersProvider = tabBarControllersProvider
+		tabBarController = BaseTabBarController()
+	}
 	
 	func go(controller: BaseViewController, mode: NavigatorPresentationMode) {
 		display(controller: controller, mode: mode)
 	}
 	
 	func create(_ app: AppDelegate, rootController: BaseViewController) {
-		app.window = UIWindow(frame: UIScreen.main.bounds)
-		app.window?.backgroundColor = UIColor.white
-		app.window?.makeKeyAndVisible()
+		makeWindowVisible(app)
 		
-		let navController = UINavigationController(rootViewController: rootController)
+		let navController = BaseNavigationController(rootViewController: rootController)
 		app.window?.rootViewController = navController
 		currentController = rootController
+	}
+	
+	func goMain(_ app: AppDelegate) {
+		makeWindowVisible(app)
+		
+		tabBarController.viewControllers = tabBarControllersProvider
+			.registeredControllers()
+			.compactMap({ (addableController) -> BaseNavigationController? in
+				return BaseNavigationController(rootViewController: addableController)
+			})
+		
+		tabBarController.delegate = self
+		
+		app.window?.rootViewController = tabBarController
+		currentController = tabBarController.controllers?.first
 	}
 	
 	private var safetyCurrentController: BaseViewController {
@@ -37,7 +57,7 @@ class AppNavigator: NavigatorProtocol {
 		if let current = currentController, current.isExclusiveController, current.isKind(of: type(of: controller)) {
 			return
 		}
-	
+		
 		switch mode {
 		case .push:
 			
@@ -49,7 +69,7 @@ class AppNavigator: NavigatorProtocol {
 			
 		case .modalWithNavigation:
 			
-			let navController = UINavigationController(rootViewController: controller)
+			let navController = BaseNavigationController(rootViewController: controller)
 			present(controller: navController)
 			
 		case .replace:
@@ -76,5 +96,17 @@ class AppNavigator: NavigatorProtocol {
 	
 	private func present(controller: UIViewController) {
 		safetyCurrentController.present(controller, animated: true, completion: nil)
+	}
+	
+	private func makeWindowVisible(_ app: AppDelegate) {
+		app.window = UIWindow(frame: UIScreen.main.bounds)
+		app.window?.backgroundColor = UIColor.white
+		app.window?.makeKeyAndVisible()
+	}
+}
+
+extension AppNavigator: UITabBarControllerDelegate {
+	func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+		currentController = (viewController as? UINavigationController)?.topViewController as? BaseViewController
 	}
 }

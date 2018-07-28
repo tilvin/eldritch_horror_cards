@@ -32,3 +32,19 @@ class BaseViewController: UIViewController {
 		return identifier == "AuthViewController"
     }
 }
+
+class TabBarAddableController: BaseViewController {
+	
+	required init(tabBarItem: UITabBarItem) {
+		super.init(nibName: nil, bundle: nil)
+		self.tabBarItem = tabBarItem
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+	}
+}

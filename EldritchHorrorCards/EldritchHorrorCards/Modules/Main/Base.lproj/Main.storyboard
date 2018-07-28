@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cco-b0-QlL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cco-b0-QlL">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,7 +39,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="7ZB-JI-Oob">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="150" height="150"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="7ZB-JI-Oob" secondAttribute="height" multiplier="1:1" id="CWd-vt-duD"/>
                                                         </constraints>
@@ -52,7 +50,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mFD-Mb-6gb">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="150" height="150"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="mFD-Mb-6gb" secondAttribute="height" multiplier="1:1" id="M6A-Gk-yMZ"/>
                                                         </constraints>
@@ -382,31 +380,10 @@
                         <viewLayoutGuide key="safeArea" id="tS5-1x-WA9"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vsm-3t-FDW"/>
-                    <connections>
-                        <segue destination="6WD-dL-Md8" kind="show" identifier="ShowUserDetailVC" id="dP3-F5-q1P"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hS3-sX-Ssy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2430" y="24"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fBj-cD-vvu">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="QYy-4W-KVB" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4OA-9E-VEB">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="QWQ-ll-BIt" kind="relationship" relationship="rootViewController" id="RPx-Ma-FDT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oM3-H7-DDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1659.375" y="25.35211267605634"/>
+            <point key="canvasLocation" x="1770" y="24"/>
         </scene>
         <!--Monster Detail View Controller-->
         <scene sceneID="jjN-8W-InU">
@@ -527,7 +504,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gNm-z5-wfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3223" y="23"/>
+            <point key="canvasLocation" x="2561" y="23"/>
         </scene>
     </scenes>
     <resources>
