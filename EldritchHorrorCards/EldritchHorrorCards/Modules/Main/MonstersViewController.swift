@@ -92,7 +92,6 @@ extension MonstersViewController: JFCardSelectionViewControllerDataSource {
     func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, cardForItemAtIndexPath indexPath: IndexPath) -> CardPresentable {
         return monsters[indexPath.row]
     }
-    
 }
 
 extension MonstersViewController: JFCardSelectionViewControllerDelegate {

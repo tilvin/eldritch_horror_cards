@@ -509,7 +509,7 @@
         <!--Card View Controller-->
         <scene sceneID="AbN-pO-fIh">
             <objects>
-                <viewController id="09U-Ew-9AC" customClass="CardViewController" customModule="EldritchHorrorCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="09U-Ew-9AC" customClass="CardViewController" customModule="EldritchHorrorCards" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ffx-YY-XrW"/>
                         <viewControllerLayoutGuide type="bottom" id="OtD-w5-ExA"/>
@@ -536,10 +536,45 @@
                                     <outlet property="delegate" destination="09U-Ew-9AC" id="vhu-1c-Jkh"/>
                                 </connections>
                             </collectionView>
+                            <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feq-ux-6Q0" customClass="DesignableView" customModule="EldritchHorrorCards" customModuleProvider="target">
+                                <rect key="frame" x="285" y="30" width="25" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="3L7-tj-OI4"/>
+                                    <constraint firstAttribute="height" constant="25" id="B4z-qP-8bs"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="computeCornerRadius" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                        <point key="value" x="0.0" y="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwQ-Db-asq">
+                                <rect key="frame" x="287" y="31.5" width="21" height="22"/>
+                                <state key="normal" image="close_button"/>
+                                <connections>
+                                    <action selector="close" destination="6WD-dL-Md8" eventType="touchUpInside" id="pb9-2M-9bT"/>
+                                    <action selector="close" destination="09U-Ew-9AC" eventType="touchUpInside" id="w16-ch-gx9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zhe-rm-1xc" firstAttribute="centerX" secondItem="beI-96-uYW" secondAttribute="centerX" id="Kdg-qQ-vfj"/>
+                            <constraint firstItem="CwQ-Db-asq" firstAttribute="centerX" secondItem="feq-ux-6Q0" secondAttribute="centerX" id="LsA-oj-Su2"/>
+                            <constraint firstItem="CwQ-Db-asq" firstAttribute="centerY" secondItem="feq-ux-6Q0" secondAttribute="centerY" id="boz-Mb-pql"/>
+                            <constraint firstItem="ggE-6w-3Da" firstAttribute="trailing" secondItem="feq-ux-6Q0" secondAttribute="trailing" constant="10" id="d7b-Fu-B6k"/>
+                            <constraint firstItem="feq-ux-6Q0" firstAttribute="top" secondItem="ffx-YY-XrW" secondAttribute="bottom" constant="10" id="i1T-gI-V2z"/>
                             <constraint firstItem="zhe-rm-1xc" firstAttribute="width" secondItem="beI-96-uYW" secondAttribute="width" id="jtg-Ul-zul"/>
                             <constraint firstItem="zhe-rm-1xc" firstAttribute="centerY" secondItem="beI-96-uYW" secondAttribute="centerY" id="ysi-Op-Rh8"/>
                         </constraints>
@@ -552,7 +587,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P27-tm-h30" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4089.375" y="23.239436619718312"/>
+            <point key="canvasLocation" x="4024" y="22"/>
         </scene>
     </scenes>
     <resources>
