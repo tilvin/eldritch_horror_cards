@@ -12,8 +12,7 @@ class MainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.isHiddenNavigationBar = true
-		
+		isHiddenNavigationBar = true
 		let controller = MonstersViewController.controllerFromStoryboard(.main)
 		controller.monsterDelegate = self
 		view.embed(subview: controller.view)

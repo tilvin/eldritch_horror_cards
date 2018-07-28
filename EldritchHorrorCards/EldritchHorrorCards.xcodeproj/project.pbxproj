@@ -43,6 +43,10 @@
 		A4794281210C311500ED0851 /* TabBarControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427F210C311500ED0851 /* TabBarControllersProvider.swift */; };
 		A4794284210C31B900ED0851 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4794283210C31B900ED0851 /* BaseTabBarController.swift */; };
 		A4794286210C31C300ED0851 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4794285210C31C300ED0851 /* BaseNavigationController.swift */; };
+		A4794289210C40EA00ED0851 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4794288210C40EA00ED0851 /* Colors.swift */; };
+		A479428B210C419F00ED0851 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479428A210C419F00ED0851 /* Fonts.swift */; };
+		A479428D210C776500ED0851 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479428C210C776500ED0851 /* AvatarView.swift */; };
+		A479428F210C8F6000ED0851 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479428E210C8F6000ED0851 /* MenuViewModel.swift */; };
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* ParseService.swift */; };
@@ -118,6 +122,10 @@
 		A479427F210C311500ED0851 /* TabBarControllersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllersProvider.swift; sourceTree = "<group>"; };
 		A4794283210C31B900ED0851 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		A4794285210C31C300ED0851 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		A4794288210C40EA00ED0851 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A479428A210C419F00ED0851 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		A479428C210C776500ED0851 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		A479428E210C8F6000ED0851 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* ParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
@@ -232,6 +240,7 @@
 		A441BBCF2109BB1900EAC5DD /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				A4794287210C40DE00ED0851 /* Themes */,
 				A4794282210C313C00ED0851 /* Controllers */,
 				A4563AF720F87F8B00B65428 /* Command.swift */,
 				A4563AFC20F87FF500B65428 /* DI.swift */,
@@ -351,9 +360,9 @@
 			isa = PBXGroup;
 			children = (
 				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
+				A479427C210C2FED00ED0851 /* MainViewController.swift */,
 				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
 				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
-				A479427C210C2FED00ED0851 /* MainViewController.swift */,
 				A4FE642320D0111D0064E52E /* Main.storyboard */,
 			);
 			path = Main;
@@ -388,8 +397,10 @@
 		A45E5663210B332400590AE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A45E5664210B33DC00590AE7 /* MenuView.swift */,
+				A479428C210C776500ED0851 /* AvatarView.swift */,
 				A45E5666210B53B100590AE7 /* MenuContentView.swift */,
+				A45E5664210B33DC00590AE7 /* MenuView.swift */,
+				A479428E210C8F6000ED0851 /* MenuViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -402,6 +413,15 @@
 				A4B8161020D01D6000FC5651 /* BaseViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A4794287210C40DE00ED0851 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				A4794288210C40EA00ED0851 /* Colors.swift */,
+				A479428A210C419F00ED0851 /* Fonts.swift */,
+			);
+			path = Themes;
 			sourceTree = "<group>";
 		};
 		A4FE641320D0111D0064E52E = {
@@ -605,7 +625,9 @@
 				A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */,
 				A4563AE020F7DBF500B65428 /* Color.swift in Sources */,
 				A4FDAFA220D3BCF000FA6E4B /* Router.swift in Sources */,
+				A479428F210C8F6000ED0851 /* MenuViewModel.swift in Sources */,
 				A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */,
+				A479428D210C776500ED0851 /* AvatarView.swift in Sources */,
 				A4B816C320D01F6500FC5651 /* Log.swift in Sources */,
 				A4FDB00F20D413DE00FA6E4B /* AccessoryIndicator.swift in Sources */,
 				A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */,
@@ -614,6 +636,7 @@
 				A4FDB00C20D413DE00FA6E4B /* JFCardSelectionCell.swift in Sources */,
 				A4563AE620F7DC7500B65428 /* AlamofireViewController.swift in Sources */,
 				A4B816C420D01F6500FC5651 /* LoggerNull.swift in Sources */,
+				A479428B210C419F00ED0851 /* Fonts.swift in Sources */,
 				A4794280210C311500ED0851 /* TabBarControllersProviderProtocol.swift in Sources */,
 				A4794281210C311500ED0851 /* TabBarControllersProvider.swift in Sources */,
 				A4563AF820F87F8B00B65428 /* Command.swift in Sources */,
@@ -632,6 +655,7 @@
 				A4794284210C31B900ED0851 /* BaseTabBarController.swift in Sources */,
 				A4563ADC20F7DBD400B65428 /* LocalizationExtensions.swift in Sources */,
 				A4FDB00B20D413DE00FA6E4B /* JFFocusedCardView.swift in Sources */,
+				A4794289210C40EA00ED0851 /* Colors.swift in Sources */,
 				A4B8161320D01D6800FC5651 /* Storyboards.swift in Sources */,
 				A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */,
 				A4563ADA20F7DBC200B65428 /* ViewControllerUI.swift in Sources */,

@@ -10,6 +10,10 @@ import UIKit
 
 extension UIImage {
 	
+	static var defaultAvatar: UIImage {
+		return UIImage(named: "default_avatar")!
+	}
+	
 	static var artifact: UIImage {
 		return UIImage(named: "artifact")!
 	}

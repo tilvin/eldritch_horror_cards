@@ -1,4 +1,5 @@
 import UIKit
+import Fakery
 
 protocol MenuEmbedProtocol: class {
 	var menuContainerView: UIView { get}
@@ -38,7 +39,9 @@ final class MenuViewController: BaseViewController {
 	}
 	
 	override func loadView() {
-		let view = MenuView(frame: UIScreen.main.bounds)
+		let faker = Faker()
+		let viewModel = MenuViewModel(userName: faker.name.name(), avatar: UIImage(named: "tmp_ava"))
+		let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
 		view.delegate = self
 		self.view = view
 	}
@@ -62,7 +65,6 @@ final class MenuViewController: BaseViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 	}
-	
 	
 	func setup(completion: @escaping (CommandWith<Command>) -> Void) {
 		setupAction = { [weak self] in

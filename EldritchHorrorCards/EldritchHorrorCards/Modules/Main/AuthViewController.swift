@@ -70,6 +70,7 @@ class AuthViewController: UIViewController {
 		Log.writeLog(logLevel: .todo, message: "Load avatar image with login: \(login)")
 		
 		let isShow = emails.contains(login)
+		
 		if avatarImageView.isHidden != !isShow {
 			avatarImageView.image = #imageLiteral(resourceName: "tmp_ava")
 			if isShow { avatarImageView.isHidden = false }
