@@ -12,6 +12,7 @@ class CardViewController: CardsCarousel {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		view.backgroundColor = UIColor.wildSand
 		isHiddenNavigationBar = true
         viewConfigrations()
     }

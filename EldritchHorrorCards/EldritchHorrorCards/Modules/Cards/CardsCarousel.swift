@@ -8,8 +8,13 @@
 
 import UIKit
 
-class  CardsCarousel: BaseViewController {
+class CardsCarousel: BaseViewController {
 	@IBOutlet private var collectionView: UICollectionView!
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		view.backgroundColor = UIColor.wildSand
+	}
 	
 	func viewConfigrations() {
 		collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")

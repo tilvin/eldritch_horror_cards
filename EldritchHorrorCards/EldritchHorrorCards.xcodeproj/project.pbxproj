@@ -210,9 +210,9 @@
 		9F32286D210C341400ECD4A4 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				9F80B99A210C3C96007C4396 /* CardsCarousel.swift */,
 				9F322867210B855C00ECD4A4 /* ImageCell.swift */,
 				9F322869210B85D500ECD4A4 /* ImageCell.xib */,
-				9F80B99A210C3C96007C4396 /* CardsCarousel.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -390,10 +390,10 @@
 			isa = PBXGroup;
 			children = (
 				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
+				9F322860210B7CF800ECD4A4 /* CardViewController.swift */,
 				A479427C210C2FED00ED0851 /* MainViewController.swift */,
 				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
 				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
-				9F322860210B7CF800ECD4A4 /* CardViewController.swift */,
 				A4FE642320D0111D0064E52E /* Main.storyboard */,
 			);
 			path = Main;

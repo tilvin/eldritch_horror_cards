@@ -24,7 +24,9 @@ class MainViewController: BaseViewController {
 extension MainViewController: MonstersViewControllerDelegate {
 
 	func call(monster: Monster) {
-		print("call monster \(monster)")
+		let vc = CardViewController.controllerFromStoryboard(.main)
+		vc.modalTransitionStyle = .crossDissolve
+		appNavigator?.go(controller: vc, mode: .modal)
 	}
 	
 	func showDetail(monster: Monster) {
