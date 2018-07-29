@@ -34,16 +34,16 @@ class DialView: UIView {
 
     let pointerLayer = PointerLayer()
     fileprivate var rotation: Double = -0.563
-    fileprivate let sides = 110
+    fileprivate var sides = Int(32 * 4.25)
     var labels: [String] {
-        let aScalars = "A".unicodeScalars
-        let aCode = aScalars[aScalars.startIndex].value
-        let enLetters: [String] = (0..<26).map {
-            i in String(UnicodeScalar(aCode + i)!)
-        }
+//        let aScalars = "A".unicodeScalars
+//        let aCode = aScalars[aScalars.startIndex].value
+//        let enLetters: [String] = (0..<26).map {
+//            i in String(UnicodeScalar(aCode + i)!)
+//        }
         
         let ruAScalars = "А".unicodeScalars
-        let ruACode = ruAScalars[aScalars.startIndex].value
+        let ruACode = ruAScalars[ruAScalars.startIndex].value
         let ruLetters: [String] = (0..<32).map {
             i in String(UnicodeScalar(ruACode + i)!)
         }
@@ -54,6 +54,7 @@ class DialView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        sides = Int(Double(labels.count) * 4.25)
         backgroundColor = UIColor.clear
     }
 
@@ -64,7 +65,7 @@ class DialView: UIView {
     override func draw(_ rect: CGRect) {
         
         guard let ctx = UIGraphicsGetCurrentContext() else { return }
-      let endAngle = CGFloat(2 * Double.pi)
+        let endAngle = CGFloat(2 * Double.pi)
         let newRect = CGRect(x: rect.minX + 20, y: rect.minY + 20, width: rect.width - 40, height: rect.height - 40)
         let rad = newRect.width / 2
         let center = CGPoint(x: rect.midX, y: rect.midY)
@@ -102,7 +103,7 @@ class DialView: UIView {
     
     fileprivate func rotationForLabel(_ label: String) -> CGFloat {
         guard let index = labels.index(of: label) else { return CGFloat(rotation) }
-        let rotationStep: CGFloat = 0.045
+        let rotationStep = CGFloat(0.1 - Double(labels.count) / 500)
         return (CGFloat(rotation) + (CGFloat(index) * rotationStep)) / CGFloat(Double.pi / 4)
     }
     
@@ -155,7 +156,7 @@ class DialView: UIView {
             guard i < labels.count + 1 else { return }
             let index = i - 1
             let aFont = UIFont.systemFont(ofSize: 8, weight: .light)
-            let attr = [NSAttributedStringKey.font: aFont, .foregroundColor: UIColor.black] as? CFDictionary
+            let attr = [NSAttributedStringKey.font: aFont, .foregroundColor: UIColor.black] as CFDictionary
           let text = CFAttributedStringCreate(nil, labels[index] as CFString?, attr)
             let line = CTLineCreateWithAttributedString(text!)
             let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.useOpticalBounds)
