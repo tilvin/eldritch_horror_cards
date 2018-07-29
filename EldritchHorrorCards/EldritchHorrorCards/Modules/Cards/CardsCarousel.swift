@@ -20,7 +20,7 @@ class CardsCarousel: BaseViewController {
 		collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
 		collectionView.contentInset = UIEdgeInsetsMake(0, 30, 0, 30)
 		collectionView.decelerationRate = UIScrollViewDecelerationRateFast
-        collectionView.backgroundColor = UIColor.scorpion 
+        collectionView.backgroundColor = view.backgroundColor
 	}
     
 	func updateCellsLayout()  {
