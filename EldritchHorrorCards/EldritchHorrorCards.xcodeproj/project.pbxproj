@@ -12,6 +12,7 @@
 		9F322864210B82AF00ECD4A4 /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322863210B82AF00ECD4A4 /* FAPaginationLayout.swift */; };
 		9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322867210B855C00ECD4A4 /* ImageCell.swift */; };
 		9F32286A210B85D500ECD4A4 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F322869210B85D500ECD4A4 /* ImageCell.xib */; };
+		9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9F3CBDA02110CB6F00E842A4 /* monsters.zip */; };
 		9F80B99B210C3C96007C4396 /* CardsCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B99A210C3C96007C4396 /* CardsCarousel.swift */; };
 		A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CA69720D23EC600E2F817 /* AuthViewController.swift */; };
 		A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBB2108BB0F00EAC5DD /* Cards.swift */; };
@@ -98,6 +99,7 @@
 		9F322863210B82AF00ECD4A4 /* FAPaginationLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		9F322867210B855C00ECD4A4 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		9F322869210B85D500ECD4A4 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		9F3CBDA02110CB6F00E842A4 /* monsters.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = monsters.zip; sourceTree = "<group>"; };
 		9F80B99A210C3C96007C4396 /* CardsCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCarousel.swift; sourceTree = "<group>"; };
 		9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EldritchHorrorCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41CA69720D23EC600E2F817 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -223,9 +225,18 @@
 			path = Cards;
 			sourceTree = "<group>";
 		};
+		9F3CBD9F2110C97300E842A4 /* Zip */ = {
+			isa = PBXGroup;
+			children = (
+				9F3CBDA02110CB6F00E842A4 /* monsters.zip */,
+			);
+			path = Zip;
+			sourceTree = "<group>";
+		};
 		A441BBCB2109BAA100EAC5DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9F3CBD9F2110C97300E842A4 /* Zip */,
 				A441BBDD2109BCAE00EAC5DD /* JSON */,
 				A4B8161220D01D6800FC5651 /* Storyboards.swift */,
 				A4FE642620D0111E0064E52E /* Assets.xcassets */,
@@ -589,6 +600,7 @@
 				A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */,
 				A4FDB01220D413DE00FA6E4B /* JFFocusedCardView.xib in Resources */,
 				A4BDC28820FCD3F00012F00A /* monsters.json in Resources */,
+				9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */,
 				A4FE4CD620D01418003A33D3 /* GoogleService-Info.plist in Resources */,
 				A441BBCA2109BA8100EAC5DD /* cards.json in Resources */,
 				A4FDB00E20D413DE00FA6E4B /* JFCardSelectionCell.xib in Resources */,
@@ -645,6 +657,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -653,6 +666,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

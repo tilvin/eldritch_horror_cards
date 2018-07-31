@@ -8,4 +8,5 @@ target 'EldritchHorrorCards' do
   pod 'IQKeyboardManagerSwift'
   pod 'Fakery'
   pod 'SnapKit'
+  pod 'Zip'
 end

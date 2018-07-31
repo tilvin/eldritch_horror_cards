@@ -25,6 +25,7 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - SnapKit (4.0.0)
+  - Zip (1.1.0)
 
 DEPENDENCIES:
   - Fabric
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - Firebase/Core
   - IQKeyboardManagerSwift
   - SnapKit
+  - Zip
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -45,6 +47,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - nanopb
     - SnapKit
+    - Zip
 
 SPEC CHECKSUMS:
   Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
@@ -57,7 +60,8 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: d354556cd1bb3a79bae74f8724faec984afc03fc
+PODFILE CHECKSUM: e98b2dff77c1061fcb9170afbe89bcc4ab9d3f2c
 
 COCOAPODS: 1.5.3
