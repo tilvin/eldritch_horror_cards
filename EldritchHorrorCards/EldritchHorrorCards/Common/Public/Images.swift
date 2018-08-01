@@ -105,7 +105,11 @@ extension UIImage {
         return UIImage(named: "specialContactCthulhu")!
     }
     
-    static var specialContactYog_Sotot: UIImage {
+    static var specialContactYogSotot: UIImage {
         return UIImage(named: "specialContactYog_Sotot")!
     }
+	
+	static var closeButton: UIImage {
+		return UIImage(named: "close_button")!
+	}
 }

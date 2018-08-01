@@ -13,9 +13,7 @@ class BaseViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		navigationController?.setNavigationBarHidden(isHiddenNavigationBar, animated: true)
-		if isSetAsCurrentController {
-			appNavigator?.currentController = self
-		}
+		if isSetAsCurrentController { appNavigator?.currentController = self }
 		
 		setStatusbar(with: self.statusBarColor())
 		UIApplication.shared.statusBarStyle = self.isLightStatusFont ? .lightContent : .default

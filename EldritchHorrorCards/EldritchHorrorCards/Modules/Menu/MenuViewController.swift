@@ -87,14 +87,11 @@ final class MenuViewController: BaseViewController {
 		}
 		
 		let completion: (Bool) -> Void = { [weak self] _ in
-			guard let sSelf = self else { return }
 			menuView.contentView.superview?.isHidden = !slided
-			if let vc = sSelf.parent as? MenuEmbedProtocol {
+			if let vc = self?.parent as? MenuEmbedProtocol {
 				vc.menuContainerView.isHidden = !slided
 			}
-			if slided {
-				sSelf.reloadMenu()
-			}
+			if slided { self?.reloadMenu() }
 		}
 		
 		if animated {
@@ -112,7 +109,8 @@ final class MenuViewController: BaseViewController {
 								menuView.contentView.frame.origin.x = 0
 				}, completion: nil)
 			}
-		} else {
+		}
+		else {
 			animations()
 			if slided { menuView.contentView.frame.origin.x = 0 }
 			completion(false)

@@ -43,6 +43,9 @@
 		A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5661210B32F500590AE7 /* BaseScrollView.swift */; };
 		A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5664210B33DC00590AE7 /* MenuView.swift */; };
 		A45E5667210B53B100590AE7 /* MenuContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5666210B53B100590AE7 /* MenuContentView.swift */; };
+		A47569BF2110D42E00311014 /* MonsterDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47569BE2110D42E00311014 /* MonsterDescriptionViewController.swift */; };
+		A47569C22110F0E700311014 /* MonsterDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47569C12110F0E700311014 /* MonsterDescriptionView.swift */; };
+		A47569C42110F32D00311014 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47569C32110F32D00311014 /* CloseButtonView.swift */; };
 		A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427C210C2FED00ED0851 /* MainViewController.swift */; };
 		A4794280210C311500ED0851 /* TabBarControllersProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427E210C311500ED0851 /* TabBarControllersProviderProtocol.swift */; };
 		A4794281210C311500ED0851 /* TabBarControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427F210C311500ED0851 /* TabBarControllersProvider.swift */; };
@@ -127,6 +130,9 @@
 		A45E5661210B32F500590AE7 /* BaseScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 		A45E5664210B33DC00590AE7 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A45E5666210B53B100590AE7 /* MenuContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentView.swift; sourceTree = "<group>"; };
+		A47569BE2110D42E00311014 /* MonsterDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDescriptionViewController.swift; sourceTree = "<group>"; };
+		A47569C12110F0E700311014 /* MonsterDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDescriptionView.swift; sourceTree = "<group>"; };
+		A47569C32110F32D00311014 /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
 		A479427C210C2FED00ED0851 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A479427E210C311500ED0851 /* TabBarControllersProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllersProviderProtocol.swift; sourceTree = "<group>"; };
 		A479427F210C311500ED0851 /* TabBarControllersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllersProvider.swift; sourceTree = "<group>"; };
@@ -366,6 +372,7 @@
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A47569BD2110D3DB00311014 /* MonsterDetail */,
 				A441BBDB2109BC7C00EAC5DD /* Menu */,
 				A441BBDA2109BC7000EAC5DD /* Main */,
 				9F32286D210C341400ECD4A4 /* Cards */,
@@ -432,6 +439,24 @@
 				A45E5666210B53B100590AE7 /* MenuContentView.swift */,
 				A45E5664210B33DC00590AE7 /* MenuView.swift */,
 				A479428E210C8F6000ED0851 /* MenuViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A47569BD2110D3DB00311014 /* MonsterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A47569BE2110D42E00311014 /* MonsterDescriptionViewController.swift */,
+				A47569C02110F0D100311014 /* Views */,
+			);
+			path = MonsterDetail;
+			sourceTree = "<group>";
+		};
+		A47569C02110F0D100311014 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A47569C12110F0E700311014 /* MonsterDescriptionView.swift */,
+				A47569C32110F32D00311014 /* CloseButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -655,6 +680,8 @@
 				A4563B0220F880BB00B65428 /* NavigatorProtocol.swift in Sources */,
 				A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */,
 				A4563AD420F7DBA300B65428 /* Window.swift in Sources */,
+				A47569BF2110D42E00311014 /* MonsterDescriptionViewController.swift in Sources */,
+				A47569C42110F32D00311014 /* CloseButtonView.swift in Sources */,
 				A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */,
 				A4563AE020F7DBF500B65428 /* Color.swift in Sources */,
 				A4FDAFA220D3BCF000FA6E4B /* Router.swift in Sources */,
@@ -675,6 +702,7 @@
 				A4563AF820F87F8B00B65428 /* Command.swift in Sources */,
 				A4563AE220F7DC1E00B65428 /* UIViewControllerExtension.swift in Sources */,
 				A4563AD820F7DBAC00B65428 /* ViewController.swift in Sources */,
+				A47569C22110F0E700311014 /* MonsterDescriptionView.swift in Sources */,
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
 				A45E565F210B0C8800590AE7 /* Images.swift in Sources */,
 				A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */,

@@ -21,6 +21,8 @@ class MonsterDetailViewController: BaseViewController {
     }
 	
     @IBAction private func infoAboutMonster(_ sender: Any) {
-		print("detail info about monster!")
+		let controller = MonsterDescriptionViewController()
+		controller.modalTransitionStyle = .flipHorizontal
+		appNavigator?.go(controller: controller, mode: .modal)
 	}
 }
