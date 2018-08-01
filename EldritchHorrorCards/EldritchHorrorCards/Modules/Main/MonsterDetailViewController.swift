@@ -10,7 +10,7 @@ class MonsterDetailViewController: BaseViewController {
         super.viewDidLoad()
 		isHiddenNavigationBar = true
         guard let _item = monster else { fatalError("No user to display.") }
-        bgImageView.loadImageAtURL(monster.imageURLString, withDefaultImage: monster.placeholderImage)
+        bgImageView.image = UIImage(named: monster.imageURLString)
         nameLabel.text = "\(_item.name) (\(_item.score))"
     }
     

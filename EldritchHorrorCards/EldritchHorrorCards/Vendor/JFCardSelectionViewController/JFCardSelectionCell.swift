@@ -74,9 +74,7 @@ class JFCardSelectionCell: UICollectionViewCell {
     self.card = card
     self.scrollView = scrollView
     self.scrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
-    
-    imageView.loadImageAtURL(card.imageURLString, withDefaultImage: card.placeholderImage)
-    
+    imageView.image = UIImage(named: card.imageURLString)
     self.transform = CGAffineTransform(rotationAngle: rotation)
     center.y = centerY
     

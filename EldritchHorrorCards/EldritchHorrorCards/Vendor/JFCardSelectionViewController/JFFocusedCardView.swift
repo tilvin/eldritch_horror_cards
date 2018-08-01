@@ -26,66 +26,65 @@
 import UIKit
 
 protocol JFFocusedCardViewDelegate {
-  func focusedCardViewDidSelectDetailAction(_ focusedCardView: JFFocusedCardView) -> Void
-  func focusedCardViewDidSelectActionItemOne(_ focusedCardView: JFFocusedCardView) -> Void
+    func focusedCardViewDidSelectDetailAction(_ focusedCardView: JFFocusedCardView) -> Void
+    func focusedCardViewDidSelectActionItemOne(_ focusedCardView: JFFocusedCardView) -> Void
 }
 
 class JFFocusedCardView: UIView {
-  
-  var card: CardPresentable!
-  var delegate: JFFocusedCardViewDelegate?
-  fileprivate var recognizer: UITapGestureRecognizer!
-  @IBOutlet var imageView: UIImageView!
-  @IBOutlet var titleLabel: UILabel!
-  @IBOutlet var subTitleLabelOne: UILabel!
-  @IBOutlet var subTitleLabelTwo: UILabel!
-  @IBOutlet weak var actionOneButton: UIButton!
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    imageView.clipsToBounds = true
-    imageView.layer.cornerRadius = 2
-    imageView.layer.borderColor = UIColor.white.withAlphaComponent(0.4).cgColor
-    imageView.layer.borderWidth = 0.5
-    actionOneButton.isHidden = true
-    actionOneButton.layer.cornerRadius = 2
-    actionOneButton.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
-    actionOneButton.layer.borderWidth = 0.5
-    recognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-    imageView.addGestureRecognizer(recognizer)
-    imageView.isUserInteractionEnabled = true
-  }
-  
-  func configureForCard(_ card: CardPresentable?) {
-    guard let _card = card else {
-      self.card = nil
-      self.imageView.image = nil
-      self.titleLabel.text = nil
-      self.subTitleLabelOne.text = nil
-      self.subTitleLabelTwo.text = nil
-      return
+    
+    var card: CardPresentable!
+    var delegate: JFFocusedCardViewDelegate?
+    fileprivate var recognizer: UITapGestureRecognizer!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var subTitleLabelOne: UILabel!
+    @IBOutlet var subTitleLabelTwo: UILabel!
+    @IBOutlet weak var actionOneButton: UIButton!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 2
+        imageView.layer.borderColor = UIColor.white.withAlphaComponent(0.4).cgColor
+        imageView.layer.borderWidth = 0.5
+        actionOneButton.isHidden = true
+        actionOneButton.layer.cornerRadius = 2
+        actionOneButton.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
+        actionOneButton.layer.borderWidth = 0.5
+        recognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        imageView.addGestureRecognizer(recognizer)
+        imageView.isUserInteractionEnabled = true
     }
     
-    self.card = _card
-    
-    if let _action = self.card.action {
-      let title = _action.title
-      actionOneButton.setTitle(title, for: UIControlState())
-      actionOneButton.titleLabel?.adjustsFontSizeToFitWidth = true
-      actionOneButton.titleLabel?.minimumScaleFactor = 0.5
-      actionOneButton.isHidden = false
+    func configureForCard(_ card: CardPresentable?) {
+        guard let _card = card else {
+            self.card = nil
+            self.imageView.image = nil
+            self.titleLabel.text = nil
+            self.subTitleLabelOne.text = nil
+            self.subTitleLabelTwo.text = nil
+            return
+        }
+        
+        self.card = _card
+        
+        if let _action = self.card.action {
+            let title = _action.title
+            actionOneButton.setTitle(title, for: UIControlState())
+            actionOneButton.titleLabel?.adjustsFontSizeToFitWidth = true
+            actionOneButton.titleLabel?.minimumScaleFactor = 0.5
+            actionOneButton.isHidden = false
+        }
+        imageView.image = UIImage(named: self.card.imageURLString)
+        titleLabel.text = self.card.nameText
+        subTitleLabelOne.text = self.card.detailText
     }
     
-    imageView.loadImageAtURL(self.card.imageURLString, withDefaultImage: self.card.placeholderImage)
-    titleLabel.text = self.card.nameText
-    subTitleLabelOne.text = self.card.detailText
-  }
-  
-  @IBAction func actionOneButtonAction(_ sender: AnyObject) {
-    delegate?.focusedCardViewDidSelectActionItemOne(self)
-  }
+    @IBAction func actionOneButtonAction(_ sender: AnyObject) {
+        delegate?.focusedCardViewDidSelectActionItemOne(self)
+    }
     
-  @objc func tapAction() {
-    delegate?.focusedCardViewDidSelectDetailAction(self)
-  }
+    @objc func tapAction() {
+        delegate?.focusedCardViewDidSelectDetailAction(self)
+    }
 }
