@@ -26,8 +26,7 @@ final class MenuViewController: BaseViewController {
 	private var setupAction: (() -> Void)?
 	private var backgroundTapCmd: Command?
 	private var isSlided: Bool = false
-	
-	
+	private var usersProvider = DI.providers.resolve(UserProviderProtocol.self)!
 	init() {
 		super.init(nibName: nil, bundle: nil)
 		self.modalPresentationStyle = .fullScreen
@@ -39,11 +38,29 @@ final class MenuViewController: BaseViewController {
 	}
 	
 	override func loadView() {
+		usersProvider.load { (success) in
+			if success {
+				Log.writeLog(logLevel: .debug, message: "Users is load!")
+			}
+			else {
+				Log.writeLog(logLevel: .error, message: "Something gone wrong!")
+			}
+		}
+		usersProvider.recognize()
 		let faker = Faker()
-		let viewModel = MenuViewModel(userName: faker.name.name(), avatar: UIImage(named: "tmp_ava"))
-		let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
-		view.delegate = self
-		self.view = view
+		if let user = usersProvider.user {
+			let avatar = UIImageView()
+			avatar.loadImageAtURL(user.imageURL, withDefaultImage: #imageLiteral(resourceName: "default_avatar"))
+			let viewModel = MenuViewModel(userName: user.userName, avatar: avatar.image)
+			let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
+			view.delegate = self
+			self.view = view
+		} else {
+			let viewModel = MenuViewModel(userName:  faker.name.name(), avatar: UIImage(named: "tmp_ava"))
+			let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
+			view.delegate = self
+			self.view = view
+		}
 	}
 	
 	override func viewDidLoad() {
@@ -116,8 +133,6 @@ final class MenuViewController: BaseViewController {
 			completion(false)
 		}
 	}
-	
-	
 }
 
 extension MenuViewController {

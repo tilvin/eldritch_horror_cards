@@ -10,7 +10,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         Log.writeLog(logLevel: .info, message: "\n\(documentsPath)\n")
         IQKeyboardManager.shared.enable = true
-        //Fabric.with([Crashlytics.self])
         DI.registerProviders()
         DI.providers.resolve(ConfigProviderProtocol.self)!.load()
         DI.providers.resolve(NavigatorProtocol.self)?.create(self)

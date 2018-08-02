@@ -10,12 +10,13 @@ import Foundation
 
 enum DataParseResult {
     case monsters(monsters: [Monster])
+    case users(users: [User])
     case decks(deck: Decks)
     case error(error: String)
 }
 
 enum DataType: String {
-    case monster, decks
+    case monster, decks, users
 }
 
 protocol DataParseServiceProtocol {
@@ -28,7 +29,7 @@ class DataParseService: DataParseServiceProtocol {
     func parse(type: DataType, json: Any) -> DataParseResult {
         
         switch type {
-        case .monster:
+        case .monster, .users:
             guard let jsonDict = json as? [[String: Any]] else {
                 return .error(error: "Can't parse json!")
             }
@@ -49,6 +50,13 @@ class DataParseService: DataParseServiceProtocol {
         }
         
         switch type {
+        case .users:
+            if let model = value([User].self) {
+                return .users(users: model)
+            }
+            else {
+                return .error(error: "Can't parse users!")
+            }
         case .monster:
             if let model = value([Monster].self) {
                 return .monsters(monsters: model)
