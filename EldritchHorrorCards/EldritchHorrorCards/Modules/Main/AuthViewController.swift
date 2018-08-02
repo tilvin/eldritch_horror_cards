@@ -23,9 +23,7 @@ class AuthViewController: BaseViewController {
 		super.viewDidLoad()
 		authProvider = DI.providers.resolve(AuthProviderProtocol.self)!
 		
-		if authProvider.loadToken() {
-			autoLogin()
-		}
+		if authProvider.loadToken() { autoLogin() }
 	}
 	
 	//MARK: - Handlers

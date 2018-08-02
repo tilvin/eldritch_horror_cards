@@ -8,11 +8,14 @@
 
 import UIKit
 
+import UIKit
+
 class AppNavigator: NSObject, NavigatorProtocol {
 	
 	var currentController: BaseViewController?
 	var tabBarControllersProvider: TabBarControllersProviderProtocol
 	let tabBarController: BaseTabBarController
+	var app: AppDelegate?
 	
 	init(tabBarControllersProvider: TabBarControllersProviderProtocol = DI.providers.resolve(TabBarControllersProviderProtocol.self)!) {
 		self.tabBarControllersProvider = tabBarControllersProvider
@@ -23,27 +26,16 @@ class AppNavigator: NSObject, NavigatorProtocol {
 		display(controller: controller, mode: mode)
 	}
 	
-	func create(_ app: AppDelegate, rootController: BaseViewController) {
+	func create(_ app: AppDelegate) {
+		self.app = app
 		makeWindowVisible(app)
-		
-		let navController = BaseNavigationController(rootViewController: rootController)
-		app.window?.rootViewController = navController
-		currentController = rootController
+		goMain()
 	}
 	
-	func goMain(_ app: AppDelegate) {
-		makeWindowVisible(app)
-		
-		tabBarController.viewControllers = tabBarControllersProvider
-			.registeredControllers()
-			.compactMap({ (addableController) -> BaseNavigationController? in
-				return BaseNavigationController(rootViewController: addableController)
-			})
-		
-		tabBarController.delegate = self
-		
-		app.window?.rootViewController = tabBarController
-		currentController = tabBarController.controllers?.first
+	func goMain() {
+		let controller = AuthViewController.controllerFromStoryboard(.main)
+		self.app?.window?.rootViewController = controller
+		currentController = controller
 	}
 	
 	private var safetyCurrentController: BaseViewController {
@@ -110,3 +102,4 @@ extension AppNavigator: UITabBarControllerDelegate {
 		currentController = (viewController as? UINavigationController)?.topViewController as? BaseViewController
 	}
 }
+

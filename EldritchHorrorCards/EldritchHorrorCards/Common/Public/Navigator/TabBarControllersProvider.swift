@@ -10,7 +10,7 @@ import UIKit
 
 class TabBarControllersProvider: TabBarControllersProviderProtocol {
 	func registeredControllers() -> [TabBarAddableController] {
-		return []
-//			MainViewController(tabBarItem: UITabBarItem(title: "Главная", image: UIImage(named: "close_button"), tag: 0))]
+		return [] // [AuthViewController.controllerFromStoryboard(.main)]
+		//[AuthViewController(tabBarItem: UITabBarItem(title: "Auth", image: UIImage(named: "close_button"), tag: 0))]
 	}
 }

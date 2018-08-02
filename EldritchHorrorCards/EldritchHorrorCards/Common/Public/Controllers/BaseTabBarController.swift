@@ -28,7 +28,7 @@ class BaseTabBarController: UITabBarController {
 	var controllers: [BaseViewController]? {
 		get {
 			return viewControllers?.compactMap({ (vc) -> BaseViewController? in
-				return vc as? BaseViewController
+				return (vc as? BaseNavigationController)?.viewControllers.first as? BaseViewController
 			})
 		}
 		set {

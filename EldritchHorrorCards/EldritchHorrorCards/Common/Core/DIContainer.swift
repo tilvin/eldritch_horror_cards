@@ -21,6 +21,8 @@ class DIContainer {
 		let key = makeKey(type: type)
 		guard let service = services[key] else {
 			fatalError("\(key) not registered in DI")
+//			print("\(key) not registered in DI")
+//			return nil
 		}
 		return service.resolve(type: type)
 	}
