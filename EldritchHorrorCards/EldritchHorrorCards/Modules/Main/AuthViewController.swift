@@ -8,7 +8,7 @@ extension AuthViewController {
 	}
 }
 
-class AuthViewController: UIViewController {
+class AuthViewController: BaseViewController {
 	@IBOutlet private var emailTextField: UITextField!
 	@IBOutlet private var passwordTextField: UITextField!
 	@IBOutlet private var emailView: UIView!
