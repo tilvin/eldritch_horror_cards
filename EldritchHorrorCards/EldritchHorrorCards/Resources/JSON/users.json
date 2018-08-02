@@ -1,0 +1,20 @@
+ [
+  {
+  "login":"gary@testmail.com",
+  "password":"a123",
+  "userName":"Gary Lucas",
+  "imageURL":"https://www.fakepersongenerator.com/Face/male/male20171086711834930.jpg"
+  },
+  {
+  "login":"bonita@testmail.com",
+  "password":"a123",
+  "userName":"Bonita Mays",
+  "imageURL":"https://www.fakepersongenerator.com/Face/female/female20161025383135559.jpg"
+  },
+  {
+  "login":"luther@testmail.com",
+  "password":"a123",
+  "userName":"Luther Torres",
+  "imageURL":"https://www.fakepersongenerator.com/Face/male/male20161086698818481.jpg"
+  }
+  ]
