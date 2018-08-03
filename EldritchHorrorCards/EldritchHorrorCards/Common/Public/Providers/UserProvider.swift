@@ -12,7 +12,7 @@ protocol UserProviderProtocol {
 	var user: User? { get set }
 	func load(completion: @escaping (Bool) -> Void)
 	func recognize()
-	
+	func loadImage(imageURL:String)	
 }
 
 class UserProvider: UserProviderProtocol {
@@ -48,10 +48,17 @@ class UserProvider: UserProviderProtocol {
 	func recognize() {
 		while users.count > 0 {
 			if users[users.count - 1].login == UserDefaults.standard.string(forKey: "login") {
+				loadImage(imageURL: users[users.count - 1].imageURL)
 				return user =  users[users.count - 1]
 			} else {
 				users.remove(at: users.count - 1)
 			}
 		}
+	}
+	
+	func loadImage(imageURL:String)  {
+		guard let imageUrl = URL(string: imageURL) else { return }
+		guard let imageData = NSData(contentsOf: imageUrl) else { return }
+		UserDefaults.standard.set(imageData, forKey: "avatar")
 	}
 }

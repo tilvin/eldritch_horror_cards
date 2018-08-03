@@ -48,10 +48,10 @@ final class MenuViewController: BaseViewController {
 		}
 		usersProvider.recognize()
 		let faker = Faker()
-		if let user = usersProvider.user {
-			let avatar = UIImageView()
-			avatar.loadImageAtURL(user.imageURL, withDefaultImage: #imageLiteral(resourceName: "default_avatar"))
-			let viewModel = MenuViewModel(userName: user.userName, avatar: avatar.image)
+		if let user = usersProvider.user,
+			let avatar = UserDefaults.standard.data(forKey: "avatar") {
+			usersProvider.loadImage(imageURL: user.imageURL)
+			let viewModel = MenuViewModel(userName: (user.userName), avatar: UIImage(data: avatar))
 			let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
 			view.delegate = self
 			self.view = view
@@ -78,7 +78,6 @@ final class MenuViewController: BaseViewController {
 		
 		set(slided: isSlided)
 	}
-	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 	}

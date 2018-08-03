@@ -65,16 +65,15 @@ class AuthViewController: BaseViewController {
 	
 	private func checkLogin(login: String = "") {
 		//TODO: подгрузиьт аватар по переданному логину
-		let emails = ["torlopov.andrey@gmail.com", "t"]
-		Log.writeLog(logLevel: .todo, message: "Load avatar image with login: \(login)")
-		
-		let isShow = emails.contains(login)
-		
+		Log.writeLog(logLevel: .todo, message: "Load avatar image with login: \(login)")		
+		var isShow = false
+		if let avatar = UserDefaults.standard.data(forKey: "avatar") {
+			isShow = true
+			avatarImageView.image = UIImage(data: avatar)
+		}
 		if avatarImageView.isHidden != !isShow {
-			avatarImageView.image = #imageLiteral(resourceName: "tmp_ava")
 			if isShow { avatarImageView.isHidden = false }
-			avatarImageView.alpha = isShow ? 0 : 1
-			
+			avatarImageView.alpha = isShow ? 0 : 1			
 			UIView.animate(withDuration: 1,
 						   animations: {
 							self.avatarImageView.alpha = isShow ? 1 : 0
