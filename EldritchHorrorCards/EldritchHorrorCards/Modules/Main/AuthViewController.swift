@@ -45,10 +45,11 @@ class AuthViewController: BaseViewController {
 		emailView.borderColor = appearence.borderColor
 		
 		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
-			guard let sSelf = self else { return }
 			Log.writeLog(logLevel: .debug, message: "Auth is \(result)")
 			if result {
-				Router.presentMonsters(parent: sSelf)
+				let controller = MainViewController()
+				controller.modalTransitionStyle = .crossDissolve
+				self?.appNavigator?.go(controller: controller, mode: .replace)
 			}
 		}
 	}
@@ -92,8 +93,10 @@ class AuthViewController: BaseViewController {
 		emailTextField.typeOn(string: login) { [weak self] in
 			guard let s = self else { return }
 			s.passwordTextField.typeOn(string: "*********") {
-				delay(seconds: 1.5, completion: {
-					Router.presentMonsters(parent: s)
+				delay(seconds: 1.5, completion: { [weak self] in
+					let controller = MainViewController()
+					controller.modalTransitionStyle = .crossDissolve
+					self?.appNavigator?.go(controller: controller, mode: .replace)
 				})
 			}
 		}

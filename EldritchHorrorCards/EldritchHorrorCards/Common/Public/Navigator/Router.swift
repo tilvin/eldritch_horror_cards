@@ -14,13 +14,6 @@ import UIKit
 class Router {
     static var completionKey: String { return "completion" }
     
-    static func presentMonsters(parent: UIViewController, inputParams: [String: Any] = [:]) {
-        let controller = MonstersViewController.controllerFromStoryboard(.main)
-        let nc = UINavigationController(rootViewController: controller)
-        controller.modalTransitionStyle = .crossDissolve
-        parent.present(nc, animated: true, completion: nil)
-    }
-    
     static func presentAuth(parent: UIViewController? = nil, inputParams: [String: Any] = [:]) {
         var parentController: UIViewController!
         if parent != nil {
