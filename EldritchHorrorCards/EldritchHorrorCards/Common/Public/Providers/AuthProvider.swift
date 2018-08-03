@@ -60,7 +60,6 @@ class AuthProvider: AuthProviderProtocol {
     func logout(error: String?) {
         clear()
         Log.writeLog(logLevel: .debug, message: "show auth view controller")
-        Router.presentAuth()
     }
     
     func clear() {
