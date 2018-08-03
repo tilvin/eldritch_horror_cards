@@ -70,7 +70,6 @@
 		A4B816C520D01F6500FC5651 /* LoggerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816C020D01F6500FC5651 /* LoggerProfile.swift */; };
 		A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CC20D021DC00FC5651 /* MenuViewController.swift */; };
 		A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */; };
-		A4BDC28820FCD3F00012F00A /* monsters.json in Resources */ = {isa = PBXBuildFile; fileRef = A4BDC28720FCD3F00012F00A /* monsters.json */; };
 		A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */; };
 		A4FDAFA220D3BCF000FA6E4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA120D3BCEF00FA6E4B /* Router.swift */; };
 		A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */; };
@@ -161,7 +160,6 @@
 		A4B816C020D01F6500FC5651 /* LoggerProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerProfile.swift; sourceTree = "<group>"; };
 		A4B816CC20D021DC00FC5651 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
-		A4BDC28720FCD3F00012F00A /* monsters.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = monsters.json; sourceTree = "<group>"; };
 		A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
 		A4FDAFA120D3BCEF00FA6E4B /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
@@ -430,7 +428,6 @@
 			isa = PBXGroup;
 			children = (
 				A441BBC92109BA8100EAC5DD /* cards.json */,
-				A4BDC28720FCD3F00012F00A /* monsters.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -599,7 +596,6 @@
 				A4FE642A20D0111E0064E52E /* LaunchScreen.storyboard in Resources */,
 				A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */,
 				A4FDB01220D413DE00FA6E4B /* JFFocusedCardView.xib in Resources */,
-				A4BDC28820FCD3F00012F00A /* monsters.json in Resources */,
 				9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */,
 				A4FE4CD620D01418003A33D3 /* GoogleService-Info.plist in Resources */,
 				A441BBCA2109BA8100EAC5DD /* cards.json in Resources */,

@@ -17,36 +17,25 @@ protocol MonsterDataProviderProtocol {
 
 class MonsterDataProvider: MonsterDataProviderProtocol {
 	var monsters: [Monster] = []
-	
+
 	func load(completion: @escaping (Bool) -> Void) {
-		do {
-			let filePath = Bundle.main.url(forResource: "monsters", withExtension: "zip")!
-			let file = try Zip.quickUnzipFile(filePath)
-			Log.writeLog(logLevel: .debug, message: "Zip... \(file)")
-		}
-		catch {
-			print("Something went wrong with unzip monsters.zip")
-			completion(false)
-		}
-		let documentsUrl:URL =  (FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask).first as URL?)!
+		guard let zipPath = Bundle.main.url(forResource: "monsters", withExtension: "zip"),
+			  let unzipPath = try? Zip.quickUnzipFile(zipPath),
+			  let documentsUrl: URL = (FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask).first as URL?)
+				else { return completion(false) }
+
 		let destinationFileUrl = documentsUrl.appendingPathComponent("monsters/monsters.json")
-		if let data = try? Data(contentsOf: destinationFileUrl, options: .alwaysMapped),
-			let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) {
-			Log.writeLog(logLevel: .debug, message: "Json parsed... \(data)")
-			let jsonMonsters = DataParseService().parse(type: .monster, json: json)
-			switch jsonMonsters {
-			case .monsters(let monsters):
-				self.monsters = monsters
-				completion(true)
-			case .error(let error):
-				Log.writeLog(logLevel: .error, message: error)
-				completion(false)
-			default: break
-			}
-		}
-		else {
-			Log.writeLog(logLevel: .error, message: "Invalid serialize data monsters.json")
-			completion(false)
+
+		guard let data = try? Data(contentsOf: destinationFileUrl, options: .alwaysMapped),
+			  let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) else { return completion(false) }
+
+		let jsonMonsters = DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: .monster, json: json)
+		switch jsonMonsters {
+		case .monsters(let monsters):
+			self.monsters = monsters
+			completion(true)
+		case .error: completion(false)
+		default: break
 		}
 	}
 }
