@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		442A1F7A1B830447984C57D9 /* Pods_EldritchHorrorCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */; };
+		558192FBEE027D902C52CAA0 /* ZipExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581943DE1A552D6BB0B876B /* ZipExtension.swift */; };
 		9F322861210B7CF800ECD4A4 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322860210B7CF800ECD4A4 /* CardViewController.swift */; };
 		9F322864210B82AF00ECD4A4 /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322863210B82AF00ECD4A4 /* FAPaginationLayout.swift */; };
 		9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322867210B855C00ECD4A4 /* ImageCell.swift */; };
@@ -92,6 +93,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5581943DE1A552D6BB0B876B /* ZipExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipExtension.swift; sourceTree = "<group>"; };
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
 		9F322860210B7CF800ECD4A4 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		9F322863210B82AF00ECD4A4 /* FAPaginationLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				A4563AD620F7DBAC00B65428 /* ViewController.swift */,
 				A4563AD920F7DBC200B65428 /* ViewControllerUI.swift */,
 				A4563AD320F7DBA300B65428 /* Window.swift */,
+				5581943DE1A552D6BB0B876B /* ZipExtension.swift */,
 			);
 			path = ExtensionsUtils;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				A4563AF220F7DD4C00B65428 /* Queues.swift in Sources */,
 				A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */,
 				A48C461720FD0F5300DF1687 /* ParseService.swift in Sources */,
+				558192FBEE027D902C52CAA0 /* ZipExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,15 +19,14 @@ class MonsterDataProvider: MonsterDataProviderProtocol {
 	var monsters: [Monster] = []
 
 	func load(completion: @escaping (Bool) -> Void) {
+		//MARK: это мок. Потом здесь будут данные хоть из файлов, хоть из сети
 		guard let zipPath = Bundle.main.url(forResource: "monsters", withExtension: "zip"),
-			  let unzipPath = try? Zip.quickUnzipFile(zipPath),
-			  let documentsUrl: URL = (FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask).first as URL?)
-				else { return completion(false) }
+			  let data = try? Data(contentsOf: zipPath) else { return completion(false) }
 
-		let destinationFileUrl = documentsUrl.appendingPathComponent("monsters/monsters.json")
-
-		guard let data = try? Data(contentsOf: destinationFileUrl, options: .alwaysMapped),
-			  let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) else { return completion(false) }
+		//А это уже более общая схема. Мы данные (зная что это zip) разархивируем.
+		guard let unzipData = try? data.unzip(dataType: .monsters),
+			  let unzipJsonData = unzipData,
+			  let json = try? JSONSerialization.jsonObject(with: unzipJsonData, options: [JSONSerialization.ReadingOptions.mutableContainers]) else { return completion(false) }
 
 		let jsonMonsters = DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: .monster, json: json)
 		switch jsonMonsters {
