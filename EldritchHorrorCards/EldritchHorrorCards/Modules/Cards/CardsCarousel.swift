@@ -20,19 +20,14 @@ class CardsCarousel: BaseViewController {
 		collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
 		collectionView.contentInset = UIEdgeInsetsMake(0, 30, 0, 30)
 		collectionView.decelerationRate = UIScrollViewDecelerationRateFast
-        collectionView.backgroundColor = view.backgroundColor
-	}
-    
-	func updateCellsLayout()  {
-		let centerX = collectionView.contentOffset.x + (collectionView.frame.size.width) / 2
-		for cell in collectionView.visibleCells {
-			var offsetX = centerX - cell.center.x
-			if offsetX < 0 { offsetX *= -1 }
-			cell.transform = CGAffineTransform.identity
-			let offsetPercentage = offsetX / (view.bounds.width * 2.7)
-			let scaleX = 1-offsetPercentage
-			cell.transform = CGAffineTransform(scaleX: scaleX, y: scaleX * 1.2)
-		}
+		collectionView.backgroundColor = view.backgroundColor
+		let layout = UPCarouselFlowLayout()
+		layout.scrollDirection = .horizontal
+		layout.sideItemAlpha = 0.6
+		layout.sideItemScale = 0.8
+		layout.spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 10)
+		collectionView?.setCollectionViewLayout(layout, animated: false)
 	}
 }
+
 

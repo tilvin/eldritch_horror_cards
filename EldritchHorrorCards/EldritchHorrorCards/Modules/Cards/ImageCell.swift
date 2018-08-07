@@ -8,5 +8,9 @@ class ImageCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+		self.shadowOffset = CGPoint.zero
+		self.shadowOpacity = 1
+		self.shadowRadius = 4
+		self.shadowColor = UIColor.scorpion
     }
 }

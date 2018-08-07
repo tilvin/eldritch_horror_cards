@@ -8,44 +8,38 @@
 import UIKit
 
 class CardViewController: CardsCarousel {
-    private var cardsTypes: [CardType] = CardType.all
+	private var cardsTypes: [CardType] = CardType.all
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		view.backgroundColor = UIColor.wildSand
 		isHiddenNavigationBar = true
-        viewConfigrations()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        updateCellsLayout()
-    }
+		viewConfigrations()
+	}
 }
 
 extension CardViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cardsTypes.count
-    }
 	
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
-        cell.cardImageView.image = cardsTypes[indexPath.row].image
-        cell.cardTypeLabel.text = cardsTypes[indexPath.row].title
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var cellSize: CGSize = collectionView.bounds.size
-        cellSize.width -= collectionView.contentInset.left * 2
-        cellSize.width -= collectionView.contentInset.right * 2
-        return cellSize
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        updateCellsLayout()
-    }
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return cardsTypes.count
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
+		if (indexPath.row == 0){
+			collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
+		}
+		cell.cardImageView.image = cardsTypes[indexPath.row].image
+		cell.cardTypeLabel.text = cardsTypes[indexPath.row].title
+		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		var cellSize: CGSize = collectionView.bounds.size
+		cellSize.width -= collectionView.contentInset.left * 2
+		cellSize.width -= collectionView.contentInset.right * 2
+		return cellSize
+	}
 }
 
 extension CardViewController {

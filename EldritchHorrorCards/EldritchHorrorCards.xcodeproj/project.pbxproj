@@ -10,7 +10,6 @@
 		442A1F7A1B830447984C57D9 /* Pods_EldritchHorrorCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */; };
 		558192FBEE027D902C52CAA0 /* ZipExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581943DE1A552D6BB0B876B /* ZipExtension.swift */; };
 		9F322861210B7CF800ECD4A4 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322860210B7CF800ECD4A4 /* CardViewController.swift */; };
-		9F322864210B82AF00ECD4A4 /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322863210B82AF00ECD4A4 /* FAPaginationLayout.swift */; };
 		9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322867210B855C00ECD4A4 /* ImageCell.swift */; };
 		9F32286A210B85D500ECD4A4 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F322869210B85D500ECD4A4 /* ImageCell.xib */; };
 		9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9F3CBDA02110CB6F00E842A4 /* monsters.zip */; };
@@ -60,6 +59,7 @@
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* ParseService.swift */; };
+		A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */; };
 		A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4B8160820D01C6700FC5651 /* Localizable.strings */; };
 		A4B8160920D01C6E00FC5651 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = A4B8160B20D01C6E00FC5651 /* Localizable.stringsdict */; };
 		A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B8161020D01D6000FC5651 /* BaseViewController.swift */; };
@@ -96,7 +96,6 @@
 		5581943DE1A552D6BB0B876B /* ZipExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipExtension.swift; sourceTree = "<group>"; };
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
 		9F322860210B7CF800ECD4A4 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
-		9F322863210B82AF00ECD4A4 /* FAPaginationLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		9F322867210B855C00ECD4A4 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		9F322869210B85D500ECD4A4 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		9F3CBDA02110CB6F00E842A4 /* monsters.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = monsters.zip; sourceTree = "<group>"; };
@@ -147,6 +146,7 @@
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* ParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
+		A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		A4B8158C20D0158000FC5651 /* EldritchHorrorCards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EldritchHorrorCards-Bridging-Header.h"; sourceTree = "<group>"; };
 		A4B8160C20D01C7200FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4B8160D20D01C7600FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -205,14 +205,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9F322862210B81BB00ECD4A4 /* FAPaginationLayout */ = {
-			isa = PBXGroup;
-			children = (
-				9F322863210B82AF00ECD4A4 /* FAPaginationLayout.swift */,
-			);
-			path = FAPaginationLayout;
-			sourceTree = "<group>";
-		};
 		9F32286D210C341400ECD4A4 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,7 +239,7 @@
 		A441BBCC2109BAE000EAC5DD /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				9F322862210B81BB00ECD4A4 /* FAPaginationLayout */,
+				A4AA1E512119830E000121C0 /* UPCarouselFlowLayout */,
 				A441BBCD2109BAED00EAC5DD /* JFCardSelectionViewController */,
 			);
 			path = Vendor;
@@ -488,6 +480,14 @@
 			path = Themes;
 			sourceTree = "<group>";
 		};
+		A4AA1E512119830E000121C0 /* UPCarouselFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */,
+			);
+			path = UPCarouselFlowLayout;
+			sourceTree = "<group>";
+		};
 		A4FE641320D0111D0064E52E = {
 			isa = PBXGroup;
 			children = (
@@ -650,20 +650,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -702,6 +698,7 @@
 				A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */,
 				A4563AEE20F7DD1200B65428 /* JSONParser.swift in Sources */,
 				A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */,
+				A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */,
 				A4FDB00C20D413DE00FA6E4B /* JFCardSelectionCell.swift in Sources */,
 				A4563AE620F7DC7500B65428 /* AlamofireViewController.swift in Sources */,
 				A4B816C420D01F6500FC5651 /* LoggerNull.swift in Sources */,
@@ -742,7 +739,6 @@
 				A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */,
 				A4B816C220D01F6500FC5651 /* Logger.swift in Sources */,
 				A4FDB01020D413DE00FA6E4B /* JFCardSelectionViewController.swift in Sources */,
-				9F322864210B82AF00ECD4A4 /* FAPaginationLayout.swift in Sources */,
 				A4FDB01120D413DE00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift in Sources */,
 				A4563AF220F7DD4C00B65428 /* Queues.swift in Sources */,
 				A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */,
