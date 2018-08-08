@@ -25,31 +25,14 @@ protocol DataParseServiceProtocol {
 
 class DataParseService: DataParseServiceProtocol {
     private var data: Data?
-    
     func parse(type: DataType, json: Any) -> DataParseResult {
-        
-        switch type {
-        case .monster, .users:
-            guard let jsonDict = json as? [[String: Any]] else {
-                return .error(error: "Can't parse json!")
-            }
-            guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
+		guard let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []),
                 let jsonStr = String(data: jsonData, encoding: .utf8) else {
                     return .error(error: "Can't parse data json!")
             }
             data = jsonStr.data(using: .utf8)
-        case .decks:
-            guard let jsonDict = json as? [String: Any] else {
-                return .error(error: "Can't parse json!")
-            }
-            guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
-                let jsonStr = String(data: jsonData, encoding: .utf8) else {
-                    return .error(error: "Can't parse data json!")
-            }
-            data = jsonStr.data(using: .utf8)
-        }
-        
-        switch type {
+		
+		switch type {
         case .users:
             if let model = value([User].self) {
                 return .users(users: model)

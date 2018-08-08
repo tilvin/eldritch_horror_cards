@@ -22,8 +22,12 @@ class AuthViewController: BaseViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		authProvider = DI.providers.resolve(AuthProviderProtocol.self)!
-		
-		if authProvider.loadToken() { autoLogin() }
+		if authProvider.loadToken() {
+			autoLogin()
+		} else {
+			let arrayMail = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"]
+			emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
+		}
 	}
 	
 	//MARK: - Handlers
@@ -43,7 +47,14 @@ class AuthViewController: BaseViewController {
 		
 		passwordView.borderColor = appearence.borderColor
 		emailView.borderColor = appearence.borderColor
-		
+		authProvider.load(with: login) { (success) in
+			if success {
+				Log.writeLog(logLevel: .debug, message: "Users is load!")
+			}
+			else {
+				Log.writeLog(logLevel: .error, message: "Something gone wrong!")
+			}
+		}
 		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
 			Log.writeLog(logLevel: .debug, message: "Auth is \(result)")
 			if result {
@@ -64,7 +75,6 @@ class AuthViewController: BaseViewController {
 	}
 	
 	private func checkLogin(login: String = "") {
-		//TODO: подгрузиьт аватар по переданному логину
 		Log.writeLog(logLevel: .todo, message: "Load avatar image with login: \(login)")		
 		var isShow = false
 		if let avatar = UserDefaults.standard.data(forKey: "avatar") {
@@ -86,18 +96,26 @@ class AuthViewController: BaseViewController {
 	private func autoLogin() {
 		singinButton.isEnabled = false
 		Log.writeLog(logLevel: .debug, message: "Authlogin!")
-		guard !authProvider.login.isEmpty else { return }
-		let login = authProvider.login
-		checkLogin(login: login)
-		emailTextField.typeOn(string: login) { [weak self] in
-			guard let s = self else { return }
-			s.passwordTextField.typeOn(string: "*********") {
-				delay(seconds: 1.5, completion: { [weak self] in
-					let controller = MainViewController()
-					controller.modalTransitionStyle = .crossDissolve
-					self?.appNavigator?.go(controller: controller, mode: .replace)
-				})
+		if let login = UserDefaults.standard.string(forKey: "login") {
+			checkLogin(login: login)
+			authProvider.load(with: login) { (success) in
+				if success {
+					Log.writeLog(logLevel: .debug, message: "Users is load!")
+				}
+				else {
+					Log.writeLog(logLevel: .error, message: "Something gone wrong!")
+				}
 			}
+			emailTextField.typeOn(string: login) { [weak self] in
+				guard let s = self else { return }
+				s.passwordTextField.typeOn(string: "*********") {
+					delay(seconds: 1.5, completion: {
+						Router.presentMonsters(parent: s)
+					})
+				}
+			}
+			
 		}
+		
 	}
 }

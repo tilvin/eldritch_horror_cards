@@ -26,7 +26,8 @@ final class MenuViewController: BaseViewController {
 	private var setupAction: (() -> Void)?
 	private var backgroundTapCmd: Command?
 	private var isSlided: Bool = false
-	private var usersProvider = DI.providers.resolve(UserProviderProtocol.self)!
+	private var authProvider = DI.providers.resolve(AuthProviderProtocol.self)!
+	
 	init() {
 		super.init(nibName: nil, bundle: nil)
 		self.modalPresentationStyle = .fullScreen
@@ -38,28 +39,23 @@ final class MenuViewController: BaseViewController {
 	}
 	
 	override func loadView() {
-		usersProvider.load { (success) in
-			if success {
-				Log.writeLog(logLevel: .debug, message: "Users is load!")
-			}
-			else {
-				Log.writeLog(logLevel: .error, message: "Something gone wrong!")
-			}
+		if let currentUser = authProvider.currentUser {
+			let viewModel = MenuViewModel(userName: (currentUser.userName), avatar: #imageLiteral(resourceName: "tmp_ava"))
+			let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
+			view.delegate = self
+			self.view = view
+			if let imageURL = authProvider.currentUser?.imageURL {
+				let avatar = UIImageView()
+				avatar.loadImageAtURL(imageURL, withDefaultImage: #imageLiteral(resourceName: "tmp_ava"), completion: {
+					let viewModel = MenuViewModel(userName: currentUser.userName, avatar: avatar.image)
+					let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
+					view.delegate = self
+					self.view = view
+				})
+			}			
 		}
-		usersProvider.recognize()
-		let faker = Faker()
-		if let user = usersProvider.user,
-			let avatar = UserDefaults.standard.data(forKey: "avatar") {
-			usersProvider.loadImage(imageURL: user.imageURL)
-			let viewModel = MenuViewModel(userName: (user.userName), avatar: UIImage(data: avatar))
-			let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
-			view.delegate = self
-			self.view = view
-		} else {
-			let viewModel = MenuViewModel(userName:  faker.name.name(), avatar: UIImage(named: "tmp_ava"))
-			let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
-			view.delegate = self
-			self.view = view
+		else {
+			Log.writeLog(logLevel: .debug, message: "User is no load!")
 		}
 	}
 	

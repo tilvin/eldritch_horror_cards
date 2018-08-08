@@ -1,20 +1,23 @@
  [
   {
+  "token": "64AAF6C9-DA15-43B6-91C2-90F754228FB6",
   "login":"gary@testmail.com",
   "password":"a123",
-  "userName":"Gary Lucas",
-  "imageURL":"https://www.fakepersongenerator.com/Face/male/male20171086711834930.jpg"
+  "user_name":"Gary Lucas",
+  "image_url":"https://www.fakepersongenerator.com/Face/male/male20171086711834930.jpg"
   },
   {
+  "token": "B37EBF3B-6818-49FF-930B-99A6535505E4",
   "login":"bonita@testmail.com",
   "password":"a123",
-  "userName":"Bonita Mays",
-  "imageURL":"https://www.fakepersongenerator.com/Face/female/female20161025383135559.jpg"
+  "user_name":"Bonita Mays",
+  "image_url":"https://www.fakepersongenerator.com/Face/female/female20161025383135559.jpg"
   },
   {
+  "token": "A7044C67-8000-48E4-A922-8CCC6892CC6E",
   "login":"luther@testmail.com",
   "password":"a123",
-  "userName":"Luther Torres",
-  "imageURL":"https://www.fakepersongenerator.com/Face/male/male20161086698818481.jpg"
+  "user_name":"Luther Torres",
+  "image_url":"https://www.fakepersongenerator.com/Face/male/male20161086698818481.jpg"
   }
   ]
