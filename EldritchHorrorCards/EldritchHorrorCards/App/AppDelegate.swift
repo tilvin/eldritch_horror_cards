@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         DI.providers.resolve(ConfigProviderProtocol.self)!.save { (success) in
             if !success {
-                //TODO: Отправлять данные в Crashlytics!
                 debugPrint("Can's save config!")
             }
         }

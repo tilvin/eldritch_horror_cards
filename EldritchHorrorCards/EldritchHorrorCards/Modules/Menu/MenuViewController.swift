@@ -40,22 +40,10 @@ final class MenuViewController: BaseViewController {
 	
 	override func loadView() {
 		if let currentUser = authProvider.currentUser {
-			let viewModel = MenuViewModel(userName: (currentUser.userName), avatar: #imageLiteral(resourceName: "tmp_ava"))
+			let viewModel = MenuViewModel(userName: (currentUser.userName), avatar: UIImage.defaultAvatar)
 			let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
 			view.delegate = self
 			self.view = view
-			if let imageURL = authProvider.currentUser?.imageURL {
-				let avatar = UIImageView()
-				avatar.loadImageAtURL(imageURL, withDefaultImage: #imageLiteral(resourceName: "tmp_ava"), completion: {
-					let viewModel = MenuViewModel(userName: currentUser.userName, avatar: avatar.image)
-					let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
-					view.delegate = self
-					self.view = view
-				})
-			}			
-		}
-		else {
-			Log.writeLog(logLevel: .debug, message: "User is no load!")
 		}
 	}
 	
@@ -71,7 +59,6 @@ final class MenuViewController: BaseViewController {
 			
 		})
 		setupAction?()
-		
 		set(slided: isSlided)
 	}
 	override func viewWillAppear(_ animated: Bool) {
@@ -133,7 +120,10 @@ final class MenuViewController: BaseViewController {
 extension MenuViewController {
 	
 	private func reloadMenu() {
-		Log.writeLog(logLevel: .debug, message: "Reload menu method!")
+		guard let menuView = view as? MenuView else { return }
+		//FIXME: тут просто дергаю метод с провайдера. Но походу его надо будет выше прописать.
+		let user = DI.providers.resolve(AuthProviderProtocol.self)!.currentUser
+		menuView.update(viewModel: MenuViewModel(userName: user?.userName ?? "???", avatar: user?.image))
 	}
 }
 

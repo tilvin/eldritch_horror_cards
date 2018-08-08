@@ -49,16 +49,9 @@ class AuthViewController: BaseViewController {
 		passwordView.borderColor = appearence.borderColor
 		emailView.borderColor = appearence.borderColor
 		authProvider.load(with: login) { (success) in
-			if success {
-				Log.writeLog(logLevel: .debug, message: "Users is load!")
-			}
-			else {
-				Log.writeLog(logLevel: .error, message: "Something gone wrong!")
-			}
+			success ? print("Users is load!") : print("Something gone wrong!")
 		}
 		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
-			guard let sSelf = self else { return }
-			Log.writeLog(logLevel: .debug, message: "Auth is \(result)")
 			if result {
 				let controller = MainViewController()
 				controller.modalTransitionStyle = .crossDissolve
@@ -78,10 +71,14 @@ class AuthViewController: BaseViewController {
 	
 	private func checkLogin(login: String = "") {
 		var isShow = false
+		
+		//FIXME: Тут сложней схема. На сервер отправляется запрос с логином. По которому идет проверка и если такой пользователь есть - возаращется просто урл на его аватар.
+//		а дальше идет загрузка аватарки
 		if let avatar = UserDefaults.standard.data(forKey: "avatar") {
 			isShow = true
 			avatarImageView.image = UIImage(data: avatar)
 		}
+		
 		if avatarImageView.isHidden != !isShow {
 			if isShow { avatarImageView.isHidden = false }
 			avatarImageView.alpha = isShow ? 0 : 1			

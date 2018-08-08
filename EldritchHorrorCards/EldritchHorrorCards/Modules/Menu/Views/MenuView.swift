@@ -43,6 +43,13 @@ class MenuView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	//MARK: - Public
+	
+	public func update(viewModel: MenuViewModel) {
+		self.viewModel = viewModel
+		contentView.update(name: viewModel.userName, avatar: viewModel.avatar)
+	}
+	
 	//MARK: - Private
 	
 	private func addSubviews() {

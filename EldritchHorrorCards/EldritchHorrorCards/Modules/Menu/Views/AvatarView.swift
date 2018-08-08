@@ -21,14 +21,9 @@ class AvatarView: DesignableView {
 		return view
 	}()
 	
-	private lazy var defaultAvatar: UIImageView = {
-		let imageView = UIImageView()
-		imageView.image = UIImage.defaultAvatar
-		return imageView
-	}()
-	
 	private lazy var userAvatar: UIImageView = {
 		let imageView = UIImageView()
+		imageView.image = UIImage.defaultAvatar
 		return imageView
 	}()
 	
@@ -36,7 +31,6 @@ class AvatarView: DesignableView {
 	
 	override init(frame: CGRect = CGRect.zero) {
 		super.init(frame: frame)
-		userAvatar.isHidden = true
 		setAppearence()
 		addSubviews()
 		makeConstraints()
@@ -50,18 +44,17 @@ class AvatarView: DesignableView {
 	//MARK: - Public
 	
 	func update(avatar: UIImage?) {
-		let isShow = avatar != nil
-		if userAvatar.isHidden != !isShow {
-			userAvatar.image = avatar
-			if isShow { userAvatar.isHidden = false }
-			userAvatar.alpha = isShow ? 0 : 1
-			
-			UIView.animate(withDuration: 1,
-						   animations: {
-							self.userAvatar.alpha = isShow ? 1 : 0
-			}) { (success) in
-				self.userAvatar.isHidden = !isShow
-			}
+		let image = avatar ?? UIImage.defaultAvatar
+		let imageView = UIImageView(frame: userAvatar.frame)
+		imageView.image = image
+		imageView.isHidden = false
+		imageView.alpha = 0
+		userAvatar.addSubview(imageView)
+		UIView.animate(withDuration: 1.5, animations: {
+			imageView.alpha = 1.0
+		}) { (_) in
+			self.userAvatar.image = image
+			imageView.removeFromSuperview()
 		}
 	}
 	
@@ -77,17 +70,12 @@ class AvatarView: DesignableView {
 	}
 	
 	private func addSubviews() {
-		avatarContentView.addSubview(defaultAvatar)
 		avatarContentView.addSubview(userAvatar)
 		addSubview(avatarContentView)
 	}
 	
 	private func makeConstraints() {
 		avatarContentView.snp.makeConstraints { (make) in
-			make.edges.equalToSuperview()
-		}
-		
-		defaultAvatar.snp.makeConstraints { (make) in
 			make.edges.equalToSuperview()
 		}
 		

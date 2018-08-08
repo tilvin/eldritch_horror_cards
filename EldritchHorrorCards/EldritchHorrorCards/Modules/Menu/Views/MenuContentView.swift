@@ -9,13 +9,7 @@
 import UIKit
 import SnapKit
 
-protocol MenuContentViewDelegate: class {
-	
-}
-
-class MenuContentView: BaseScrollView {
-	weak var delegate: MenuContentViewDelegate?
-	
+class MenuContentView: BaseScrollView {	
 	public func update(name: String, avatar: UIImage?) {
 		avatarView.update(avatar: avatar)
 		userName.text = name

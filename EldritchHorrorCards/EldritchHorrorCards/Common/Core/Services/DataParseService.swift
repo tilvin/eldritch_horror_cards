@@ -51,16 +51,20 @@ class DataParseService: DataParseServiceProtocol {
 //MARK: - Fetch extensions
 
 extension DataParseService {
-
 	private func value<T>(_ type: T.Type) -> T? where T: Codable {
 		if let data = data as? T { return data }
-		guard let data = data else { return nil }
-
-		if let val = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) as? T {
-			return val
+		
+		if let data = data {
+			do {
+				let json = try JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers])
+				if let val = json as? T {
+					return val
+				}
+			}
+			catch _ {}
+			return try? JSONDecoder().decode(type, from: data)
 		}
-
-		return try? JSONDecoder().decode(type, from: data)
-	}
+		return nil
+	} 
 }
 
