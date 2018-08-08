@@ -17,14 +17,15 @@ class AuthViewController: BaseViewController {
 	@IBOutlet private var singinButton: UIButton!
 	
 	private var appearence = Appearence()
-	private var authProvider: AuthProviderProtocol!
+	private var authProvider: AuthProviderProtocol = DI.providers.resolve(AuthProviderProtocol.self)!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		authProvider = DI.providers.resolve(AuthProviderProtocol.self)!
+
 		if authProvider.loadToken() {
 			autoLogin()
-		} else {
+		}
+		else {
 			let arrayMail = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"]
 			emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
 		}
@@ -56,6 +57,7 @@ class AuthViewController: BaseViewController {
 			}
 		}
 		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
+			guard let sSelf = self else { return }
 			Log.writeLog(logLevel: .debug, message: "Auth is \(result)")
 			if result {
 				let controller = MainViewController()
@@ -75,7 +77,6 @@ class AuthViewController: BaseViewController {
 	}
 	
 	private func checkLogin(login: String = "") {
-		Log.writeLog(logLevel: .todo, message: "Load avatar image with login: \(login)")		
 		var isShow = false
 		if let avatar = UserDefaults.standard.data(forKey: "avatar") {
 			isShow = true
@@ -94,28 +95,20 @@ class AuthViewController: BaseViewController {
 	}
 	
 	private func autoLogin() {
+		guard let login = UserDefaults.standard.string(forKey: "login") else { return }
 		singinButton.isEnabled = false
-		Log.writeLog(logLevel: .debug, message: "Authlogin!")
-		if let login = UserDefaults.standard.string(forKey: "login") {
-			checkLogin(login: login)
-			authProvider.load(with: login) { (success) in
-				if success {
-					Log.writeLog(logLevel: .debug, message: "Users is load!")
-				}
-				else {
-					Log.writeLog(logLevel: .error, message: "Something gone wrong!")
-				}
-			}
-			emailTextField.typeOn(string: login) { [weak self] in
-				guard let s = self else { return }
-				s.passwordTextField.typeOn(string: "*********") {
-					delay(seconds: 1.5, completion: {
-						Router.presentMonsters(parent: s)
-					})
-				}
-			}
-			
+		checkLogin(login: login)
+		authProvider.load(with: login) { (success) in
+			success ? print("Users is load!") : print("Something gone wrong!")
 		}
-		
+		emailTextField.typeOn(string: login) { [weak self] in
+			self?.passwordTextField.typeOn(string: "*********") {
+				delay(seconds: 1.5, completion: {
+					let controller = MainViewController()
+					controller.modalTransitionStyle = .crossDissolve
+					self?.appNavigator?.go(controller: controller, mode: .replace)
+				})
+			}
+		}
 	}
 }

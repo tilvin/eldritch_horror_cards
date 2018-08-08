@@ -1,5 +1,5 @@
 //
-//  Users.swift
+//  User.swift
 //  EldritchHorrorCards
 //
 //  Created by Вероника Садовская on 02.08.2018.
