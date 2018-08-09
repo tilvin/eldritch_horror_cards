@@ -69,8 +69,7 @@ class AuthViewController: BaseViewController {
 	}
 	
 	private func checkLogin(login: String = "") {
-		//FIXME: Тут сложней схема. На сервер отправляется запрос с логином. По которому идет проверка и если такой пользователь есть - возаращется просто урл на его аватар.
-		//		а дальше идет загрузка аватарки
+		//FIXME: Тут сложней схема. На сервер отправляется запрос с логином. По которому идет проверка и если такой пользователь есть - возаращется просто урл на его аватар. а дальше идет загрузка аватарки
 		if let avatar = UserDefaults.standard.data(forKey: "avatar") {
 			guard let image  = UIImage(data: avatar) else {return}
 			avatarImageView.set(image: image)
