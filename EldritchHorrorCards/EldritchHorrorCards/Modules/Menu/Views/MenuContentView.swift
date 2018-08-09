@@ -9,7 +9,13 @@
 import UIKit
 import SnapKit
 
-class MenuContentView: BaseScrollView {	
+protocol MenuContentViewProtocol: class {
+	func testButtonPressed()
+}
+
+class MenuContentView: BaseScrollView {
+	weak var delegate: MenuContentViewProtocol?
+
 	public func update(name: String, avatar: UIImage?) {
 		avatarView.update(avatar: avatar)
 		userName.text = name
@@ -37,6 +43,14 @@ class MenuContentView: BaseScrollView {
 		view.backgroundColor = UIColor.scorpion
 		return view
 	}()
+
+	private lazy var testButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("TestButton", for: .normal)
+		button.backgroundColor = .darkGray
+		button.setTitleColor(.red, for: .normal)
+		return button
+	}()
 	
 	//MARK: - Lifecycle
 	
@@ -46,6 +60,8 @@ class MenuContentView: BaseScrollView {
 		addSubviews()
 		makeConstraints()
 		layoutIfNeeded()
+
+		testButton.addTarget(self, action: #selector(testButtonPressed), for: .touchUpInside)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -61,6 +77,8 @@ class MenuContentView: BaseScrollView {
 		addToStackView(view: userName, embed: true)
 		addSeparatorView(height: 10, expandable: false)
 		addToStackView(view: separatorLineView, embed: true)
+		addSeparatorView(height: 10, expandable: false)
+		addToStackView(view: testButton, embed: true)
 		addSeparatorView(height: 10, expandable: true)
 	}
 	
@@ -79,6 +97,15 @@ class MenuContentView: BaseScrollView {
 			make.height.equalTo(1)
 			make.centerX.equalToSuperview()
 		}
+
+		testButton.snp.makeConstraints { make in
+			make.height.equalTo(50)
+			make.width.equalToSuperview()
+		 }
+	}
+
+	@objc private func testButtonPressed() {
+		delegate?.testButtonPressed()
 	}
 	
 	override func updateHeight() {

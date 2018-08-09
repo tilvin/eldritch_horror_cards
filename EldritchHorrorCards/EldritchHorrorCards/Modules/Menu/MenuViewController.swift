@@ -132,4 +132,9 @@ extension MenuViewController: MenuViewDelegate {
 	func backgroundTap() {
 		set(slided: false, animated: true, prepareToStart: false)
 	}
+
+	func testButtonTap() {
+		//TODO: здесь тестовые переходы делать можно
+		print("test button tap!")
+	}
 }

@@ -11,6 +11,7 @@ import SnapKit
 
 protocol MenuViewDelegate: class {
 	func backgroundTap()
+	func testButtonTap()
 }
 
 class MenuView: UIView {
@@ -32,6 +33,7 @@ class MenuView: UIView {
 		addGestureRecognizer(gesture)
 		contentView.update(name: viewModel.userName, avatar: viewModel.avatar)
 		layoutIfNeeded()
+		contentView.delegate = self
 	}
 
 	override init(frame: CGRect = CGRect.zero) {
@@ -64,5 +66,14 @@ class MenuView: UIView {
 
 	@objc private func backgroundTap() {
 		delegate?.backgroundTap()
+	}
+}
+
+//MARK: - MenuContentViewProtocol
+
+extension MenuView: MenuContentViewProtocol {
+
+	func testButtonPressed() {
+		delegate?.testButtonTap()
 	}
 }
