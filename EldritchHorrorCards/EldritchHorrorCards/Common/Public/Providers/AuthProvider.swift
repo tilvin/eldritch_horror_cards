@@ -56,6 +56,7 @@ class AuthProvider: AuthProviderProtocol {
 			guard let imageUrl = URL(string: imageURL),
 				let imageData = try? Data(contentsOf: imageUrl),
 				let image = UIImage(data: imageData) else { return }
+			UserDefaults.standard.set(imageData, forKey: "avatar")
 			DispatchQueue.main.async {
 				completion(image)
 			}
