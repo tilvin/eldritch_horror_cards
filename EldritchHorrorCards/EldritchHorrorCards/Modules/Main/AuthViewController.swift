@@ -15,7 +15,6 @@ class AuthViewController: BaseViewController {
 	@IBOutlet private var passwordView: UIView!
 	@IBOutlet private var avatarImageView: UIImageView!
 	@IBOutlet private var singinButton: UIButton!
-	
 	private var appearence = Appearence()
 	private var authProvider: AuthProviderProtocol = DI.providers.resolve(AuthProviderProtocol.self)!
 	
@@ -70,24 +69,11 @@ class AuthViewController: BaseViewController {
 	}
 	
 	private func checkLogin(login: String = "") {
-		var isShow = false
-		
 		//FIXME: Тут сложней схема. На сервер отправляется запрос с логином. По которому идет проверка и если такой пользователь есть - возаращется просто урл на его аватар.
 //		а дальше идет загрузка аватарки
 		if let avatar = UserDefaults.standard.data(forKey: "avatar") {
-			isShow = true
-			avatarImageView.image = UIImage(data: avatar)
-		}
-		
-		if avatarImageView.isHidden != !isShow {
-			if isShow { avatarImageView.isHidden = false }
-			avatarImageView.alpha = isShow ? 0 : 1			
-			UIView.animate(withDuration: 1,
-						   animations: {
-							self.avatarImageView.alpha = isShow ? 1 : 0
-			}) { (success) in
-				self.avatarImageView.isHidden = !isShow
-			}
+			let image  = UIImage(data: avatar)
+			avatarImageView.animationImage(image: image, animation: true)
 		}
 	}
 	

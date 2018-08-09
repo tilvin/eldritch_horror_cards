@@ -40,18 +40,7 @@
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kkf-OD-aL1" customClass="DesignableView" customModule="EldritchHorrorCards" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="7ZB-JI-Oob">
-                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="7ZB-JI-Oob" secondAttribute="height" multiplier="1:1" id="CWd-vt-duD"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="150"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </imageView>
-                                                    <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mFD-Mb-6gb">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="mFD-Mb-6gb">
                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="mFD-Mb-6gb" secondAttribute="height" multiplier="1:1" id="M6A-Gk-yMZ"/>
@@ -67,13 +56,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="7hV-F8-Wef"/>
                                                     <constraint firstAttribute="bottom" secondItem="mFD-Mb-6gb" secondAttribute="bottom" id="9O8-3L-Kxm"/>
-                                                    <constraint firstItem="7ZB-JI-Oob" firstAttribute="centerX" secondItem="mFD-Mb-6gb" secondAttribute="centerX" id="I94-ke-Ic0"/>
-                                                    <constraint firstItem="7ZB-JI-Oob" firstAttribute="centerY" secondItem="mFD-Mb-6gb" secondAttribute="centerY" id="KHe-UB-TSe"/>
-                                                    <constraint firstItem="7ZB-JI-Oob" firstAttribute="height" secondItem="mFD-Mb-6gb" secondAttribute="height" id="PIU-WF-Up6"/>
                                                     <constraint firstItem="mFD-Mb-6gb" firstAttribute="leading" secondItem="Kkf-OD-aL1" secondAttribute="leading" id="Pcm-pD-LJH"/>
                                                     <constraint firstItem="mFD-Mb-6gb" firstAttribute="top" secondItem="Kkf-OD-aL1" secondAttribute="top" id="XFf-Wi-7Lz"/>
                                                     <constraint firstAttribute="trailing" secondItem="mFD-Mb-6gb" secondAttribute="trailing" id="dBA-lm-O2b"/>
-                                                    <constraint firstItem="7ZB-JI-Oob" firstAttribute="width" secondItem="mFD-Mb-6gb" secondAttribute="width" id="eu5-4T-BN2"/>
                                                     <constraint firstAttribute="width" secondItem="Kkf-OD-aL1" secondAttribute="height" multiplier="1:1" id="pWY-YY-erS"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>

@@ -45,17 +45,7 @@ class AvatarView: DesignableView {
 	
 	func update(avatar: UIImage?) {
 		let image = avatar ?? UIImage.defaultAvatar
-		let imageView = UIImageView(frame: userAvatar.frame)
-		imageView.image = image
-		imageView.isHidden = false
-		imageView.alpha = 0
-		userAvatar.addSubview(imageView)
-		UIView.animate(withDuration: 1.5, animations: {
-			imageView.alpha = 1.0
-		}) { (_) in
-			self.userAvatar.image = image
-			imageView.removeFromSuperview()
-		}
+		userAvatar.animationImage(image: image, animation: true)
 	}
 	
 	//MARK: - Private

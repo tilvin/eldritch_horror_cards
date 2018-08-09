@@ -35,7 +35,29 @@ private struct Download {
 }
 
 public extension UIImageView {
-
+	
+	public func animationImage(image: UIImage?, animation: Bool) {
+		let imageView = UIImageView(frame: self.frame)
+		imageView.image = image
+		if animation {
+			imageView.isHidden = false
+			imageView.alpha = 0
+			self.addSubview(imageView)
+			UIView.animate(withDuration: 1.5, animations: {
+				imageView.alpha = 1.0
+			})
+			{ (_) in
+				self.image = image
+				imageView.removeFromSuperview()
+			}
+		}
+		else {
+			imageView.isHidden = false
+			imageView.alpha = 1
+			self.addSubview(imageView)
+		}
+	}
+	
 	public func loadImageAtURL(_ imageURL: String, withDefaultImage defaultImage: UIImage?) {
 		loadImageAtURL(imageURL, withDefaultImage: defaultImage, completion: nil)
 	}
