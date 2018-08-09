@@ -45,7 +45,7 @@ class AvatarView: DesignableView {
 	
 	func update(avatar: UIImage?) {
 		let image = avatar ?? UIImage.defaultAvatar
-		userAvatar.animationImage(image: image, animation: true)
+		userAvatar.set(image: image)
 	}
 	
 	//MARK: - Private
