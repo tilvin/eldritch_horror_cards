@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		442A1F7A1B830447984C57D9 /* Pods_EldritchHorrorCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */; };
 		558192FBEE027D902C52CAA0 /* ZipExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581943DE1A552D6BB0B876B /* ZipExtension.swift */; };
+		55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581983F398902734317516E /* UserDefaultsDataStore.swift */; };
 		9F0E79F22112F44D0080C907 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E79F12112F44D0080C907 /* users.json */; };
 		9F0E79F42112FDED0080C907 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E79F32112FDED0080C907 /* User.swift */; };
 		9F322861210B7CF800ECD4A4 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322860210B7CF800ECD4A4 /* CardViewController.swift */; };
@@ -96,6 +97,7 @@
 
 /* Begin PBXFileReference section */
 		5581943DE1A552D6BB0B876B /* ZipExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipExtension.swift; sourceTree = "<group>"; };
+		5581983F398902734317516E /* UserDefaultsDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataStore.swift; sourceTree = "<group>"; };
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
 		9F0E79F12112F44D0080C907 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		9F0E79F32112FDED0080C907 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -201,6 +203,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5581916006E1BCE07DE5C3F3 /* DataSrore */ = {
+			isa = PBXGroup;
+			children = (
+				5581983F398902734317516E /* UserDefaultsDataStore.swift */,
+			);
+			path = DataSrore;
+			sourceTree = "<group>";
+		};
 		6AA1357CCA43B3C8CE5442BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +308,7 @@
 				A4563AFA20F87FAE00B65428 /* DIContainer.swift */,
 				A441BBD22109BB5E00EAC5DD /* ExtensionsUtils */,
 				A441BBD12109BB4F00EAC5DD /* Services */,
+				5581916006E1BCE07DE5C3F3 /* DataSrore */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -426,7 +437,7 @@
 			children = (
 				A441BBC92109BA8100EAC5DD /* cards.json */,
 				9F0E79F12112F44D0080C907 /* users.json */,
-				A4BDC28720FCD3F00012F00A /* monsters.json */,
+				A4BDC28720FCD3F00012F00A,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -753,6 +764,7 @@
 				A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */,
 				A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */,
 				558192FBEE027D902C52CAA0 /* ZipExtension.swift in Sources */,
+				55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
