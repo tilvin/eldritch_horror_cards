@@ -106,9 +106,6 @@ class MenuContentView: BaseScrollView {
 
 	@objc private func testButtonPressed() {
 		delegate?.testButtonPressed()
-		let controller = AdditionsTableViewController.controllerFromStoryboard(.main)
-		controller.modalTransitionStyle = .flipHorizontal
-		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .modal)
 	}
 	
 	override func updateHeight() {

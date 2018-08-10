@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Additions View Controller-->
+        <scene sceneID="eoG-Se-eKs">
+            <objects>
+                <viewController storyboardIdentifier="AdditionsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MX2-St-2QR" customClass="AdditionsViewController" customModule="EldritchHorrorCards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kvM-AJ-HgW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-VM-7s7">
+                                <rect key="frame" x="0.0" y="58" width="320" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdditionTableViewCell" rowHeight="50" id="xhC-kg-6Nj" customClass="AdditionTableViewCell" customModule="EldritchHorrorCards" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xhC-kg-6Nj" id="N7n-7x-sdy">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BVS-0k-CEP">
+                                                    <rect key="frame" x="10" y="14" width="300" height="22"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOC-c6-whJ">
+                                                            <rect key="frame" x="0.0" y="0.5" width="268" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKl-EV-waa">
+                                                            <rect key="frame" x="278" y="0.0" width="22" height="22"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BVS-0k-CEP" firstAttribute="centerY" secondItem="N7n-7x-sdy" secondAttribute="centerY" id="WLd-Hb-Riw"/>
+                                                <constraint firstItem="BVS-0k-CEP" firstAttribute="leading" secondItem="N7n-7x-sdy" secondAttribute="leading" constant="10" id="uHO-Zd-qWE"/>
+                                                <constraint firstItem="BVS-0k-CEP" firstAttribute="centerX" secondItem="N7n-7x-sdy" secondAttribute="centerX" id="ubF-4h-kLX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="XOC-c6-whJ" id="oBn-38-qJl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="MX2-St-2QR" id="Tpf-77-ReN"/>
+                                    <outlet property="delegate" destination="MX2-St-2QR" id="FJf-uy-kgC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hXc-VM-7s7" firstAttribute="top" secondItem="SSq-Np-d1b" secondAttribute="top" constant="38" id="WBh-xb-XvR"/>
+                            <constraint firstItem="SSq-Np-d1b" firstAttribute="bottom" secondItem="hXc-VM-7s7" secondAttribute="bottom" id="biC-uK-rfn"/>
+                            <constraint firstItem="hXc-VM-7s7" firstAttribute="leading" secondItem="SSq-Np-d1b" secondAttribute="leading" id="qSQ-Iq-aJi"/>
+                            <constraint firstItem="hXc-VM-7s7" firstAttribute="trailing" secondItem="SSq-Np-d1b" secondAttribute="trailing" id="wa5-Su-H7X"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SSq-Np-d1b"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="hXc-VM-7s7" id="MQX-aR-Uo5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2FF-6Z-dnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938.39999999999998" y="742.5787106446777"/>
+        </scene>
+    </scenes>
+</document>

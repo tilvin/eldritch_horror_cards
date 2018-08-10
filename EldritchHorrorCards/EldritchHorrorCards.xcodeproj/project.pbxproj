@@ -12,7 +12,7 @@
 		55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581983F398902734317516E /* UserDefaultsDataStore.swift */; };
 		9F0E79F22112F44D0080C907 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E79F12112F44D0080C907 /* users.json */; };
 		9F0E79F42112FDED0080C907 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E79F32112FDED0080C907 /* User.swift */; };
-		9F171C54211CD1C0005A8264 /* AdditionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C53211CD1C0005A8264 /* AdditionsTableViewController.swift */; };
+		9F171C54211CD1C0005A8264 /* AdditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C53211CD1C0005A8264 /* AdditionsViewController.swift */; };
 		9F171C56211CD239005A8264 /* additions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F171C55211CD239005A8264 /* additions.json */; };
 		9F171C58211D59DE005A8264 /* Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C57211D59DE005A8264 /* Addition.swift */; };
 		9F171C5A211D5AB6005A8264 /* AdditionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */; };
@@ -78,6 +78,9 @@
 		A4B816C520D01F6500FC5651 /* LoggerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816C020D01F6500FC5651 /* LoggerProfile.swift */; };
 		A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CC20D021DC00FC5651 /* MenuViewController.swift */; };
 		A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */; };
+		A4C25331211DEE6800E0FF37 /* Additions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4C25330211DEE6800E0FF37 /* Additions.storyboard */; };
+		A4C25333211DEEAD00E0FF37 /* TableRowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C25332211DEEAD00E0FF37 /* TableRowBuilder.swift */; };
+		A4C25335211DF63200E0FF37 /* AdditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C25334211DF63200E0FF37 /* AdditionTableViewCell.swift */; };
 		A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */; };
 		A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */; };
 		A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFFE20D413DC00FA6E4B /* DialView.swift */; };
@@ -105,7 +108,7 @@
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
 		9F0E79F12112F44D0080C907 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		9F0E79F32112FDED0080C907 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		9F171C53211CD1C0005A8264 /* AdditionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionsTableViewController.swift; sourceTree = "<group>"; };
+		9F171C53211CD1C0005A8264 /* AdditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionsViewController.swift; sourceTree = "<group>"; };
 		9F171C55211CD239005A8264 /* additions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = additions.json; sourceTree = "<group>"; };
 		9F171C57211D59DE005A8264 /* Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addition.swift; sourceTree = "<group>"; };
 		9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionDataProvider.swift; sourceTree = "<group>"; };
@@ -175,6 +178,9 @@
 		A4B816C020D01F6500FC5651 /* LoggerProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerProfile.swift; sourceTree = "<group>"; };
 		A4B816CC20D021DC00FC5651 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		A4C25330211DEE6800E0FF37 /* Additions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Additions.storyboard; sourceTree = "<group>"; };
+		A4C25332211DEEAD00E0FF37 /* TableRowBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowBuilder.swift; sourceTree = "<group>"; };
+		A4C25334211DF63200E0FF37 /* AdditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionTableViewCell.swift; sourceTree = "<group>"; };
 		A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
 		A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
 		A4FDAFFE20D413DC00FA6E4B /* DialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialView.swift; sourceTree = "<group>"; };
@@ -341,6 +347,7 @@
 				A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */,
 				A4563AF120F7DD4C00B65428 /* Queues.swift */,
 				A4563ADD20F7DBF500B65428 /* String.swift */,
+				A4C25332211DEEAD00E0FF37 /* TableRowBuilder.swift */,
 				A4563AE720F7DCA700B65428 /* UIImageView.swift */,
 				A4563AE120F7DC1D00B65428 /* UIViewControllerExtension.swift */,
 				A4563AD520F7DBAB00B65428 /* View.swift */,
@@ -399,6 +406,7 @@
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A4C2532F211DEE4400E0FF37 /* Additions */,
 				A47569BD2110D3DB00311014 /* MonsterDetail */,
 				A441BBDB2109BC7C00EAC5DD /* Menu */,
 				A441BBDA2109BC7000EAC5DD /* Main */,
@@ -428,7 +436,6 @@
 				A479427C210C2FED00ED0851 /* MainViewController.swift */,
 				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
 				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
-				9F171C53211CD1C0005A8264 /* AdditionsTableViewController.swift */,
 				A4FE642320D0111D0064E52E /* Main.storyboard */,
 			);
 			path = Main;
@@ -515,6 +522,16 @@
 				A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */,
 			);
 			path = UPCarouselFlowLayout;
+			sourceTree = "<group>";
+		};
+		A4C2532F211DEE4400E0FF37 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				9F171C53211CD1C0005A8264 /* AdditionsViewController.swift */,
+				A4C25334211DF63200E0FF37 /* AdditionTableViewCell.swift */,
+				A4C25330211DEE6800E0FF37 /* Additions.storyboard */,
+			);
+			path = Additions;
 			sourceTree = "<group>";
 		};
 		A4FE641320D0111D0064E52E = {
@@ -624,6 +641,7 @@
 			files = (
 				9F0E79F22112F44D0080C907 /* users.json in Resources */,
 				A4FE642A20D0111E0064E52E /* LaunchScreen.storyboard in Resources */,
+				A4C25331211DEE6800E0FF37 /* Additions.storyboard in Resources */,
 				A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */,
 				A4FDB01220D413DE00FA6E4B /* JFFocusedCardView.xib in Resources */,
 				9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */,
@@ -715,6 +733,7 @@
 				9F80B99B210C3C96007C4396 /* CardsCarousel.swift in Sources */,
 				A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */,
 				A4794286210C31C300ED0851 /* BaseNavigationController.swift in Sources */,
+				A4C25333211DEEAD00E0FF37 /* TableRowBuilder.swift in Sources */,
 				A4563B0220F880BB00B65428 /* NavigatorProtocol.swift in Sources */,
 				A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */,
 				A4563AD420F7DBA300B65428 /* Window.swift in Sources */,
@@ -722,6 +741,7 @@
 				A47569C42110F32D00311014 /* CloseButtonView.swift in Sources */,
 				A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */,
 				A4563AE020F7DBF500B65428 /* Color.swift in Sources */,
+				A4C25335211DF63200E0FF37 /* AdditionTableViewCell.swift in Sources */,
 				A479428F210C8F6000ED0851 /* MenuViewModel.swift in Sources */,
 				A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */,
 				A479428D210C776500ED0851 /* AvatarView.swift in Sources */,
@@ -770,7 +790,7 @@
 				A4563B0120F880BB00B65428 /* Navigator.swift in Sources */,
 				A4563AE420F7DC5400B65428 /* Inspectable.swift in Sources */,
 				A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */,
-				9F171C54211CD1C0005A8264 /* AdditionsTableViewController.swift in Sources */,
+				9F171C54211CD1C0005A8264 /* AdditionsViewController.swift in Sources */,
 				9F0E79F42112FDED0080C907 /* User.swift in Sources */,
 				A4B816C220D01F6500FC5651 /* Logger.swift in Sources */,
 				A4FDB01020D413DE00FA6E4B /* JFCardSelectionViewController.swift in Sources */,
