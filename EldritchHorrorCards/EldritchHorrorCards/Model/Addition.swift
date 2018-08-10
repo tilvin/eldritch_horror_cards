@@ -12,10 +12,4 @@ struct Addition: Codable {
 	let id: String
 	let name: String
 	let description: String
-	
-	enum CodingKeys: String, CodingKey {
-		case id = "id"
-		case name = "name"
-		case description = "description"
-	}
 }
