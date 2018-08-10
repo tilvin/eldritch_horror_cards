@@ -51,7 +51,7 @@ class CardsDataProvider: CardsDataProviderProtocol {
             }
         }
         else {
-            Log.writeLog(logLevel: .error, message: "Invalid serialize data \(data)")
+            print("Invalid serialize data") 
             completion(false)
         }
     }

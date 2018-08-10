@@ -21,6 +21,7 @@ class DI {
 		container.register(AuthProviderProtocol.self, asSingleTone: true) { AuthProvider() }
 		container.register(MonsterDataProviderProtocol.self, asSingleTone: true) { MonsterDataProvider() }
 		container.register(CardsDataProviderProtocol.self, asSingleTone: true) { CardsDataProvider() }
+		container.register(AdditionDataProviderProtocol.self, asSingleTone: true) { AdditionDataProvider() }
 		container.register(TabBarControllersProviderProtocol.self, asSingleTone: true) { TabBarControllersProvider() }
 		container.register(DataParseServiceProtocol.self) { DataParseService() } 
 	}

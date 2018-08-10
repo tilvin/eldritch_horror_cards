@@ -12,11 +12,12 @@ enum DataParseResult {
 	case monsters(monsters: [Monster])
 	case users(users: [User])
 	case decks(deck: Decks)
+	case additions(additions: [Addition])
 	case error(error: String)
 }
 
 enum DataType: String {
-	case monster, decks, users
+	case monster, decks, users, additions
 }
 
 protocol DataParseServiceProtocol {
@@ -43,6 +44,9 @@ class DataParseService: DataParseServiceProtocol {
 			return .error(error: "Can't parse monsters!")
 		case .decks:
 			if let model = value(Decks.self) { return .decks(deck: model) }
+			return .error(error: "Can't parse cards!")
+		case .additions:
+			if let model = value([Addition].self) { return .additions(additions: model) }
 			return .error(error: "Can't parse cards!")
 		}
 	}
