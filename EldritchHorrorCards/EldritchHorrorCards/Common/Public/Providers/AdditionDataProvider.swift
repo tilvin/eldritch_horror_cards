@@ -23,15 +23,11 @@ class AdditionDataProvider: AdditionDataProviderProtocol {
 				return
 		}
 		if let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) {
-			let jsonDecks = DataParseService().parse(type: .additions, json: json)
-			switch jsonDecks {
-			case .additions(let additions):
-				self.additions = additions
-				completion(true)
-			case .error(error: let error):
-				print(error)
-				completion(false)
-			case .monsters, .users, .decks: break
+			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [Addition].self, json: json) { [weak self] (result) in
+				if let value = result {
+					self?.additions = value
+					completion(true)
+				}
 			}
 		}
 		else {

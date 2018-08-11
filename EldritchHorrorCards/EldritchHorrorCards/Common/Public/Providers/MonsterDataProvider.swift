@@ -25,13 +25,11 @@ class MonsterDataProvider: MonsterDataProviderProtocol {
 			  let unzipJsonData = unzipData,
 			  let json = try? JSONSerialization.jsonObject(with: unzipJsonData, options: [JSONSerialization.ReadingOptions.mutableContainers]) else { return completion(false) }
 
-		let jsonMonsters = DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: .monster, json: json)
-		switch jsonMonsters {
-		case .monsters(let monsters):
-			self.monsters = monsters
-			completion(true)
-		case .error: completion(false)
-		case .users, .decks, .additions: break
+		DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [Monster].self, json: json) { [weak self] (result) in
+			if let value = result {
+				self?.monsters = value
+				completion(true)
+			}
 		}
 	}
 }
