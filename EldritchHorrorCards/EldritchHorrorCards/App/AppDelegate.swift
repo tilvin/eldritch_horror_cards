@@ -6,9 +6,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Log.addLogProfileToAllLevels(defaultLoggerProfile: LoggerConsole())
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        Log.writeLog(logLevel: .info, message: "\n\(documentsPath)\n")
+        print("\n\(documentsPath)\n")
         IQKeyboardManager.shared.enable = true
         DI.registerProviders()
         DI.providers.resolve(ConfigProviderProtocol.self)!.load()

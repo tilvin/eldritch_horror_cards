@@ -39,12 +39,7 @@ class MonstersViewController: JFCardSelectionViewController {
         setupMenu()
         navigationController?.setNavigationBarHidden(true, animated: false)
         monsterProvider.load()  { (success) in
-            if success {
-                Log.writeLog(logLevel: .debug, message: "Monster is load!")
-            }
-            else {
-                Log.writeLog(logLevel: .error, message: "Something gone wrong!")
-            }
+            success ? print("Monster is load!") : print("Something gone wrong!")
         }
         
         monsters = monsterProvider.monsters
@@ -77,7 +72,7 @@ class MonstersViewController: JFCardSelectionViewController {
 	@objc func menuButtonAction(_ sender: UIButton) {
 		print("menu execute!")
 		let reloadCmd = Command {  (_) in
-			Log.writeLog(logLevel: .info, message: "reload view!")
+			print("reload view!")
 		}
 		menuAction?.perform(with: reloadCmd)
 	}

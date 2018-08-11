@@ -29,7 +29,7 @@ class AdditionDataProvider: AdditionDataProviderProtocol {
 				self.additions = additions
 				completion(true)
 			case .error(error: let error):
-				Log.writeLog(logLevel: .error, message: error)
+				print(error)
 				completion(false)
 			case .monsters, .users, .decks: break
 			}

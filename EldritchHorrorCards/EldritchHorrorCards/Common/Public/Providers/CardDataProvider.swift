@@ -45,7 +45,7 @@ class CardsDataProvider: CardsDataProviderProtocol {
                 specialContacts = decks.specialContacts
                 completion(true)
             case .error(error: let error):
-                Log.writeLog(logLevel: .error, message: error)
+                print(error)
                 completion(false)
             default: break
             }
