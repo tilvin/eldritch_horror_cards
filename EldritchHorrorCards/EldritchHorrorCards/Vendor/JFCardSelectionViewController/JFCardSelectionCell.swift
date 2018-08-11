@@ -61,6 +61,7 @@ class JFCardSelectionCell: UICollectionViewCell {
 		super.awakeFromNib()
 		imageView.clipsToBounds = true
 		imageView.layer.cornerRadius = 2
+		label.textColor = .mineShaft
 	}
 	
 	override func prepareForReuse() {

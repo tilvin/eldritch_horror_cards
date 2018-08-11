@@ -53,6 +53,8 @@ class JFFocusedCardView: UIView {
 		recognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
 		imageView.addGestureRecognizer(recognizer)
 		imageView.isUserInteractionEnabled = true
+		titleLabel.textColor = .mineShaft
+		subTitleLabelOne.textColor = .mineShaft
 	}
 	
 	func configureForCard(_ card: CardPresentable?) {

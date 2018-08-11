@@ -18,6 +18,10 @@ extension UIColor {
 		return UIColor(hexString: "5F5F5F")
 	}
 	
+	static var mineShaft: UIColor {
+		return UIColor(hexString: "3B3B3B")
+	}
+
 	//MARK: - Inits
 	
 	convenience init(components red: CGFloat, green: CGFloat, blue: CGFloat) {
