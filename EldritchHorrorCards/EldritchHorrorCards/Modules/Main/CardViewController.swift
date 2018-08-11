@@ -9,7 +9,7 @@ import UIKit
 
 class CardViewController: CardsCarousel {
 	private var cardsTypes: [CardType] = CardType.all
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = UIColor.wildSand
@@ -19,11 +19,11 @@ class CardViewController: CardsCarousel {
 }
 
 extension CardViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-	
+
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return cardsTypes.count
 	}
-	
+
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
 		if (indexPath.row == 0){
@@ -33,7 +33,7 @@ extension CardViewController: UICollectionViewDataSource, UICollectionViewDelega
 		cell.cardTypeLabel.text = cardsTypes[indexPath.row].title
 		return cell
 	}
-	
+
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		var cellSize: CGSize = collectionView.bounds.size
 		cellSize.width -= collectionView.contentInset.left * 2
@@ -43,7 +43,7 @@ extension CardViewController: UICollectionViewDataSource, UICollectionViewDelega
 }
 
 extension CardViewController {
-	
+
 	enum CardType: String {
 		case portals = "Portals"
 		case cities = "Cities"
@@ -51,7 +51,7 @@ extension CardViewController {
 		case contacts = "Contacts"
 		case evidences = "Evidences"
 		case specialContacts = "Special Contacts"
-		
+
 		static var all: [CardType] {
 			return [CardType.portals,
 					CardType.cities,
@@ -60,22 +60,19 @@ extension CardViewController {
 					CardType.evidences,
 					CardType.specialContacts]
 		}
-		
+
 		var title: String {
 			return self.rawValue
 		}
-		
+
 		var image: UIImage {
 			switch self {
-			case .portals:
-				return UIImage.portal
-			case .contacts:
-				return UIImage.contact
-			case .expeditions:
-				return UIImage.expeditionAfrica
-			case .specialContacts:
-				return UIImage.specialContactCthulhu
-			default: return UIImage.asset
+			case .portals: return UIImage.portal
+			case .cities: return UIImage.asset
+			case .expeditions: return UIImage.expeditionAfrica
+			case .contacts: return UIImage.contact
+			case .evidences: return UIImage.asset
+			case .specialContacts: return UIImage.specialContactCthulhu
 			}
 		}
 	}

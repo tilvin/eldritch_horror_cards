@@ -31,7 +31,7 @@ class MonsterDataProvider: MonsterDataProviderProtocol {
 			self.monsters = monsters
 			completion(true)
 		case .error: completion(false)
-		default: break
+		case .users, .decks, .additions: break
 		}
 	}
 }

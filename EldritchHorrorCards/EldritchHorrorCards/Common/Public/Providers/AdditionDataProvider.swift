@@ -31,7 +31,7 @@ class AdditionDataProvider: AdditionDataProviderProtocol {
 			case .error(error: let error):
 				Log.writeLog(logLevel: .error, message: error)
 				completion(false)
-			default: break
+			case .monsters, .users, .decks: break
 			}
 		}
 		else {
