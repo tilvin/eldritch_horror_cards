@@ -10,7 +10,8 @@ import UIKit
 
 protocol AuthProviderProtocol {
 	var currentUser: User? { get set }
-	
+	var token: String { get }
+
 	func loadToken() -> Bool
 	func authorize(with login: String, password: String, completion: @escaping (Bool) -> Void)
 	func logout(error: String?)
@@ -21,20 +22,30 @@ protocol AuthProviderProtocol {
 class AuthProvider: AuthProviderProtocol {
 	private var configProvider = DI.providers.resolve(ConfigProviderProtocol.self)!
 	var currentUser: User?
-	
+
+	var token: String {
+		guard let user = currentUser else { return "" }
+		return user.token
+	}
+
 	func loadToken() -> Bool {
 		guard !configProvider.token.isEmpty else { return false }
 		return !configProvider.login.isEmpty && !configProvider.token.isEmpty
 	}
 	
 	func authorize(with login: String, password: String, completion: @escaping (Bool) -> Void) {
-		guard let userLogin = currentUser?.login, let userToken = currentUser?.token else {
+		guard !login.isEmpty, !password.isEmpty else {
 			completion(false)
 			return
 		}
-		
-		configProvider.login = userLogin
-		configProvider.token = userToken
+
+		let session: URLSession = DI.providers.resolve(NetworkServiceProtocol.self)!.session
+		let task = session.dataTask(with: APIRequest.login(login: login, password: password).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+// распаковываем данные, парсим и записываем в configProvider
+		}
+//		task.resume()
+//		configProvider.login = userLogin
+//		configProvider.token = userToken
 		configProvider.save { (success) in
 			if !success { print("Can't save login and token!") }
 		}

@@ -23,6 +23,7 @@ class DI {
 		container.register(CardsDataProviderProtocol.self, asSingleTone: true) { CardsDataProvider() }
 		container.register(AdditionDataProviderProtocol.self, asSingleTone: true) { AdditionDataProvider() }
 		container.register(TabBarControllersProviderProtocol.self, asSingleTone: true) { TabBarControllersProvider() }
-		container.register(DataParseServiceProtocol.self) { DataParseService() } 
+		container.register(DataParseServiceProtocol.self) { DataParseService() }
+		container.register(NetworkServiceProtocol.self, asSingleTone: true) { NetworkService() }
 	}
 }

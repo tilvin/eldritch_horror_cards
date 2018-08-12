@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		442A1F7A1B830447984C57D9 /* Pods_EldritchHorrorCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */; };
 		558192FBEE027D902C52CAA0 /* ZipExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581943DE1A552D6BB0B876B /* ZipExtension.swift */; };
+		5581953C9BCA2678DA8B3DFB /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55819F9357AE6E6CD4A64D19 /* APIRequest.swift */; };
+		558197CF168E0D83FEB2BB06 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558190E9E2B7EDCC46915562 /* NetworkService.swift */; };
 		55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581983F398902734317516E /* UserDefaultsDataStore.swift */; };
 		9F0E79F22112F44D0080C907 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E79F12112F44D0080C907 /* users.json */; };
 		9F0E79F42112FDED0080C907 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E79F32112FDED0080C907 /* User.swift */; };
@@ -98,8 +100,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		558190E9E2B7EDCC46915562 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5581943DE1A552D6BB0B876B /* ZipExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipExtension.swift; sourceTree = "<group>"; };
 		5581983F398902734317516E /* UserDefaultsDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataStore.swift; sourceTree = "<group>"; };
+		55819F9357AE6E6CD4A64D19 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
 		9F0E79F12112F44D0080C907 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		9F0E79F32112FDED0080C907 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -215,6 +219,15 @@
 			path = DataSrore;
 			sourceTree = "<group>";
 		};
+		55819E70178EA040542F75C7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				55819F9357AE6E6CD4A64D19 /* APIRequest.swift */,
+				558190E9E2B7EDCC46915562 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		6AA1357CCA43B3C8CE5442BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +315,7 @@
 				A441BBD32109BB8000EAC5DD /* Navigator */,
 				A441BBD42109BB9100EAC5DD /* Providers */,
 				A45E5660210B32C900590AE7 /* Views */,
+				55819E70178EA040542F75C7 /* Network */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -772,6 +786,8 @@
 				A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */,
 				558192FBEE027D902C52CAA0 /* ZipExtension.swift in Sources */,
 				55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */,
+				5581953C9BCA2678DA8B3DFB /* APIRequest.swift in Sources */,
+				558197CF168E0D83FEB2BB06 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
