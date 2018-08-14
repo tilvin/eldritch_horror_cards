@@ -8,9 +8,10 @@
 
 import UIKit
 
-extension BaseTabBarController {
+extension BaseTabBarController { // Describe the apperance of BaseTabBarController
 	
-	struct Appearance {
+    /// Apperance of BaseTabBarController
+	public struct Appearance {
 		let isTranslucent = false
 		let selectedImageColor = UIColor.white
 		let selectedTextColor = UIColor.black
@@ -21,9 +22,10 @@ extension BaseTabBarController {
 	}
 }
 
+/// BaseTabBarController with defaults parameters
 class BaseTabBarController: UITabBarController {
 	
-	let appearance = Appearance()
+	public let appearance = Appearance()
 	
 	var controllers: [BaseViewController]? {
 		get {

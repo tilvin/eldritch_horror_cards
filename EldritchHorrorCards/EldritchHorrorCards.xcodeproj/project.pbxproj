@@ -211,12 +211,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5581916006E1BCE07DE5C3F3 /* DataSrore */ = {
+		5581916006E1BCE07DE5C3F3 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
 				5581983F398902734317516E /* UserDefaultsDataStore.swift */,
 			);
-			path = DataSrore;
+			path = DataStore;
 			sourceTree = "<group>";
 		};
 		55819E70178EA040542F75C7 /* Network */ = {
@@ -326,7 +326,7 @@
 				A4563AFA20F87FAE00B65428 /* DIContainer.swift */,
 				A441BBD22109BB5E00EAC5DD /* ExtensionsUtils */,
 				A441BBD12109BB4F00EAC5DD /* Services */,
-				5581916006E1BCE07DE5C3F3 /* DataSrore */,
+				5581916006E1BCE07DE5C3F3 /* DataStore */,
 			);
 			path = Core;
 			sourceTree = "<group>";

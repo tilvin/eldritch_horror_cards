@@ -16,7 +16,10 @@ class BaseViewController: UIViewController {
 		if isSetAsCurrentController { appNavigator?.currentController = self }
 		
 		setStatusbar(with: self.statusBarColor())
-		UIApplication.shared.statusBarStyle = self.isLightStatusFont ? .lightContent : .default
+        
+        var preferredStatusBarStyle : UIStatusBarStyle {
+            return self.isLightStatusFont ? .lightContent : .default
+        }
 	}
 	
     override var preferredStatusBarStyle : UIStatusBarStyle { return self.isLightStatusFont ? .lightContent : .default }
