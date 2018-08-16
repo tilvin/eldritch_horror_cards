@@ -4,3 +4,6 @@
 
 "call_monster" = "Вызвать этого монстра";
 "card.type.portal" = "Иные миры";
+
+"addit.title" = "Выберите дополнения";
+"addit.button.select" = "Продолжить";

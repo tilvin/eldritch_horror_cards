@@ -10,7 +10,6 @@ import UIKit
 
 class AdditionsViewController: BaseViewController {
 	@IBOutlet private var tableView: UITableView!
-	
 	var selectedUIDs: [String] = []
 	
 	private var additionProvider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
@@ -52,6 +51,11 @@ extension AdditionsViewController: UITableViewDataSource  {
 extension AdditionsViewController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		guard let selectedCell = tableView.cellForRow(at: indexPath)! as? AdditionTableViewCell else {return}
+		selectedCell.buttonImageOutlet.alpha = 1
+		selectedCell.borderCell.alpha = 1
+		selectedCell.borderCell.shadowColor = .clear
+		selectedCell.selectionStyle = .none
 		guard let indexPaths = tableView.indexPathsForSelectedRows else {
 			selectedUIDs = []
 			return
@@ -60,6 +64,10 @@ extension AdditionsViewController: UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+		guard let selectedCell = tableView.cellForRow(at: indexPath)! as? AdditionTableViewCell else {return}
+		selectedCell.buttonImageOutlet.alpha = 0.5
+		selectedCell.borderCell.alpha = 0.5
+		selectedCell.borderCell.shadowColor = .none
 		guard let indexPaths = tableView.indexPathsForSelectedRows else {
 			selectedUIDs = []
 			return
