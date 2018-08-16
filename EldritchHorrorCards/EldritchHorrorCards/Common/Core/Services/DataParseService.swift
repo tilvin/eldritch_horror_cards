@@ -13,7 +13,7 @@ protocol DataParseServiceProtocol {
 }
 
 class DataParseService: DataParseServiceProtocol {
-
+	
 	func parse<T: Codable>(type: T.Type, json: Any, completion: @escaping (T?) -> ())  {
 		guard let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []),
 			let jsonStr = String(data: jsonData, encoding: .utf8) else {
