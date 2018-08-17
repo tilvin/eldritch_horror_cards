@@ -51,7 +51,7 @@ extension AdditionsViewController: UITableViewDataSource  {
 extension AdditionsViewController: UITableViewDelegate {
 	
 	@IBAction func mapButtonPressed(_ sender: UIButton) {	
-		if sender.alpha == 1  && sender.isEnabled == true {
+		if sender.alpha == 1 {
 			sender.alpha = 0.5
 		}
 		else {
