@@ -81,7 +81,6 @@
                                                             <constraints>
                                                                 <constraint firstItem="BVS-0k-CEP" firstAttribute="leading" secondItem="ycc-MY-nad" secondAttribute="leading" constant="15" id="5aS-iX-dNa"/>
                                                                 <constraint firstItem="BVS-0k-CEP" firstAttribute="centerY" secondItem="ycc-MY-nad" secondAttribute="centerY" id="jKB-Mr-0ER"/>
-                                                                <constraint firstAttribute="trailing" secondItem="BVS-0k-CEP" secondAttribute="trailing" constant="15" id="jLi-yZ-kQL"/>
                                                                 <constraint firstItem="BVS-0k-CEP" firstAttribute="centerX" secondItem="ycc-MY-nad" secondAttribute="centerX" id="mOI-yw-jxt"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
