@@ -70,7 +70,6 @@ class MonstersViewController: JFCardSelectionViewController {
 	}
 	
 	@objc func menuButtonAction(_ sender: UIButton) {
-		print("menu execute!")
 		let reloadCmd = Command {  (_) in
 			print("reload view!")
 		}

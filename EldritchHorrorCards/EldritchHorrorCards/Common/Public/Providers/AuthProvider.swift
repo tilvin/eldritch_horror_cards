@@ -38,11 +38,12 @@ class AuthProvider: AuthProviderProtocol {
 			completion(false)
 			return
 		}
-
-		let session: URLSession = DI.providers.resolve(NetworkServiceProtocol.self)!.session
-		let task = session.dataTask(with: APIRequest.login(login: login, password: password).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+		
+		//TODO: Переделать на загрузку данных с сети
+//		let session: URLSession = DI.providers.resolve(NetworkServiceProtocol.self)!.session
+//		let task = session.dataTask(with: APIRequest.login(login: login, password: password).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
 // распаковываем данные, парсим и записываем в configProvider
-		}
+//		}
 //		task.resume()
 //		configProvider.login = userLogin
 //		configProvider.token = userToken
@@ -84,7 +85,7 @@ class AuthProvider: AuthProviderProtocol {
 		}
 				
 		DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [User].self, json: json) { [weak self] (result) in
-			if let value = result{
+			if let value = result {
 				self?.currentUser = value.filter { $0.login == loginUser }.first
 				if let userImageURL = self?.currentUser?.imageURL {
 					self?.loadImage(imageURL: userImageURL) { [weak self] (image) in

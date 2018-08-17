@@ -12,5 +12,12 @@ struct Addition: Codable {
 	let id: String
 	let name: String
 	let description: String
-	let map: Bool
+	var isMap: Bool
+	
+	enum CodingKeys: String, CodingKey {
+		case id = "id"
+		case name = "name"
+		case description = "description"
+		case isMap = "is_map"
+	}
 }

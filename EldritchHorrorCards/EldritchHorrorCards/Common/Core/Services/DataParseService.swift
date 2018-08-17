@@ -34,8 +34,10 @@ class DataParseService: DataParseServiceProtocol {
 			catch _ {}
 			completion(try? JSONDecoder().decode(type, from: data))
 		}
-		print("Can't parse \(type)!")
-		completion(nil)
+		else {
+			print("Can't parse \(type)!")
+			completion(nil)
+		}
 	}
 }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,41 +30,48 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="addit.title"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-VM-7s7">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-VM-7s7">
                                         <rect key="frame" x="0.0" y="48" width="320" height="385"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="lvo-b8-BQD">
+                                            <rect key="frame" x="0.0" y="108" width="320" height="12"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdditionTableViewCell" rowHeight="70" id="xhC-kg-6Nj" customClass="AdditionTableViewCell" customModule="EldritchHorrorCards" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="320" height="70"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdditionCell" rowHeight="80" id="xhC-kg-6Nj" customClass="AdditionCell" customModule="EldritchHorrorCards" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xhC-kg-6Nj" id="N7n-7x-sdy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycc-MY-nad" customClass="DesignableView" customModule="EldritchHorrorCards" customModuleProvider="target">
-                                                            <rect key="frame" x="10" y="10" width="300" height="50"/>
+                                                            <rect key="frame" x="20" y="15" width="280" height="50"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BVS-0k-CEP">
-                                                                    <rect key="frame" x="15" y="3" width="270" height="43"/>
+                                                                    <rect key="frame" x="15" y="3.5" width="250" height="43"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text=".Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOC-c6-whJ">
-                                                                            <rect key="frame" x="0.0" y="10" width="181" height="23"/>
+                                                                            <rect key="frame" x="0.0" y="10" width="161" height="23"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                             <color key="textColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a79-Il-q42">
-                                                                            <rect key="frame" x="186" y="0.0" width="48" height="43"/>
+                                                                            <rect key="frame" x="166" y="0.0" width="48" height="43"/>
                                                                             <state key="normal" image="Map"/>
                                                                             <connections>
-                                                                                <action selector="mapButtonPressed:" destination="MX2-St-2QR" eventType="touchUpInside" id="hSz-fL-FZf"/>
+                                                                                <action selector="mapButtonPressed:forEvent:" destination="MX2-St-2QR" eventType="touchUpInside" id="xsS-2F-8JH"/>
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKl-EV-waa">
-                                                                            <rect key="frame" x="239" y="6.5" width="31" height="30"/>
+                                                                            <rect key="frame" x="219" y="6.5" width="31" height="30"/>
                                                                             <state key="normal" image="info_button"/>
                                                                             <connections>
-                                                                                <action selector="infoButtonPressed:" destination="MX2-St-2QR" eventType="touchUpInside" id="HTU-G2-Ov6"/>
+                                                                                <action selector="descriptionButtonPressed:forEvent:" destination="MX2-St-2QR" eventType="touchUpInside" id="a6y-dY-knF"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -79,10 +86,10 @@
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="20"/>
+                                                                    <real key="value" value="10"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                    <real key="value" value="2"/>
+                                                                    <real key="value" value="1"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                     <color key="value" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -106,9 +113,9 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="ycc-MY-nad" firstAttribute="top" secondItem="N7n-7x-sdy" secondAttribute="top" constant="10" id="GYC-3c-cKp"/>
+                                                        <constraint firstItem="ycc-MY-nad" firstAttribute="top" secondItem="N7n-7x-sdy" secondAttribute="top" constant="15" id="GYC-3c-cKp"/>
                                                         <constraint firstItem="ycc-MY-nad" firstAttribute="centerX" secondItem="N7n-7x-sdy" secondAttribute="centerX" id="dg6-wV-8kk"/>
-                                                        <constraint firstItem="ycc-MY-nad" firstAttribute="leading" secondItem="N7n-7x-sdy" secondAttribute="leading" constant="10" id="l4j-2M-CG7"/>
+                                                        <constraint firstItem="ycc-MY-nad" firstAttribute="leading" secondItem="N7n-7x-sdy" secondAttribute="leading" constant="20" id="l4j-2M-CG7"/>
                                                         <constraint firstItem="ycc-MY-nad" firstAttribute="centerY" secondItem="N7n-7x-sdy" secondAttribute="centerY" id="w97-NA-lNn"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -120,7 +127,7 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="borderView" destination="ycc-MY-nad" id="BSi-yV-jxq"/>
-                                                    <outlet property="mapButton" destination="a79-Il-q42" id="KTI-OZ-ZLt"/>
+                                                    <outlet property="mapButton" destination="a79-Il-q42" id="o3Z-fU-PE9"/>
                                                     <outlet property="titleLabel" destination="XOC-c6-whJ" id="oBn-38-qJl"/>
                                                 </connections>
                                             </tableViewCell>

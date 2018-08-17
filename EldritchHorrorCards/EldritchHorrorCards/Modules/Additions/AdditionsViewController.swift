@@ -10,7 +10,7 @@ import UIKit
 
 class AdditionsViewController: BaseViewController {
 	@IBOutlet private var tableView: UITableView!
-	var selectedUIDs: [String] = []
+	private var selectedIndexPaths: [IndexPath] = []
 	
 	private var additionProvider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
 	private var additions: [Addition] = []
@@ -18,16 +18,35 @@ class AdditionsViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
 		additionProvider.load() { [weak self] (success) in
 			guard let sSelf = self else { return }
 			sSelf.additions = sSelf.additionProvider.additions
 			sSelf.makeRows()
 		}
+		makeRows()
 	}
 	
 	private func makeRows() {
-		rowBuilder = TableRowBuilder<Addition, AdditionTableViewCell>(items: additions)
+		rowBuilder = TableRowBuilder<Addition, AdditionCell>(items: additions)
 		tableView.reloadData()
+	}
+	
+	//MARK: - Handlers
+	
+	@IBAction private func mapButtonPressed(_ sender: Any, forEvent event: UIEvent) {
+		guard let point = event.allTouches?.first?.location(in: tableView) else { return }
+		let path = tableView.indexPathForRow(at: point)!
+		additions[path.row].isMap.toggle()
+		let cell = tableView.cellForRow(at: path) as! AdditionCell
+		cell.mapButton.alpha = additions[path.row].isMap ? 1 : 0.5
+	}
+
+	@IBAction private func descriptionButtonPressed(_ sender: Any, forEvent event: UIEvent) {
+		guard let point = event.allTouches?.first?.location(in: tableView) else { return }
+		let path = self.tableView.indexPathForRow(at: point)!
+		print(additions[path.row].description)
+		print("show description view!")
 	}
 }
 
@@ -50,34 +69,13 @@ extension AdditionsViewController: UITableViewDataSource  {
 
 extension AdditionsViewController: UITableViewDelegate {
 	
-	@IBAction func mapButtonPressed(_ sender: UIButton) {	
-		if sender.alpha == 1 {
-			sender.alpha = 0.5
-		}
-		else {
-			sender.alpha = 1
-		}
-		print("Tap map button")
-	}
-	
-	@IBAction func infoButtonPressed(_ sender: UIButton) {
-		print("Tap info button")
-	}
-	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		guard let indexPaths = tableView.indexPathsForSelectedRows else {
-			selectedUIDs = []
-			return
-		}
-		selectedUIDs = indexPaths.map { additions[$0.row].id }
+		selectedIndexPaths = tableView.indexPathsForSelectedRows ?? []
+		print(selectedIndexPaths)
 	}
 	
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		tableView.reloadRows(at: [indexPath], with: .none)
-		guard let indexPaths = tableView.indexPathsForSelectedRows else {
-			selectedUIDs = []
-			return
-		}
-		selectedUIDs = indexPaths.map { additions[$0.row].id }
+		selectedIndexPaths = tableView.indexPathsForSelectedRows ?? []
+		print(selectedIndexPaths)
 	}
 }

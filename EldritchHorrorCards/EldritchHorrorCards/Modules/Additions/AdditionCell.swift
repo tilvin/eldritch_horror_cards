@@ -8,21 +8,22 @@
 
 import UIKit
 
-class AdditionTableViewCell: UITableViewCell, ConfigurableCell {
+class AdditionCell: UITableViewCell, ConfigurableCell {
 	@IBOutlet private(set) var titleLabel: UILabel!
 	@IBOutlet private(set) var borderView: UIView!
 	@IBOutlet private(set) var mapButton: UIButton!
 	
 	override func awakeFromNib() {
-		super.awakeFromNib()
+		super.awakeFromNib()	
 	}
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
 		borderView.shadowOpacity = selected ? 0 : 1
-		mapButton.isEnabled = selected ?  true : false
-		selectionStyle = .none
 		borderView.borderColor = selected ?  .elm : .alto
+		mapButton.isEnabled = selected
+		if !selected { mapButton.alpha = 1}
+		if selected { mapButton.alpha = 1 }
 	}
 	
 	override func layoutSubviews() {
@@ -32,6 +33,6 @@ class AdditionTableViewCell: UITableViewCell, ConfigurableCell {
 	
 	func configure(with item: Addition) {
 		titleLabel.text = item.name
-		mapButton.alpha = item.map ?  1 : 0
+		mapButton.alpha = item.isMap ? 1 : 0.5
 	}	
 }
