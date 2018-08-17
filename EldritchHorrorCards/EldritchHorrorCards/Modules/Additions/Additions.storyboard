@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,31 +41,41 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycc-MY-nad" customClass="DesignableView" customModule="EldritchHorrorCards" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycc-MY-nad" customClass="DesignableView" customModule="EldritchHorrorCards" customModuleProvider="target">
                                                             <rect key="frame" x="10" y="10" width="300" height="50"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BVS-0k-CEP">
-                                                                    <rect key="frame" x="10" y="0.0" width="280" height="50"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BVS-0k-CEP">
+                                                                    <rect key="frame" x="15" y="3" width="270" height="43"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text=".Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOC-c6-whJ">
-                                                                            <rect key="frame" x="0.0" y="13.5" width="212" height="23"/>
+                                                                            <rect key="frame" x="0.0" y="10" width="181" height="23"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                             <color key="textColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKl-EV-waa">
-                                                                            <rect key="frame" x="232" y="3.5" width="48" height="43"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKl-EV-waa">
+                                                                            <rect key="frame" x="186" y="6.5" width="31" height="30"/>
+                                                                            <state key="normal" image="info_button"/>
+                                                                            <connections>
+                                                                                <action selector="infoButton:" destination="MX2-St-2QR" eventType="touchUpInside" id="0Tv-ls-IcY"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a79-Il-q42">
+                                                                            <rect key="frame" x="222" y="0.0" width="48" height="43"/>
                                                                             <state key="normal" image="Map"/>
+                                                                            <connections>
+                                                                                <action selector="selectCardButton:" destination="MX2-St-2QR" eventType="touchUpInside" id="uOw-Pc-g5K"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstItem="BVS-0k-CEP" firstAttribute="centerX" secondItem="ycc-MY-nad" secondAttribute="centerX" id="2cE-uj-TCC"/>
-                                                                <constraint firstItem="BVS-0k-CEP" firstAttribute="leading" secondItem="ycc-MY-nad" secondAttribute="leading" constant="10" id="CXC-a5-YLi"/>
-                                                                <constraint firstItem="BVS-0k-CEP" firstAttribute="centerY" secondItem="ycc-MY-nad" secondAttribute="centerY" id="VZu-b2-yBy"/>
-                                                                <constraint firstItem="BVS-0k-CEP" firstAttribute="top" secondItem="ycc-MY-nad" secondAttribute="top" id="ihz-Tu-Ob0"/>
+                                                                <constraint firstItem="BVS-0k-CEP" firstAttribute="leading" secondItem="ycc-MY-nad" secondAttribute="leading" constant="15" id="5aS-iX-dNa"/>
+                                                                <constraint firstItem="BVS-0k-CEP" firstAttribute="centerY" secondItem="ycc-MY-nad" secondAttribute="centerY" id="jKB-Mr-0ER"/>
+                                                                <constraint firstAttribute="trailing" secondItem="BVS-0k-CEP" secondAttribute="trailing" constant="15" id="jLi-yZ-kQL"/>
+                                                                <constraint firstItem="BVS-0k-CEP" firstAttribute="centerX" secondItem="ycc-MY-nad" secondAttribute="centerX" id="mOI-yw-jxt"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -75,7 +85,7 @@
                                                                     <real key="value" value="2"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                    <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="value" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                                                     <color key="value" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,7 +120,7 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="borderCell" destination="ycc-MY-nad" id="M31-UN-fhF"/>
-                                                    <outlet property="buttonImageOutlet" destination="DKl-EV-waa" id="www-Ey-zux"/>
+                                                    <outlet property="buttonImageOutlet" destination="a79-Il-q42" id="1Ef-aS-a31"/>
                                                     <outlet property="titleLabel" destination="XOC-c6-whJ" id="oBn-38-qJl"/>
                                                 </connections>
                                             </tableViewCell>
@@ -200,5 +210,6 @@
     </scenes>
     <resources>
         <image name="Map" width="48" height="43"/>
+        <image name="info_button" width="31" height="30"/>
     </resources>
 </document>

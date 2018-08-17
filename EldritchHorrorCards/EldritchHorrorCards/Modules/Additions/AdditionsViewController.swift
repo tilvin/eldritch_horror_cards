@@ -50,10 +50,23 @@ extension AdditionsViewController: UITableViewDataSource  {
 
 extension AdditionsViewController: UITableViewDelegate {
 	
+	@IBAction func selectCardButton(_ sender: UIButton) {
+		if sender.alpha == 1 {
+			sender.alpha = 0.5
+		}
+		else {
+			sender.alpha = 1
+		}
+	}
+	
+	@IBAction func infoButton(_ sender: UIButton) {
+		print("Tap info button")
+	}
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		guard let selectedCell = tableView.cellForRow(at: indexPath)! as? AdditionTableViewCell else {return}
-		selectedCell.buttonImageOutlet.alpha = 1
-		selectedCell.borderCell.alpha = 1
+		selectedCell.buttonImageOutlet.isEnabled = true
+		selectedCell.borderCell.borderColor = .elm
 		selectedCell.borderCell.shadowColor = .clear
 		selectedCell.selectionStyle = .none
 		guard let indexPaths = tableView.indexPathsForSelectedRows else {
@@ -65,8 +78,9 @@ extension AdditionsViewController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 		guard let selectedCell = tableView.cellForRow(at: indexPath)! as? AdditionTableViewCell else {return}
+		selectedCell.buttonImageOutlet.isEnabled = false
 		selectedCell.buttonImageOutlet.alpha = 0.5
-		selectedCell.borderCell.alpha = 0.5
+		selectedCell.borderCell.borderColor = .alto
 		selectedCell.borderCell.shadowColor = .none
 		guard let indexPaths = tableView.indexPathsForSelectedRows else {
 			selectedUIDs = []

@@ -21,7 +21,15 @@ extension UIColor {
 	static var mineShaft: UIColor {
 		return UIColor(hexString: "3B3B3B")
 	}
-
+	
+	static var elm: UIColor {
+		return UIColor(hexString: "1F746E")
+	}
+	
+	static var alto: UIColor {
+		return UIColor(hexString: "D8D8D8")
+	}
+	
 	//MARK: - Inits
 	
 	convenience init(components red: CGFloat, green: CGFloat, blue: CGFloat) {
