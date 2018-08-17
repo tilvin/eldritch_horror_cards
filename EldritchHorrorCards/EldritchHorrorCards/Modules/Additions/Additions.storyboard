@@ -53,18 +53,18 @@
                                                                             <color key="textColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKl-EV-waa">
-                                                                            <rect key="frame" x="186" y="6.5" width="31" height="30"/>
-                                                                            <state key="normal" image="info_button"/>
-                                                                            <connections>
-                                                                                <action selector="infoButton:" destination="MX2-St-2QR" eventType="touchUpInside" id="0Tv-ls-IcY"/>
-                                                                            </connections>
-                                                                        </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a79-Il-q42">
-                                                                            <rect key="frame" x="222" y="0.0" width="48" height="43"/>
+                                                                            <rect key="frame" x="186" y="0.0" width="48" height="43"/>
                                                                             <state key="normal" image="Map"/>
                                                                             <connections>
-                                                                                <action selector="selectCardButton:" destination="MX2-St-2QR" eventType="touchUpInside" id="uOw-Pc-g5K"/>
+                                                                                <action selector="mapButtonPressed:" destination="MX2-St-2QR" eventType="touchUpInside" id="hSz-fL-FZf"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKl-EV-waa">
+                                                                            <rect key="frame" x="239" y="6.5" width="31" height="30"/>
+                                                                            <state key="normal" image="info_button"/>
+                                                                            <connections>
+                                                                                <action selector="infoButtonPressed:" destination="MX2-St-2QR" eventType="touchUpInside" id="HTU-G2-Ov6"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>

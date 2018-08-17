@@ -50,8 +50,8 @@ extension AdditionsViewController: UITableViewDataSource  {
 
 extension AdditionsViewController: UITableViewDelegate {
 	
-	@IBAction func selectCardButton(_ sender: UIButton) {
-		if sender.alpha == 1 {
+	@IBAction func mapButtonPressed(_ sender: UIButton) {	
+		if sender.alpha == 1  && sender.isEnabled == true {
 			sender.alpha = 0.5
 		}
 		else {
@@ -60,7 +60,7 @@ extension AdditionsViewController: UITableViewDelegate {
 		print("Tap map button")
 	}
 	
-	@IBAction func infoButton(_ sender: UIButton) {
+	@IBAction func infoButtonPressed(_ sender: UIButton) {
 		print("Tap info button")
 	}
 	
@@ -73,6 +73,7 @@ extension AdditionsViewController: UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+		tableView.reloadRows(at: [indexPath], with: .none)
 		guard let indexPaths = tableView.indexPathsForSelectedRows else {
 			selectedUIDs = []
 			return

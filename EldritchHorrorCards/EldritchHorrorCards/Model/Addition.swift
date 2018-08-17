@@ -12,4 +12,5 @@ struct Addition: Codable {
 	let id: String
 	let name: String
 	let description: String
+	let map: Bool
 }
