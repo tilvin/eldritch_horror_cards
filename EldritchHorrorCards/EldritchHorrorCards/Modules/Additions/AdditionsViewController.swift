@@ -57,6 +57,7 @@ extension AdditionsViewController: UITableViewDelegate {
 		else {
 			sender.alpha = 1
 		}
+		print("Tap map button")
 	}
 	
 	@IBAction func infoButton(_ sender: UIButton) {
@@ -64,11 +65,6 @@ extension AdditionsViewController: UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		guard let selectedCell = tableView.cellForRow(at: indexPath)! as? AdditionTableViewCell else {return}
-		selectedCell.buttonImageOutlet.isEnabled = true
-		selectedCell.borderCell.borderColor = .elm
-		selectedCell.borderCell.shadowColor = .clear
-		selectedCell.selectionStyle = .none
 		guard let indexPaths = tableView.indexPathsForSelectedRows else {
 			selectedUIDs = []
 			return
@@ -77,11 +73,6 @@ extension AdditionsViewController: UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		guard let selectedCell = tableView.cellForRow(at: indexPath)! as? AdditionTableViewCell else {return}
-		selectedCell.buttonImageOutlet.isEnabled = false
-		selectedCell.buttonImageOutlet.alpha = 0.5
-		selectedCell.borderCell.borderColor = .alto
-		selectedCell.borderCell.shadowColor = .none
 		guard let indexPaths = tableView.indexPathsForSelectedRows else {
 			selectedUIDs = []
 			return

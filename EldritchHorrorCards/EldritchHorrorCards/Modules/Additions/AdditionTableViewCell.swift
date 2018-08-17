@@ -10,16 +10,20 @@ import UIKit
 
 class AdditionTableViewCell: UITableViewCell, ConfigurableCell {
 	@IBOutlet private(set) var titleLabel: UILabel!
-	@IBOutlet weak var buttonImageOutlet: UIButton!
-	@IBOutlet weak var borderCell: UIView!
-	
+	@IBOutlet private(set) var borderView: UIView!
+	@IBOutlet private(set) var mapButton: UIButton!
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		borderCell.shadowColor = .none
+		borderView.shadowOpacity = 1
+		mapButton.isEnabled = false
 	}
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
+		borderView.shadowOpacity = selected ? 0 : 1
+		mapButton.isEnabled = selected ?  true : false 
+		selectionStyle = .none
+		borderView.borderColor = selected ?  .elm : .alto
 	}
 	
 	override func layoutSubviews() {

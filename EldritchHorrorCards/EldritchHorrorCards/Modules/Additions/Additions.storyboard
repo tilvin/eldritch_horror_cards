@@ -60,7 +60,7 @@
                                                                                 <action selector="infoButton:" destination="MX2-St-2QR" eventType="touchUpInside" id="0Tv-ls-IcY"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a79-Il-q42">
+                                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a79-Il-q42">
                                                                             <rect key="frame" x="222" y="0.0" width="48" height="43"/>
                                                                             <state key="normal" image="Map"/>
                                                                             <connections>
@@ -119,8 +119,8 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="borderCell" destination="ycc-MY-nad" id="M31-UN-fhF"/>
-                                                    <outlet property="buttonImageOutlet" destination="a79-Il-q42" id="1Ef-aS-a31"/>
+                                                    <outlet property="borderView" destination="ycc-MY-nad" id="BSi-yV-jxq"/>
+                                                    <outlet property="mapButton" destination="a79-Il-q42" id="KTI-OZ-ZLt"/>
                                                     <outlet property="titleLabel" destination="XOC-c6-whJ" id="oBn-38-qJl"/>
                                                 </connections>
                                             </tableViewCell>
