@@ -64,7 +64,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="lvo-b8-BQD">
+                                        <view key="tableFooterView" contentMode="scaleToFill" id="lvo-b8-BQD">
                                             <rect key="frame" x="0.0" y="108" width="320" height="12"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -184,6 +184,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2FF-6Z-dnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="937.5" y="741.54929577464793"/>
+        </scene>
+        <!--Addition Description View Controller-->
+        <scene sceneID="kcN-7l-kMo">
+            <objects>
+                <viewController storyboardIdentifier="AdditionDescriptionViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="twQ-KO-Ex9" customClass="AdditionDescriptionViewController" customModule="EldritchHorrorCards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WcY-z1-7vN" customClass="GradientView" customModule="EldritchHorrorCards" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qh-HM-wxq" customClass="DesignableView" customModule="EldritchHorrorCards" customModuleProvider="target">
+                                <rect key="frame" x="30" y="70" width="260" height="428"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14v-Io-jz0">
+                                        <rect key="frame" x="10" y="10" width="240" height="408"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="14v-Io-jz0" firstAttribute="leading" secondItem="4qh-HM-wxq" secondAttribute="leading" constant="10" id="CMD-c5-FfY"/>
+                                    <constraint firstItem="14v-Io-jz0" firstAttribute="centerY" secondItem="4qh-HM-wxq" secondAttribute="centerY" id="FH8-Fc-mMa"/>
+                                    <constraint firstItem="14v-Io-jz0" firstAttribute="centerX" secondItem="4qh-HM-wxq" secondAttribute="centerX" id="qIY-qu-bmp"/>
+                                    <constraint firstItem="14v-Io-jz0" firstAttribute="top" secondItem="4qh-HM-wxq" secondAttribute="top" constant="10" id="uSq-9P-Dor"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                        <point key="value" x="0.0" y="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4qh-HM-wxq" firstAttribute="centerY" secondItem="WcY-z1-7vN" secondAttribute="centerY" id="GtR-qn-7t6"/>
+                            <constraint firstItem="4qh-HM-wxq" firstAttribute="top" secondItem="eJo-V4-6SN" secondAttribute="top" constant="50" id="PkQ-cS-XOg"/>
+                            <constraint firstItem="4qh-HM-wxq" firstAttribute="centerX" secondItem="WcY-z1-7vN" secondAttribute="centerX" id="fyj-62-6pj"/>
+                            <constraint firstItem="4qh-HM-wxq" firstAttribute="leading" secondItem="eJo-V4-6SN" secondAttribute="leading" constant="30" id="glN-kJ-DZl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eJo-V4-6SN"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" white="0.33333333333333331" alpha="0.69968639964788737" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.3803921569" green="0.69411764710000001" blue="0.6705882353" alpha="0.70194212147887325" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
+                                <point key="value" x="0.5" y="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
+                                <point key="value" x="0.5" y="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="14v-Io-jz0" id="rWN-ec-mlM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pdf-iS-4hg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676.25" y="738.38028169014081"/>
         </scene>
     </scenes>
     <resources>

@@ -10,8 +10,9 @@ import UIKit
 
 class AdditionsViewController: BaseViewController {
 	@IBOutlet private var tableView: UITableView!
-	private var selectedIndexPaths: [IndexPath] = []
+//	@IBOutlet private var containerView: UIView!
 	
+	private var selectedIndexPaths: [IndexPath] = []
 	private var additionProvider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
 	private var additions: [Addition] = []
 	private var rowBuilder: RowBuilder!
@@ -52,6 +53,9 @@ class AdditionsViewController: BaseViewController {
 		let path = self.tableView.indexPathForRow(at: point)!
 		print(additions[path.row].description)
 		print("show description view!")
+		let controller = AdditionDescriptionViewController.controllerFromStoryboard(.additions)
+		controller.modalTransitionStyle = .crossDissolve
+		appNavigator?.go(controller: controller, mode: .modal)
 	}
 }
 
