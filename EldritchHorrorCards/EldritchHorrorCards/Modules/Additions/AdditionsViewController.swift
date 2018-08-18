@@ -37,9 +37,13 @@ class AdditionsViewController: BaseViewController {
 	@IBAction private func mapButtonPressed(_ sender: Any, forEvent event: UIEvent) {
 		guard let point = event.allTouches?.first?.location(in: tableView) else { return }
 		let path = tableView.indexPathForRow(at: point)!
-		additions[path.row].isMap.toggle()
+		additions[path.row].isSelectedMap.toggle()
 		let cell = tableView.cellForRow(at: path) as! AdditionCell
-		cell.mapButton.alpha = additions[path.row].isMap ? 1 : 0.5
+		cell.mapButton.alpha = additions[path.row].isSelectedMap ? 1 : 0.5
+		
+		if !selectedIndexPaths.contains(path) {
+			tableView.selectRow(at: path, animated: true, scrollPosition: .none)
+		}
 	}
 
 	@IBAction private func descriptionButtonPressed(_ sender: Any, forEvent event: UIEvent) {
@@ -76,6 +80,8 @@ extension AdditionsViewController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 		selectedIndexPaths = tableView.indexPathsForSelectedRows ?? []
+		additions[indexPath.row].isSelectedMap = false
+		tableView.reloadRows(at: [indexPath], with: .fade)
 		print(selectedIndexPaths)
 	}
 }
