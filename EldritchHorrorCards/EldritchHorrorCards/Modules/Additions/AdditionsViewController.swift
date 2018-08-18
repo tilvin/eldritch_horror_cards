@@ -18,6 +18,7 @@ class AdditionsViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		isHiddenNavigationBar = false
 		
 		additionProvider.load() { [weak self] (success) in
 			guard let sSelf = self else { return }
