@@ -36,13 +36,13 @@
                                                 <rect key="frame" x="10" y="0.0" width="34" height="30"/>
                                                 <state key="normal" title="back"/>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text=".addit.title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJn-Yd-C2X">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text=".additions.title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJn-Yd-C2X">
                                                 <rect key="frame" x="44" y="4" width="235" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
                                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="addit.title"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="additions.title"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZR-se-6Yv">
@@ -122,9 +122,6 @@
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                     <color key="value" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                                    <color key="value" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
                                                                     <point key="value" x="0.0" y="2"/>
                                                                 </userDefinedRuntimeAttribute>
@@ -133,9 +130,6 @@
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                                     <real key="value" value="1"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                                    <color key="value" red="0.8980392157" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
@@ -240,10 +234,10 @@
                         <viewLayoutGuide key="safeArea" id="eJo-V4-6SN"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" white="0.33333333333333331" alpha="0.69968639964788737" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" red="0.25118312118622255" green="0.25118312118622255" blue="0.25118312118622255" alpha="0.80027290239726023" colorSpace="custom" customColorSpace="displayP3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" red="0.3803921569" green="0.69411764710000001" blue="0.6705882353" alpha="0.70194212147887325" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="value" red="0.60238210531660741" green="0.60238210531660741" blue="0.60238210531660741" alpha="0.79896190068493156" colorSpace="custom" customColorSpace="displayP3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
                                 <point key="value" x="0.5" y="0.0"/>
@@ -255,6 +249,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionTextView" destination="14v-Io-jz0" id="rWN-ec-mlM"/>
+                        <outlet property="view" destination="WcY-z1-7vN" id="Zeq-dt-F5f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pdf-iS-4hg" userLabel="First Responder" sceneMemberID="firstResponder"/>

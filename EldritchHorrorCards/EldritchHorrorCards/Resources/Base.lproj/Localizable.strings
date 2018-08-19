@@ -5,6 +5,5 @@
 "call_monster" = "Call that monster";
 "card.type.portal" = "Portal";
 
-"addit.title" = "Select additions";
-"addit.button.select" = "Continue
-";
+"additions.title" = "Select additions";
+"additions.button.select" = "Continue";

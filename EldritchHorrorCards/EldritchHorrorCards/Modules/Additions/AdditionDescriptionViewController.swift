@@ -17,7 +17,8 @@ class AdditionDescriptionViewController: BaseViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		descriptionTextView.text = additionDescription
-		
+		let tap = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
+		self.view.addGestureRecognizer(tap)
 		//TODO: добавить TapGesture по главной вьюхе (которая self.view)
 		// по нажатию вызывать backgroundTap()
     }
@@ -25,6 +26,8 @@ class AdditionDescriptionViewController: BaseViewController {
 	//MARK: - Private
 	
 	@objc private func backgroundTap() {
-		close()
+		let controller = AdditionsViewController.controllerFromStoryboard(.additions)
+		controller.modalTransitionStyle = .crossDissolve
+		appNavigator?.go(controller: controller, mode: .modal)
 	}
 }

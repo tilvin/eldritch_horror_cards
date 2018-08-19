@@ -55,6 +55,7 @@ class AdditionsViewController: BaseViewController {
 		print("show description view!")
 		let controller = AdditionDescriptionViewController.controllerFromStoryboard(.additions)
 		controller.modalTransitionStyle = .crossDissolve
+		controller.additionDescription = additions[path.row].description
 		appNavigator?.go(controller: controller, mode: .modal)
 	}
 }

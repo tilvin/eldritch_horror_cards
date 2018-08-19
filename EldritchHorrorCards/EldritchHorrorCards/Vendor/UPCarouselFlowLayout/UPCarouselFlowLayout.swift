@@ -127,7 +127,7 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
 			let closest = layoutAttributes.sorted { abs($0.center.y - proposedContentOffsetCenterOrigin) < abs($1.center.y - proposedContentOffsetCenterOrigin) }.first ?? UICollectionViewLayoutAttributes()
 			targetContentOffset = CGPoint(x: proposedContentOffset.x, y: floor(closest.center.y - midSide))
 		}
-		
+		UIImpactFeedbackGenerator(style: .medium).impactOccurred()
 		return targetContentOffset
 	}
 }
