@@ -18,9 +18,7 @@ class AdditionDescriptionViewController: BaseViewController {
         super.viewDidLoad()
 		descriptionTextView.text = additionDescription
 		let tap = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
-		self.view.addGestureRecognizer(tap)
-		//TODO: добавить TapGesture по главной вьюхе (которая self.view)
-		// по нажатию вызывать backgroundTap()
+		view.addGestureRecognizer(tap)
     }
 	
 	//MARK: - Private
