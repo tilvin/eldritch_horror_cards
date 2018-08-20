@@ -139,10 +139,9 @@ extension MenuViewController: MenuViewDelegate {
 		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)
 	}
 	
-	func logOffButtonTap() {
+	func logoutButtonTap() {
 		let controller = AuthViewController.controllerFromStoryboard(.main)
 		controller.modalTransitionStyle = .crossDissolve
 		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)
 	}
-	
 }

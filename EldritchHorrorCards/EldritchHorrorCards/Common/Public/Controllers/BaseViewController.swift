@@ -15,23 +15,19 @@ class BaseViewController: UIViewController {
 		navigationController?.setNavigationBarHidden(isHiddenNavigationBar, animated: true)
 		if isSetAsCurrentController { appNavigator?.currentController = self }
 		
-		setStatusbar(with: self.statusBarColor())
-        
-        var preferredStatusBarStyle : UIStatusBarStyle {
-            return  .default
-        }
+		setStatusbar(with: .wildSand)
+		
+		var preferredStatusBarStyle : UIStatusBarStyle {
+			return  .default
+		}
 	}
 	
-    override var preferredStatusBarStyle : UIStatusBarStyle { return .default }
-    
-    private func statusBarColor() -> UIColor {
-        return .wildSand
-    }
-    
-    private var isLightStatusFont: Bool {
-        guard let identifier = self.restorationIdentifier else { return true }
+	override var preferredStatusBarStyle : UIStatusBarStyle { return .default }
+	
+	private var isLightStatusFont: Bool {
+		guard let identifier = self.restorationIdentifier else { return true }
 		return identifier == "AuthViewController"
-    }
+	}
 }
 
 class TabBarAddableController: BaseViewController {

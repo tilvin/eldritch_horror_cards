@@ -11,6 +11,6 @@ class ImageCell: UICollectionViewCell {
 		self.shadowOffset = CGPoint.zero
 		self.shadowOpacity = 1
 		self.shadowRadius = 4
-		self.shadowColor = UIColor.scorpion
+		self.shadowColor = UIColor.darkGray
     }
 }

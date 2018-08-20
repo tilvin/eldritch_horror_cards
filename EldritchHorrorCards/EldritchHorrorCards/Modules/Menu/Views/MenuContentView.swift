@@ -11,12 +11,12 @@ import SnapKit
 
 protocol MenuContentViewProtocol: class {
 	func testButtonPressed()
-	func logOffButtonPressed()
+	func logoutButtonPressed()
 }
 
 class MenuContentView: BaseScrollView {
 	weak var delegate: MenuContentViewProtocol?
-
+	
 	public func update(name: String, avatar: UIImage?) {
 		avatarView.update(avatar: avatar)
 		userName.text = name
@@ -44,7 +44,7 @@ class MenuContentView: BaseScrollView {
 		view.backgroundColor = UIColor.wildSand
 		return view
 	}()
-
+	
 	private lazy var testButton: UIButton = {
 		let button = UIButton()
 		button.setTitle("TestButton", for: .normal)
@@ -53,9 +53,9 @@ class MenuContentView: BaseScrollView {
 		return button
 	}()
 	
-	private lazy var logOffButton: UIButton = {
+	private lazy var logoutButton: UIButton = {
 		let button = UIButton()
-		button.setTitle("menu.logOff.button.lable".localized, for: .normal)
+		button.setTitle("menu.logout.button.label".localized, for: .normal)
 		button.titleLabel?.textAlignment = .center
 		button.setTitleColor(.wildSand, for: .normal)
 		return button
@@ -69,9 +69,9 @@ class MenuContentView: BaseScrollView {
 		addSubviews()
 		makeConstraints()
 		layoutIfNeeded()
-
+		
 		testButton.addTarget(self, action: #selector(testButtonPressed), for: .touchUpInside)
-		logOffButton.addTarget(self, action: #selector(logOffButtonPressed), for: .touchUpInside)
+		logoutButton.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -90,8 +90,8 @@ class MenuContentView: BaseScrollView {
 		addSeparatorView(height: 10, expandable: false)
 		addToStackView(view: testButton, embed: true)
 		addSeparatorView(height: 10, expandable: true)
-		addToStackView(view: logOffButton, embed: true)
-		addSeparatorView(height: 10, expandable: true)
+		addToStackView(view: logoutButton, embed: true)
+		addSeparatorView(height: 34, expandable: false)
 	}
 	
 	private func makeConstraints() {
@@ -109,24 +109,24 @@ class MenuContentView: BaseScrollView {
 			make.height.equalTo(1)
 			make.centerX.equalToSuperview()
 		}
-
+		
 		testButton.snp.makeConstraints { make in
 			make.height.equalTo(50)
 			make.width.equalToSuperview()
-		 }
+		}
 		
-		logOffButton.snp.makeConstraints { make in
-			make.height.equalTo(50)
-			make.width.equalToSuperview().multipliedBy(0.3)
+		logoutButton.snp.makeConstraints { make in
+			make.height.equalTo(24)
+			make.leading.equalToSuperview().offset(32)
 		}
 	}
-
+	
 	@objc private func testButtonPressed() {
 		delegate?.testButtonPressed()
 	}
 	
-	@objc private func logOffButtonPressed() {
-		delegate?.logOffButtonPressed()
+	@objc private func logoutButtonPressed() {
+		delegate?.logoutButtonPressed()
 	}
 	
 	override func updateHeight() {

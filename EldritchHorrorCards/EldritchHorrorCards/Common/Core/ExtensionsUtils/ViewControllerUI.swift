@@ -4,7 +4,7 @@ extension UIViewController {
   
   public func setupSpinner(isLarge: Bool = false) {
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: isLarge ? .whiteLarge : .gray)
-    spinner.color = .scorpion
+    spinner.color = .viridianTwo
     spinner.hidesWhenStopped = true
     spinner.startAnimating()
     spinner.tag = 100

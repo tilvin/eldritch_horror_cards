@@ -12,7 +12,7 @@ import SnapKit
 protocol MenuViewDelegate: class {
 	func backgroundTap()
 	func testButtonTap()
-	func logOffButtonTap()
+	func logoutButtonTap()
 }
 
 class MenuView: UIView {
@@ -77,7 +77,7 @@ extension MenuView: MenuContentViewProtocol {
 		delegate?.testButtonTap()
 	}
 	
-	func logOffButtonPressed()  {
-		delegate?.logOffButtonTap()
+	func logoutButtonPressed()  {
+		delegate?.logoutButtonTap()
 	}
 }

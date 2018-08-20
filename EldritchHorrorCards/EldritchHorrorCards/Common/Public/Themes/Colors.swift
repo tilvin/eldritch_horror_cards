@@ -14,10 +14,6 @@ extension UIColor {
 		return UIColor(hexString: "F5F5F5")
 	}
 	
-	static var scorpion: UIColor {
-		return UIColor(hexString: "5F5F5F")
-	}
-	
 	static var mineShaft: UIColor {
 		return UIColor(hexString: "3B3B3B")
 	}

@@ -22,7 +22,7 @@ class MonsterDescriptionView: UIView {
 	private lazy var descriptionTextView: UITextView = {
 		let tv = UITextView()
 		tv.font = UIFont.regular14
-		tv.textColor = UIColor.scorpion
+		tv.textColor = UIColor.darkGray
 		tv.text = monsterDescription
 		return tv
 	}()
@@ -59,7 +59,7 @@ class MonsterDescriptionView: UIView {
 			make.left.right.bottom.equalToSuperview().inset(10)
 			make.top.equalToSuperview().inset(60)
 		}
-
+		
 		closeButtonView.snp.makeConstraints { (make) in
 			make.top.equalToSuperview().inset(30)
 			make.right.equalToSuperview().inset(10)
