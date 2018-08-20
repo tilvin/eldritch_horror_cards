@@ -11,6 +11,7 @@ import SnapKit
 
 protocol MenuContentViewProtocol: class {
 	func testButtonPressed()
+	func logOffButtonPressed()
 }
 
 class MenuContentView: BaseScrollView {
@@ -33,14 +34,14 @@ class MenuContentView: BaseScrollView {
 		label.font = UIFont.bold28
 		label.textAlignment = .center
 		label.numberOfLines = 0
-		label.textColor = UIColor.scorpion
+		label.textColor = UIColor.wildSand
 		label.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .vertical)
 		return label
 	}()
 	
 	private lazy var separatorLineView: UIView = {
 		let view = UIView()
-		view.backgroundColor = UIColor.scorpion
+		view.backgroundColor = UIColor.wildSand
 		return view
 	}()
 
@@ -52,16 +53,25 @@ class MenuContentView: BaseScrollView {
 		return button
 	}()
 	
+	private lazy var logOffButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("menu.logOff.button.lable".localized, for: .normal)
+		button.titleLabel?.textAlignment = .center
+		button.setTitleColor(.wildSand, for: .normal)
+		return button
+	}()
+	
 	//MARK: - Lifecycle
 	
 	override init(frame: CGRect = CGRect.zero) {
 		super.init(frame: frame)
-		backgroundColor = UIColor.wildSand
+		backgroundColor =  UIColor.viridianTwo.withAlphaComponent(0.95)
 		addSubviews()
 		makeConstraints()
 		layoutIfNeeded()
 
 		testButton.addTarget(self, action: #selector(testButtonPressed), for: .touchUpInside)
+		logOffButton.addTarget(self, action: #selector(logOffButtonPressed), for: .touchUpInside)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -79,6 +89,8 @@ class MenuContentView: BaseScrollView {
 		addToStackView(view: separatorLineView, embed: true)
 		addSeparatorView(height: 10, expandable: false)
 		addToStackView(view: testButton, embed: true)
+		addSeparatorView(height: 10, expandable: true)
+		addToStackView(view: logOffButton, embed: true)
 		addSeparatorView(height: 10, expandable: true)
 	}
 	
@@ -102,10 +114,19 @@ class MenuContentView: BaseScrollView {
 			make.height.equalTo(50)
 			make.width.equalToSuperview()
 		 }
+		
+		logOffButton.snp.makeConstraints { make in
+			make.height.equalTo(50)
+			make.width.equalToSuperview().multipliedBy(0.3)
+		}
 	}
 
 	@objc private func testButtonPressed() {
 		delegate?.testButtonPressed()
+	}
+	
+	@objc private func logOffButtonPressed() {
+		delegate?.logOffButtonPressed()
 	}
 	
 	override func updateHeight() {

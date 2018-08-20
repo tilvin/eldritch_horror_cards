@@ -7,3 +7,5 @@
 
 "additions.title" = "Select additions";
 "additions.button.select" = "Continue";
+
+"menu.logOff.button.lable" = "Exit";

@@ -12,21 +12,21 @@ import SnapKit
 protocol MenuViewDelegate: class {
 	func backgroundTap()
 	func testButtonTap()
+	func logOffButtonTap()
 }
 
 class MenuView: UIView {
 	weak var delegate: MenuViewDelegate?
 	private var viewModel: MenuViewModel!
-
+	
 	fileprivate(set) lazy var contentView: MenuContentView = {
 		return MenuContentView()
 	}()
-
+	
 	//MARK: - Lifecycle
 	convenience init(frame: CGRect = CGRect.zero, viewModel: MenuViewModel) {
 		self.init(frame: frame)
 		self.viewModel = viewModel
-		backgroundColor = UIColor.black.withAlphaComponent(0.8)
 		addSubviews()
 		makeConstraints()
 		let gesture = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
@@ -35,45 +35,49 @@ class MenuView: UIView {
 		layoutIfNeeded()
 		contentView.delegate = self
 	}
-
+	
 	override init(frame: CGRect = CGRect.zero) {
 		super.init(frame: frame)
 	}
-
+	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
+	
 	//MARK: - Public
-
+	
 	public func update(viewModel: MenuViewModel) {
 		self.viewModel = viewModel
 		contentView.update(name: viewModel.userName, avatar: viewModel.avatar)
 	}
-
+	
 	//MARK: - Private
-
+	
 	private func addSubviews() {
 		addSubview(contentView)
 	}
-
+	
 	private func makeConstraints() {
 		contentView.snp.makeConstraints { (make) in
 			make.left.top.bottom.equalToSuperview()
 			make.width.equalToSuperview().multipliedBy(0.8)
 		}
 	}
-
+	
 	@objc private func backgroundTap() {
 		delegate?.backgroundTap()
-	}
+	}	
 }
 
 //MARK: - MenuContentViewProtocol
 
 extension MenuView: MenuContentViewProtocol {
-
+	
 	func testButtonPressed() {
 		delegate?.testButtonTap()
+	}
+	
+	func logOffButtonPressed()  {
+		delegate?.logOffButtonTap()
 	}
 }

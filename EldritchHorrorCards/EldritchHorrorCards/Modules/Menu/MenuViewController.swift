@@ -132,10 +132,17 @@ extension MenuViewController: MenuViewDelegate {
 	func backgroundTap() {
 		set(slided: false, animated: true, prepareToStart: false)
 	}
-
+	
 	func testButtonTap() {
 		let controller = AdditionsViewController.controllerFromStoryboard(.additions)
 		controller.modalTransitionStyle = .crossDissolve
 		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)
 	}
+	
+	func logOffButtonTap() {
+		let controller = AuthViewController.controllerFromStoryboard(.main)
+		controller.modalTransitionStyle = .crossDissolve
+		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)
+	}
+	
 }

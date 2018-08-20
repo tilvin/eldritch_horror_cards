@@ -21,7 +21,6 @@ class BaseScrollView: UIView {
 	lazy var scrollView: UIScrollView = {
 		let view = UIScrollView()
 		view.bounces = false
-		view.backgroundColor = UIColor.white
 		view.showsVerticalScrollIndicator = false
 		return view
 	}()

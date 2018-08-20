@@ -18,14 +18,14 @@ class BaseViewController: UIViewController {
 		setStatusbar(with: self.statusBarColor())
         
         var preferredStatusBarStyle : UIStatusBarStyle {
-            return self.isLightStatusFont ? .lightContent : .default
+            return  .default
         }
 	}
 	
-    override var preferredStatusBarStyle : UIStatusBarStyle { return self.isLightStatusFont ? .lightContent : .default }
+    override var preferredStatusBarStyle : UIStatusBarStyle { return .default }
     
     private func statusBarColor() -> UIColor {
-        return .gray
+        return .wildSand
     }
     
     private var isLightStatusFont: Bool {

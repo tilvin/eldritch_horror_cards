@@ -7,3 +7,5 @@
 
 "addit.title" = "Выберите дополнения";
 "addit.button.select" = "Продолжить";
+
+"menu.logOff.button.lable" = "Выход";
