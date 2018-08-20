@@ -1,11 +1,3 @@
-//
-//  AdditionDescriptionViewController.swift
-//  EldritchHorrorCards
-//
-//  Created by Andrey Torlopov on 8/18/18.
-//  Copyright © 2018 Andrey Torlopov. All rights reserved.
-//
-
 import UIKit
 
 class AdditionDescriptionViewController: BaseViewController {

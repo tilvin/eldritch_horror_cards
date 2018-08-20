@@ -134,7 +134,7 @@ extension MenuViewController: MenuViewDelegate {
 	}
 	
 	func testButtonTap() {
-		let controller = AdditionsViewController.controllerFromStoryboard(.additions)
+		let controller = AdditionsViewController()
 		controller.modalTransitionStyle = .crossDissolve
 		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)
 	}
