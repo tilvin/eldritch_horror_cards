@@ -15,11 +15,28 @@ class AdditionsViewController: BaseViewController {
 	private var additionProvider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
 	private var additions: [Addition] = []
 	private var rowBuilder: RowBuilder!
+
+	//MARK: - Lifecycle
+	
+	init() {
+		super.init(nibName: nil, bundle: nil)
+		self.modalPresentationStyle = .fullScreen
+		self.isHiddenNavigationBar = true
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func loadView() {
+		let viewModel = AdditionsViewModel()
+		let view = AdditionsView(frame: UIScreen.main.bounds, viewModel: viewModel)
+		view.delegate = self
+		self.view = view
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		isHiddenNavigationBar = false
-		
 		additionProvider.load() { [weak self] (success) in
 			guard let sSelf = self else { return }
 			sSelf.additions = sSelf.additionProvider.additions
@@ -51,7 +68,6 @@ class AdditionsViewController: BaseViewController {
 		guard let point = event.allTouches?.first?.location(in: tableView) else { return }
 		let path = self.tableView.indexPathForRow(at: point)!
 		print(additions[path.row].description)
-		print("show description view!")
 		let controller = AdditionDescriptionViewController.controllerFromStoryboard(.additions)
 		controller.modalTransitionStyle = .crossDissolve
 		controller.additionDescription = additions[path.row].description
@@ -89,4 +105,8 @@ extension AdditionsViewController: UITableViewDelegate {
 		tableView.reloadRows(at: [indexPath], with: .fade)
 		print(selectedIndexPaths)
 	}
+}
+
+extension AdditionsViewController: AdditionsViewDelegate {
+	
 }

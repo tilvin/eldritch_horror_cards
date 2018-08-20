@@ -87,6 +87,8 @@
 		A4C25331211DEE6800E0FF37 /* Additions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4C25330211DEE6800E0FF37 /* Additions.storyboard */; };
 		A4C25333211DEEAD00E0FF37 /* TableRowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C25332211DEEAD00E0FF37 /* TableRowBuilder.swift */; };
 		A4C25335211DF63200E0FF37 /* AdditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C25334211DF63200E0FF37 /* AdditionCell.swift */; };
+		A4E422832129A97900244744 /* AdditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E422822129A97900244744 /* AdditionsView.swift */; };
+		A4E422852129AAA300244744 /* AdditionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E422842129AAA300244744 /* AdditionsViewModel.swift */; };
 		A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */; };
 		A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */; };
 		A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFFE20D413DC00FA6E4B /* DialView.swift */; };
@@ -193,6 +195,8 @@
 		A4C25330211DEE6800E0FF37 /* Additions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Additions.storyboard; sourceTree = "<group>"; };
 		A4C25332211DEEAD00E0FF37 /* TableRowBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowBuilder.swift; sourceTree = "<group>"; };
 		A4C25334211DF63200E0FF37 /* AdditionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionCell.swift; sourceTree = "<group>"; };
+		A4E422822129A97900244744 /* AdditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionsView.swift; sourceTree = "<group>"; };
+		A4E422842129AAA300244744 /* AdditionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionsViewModel.swift; sourceTree = "<group>"; };
 		A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
 		A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
 		A4FDAFFE20D413DC00FA6E4B /* DialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialView.swift; sourceTree = "<group>"; };
@@ -572,8 +576,18 @@
 				A4C25334211DF63200E0FF37 /* AdditionCell.swift */,
 				A4A9102D21285AD900652D25 /* AdditionDescriptionViewController.swift */,
 				9F171C53211CD1C0005A8264 /* AdditionsViewController.swift */,
+				A4E422812129A87D00244744 /* Views */,
 			);
 			path = Additions;
+			sourceTree = "<group>";
+		};
+		A4E422812129A87D00244744 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4E422822129A97900244744 /* AdditionsView.swift */,
+				A4E422842129AAA300244744 /* AdditionsViewModel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A4FE641320D0111D0064E52E = {
@@ -766,6 +780,7 @@
 			files = (
 				A4563AD720F7DBAC00B65428 /* View.swift in Sources */,
 				A4563AF020F7DD3000B65428 /* ExtTextField.swift in Sources */,
+				A4E422852129AAA300244744 /* AdditionsViewModel.swift in Sources */,
 				A4563AFB20F87FAE00B65428 /* DIContainer.swift in Sources */,
 				A45E5667210B53B100590AE7 /* MenuContentView.swift in Sources */,
 				A4208340212B1B8D0081E762 /* BaseTableViewCell.swift in Sources */,
@@ -795,6 +810,7 @@
 				A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */,
 				A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */,
 				A4FDB00C20D413DE00FA6E4B /* JFCardSelectionCell.swift in Sources */,
+				A4E422832129A97900244744 /* AdditionsView.swift in Sources */,
 				A4563AE620F7DC7500B65428 /* AlamofireViewController.swift in Sources */,
 				A479428B210C419F00ED0851 /* Fonts.swift in Sources */,
 				A4794280210C311500ED0851 /* TabBarControllersProviderProtocol.swift in Sources */,
