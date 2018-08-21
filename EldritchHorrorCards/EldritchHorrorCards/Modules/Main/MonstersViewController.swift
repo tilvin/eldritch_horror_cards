@@ -46,12 +46,7 @@ class MonstersViewController: JFCardSelectionViewController {
         reloadData()
 		view.layoutIfNeeded()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setStatusbar(with: .wildSand)
-    }
-
+	
 	private func addSubViews() {
 		view.addSubview(menuButton)
 		view.addSubview(menuContainer)

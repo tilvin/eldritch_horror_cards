@@ -13,8 +13,7 @@ class BaseViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		navigationController?.setNavigationBarHidden(isHiddenNavigationBar, animated: true)
-		if isSetAsCurrentController { appNavigator?.currentController = self }		
-		setStatusbar(with: .wildSand)
+		if isSetAsCurrentController { appNavigator?.currentController = self }
 	}
 	
 	override var preferredStatusBarStyle : UIStatusBarStyle { return .default }

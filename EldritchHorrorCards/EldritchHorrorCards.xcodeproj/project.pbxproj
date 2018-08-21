@@ -328,9 +328,9 @@
 			isa = PBXGroup;
 			children = (
 				A4563AFA20F87FAE00B65428 /* DIContainer.swift */,
+				5581916006E1BCE07DE5C3F3 /* DataStore */,
 				A441BBD22109BB5E00EAC5DD /* ExtensionsUtils */,
 				A441BBD12109BB4F00EAC5DD /* Services */,
-				5581916006E1BCE07DE5C3F3 /* DataStore */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -350,6 +350,7 @@
 				A4563ADE20F7DBF500B65428 /* Color.swift */,
 				A4563AE920F7DCBF00B65428 /* DateHelper.swift */,
 				A4563AEF20F7DD3000B65428 /* ExtTextField.swift */,
+				A4A9102B212859EB00652D25 /* GradientView.swift */,
 				A4563AE320F7DC5400B65428 /* Inspectable.swift */,
 				A4563AED20F7DD1200B65428 /* JSONParser.swift */,
 				A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */,
@@ -360,7 +361,6 @@
 				A4563AE120F7DC1D00B65428 /* UIViewControllerExtension.swift */,
 				A4563AD520F7DBAB00B65428 /* View.swift */,
 				A4563AEB20F7DCFA00B65428 /* ViewAnimation.swift */,
-				A4A9102B212859EB00652D25 /* GradientView.swift */,
 				A4563AD620F7DBAC00B65428 /* ViewController.swift */,
 				A4563AD920F7DBC200B65428 /* ViewControllerUI.swift */,
 				A4563AD320F7DBA300B65428 /* Window.swift */,
