@@ -7,4 +7,5 @@ target 'EldritchHorrorCards' do
   pod 'Fakery'
   pod 'SnapKit'
   pod 'Zip'
+  pod 'Reveal-SDK', :configurations => ['Debug']
 end

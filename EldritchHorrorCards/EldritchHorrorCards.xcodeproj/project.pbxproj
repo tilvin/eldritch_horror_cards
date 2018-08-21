@@ -35,7 +35,6 @@
 		A4208344212B51CB0081E762 /* AdditionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208343212B51CB0081E762 /* AdditionsListView.swift */; };
 		A4208346212B51D30081E762 /* AdditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208345212B51D30081E762 /* AdditionCell.swift */; };
 		A4208349212B524D0081E762 /* AdditionsListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */; };
-		A420834B212B52660081E762 /* PartnersItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420834A212B52660081E762 /* PartnersItemsViewModel.swift */; };
 		A4208353212B57820081E762 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208352212B57820081E762 /* CALayerExtensions.swift */; };
 		A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBB2108BB0F00EAC5DD /* Cards.swift */; };
 		A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */; };
@@ -89,7 +88,6 @@
 		A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B816CC20D021DC00FC5651 /* MenuViewController.swift */; };
 		A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */; };
 		A4C25333211DEEAD00E0FF37 /* TableRowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C25332211DEEAD00E0FF37 /* TableRowBuilder.swift */; };
-		A4E422852129AAA300244744 /* AdditionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E422842129AAA300244744 /* AdditionsViewModel.swift */; };
 		A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */; };
 		A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */; };
 		A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDAFFE20D413DC00FA6E4B /* DialView.swift */; };
@@ -141,7 +139,6 @@
 		A4208343212B51CB0081E762 /* AdditionsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionsListView.swift; sourceTree = "<group>"; };
 		A4208345212B51D30081E762 /* AdditionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionCell.swift; sourceTree = "<group>"; };
 		A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionsListTableAdapter.swift; sourceTree = "<group>"; };
-		A420834A212B52660081E762 /* PartnersItemsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersItemsViewModel.swift; sourceTree = "<group>"; };
 		A4208352212B57820081E762 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 		A441BBBB2108BB0F00EAC5DD /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProvider.swift; sourceTree = "<group>"; };
@@ -198,7 +195,6 @@
 		A4B816CC20D021DC00FC5651 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		A4C25332211DEEAD00E0FF37 /* TableRowBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowBuilder.swift; sourceTree = "<group>"; };
-		A4E422842129AAA300244744 /* AdditionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionsViewModel.swift; sourceTree = "<group>"; };
 		A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
 		A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
 		A4FDAFFE20D413DC00FA6E4B /* DialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialView.swift; sourceTree = "<group>"; };
@@ -315,14 +311,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		A420834C212B526A0081E762 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				A420834A212B52660081E762 /* PartnersItemsViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		A4208354212B57D80081E762 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +339,14 @@
 				5581943DE1A552D6BB0B876B /* ZipExtension.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		A4208356212BE06E0081E762 /* AdditionDescription */ = {
+			isa = PBXGroup;
+			children = (
+				A4A9102D21285AD900652D25 /* AdditionDescriptionViewController.swift */,
+			);
+			path = AdditionDescription;
 			sourceTree = "<group>";
 		};
 		A441BBCB2109BAA100EAC5DD /* Resources */ = {
@@ -511,6 +507,7 @@
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A4208356212BE06E0081E762 /* AdditionDescription */,
 				A4C2532F211DEE4400E0FF37 /* Additions */,
 				A47569BD2110D3DB00311014 /* MonsterDetail */,
 				A441BBDB2109BC7C00EAC5DD /* Menu */,
@@ -620,11 +617,9 @@
 		A4C2532F211DEE4400E0FF37 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				A4A9102D21285AD900652D25 /* AdditionDescriptionViewController.swift */,
 				9F171C53211CD1C0005A8264 /* _AdditionsViewController.swift */,
 				A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */,
 				A4208341212B51C40081E762 /* AdditionsViewController.swift */,
-				A420834C212B526A0081E762 /* ViewModel */,
 				A4E422812129A87D00244744 /* Views */,
 			);
 			path = Additions;
@@ -633,7 +628,6 @@
 		A4E422812129A87D00244744 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A4E422842129AAA300244744 /* AdditionsViewModel.swift */,
 				A4208343212B51CB0081E762 /* AdditionsListView.swift */,
 				A4208347212B51D60081E762 /* Cell */,
 			);
@@ -805,6 +799,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-17/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 			);
@@ -812,6 +807,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
 			);
@@ -830,7 +826,6 @@
 				A4563AD720F7DBAC00B65428 /* View.swift in Sources */,
 				A4208353212B57820081E762 /* CALayerExtensions.swift in Sources */,
 				A4563AF020F7DD3000B65428 /* ExtTextField.swift in Sources */,
-				A4E422852129AAA300244744 /* AdditionsViewModel.swift in Sources */,
 				A4563AFB20F87FAE00B65428 /* DIContainer.swift in Sources */,
 				A45E5667210B53B100590AE7 /* MenuContentView.swift in Sources */,
 				A4208340212B1B8D0081E762 /* BaseTableViewCell.swift in Sources */,
@@ -893,7 +888,6 @@
 				9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */,
 				A4563AEA20F7DCBF00B65428 /* DateHelper.swift in Sources */,
 				A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */,
-				A420834B212B52660081E762 /* PartnersItemsViewModel.swift in Sources */,
 				A4FDB01520D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift in Sources */,
 				A4563ADF20F7DBF500B65428 /* String.swift in Sources */,
 				A4563B0120F880BB00B65428 /* Navigator.swift in Sources */,

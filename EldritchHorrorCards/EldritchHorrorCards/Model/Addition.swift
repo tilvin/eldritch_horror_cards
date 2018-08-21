@@ -14,6 +14,7 @@ struct Addition: Codable {
 	let description: String
 	let isMap: Bool
 	var isSelectedMap: Bool = false
+	var isSelected: Bool = false
 	
 	enum CodingKeys: String, CodingKey {
 		case id = "id"

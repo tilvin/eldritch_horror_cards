@@ -18,14 +18,10 @@ extension AdditionCell {
 		let spacingBetweenIconAndText: CGFloat = 8
 		let spacingBetweenTitleAndDescription: CGFloat = 4
 		let leftOrTopOffset = 16
-		var rightOrBottomOffset: Int {
-			return -leftOrTopOffset
-		}
+		var rightOrBottomOffset: Int { return -leftOrTopOffset }
 		
 		let roundedViewTopOffset = 8
-		var roundedViewBottomOffset: Int {
-			return -roundedViewTopOffset
-		}
+		var roundedViewBottomOffset: Int { return -roundedViewTopOffset }
 		
 		let roundedViewColor = UIColor.white
 		let backgroundColor = UIColor.clear
@@ -45,77 +41,77 @@ class AdditionCell: BaseTableViewCell {
 	
 	lazy var titleLabel: UILabel = {
 		let view = UILabel()
-		view.numberOfLines = 0
-		view.textColor = appearance.titleLabelColor
-		view.font = appearance.titleFont
+		view.font = UIFont.bold16
+		view.textColor = UIColor.mako
+		view.text = "model.name"
+		view.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .horizontal)
 		return view
 	}()
 	
-	lazy var descriptionLabel: UILabel = {
-		let view = UILabel()
-		view.numberOfLines = 0
-		view.textColor = appearance.descriptionColor
-		view.font = appearance.descriptionFont
-		
+	lazy var selectSwitch: UISwitch = {
+		let view = UISwitch()
+		view.onTintColor = UIColor.darkGreenBlue
+		view.isOn = false
 		return view
 	}()
 	
-	lazy var partnerIcon: UIImageView = {
-		let view = UIImageView()
+	lazy var infoButton: UIButton = {
+		let view = UIButton()
 		view.contentMode = .scaleAspectFit
-		view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+		view.setImage(UIImage.info, for: .normal)
 		return view
 	}()
 	
-	lazy var contentStackView: UIStackView = {
-		var stackView = UIStackView()
-		stackView.axis = .horizontal
-		stackView.distribution = .fill
-		stackView.spacing = appearance.spacingBetweenIconAndText
-		return stackView
+	lazy var mapButton: UIButton = {
+		let view = UIButton()
+		view.contentMode = .scaleAspectFit
+		view.setImage(UIImage.mapOn, for: .normal)
+		return view
 	}()
 	
-	lazy var labelsStackView: UIStackView = {
-		var stackView = UIStackView()
-		stackView.axis = .vertical
-		stackView.distribution = .fill
-		stackView.spacing = appearance.spacingBetweenTitleAndDescription
-		return stackView
-	}()
-	
-	lazy var roundedView: UIView = {
+	lazy var separateLine: UIView = {
 		let view = UIView()
-		view.backgroundColor = appearance.roundedViewColor
+		view.backgroundColor = .alto
 		return view
+	}()
+	
+	lazy var stackView: UIStackView = {
+		var verticalStack = UIStackView()
+		verticalStack.axis = .vertical
+		verticalStack.distribution = .fill
+		verticalStack.spacing = 10
+		
+		var titleStack = UIStackView()
+		titleStack.axis = .horizontal
+		titleStack.distribution = .fill
+		titleStack.alignment = .center
+		titleStack.spacing = 5
+		
+		titleStack.addArrangedSubview(titleLabel)
+		titleStack.addArrangedSubview(selectSwitch)
+		
+		var buttonStack = UIStackView()
+		buttonStack.axis = .horizontal
+		buttonStack.distribution = .fill
+		buttonStack.spacing = 20
+		
+		buttonStack.addArrangedSubview(infoButton)
+		buttonStack.addArrangedSubview(mapButton)
+		
+		let view = UIView()
+		view.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .horizontal)
+		buttonStack.addArrangedSubview(view)
+		
+		verticalStack.addArrangedSubview(titleStack)
+		verticalStack.addArrangedSubview(buttonStack)
+		
+		return verticalStack
 	}()
 	
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		addSubviews()
 		makeConstraints()
-	}
-	
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		roundedView.layer.addShadow(with: appearance.shadowOffset,
-							 opacity: appearance.shadowOpacity,
-							 shadowRadius: appearance.shadowRadius,
-							 cornerRadius: appearance.cornerRadius,
-							 color: appearance.shadowColor)
-	}
-	
-	override func setSelected(_ selected: Bool, animated: Bool) {
-		let whiteBackgroundView = UIView(frame: self.frame)
-		whiteBackgroundView.backgroundColor = .clear
-		self.selectedBackgroundView = whiteBackgroundView
-		super.setSelected(selected, animated: animated)
-		roundedView.backgroundColor = selected ? .gray : .white
-	}
-	
-	override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-		super.setHighlighted(highlighted, animated: animated)
-		
-		roundedView.backgroundColor = highlighted ? .gray : .white
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -126,39 +122,29 @@ class AdditionCell: BaseTableViewCell {
 	
 	public func update(with viewModel: Addition) {
 		model = viewModel
-		print("configure cell with model: \(viewModel)")
-//		partnerIcon.image = viewModel.image
-//		titleLabel.text = viewModel.title.uppercased()
-//		descriptionLabel.text = viewModel.description
-//		descriptionLabel.isHidden = viewModel.description == nil
+		titleLabel.text = model.name
+		mapButton.setImage(model.isSelectedMap ? .mapOn : .mapOff, for: .normal)
+		mapButton.isHidden = !model.isMap
+		selectSwitch.isOn = model.isSelected
 	}
 	
 	private func addSubviews() {
-		contentView.backgroundColor = appearance.backgroundColor
-		backgroundColor = appearance.backgroundColor
-		contentView.addSubview(roundedView)
-		roundedView.addSubview(contentStackView)
-		
-		contentStackView.addArrangedSubview(partnerIcon)
-		contentStackView.addArrangedSubview(labelsStackView)
-		
-		labelsStackView.addArrangedSubview(titleLabel)
-		labelsStackView.addArrangedSubview(descriptionLabel)
+		addSubview(stackView)
+		addSubview(separateLine)
 	}
 	
 	private func makeConstraints() {
-		roundedView.snp.remakeConstraints { (maker) in
-			maker.bottom.equalToSuperview().offset(appearance.roundedViewBottomOffset)
-			maker.top.equalToSuperview().offset(appearance.roundedViewTopOffset)
-			maker.left.equalToSuperview().offset(appearance.leftOrTopOffset).priority(999)
-			maker.right.equalToSuperview().offset(appearance.rightOrBottomOffset).priority(999)
+		stackView.snp.makeConstraints { (make) in
+			make.left.right.equalToSuperview().inset(20)
+			make.top.equalToSuperview().inset(20)
+			make.bottom.equalToSuperview().inset(20)
 		}
 		
-		contentStackView.snp.remakeConstraints { (maker) in
-			maker.bottom.equalToSuperview().offset(appearance.rightOrBottomOffset)
-			maker.top.equalToSuperview().offset(appearance.leftOrTopOffset)
-			maker.left.equalToSuperview().offset(appearance.leftOrTopOffset).priority(999)
-			maker.right.equalToSuperview().offset(appearance.rightOrBottomOffset).priority(999)
+		separateLine.snp.makeConstraints { (make) in
+			make.height.equalTo(1)
+			make.bottom.equalToSuperview()
+			make.left.equalToSuperview().inset(20)
+			make.right.equalToSuperview()
 		}
 	}
 }

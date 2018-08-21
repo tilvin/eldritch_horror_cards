@@ -18,20 +18,19 @@ extension UIFont {
 	
 	//MARK: Bold
 	
-	class var bold28: UIFont {
-		return UIFont.bold(of: 28)
-	}
+	static var bold32: UIFont { return UIFont.bold(of: 32) }
+	static var bold28: UIFont { return UIFont.bold(of: 28) }
+	static var bold24: UIFont { return UIFont.bold(of: 24) }
+	static var bold16: UIFont { return UIFont.bold(of: 16) }
+	
 	//MARK: Regular
 	
-	class var regular14: UIFont {
-		return UIFont.regular(of: 14)
-	}
-	
+	static var regular24: UIFont { return UIFont.regular(of: 24) }
+	static var regular14: UIFont { return UIFont.regular(of: 14) }
+
 	//MARK: Light
 	
-	class var light15: UIFont {
-		return UIFont.light(of: 15)
-	}
+	static var light15: UIFont { return UIFont.light(of: 15) }
 	
 	//MARK: - Private
 	

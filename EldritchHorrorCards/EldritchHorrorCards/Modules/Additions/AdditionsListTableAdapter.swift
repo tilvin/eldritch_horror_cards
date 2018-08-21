@@ -15,7 +15,7 @@ class AdditionsListTableAdapter: StaticTableAdapter {
 	func load(tableView: UITableView) {
 		connect(tableView: tableView)
 		tableView.rowHeight = UITableViewAutomaticDimension
-		tableView.estimatedRowHeight = 150
+		tableView.estimatedRowHeight = 100
 		tableView.tableFooterView = UIView()
 		tableView.separatorInset = .zero
 		tableView.separatorStyle = UITableViewCellSeparatorStyle.none
