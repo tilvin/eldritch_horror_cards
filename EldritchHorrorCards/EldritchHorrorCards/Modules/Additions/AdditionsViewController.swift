@@ -10,7 +10,6 @@ import UIKit
 
 class AdditionsViewController: BaseViewController {
 	@IBOutlet private var tableView: UITableView!
-//	@IBOutlet private var containerView: UIView!
 	
 	private var selectedIndexPaths: [IndexPath] = []
 	private var additionProvider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
