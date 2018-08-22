@@ -22,5 +22,4 @@ class BaseTableViewCell: UITableViewCell {
 
 	internal func didSetObject(object: Any?) {
 	}
-
 }

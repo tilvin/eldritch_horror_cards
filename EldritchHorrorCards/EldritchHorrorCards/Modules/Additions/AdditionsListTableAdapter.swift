@@ -1,7 +1,7 @@
 import UIKit
 
 protocol AdditionsListTableAdapterDelegate: class {
-	func didTapOnCell(with model: Addition)
+	func didTapInfo(with model: Addition)
 }
 
 class AdditionsListTableAdapter: StaticTableAdapter {
@@ -19,6 +19,7 @@ class AdditionsListTableAdapter: StaticTableAdapter {
 		tableView.tableFooterView = UIView()
 		tableView.separatorInset = .zero
 		tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+		tableView.allowsSelection = false
 		
 		registerCell(items: ["\(AdditionCell.self)": AdditionCell.self])
 
@@ -35,12 +36,29 @@ class AdditionsListTableAdapter: StaticTableAdapter {
 		for model in models {
 			let config = TableCellConfiguration.init("\(AdditionCell.self)", instance: AdditionCell.self, configureBlock: { (cell, _) in
 				cell.update(with: model)
+				cell.delegate = self
 			}, actionBlock: { [weak self] (cell, _) in
-				self?.delegate?.didTapOnCell(with: cell.model)
+				self?.delegate?.didTapInfo(with: cell.model)
 			})
 			section.cellConfigurations.append(config)
 		}
 		
 		setSections([section])
+	}
+}
+
+extension AdditionsListTableAdapter: AdditionCellDelegate {
+ 
+	func update(with model: Addition) {
+		print("table adapter: update")
+		guard let item = provider.additions.enumerated().filter({ (index, item) -> Bool in
+			return item.id == model.id
+		}).first else { return }
+		provider.additions[item.offset] = item.element
+	}
+	
+	func infoPressed(with model: Addition) {
+		print("table adapter: info pressed")
+		delegate?.didTapInfo(with: model)
 	}
 }

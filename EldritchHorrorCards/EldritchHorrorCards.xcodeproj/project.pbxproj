@@ -14,7 +14,6 @@
 		55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581983F398902734317516E /* UserDefaultsDataStore.swift */; };
 		9F0E79F22112F44D0080C907 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E79F12112F44D0080C907 /* users.json */; };
 		9F0E79F42112FDED0080C907 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E79F32112FDED0080C907 /* User.swift */; };
-		9F171C54211CD1C0005A8264 /* _AdditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C53211CD1C0005A8264 /* _AdditionsViewController.swift */; };
 		9F171C56211CD239005A8264 /* additions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F171C55211CD239005A8264 /* additions.json */; };
 		9F171C58211D59DE005A8264 /* Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C57211D59DE005A8264 /* Addition.swift */; };
 		9F171C5A211D5AB6005A8264 /* AdditionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */; };
@@ -117,7 +116,6 @@
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
 		9F0E79F12112F44D0080C907 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		9F0E79F32112FDED0080C907 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		9F171C53211CD1C0005A8264 /* _AdditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _AdditionsViewController.swift; sourceTree = "<group>"; };
 		9F171C55211CD239005A8264 /* additions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = additions.json; sourceTree = "<group>"; };
 		9F171C57211D59DE005A8264 /* Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addition.swift; sourceTree = "<group>"; };
 		9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionDataProvider.swift; sourceTree = "<group>"; };
@@ -617,7 +615,6 @@
 		A4C2532F211DEE4400E0FF37 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				9F171C53211CD1C0005A8264 /* _AdditionsViewController.swift */,
 				A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */,
 				A4208341212B51C40081E762 /* AdditionsViewController.swift */,
 				A4E422812129A87D00244744 /* Views */,
@@ -895,7 +892,6 @@
 				A4563AE420F7DC5400B65428 /* Inspectable.swift in Sources */,
 				A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */,
 				A420833F212B1B8D0081E762 /* BaseTableViewHeaderFooterView.swift in Sources */,
-				9F171C54211CD1C0005A8264 /* _AdditionsViewController.swift in Sources */,
 				9F0E79F42112FDED0080C907 /* User.swift in Sources */,
 				A4FDB01020D413DE00FA6E4B /* JFCardSelectionViewController.swift in Sources */,
 				A4FDB01120D413DE00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift in Sources */,

@@ -16,8 +16,12 @@ class AdditionsViewController: BaseViewController {
 }
 
 extension AdditionsViewController: AdditionsListTableAdapterDelegate {
-	
-	func didTapOnCell(with model: Addition) {
-		print("tap on cell!")
+
+	func didTapInfo(with model: Addition) {
+		print("load info with model \n \(model)")
+		let controller = AdditionDescriptionViewController()
+//		controller.modalTransitionStyle = .crossDissolve
+//		controller.additionDescription = model.description
+		appNavigator?.go(controller: controller, mode: .push)
 	}
 }

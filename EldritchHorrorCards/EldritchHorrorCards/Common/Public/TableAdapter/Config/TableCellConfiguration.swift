@@ -23,12 +23,7 @@ class TableCellConfiguration<T>: TableCellConfigurationProtocol where T: BaseTab
 	var configurationBlock: ((T, IndexPath) -> Void)?
 	var actionBlock: ((T, IndexPath) -> Void)?
 
-	init(
-		instance: T.Type,
-		height: CGFloat = UITableViewAutomaticDimension,
-		configureBlock: ((T, IndexPath) -> Void)?,
-		actionBlock: ((T, IndexPath) -> Void)? ) {
-
+	init(instance: T.Type, height: CGFloat = UITableViewAutomaticDimension, configureBlock: ((T, IndexPath) -> Void)?, actionBlock: ((T, IndexPath) -> Void)? ) {
 		self.identifier = String(describing: instance)
 		self.instance = instance
 		self.configurationBlock = configureBlock
@@ -36,12 +31,7 @@ class TableCellConfiguration<T>: TableCellConfigurationProtocol where T: BaseTab
 		self.height = height
 	}
 
-	init(
-		_ identifier: String, instance: T.Type,
-		height: CGFloat = UITableViewAutomaticDimension,
-		configureBlock: ((T, IndexPath) -> Void)?,
-		actionBlock: ((T, IndexPath) -> Void)?) {
-
+	init(_ identifier: String, instance: T.Type, height: CGFloat = UITableViewAutomaticDimension, configureBlock: ((T, IndexPath) -> Void)?, actionBlock: ((T, IndexPath) -> Void)?) {
 		self.identifier = identifier
 		self.instance = instance
 		self.configurationBlock = configureBlock

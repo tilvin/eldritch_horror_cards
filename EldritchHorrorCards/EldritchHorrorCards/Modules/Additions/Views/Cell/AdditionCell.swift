@@ -34,23 +34,27 @@ extension AdditionCell {
 	}
 }
 
+protocol AdditionCellDelegate: class {
+	func update(with model: Addition)
+	func infoPressed(with model: Addition)
+}
+
 class AdditionCell: BaseTableViewCell {
 	
 	let appearance = Appearance()
 	var model: Addition!
+	var delegate: AdditionCellDelegate?
 	
 	lazy var titleLabel: UILabel = {
 		let view = UILabel()
 		view.font = UIFont.bold16
 		view.textColor = UIColor.mako
-		view.text = "model.name"
-		view.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .horizontal)
 		return view
 	}()
 	
 	lazy var selectSwitch: UISwitch = {
 		let view = UISwitch()
-		view.onTintColor = UIColor.darkGreenBlue
+		view.onTintColor = .darkGreenBlue
 		view.isOn = false
 		return view
 	}()
@@ -99,7 +103,6 @@ class AdditionCell: BaseTableViewCell {
 		buttonStack.addArrangedSubview(mapButton)
 		
 		let view = UIView()
-		view.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .horizontal)
 		buttonStack.addArrangedSubview(view)
 		
 		verticalStack.addArrangedSubview(titleStack)
@@ -112,12 +115,17 @@ class AdditionCell: BaseTableViewCell {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		addSubviews()
 		makeConstraints()
+		selectSwitch.addTarget(self, action: #selector(switchPressed), for: .touchUpInside)
+		mapButton.addTarget(self, action: #selector(mapPressed), for: .touchUpInside)
+		infoButton.addTarget(self, action: #selector(infoPressed), for: .touchUpInside)
+		layoutIfNeeded()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		addSubviews()
 		makeConstraints()
+		layoutIfNeeded()
 	}
 	
 	public func update(with viewModel: Addition) {
@@ -146,6 +154,23 @@ class AdditionCell: BaseTableViewCell {
 			make.left.equalToSuperview().inset(20)
 			make.right.equalToSuperview()
 		}
+	}
+	
+	@objc private func switchPressed() {
+		print("switch! \(selectSwitch.isOn)")
+		model.isSelected = selectSwitch.isOn
+		delegate?.update(with: model)
+	}
+	
+	@objc private func mapPressed() {
+		print("map pressed")
+		model.isSelectedMap = mapButton.alpha == 1
+		delegate?.update(with: model)
+	}
+	
+	@objc private func infoPressed() {
+		print("indo pressed")
+		delegate?.infoPressed(with: model)
 	}
 }
 
