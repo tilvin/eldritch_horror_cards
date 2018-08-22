@@ -66,6 +66,7 @@
 		A47569C22110F0E700311014 /* MonsterDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47569C12110F0E700311014 /* MonsterDescriptionView.swift */; };
 		A47569C42110F32D00311014 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47569C32110F32D00311014 /* CloseButtonView.swift */; };
 		A4788ADF212D4F80006D71FD /* AdditionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788ADE212D4F80006D71FD /* AdditionDescriptionView.swift */; };
+		A4788AE1212D5F7D006D71FD /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788AE0212D5F7D006D71FD /* CustomButton.swift */; };
 		A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427C210C2FED00ED0851 /* MainViewController.swift */; };
 		A4794280210C311500ED0851 /* TabBarControllersProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427E210C311500ED0851 /* TabBarControllersProviderProtocol.swift */; };
 		A4794281210C311500ED0851 /* TabBarControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427F210C311500ED0851 /* TabBarControllersProvider.swift */; };
@@ -170,6 +171,7 @@
 		A47569C12110F0E700311014 /* MonsterDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDescriptionView.swift; sourceTree = "<group>"; };
 		A47569C32110F32D00311014 /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
 		A4788ADE212D4F80006D71FD /* AdditionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionDescriptionView.swift; sourceTree = "<group>"; };
+		A4788AE0212D5F7D006D71FD /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A479427C210C2FED00ED0851 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A479427E210C311500ED0851 /* TabBarControllersProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllersProviderProtocol.swift; sourceTree = "<group>"; };
 		A479427F210C311500ED0851 /* TabBarControllersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllersProvider.swift; sourceTree = "<group>"; };
@@ -403,16 +405,16 @@
 		A441BBCF2109BB1900EAC5DD /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				A4208330212B1AE50081E762 /* TableAdapter */,
-				A4794287210C40DE00ED0851 /* Themes */,
-				A4794282210C313C00ED0851 /* Controllers */,
 				A4563AF720F87F8B00B65428 /* Command.swift */,
 				A4563AFC20F87FF500B65428 /* DI.swift */,
 				A45E565E210B0C8800590AE7 /* Images.swift */,
+				A4794282210C313C00ED0851 /* Controllers */,
 				A441BBD32109BB8000EAC5DD /* Navigator */,
-				A441BBD42109BB9100EAC5DD /* Providers */,
-				A45E5660210B32C900590AE7 /* Views */,
 				55819E70178EA040542F75C7 /* Network */,
+				A441BBD42109BB9100EAC5DD /* Providers */,
+				A4208330212B1AE50081E762 /* TableAdapter */,
+				A4794287210C40DE00ED0851 /* Themes */,
+				A45E5660210B32C900590AE7 /* Views */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -555,6 +557,7 @@
 			children = (
 				A420833C212B1B510081E762 /* TableView */,
 				A45E5661210B32F500590AE7 /* BaseScrollView.swift */,
+				A4788AE0212D5F7D006D71FD /* CustomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -893,6 +896,7 @@
 				A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */,
 				A4563ADA20F7DBC200B65428 /* ViewControllerUI.swift in Sources */,
 				A4788ADF212D4F80006D71FD /* AdditionDescriptionView.swift in Sources */,
+				A4788AE1212D5F7D006D71FD /* CustomButton.swift in Sources */,
 				A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */,
 				9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */,
 				A4563AEA20F7DCBF00B65428 /* DateHelper.swift in Sources */,

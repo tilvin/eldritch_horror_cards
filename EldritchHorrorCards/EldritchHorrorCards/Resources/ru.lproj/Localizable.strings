@@ -6,6 +6,6 @@
 "card.type.portal" = "Иные миры";
 
 "additions.title" = "Выберите дополнения";
-"additions.button.select" = "Продолжить";
+"additions.button.continue" = "Продолжить";
 
 "menu.logout.button.label" = "Выход";

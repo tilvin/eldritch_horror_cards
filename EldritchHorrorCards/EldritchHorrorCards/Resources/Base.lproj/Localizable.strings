@@ -6,6 +6,6 @@
 "card.type.portal" = "Portal";
 
 "additions.title" = "Select additions";
-"additions.button.select" = "Continue";
+"additions.button.continue" = "Continue";
 
 "menu.logout.button.label" = "Exit";

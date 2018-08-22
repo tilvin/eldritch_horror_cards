@@ -25,7 +25,8 @@ class AdditionsListView: UIView {
 		let label = UILabel()
 		label.textColor = .mako
 		label.text = "additions.title".localized
-		label.font = UIFont.bold32
+		label.font = UIFont.bold24
+		label.numberOfLines = 0
 		return label
 	}()
 	
@@ -36,10 +37,9 @@ class AdditionsListView: UIView {
 		return view
 	}()
 	
-	lazy var button: UIButton = {
-		let button = UIButton()
-		button.setTitle("Test", for: .normal)
-		button.backgroundColor = .gray
+	lazy var continueButton: CustomButton = {
+		let button = CustomButton(type: .darkGreenBlue)
+		button.setTitle("additions.button.continue".localized.capitalized, for: .normal)
 		return button
 	}()
 	
@@ -48,6 +48,7 @@ class AdditionsListView: UIView {
 		backgroundColor = appearance.backgroundColor
 		addSubviews()
 		makeConstraints()
+		continueButton.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
 		layoutIfNeeded()
 	}
 	
@@ -63,26 +64,30 @@ class AdditionsListView: UIView {
 	private func addSubviews() {
 		addSubview(titleLabel)
 		addSubview(tableView)
-		addSubview(button)
+		addSubview(continueButton)
 		backgroundColor = UIColor.clear
 	}
 	
 	private func makeConstraints() {
 		titleLabel.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().offset(52)
-			make.left.right.equalToSuperview().offset(25)
+			make.top.equalToSuperview().inset(52)
+			make.left.right.equalToSuperview().inset(20)
 		}
 		
 		tableView.snp.makeConstraints { (make) in
 			make.top.equalTo(titleLabel.snp.bottom)
 			make.left.right.equalToSuperview()
-			make.bottom.equalTo(button.snp.top).offset(-10)
+			make.bottom.equalTo(continueButton.snp.top).inset(-10)
 		}
 		
-		button.snp.makeConstraints { (make) in
-			make.height.equalTo(45)
-			make.left.right.equalToSuperview().inset(50)
+		continueButton.snp.makeConstraints { (make) in
+			make.height.equalTo(50)
+			make.left.right.equalToSuperview().inset(30)
 			make.bottom.equalToSuperview().inset(32)
 		}
+	}
+	
+	@objc private func continueButtonPressed() {
+		print("continueButton pressed!")
 	}
 }
