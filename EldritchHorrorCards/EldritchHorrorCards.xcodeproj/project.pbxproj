@@ -65,6 +65,7 @@
 		A47569BF2110D42E00311014 /* MonsterDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47569BE2110D42E00311014 /* MonsterDescriptionViewController.swift */; };
 		A47569C22110F0E700311014 /* MonsterDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47569C12110F0E700311014 /* MonsterDescriptionView.swift */; };
 		A47569C42110F32D00311014 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47569C32110F32D00311014 /* CloseButtonView.swift */; };
+		A4788ADF212D4F80006D71FD /* AdditionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788ADE212D4F80006D71FD /* AdditionDescriptionView.swift */; };
 		A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427C210C2FED00ED0851 /* MainViewController.swift */; };
 		A4794280210C311500ED0851 /* TabBarControllersProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427E210C311500ED0851 /* TabBarControllersProviderProtocol.swift */; };
 		A4794281210C311500ED0851 /* TabBarControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427F210C311500ED0851 /* TabBarControllersProvider.swift */; };
@@ -168,6 +169,7 @@
 		A47569BE2110D42E00311014 /* MonsterDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDescriptionViewController.swift; sourceTree = "<group>"; };
 		A47569C12110F0E700311014 /* MonsterDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDescriptionView.swift; sourceTree = "<group>"; };
 		A47569C32110F32D00311014 /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
+		A4788ADE212D4F80006D71FD /* AdditionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionDescriptionView.swift; sourceTree = "<group>"; };
 		A479427C210C2FED00ED0851 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A479427E210C311500ED0851 /* TabBarControllersProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllersProviderProtocol.swift; sourceTree = "<group>"; };
 		A479427F210C311500ED0851 /* TabBarControllersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllersProvider.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				A4A9102D21285AD900652D25 /* AdditionDescriptionViewController.swift */,
+				A4788ADD212D4F4E006D71FD /* Views */,
 			);
 			path = AdditionDescription;
 			sourceTree = "<group>";
@@ -581,6 +584,14 @@
 			children = (
 				A47569C12110F0E700311014 /* MonsterDescriptionView.swift */,
 				A47569C32110F32D00311014 /* CloseButtonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4788ADD212D4F4E006D71FD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4788ADE212D4F80006D71FD /* AdditionDescriptionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -881,6 +892,7 @@
 				A4B8161320D01D6800FC5651 /* Storyboards.swift in Sources */,
 				A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */,
 				A4563ADA20F7DBC200B65428 /* ViewControllerUI.swift in Sources */,
+				A4788ADF212D4F80006D71FD /* AdditionDescriptionView.swift in Sources */,
 				A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */,
 				9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */,
 				A4563AEA20F7DCBF00B65428 /* DateHelper.swift in Sources */,

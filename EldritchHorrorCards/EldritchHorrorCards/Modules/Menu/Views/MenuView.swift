@@ -24,8 +24,9 @@ class MenuView: UIView {
 	}()
 	
 	//MARK: - Lifecycle
-	convenience init(frame: CGRect = CGRect.zero, viewModel: MenuViewModel) {
-		self.init(frame: frame)
+	
+	init(frame: CGRect = CGRect.zero, viewModel: MenuViewModel) {
+		super.init(frame: frame)
 		self.viewModel = viewModel
 		addSubviews()
 		makeConstraints()
@@ -35,11 +36,11 @@ class MenuView: UIView {
 		layoutIfNeeded()
 		contentView.delegate = self
 	}
-	
+
 	override init(frame: CGRect = CGRect.zero) {
 		super.init(frame: frame)
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

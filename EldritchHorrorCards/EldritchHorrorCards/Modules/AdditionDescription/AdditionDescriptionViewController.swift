@@ -1,23 +1,28 @@
 import UIKit
 
 class AdditionDescriptionViewController: BaseViewController {
+	private var model: Addition!
+	
+	init(with model: Addition) {
+		super.init(nibName: nil, bundle: nil)
+		self.isHiddenNavigationBar = true
+		self.model = model
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func loadView() {
+		let view = AdditionDescriptionView(frame: UIScreen.main.bounds, viewModel: model)
+		self.view = view
+		view.delegate = self
+	}
+}
 
-	@IBOutlet private var descriptionTextView: UITextView!
+extension AdditionDescriptionViewController: AdditionDescriptionViewDelegate {
 	
-	var additionDescription: String = ""
-	
-	override func viewDidLoad() {
-        super.viewDidLoad()
-		descriptionTextView.text = additionDescription
-		let tap = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
-		view.addGestureRecognizer(tap)
-    }
-	
-	//MARK: - Private
-	
-	@objc private func backgroundTap() {
-		let controller = AdditionsViewController.controllerFromStoryboard(.additions)
-		controller.modalTransitionStyle = .crossDissolve
-		appNavigator?.go(controller: controller, mode: .modal)
+	func backButtonTap() {
+		close()
 	}
 }
