@@ -37,7 +37,6 @@ extension UIImage {
     static var specialContactYogSotot: UIImage { return UIImage(named: "specialContactYog_Sotot")! }
 	static var closeButton: UIImage { return UIImage(named: "close_button")! }
 	static var info: UIImage { return UIImage(named: "info")! }
-	static var mapOn: UIImage { return UIImage(named: "map_on")! }
-	static var mapOff: UIImage { return UIImage(named: "map_off")! }
+	static var map: UIImage { return UIImage(named: "map")! }
 	static var backButton: UIImage { return UIImage(named: "back_button")! }
 }

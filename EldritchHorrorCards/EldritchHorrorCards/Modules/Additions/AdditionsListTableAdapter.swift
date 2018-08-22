@@ -50,15 +50,13 @@ class AdditionsListTableAdapter: StaticTableAdapter {
 extension AdditionsListTableAdapter: AdditionCellDelegate {
  
 	func update(with model: Addition) {
-		print("table adapter: update")
 		guard let item = provider.additions.enumerated().filter({ (index, item) -> Bool in
 			return item.id == model.id
 		}).first else { return }
-		provider.additions[item.offset] = item.element
+		provider.additions[item.offset] = model
 	}
 	
 	func infoPressed(with model: Addition) {
-		print("table adapter: info pressed")
 		delegate?.didTapInfo(with: model)
 	}
 }

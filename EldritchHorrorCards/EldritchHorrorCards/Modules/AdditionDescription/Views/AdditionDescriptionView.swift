@@ -74,17 +74,18 @@ class AdditionDescriptionView: UIView {
 	
 	private func makeConstraints() {
 		backButton.snp.makeConstraints { (make) in
-			make.top.left.equalToSuperview().inset(30)
+			make.top.equalToSuperview().inset(50)
+			make.left.equalToSuperview().inset(30)
 			make.width.height.equalTo(30)
 		}
 		
 		titleLabel.snp.makeConstraints { (make) in
-			make.top.equalTo(backButton.snp.bottom).offset(40)
-			make.left.right.equalToSuperview().offset(30)
+			make.top.equalTo(backButton.snp.bottom).offset(30)
+			make.left.right.equalToSuperview().inset(33)
 		}
 		
 		textView.snp.makeConstraints { (make) in
-			make.top.equalTo(titleLabel.snp.bottom).inset(20)
+			make.top.equalTo(titleLabel.snp.bottom)
 			make.left.right.bottom.equalToSuperview().inset(30)
 		}
 	}

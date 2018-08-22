@@ -18,7 +18,6 @@ class AdditionsViewController: BaseViewController {
 extension AdditionsViewController: AdditionsListTableAdapterDelegate {
 
 	func didTapInfo(with model: Addition) {
-		print("load info with model \n \(model)")
 		let controller = AdditionDescriptionViewController(with: model)
 		appNavigator?.go(controller: controller, mode: .push)
 	}
