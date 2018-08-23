@@ -14,7 +14,7 @@ protocol MonsterDescriptionViewDelegate: class {
 }
 
 class MonsterDescriptionView: UIView {
-	var monsterDescription: String?
+	private var viewModel: Monster!
 	weak var delegate: MonsterDescriptionViewDelegate?
 	
 	//MARK: -
@@ -22,8 +22,11 @@ class MonsterDescriptionView: UIView {
 	private lazy var descriptionTextView: UITextView = {
 		let tv = UITextView()
 		tv.font = UIFont.regular14
-		tv.textColor = UIColor.darkGray
-		tv.text = monsterDescription
+		tv.backgroundColor = UIColor.darkGreenBlue
+		tv.textColor = UIColor.white
+		tv.layer.cornerRadius = 15
+		tv.clipsToBounds = true
+		tv.text = viewModel.other
 		return tv
 	}()
 	
@@ -34,9 +37,10 @@ class MonsterDescriptionView: UIView {
 	
 	//MARK: - Lifecycle
 	
-	override init(frame: CGRect = CGRect.zero) {
+	init(frame: CGRect = CGRect.zero, viewModel: Monster) {
 		super.init(frame: frame)
 		backgroundColor = UIColor.wildSand
+		self.viewModel = viewModel
 		addSubviews()
 		makeConstraints()
 		closeButtonView.closeButton.addTarget(self, action: #selector(closeButtonTap), for: .touchUpInside)

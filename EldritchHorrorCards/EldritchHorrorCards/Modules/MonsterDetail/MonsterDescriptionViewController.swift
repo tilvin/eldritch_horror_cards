@@ -9,12 +9,13 @@
 import UIKit
 
 class MonsterDescriptionViewController: BaseViewController {
-	
+	private var model: Monster!
 	//MARK: - Lifecycle
 	
-	init() {
+	init(with model: Monster)  {
 		super.init(nibName: nil, bundle: nil)
 		self.isHiddenNavigationBar = true
+		self.model = model
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -22,14 +23,14 @@ class MonsterDescriptionViewController: BaseViewController {
 	}
 	
 	override func loadView() {
-		let view = MonsterDescriptionView(frame: UIScreen.main.bounds)
+		let view = MonsterDescriptionView(frame: UIScreen.main.bounds, viewModel: model)
 		view.delegate = self
 		self.view = view
 	}
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+	override func viewDidLoad() {
+		super.viewDidLoad()
+	}
 	
 	//MARK: -
 }
