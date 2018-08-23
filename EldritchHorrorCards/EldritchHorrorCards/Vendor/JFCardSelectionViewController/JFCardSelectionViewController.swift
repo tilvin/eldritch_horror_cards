@@ -92,7 +92,6 @@ open class JFCardSelectionViewController: UIViewController {
 		]
 	}
 	
-	
 	// MARK: - Lifecycle
 	
 	deinit {
@@ -121,7 +120,6 @@ open class JFCardSelectionViewController: UIViewController {
 		blurEffectView.translatesAutoresizingMaskIntoConstraints = false
 		bgImageView.addSubview(blurEffectView)
 		view.addSubview(bgImageView)
-		
 		bgImageViewTwo.translatesAutoresizingMaskIntoConstraints = false
 		blurEffectViewTwo.translatesAutoresizingMaskIntoConstraints = false
 		bgImageViewTwo.addSubview(blurEffectViewTwo)
@@ -182,11 +180,6 @@ open class JFCardSelectionViewController: UIViewController {
 		
 		x -= 2.5
 		y -= 2.5
-		let trackingIndicatorOuter = UIView(frame: CGRect(x: x, y: y, width: 15, height: 15))
-		trackingIndicatorOuter.makeRound()
-		trackingIndicatorOuter.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-		
-		bottomCircleOutlineView.addSubview(trackingIndicatorOuter)
 		bottomCircleOutlineView.addSubview(trackingIndicatorInner)
 		
 		collectionView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
@@ -234,8 +227,6 @@ open class JFCardSelectionViewController: UIViewController {
 		
 		view.layoutIfNeeded()
 	}
-	
-	
 	
 	func updateUIForCard(_ card: CardPresentable, atIndexPath indexPath: IndexPath) {
 		collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
@@ -297,8 +288,6 @@ open class JFCardSelectionViewController: UIViewController {
 			previouslySelectedIndexPath = indexPath
 		}
 	}
-	
-	
 	
 	func fade() {
 		UIView.animate(withDuration: 0.5, animations: { () -> Void in
@@ -446,15 +435,5 @@ open class JFCardSelectionViewController: UIViewController {
 		let w = ((collectionView.contentSize.width - (flowLayout.sectionInset.left + flowLayout.sectionInset.right))) / CGFloat(Double.pi / 2)
 		rotation = (offset.x / w)
 		bottomCircleOutlineView.transform = CGAffineTransform(rotationAngle: rotation)
-		
-		let collectionViewCenterX = collectionView.center.x
-		for item in collectionView.visibleCells {
-			guard let cardCell = item as? JFCardSelectionCell else { return }
-			let cardPosition = view.convert(cardCell.center, from: collectionView)
-			if cardPosition.x <= collectionViewCenterX + 20 && cardPosition.x >= collectionViewCenterX - 20 {
-				guard let label = cardCell.card?.dialLabel else { return }
-				dialView.rotatePointerToLabel(label)
-			}
-		}
 	}
 }
