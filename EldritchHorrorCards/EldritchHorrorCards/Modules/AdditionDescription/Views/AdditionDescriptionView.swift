@@ -16,6 +16,13 @@ protocol AdditionDescriptionViewDelegate: class {
 extension AdditionDescriptionView {
 	
 	struct Appearance {
+		let backButtonTopOffset: CGFloat = 50
+		let backButtonLeftOffset: CGFloat = 30
+		let backButtonHeight: CGFloat = 30
+		let titleTopOffset: CGFloat = 30
+		let titleLeftOffset: CGFloat = 33
+		let textViewOffset: CGFloat = 30
+		let textColor: UIColor = UIColor.mako
 	}
 }
 
@@ -34,7 +41,7 @@ class AdditionDescriptionView: UIView {
 	
 	lazy var titleLabel: UILabel = {
 		let view = UILabel()
-		view.textColor = .mako
+		view.textColor = appearance.textColor
 		view.text = viewModel.name
 		view.font = UIFont.bold24
 		return view
@@ -44,7 +51,7 @@ class AdditionDescriptionView: UIView {
 		let view = UITextView()
 		view.text = viewModel.description
 		view.font = UIFont.bold16
-		view.textColor = .mako
+		view.textColor = appearance.textColor
 		view.isEditable = false
 		view.isSelectable = false
 		return view
@@ -74,19 +81,19 @@ class AdditionDescriptionView: UIView {
 	
 	private func makeConstraints() {
 		backButton.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().inset(50)
-			make.left.equalToSuperview().inset(30)
-			make.width.height.equalTo(30)
+			make.top.equalToSuperview().inset(appearance.backButtonTopOffset)
+			make.left.equalToSuperview().inset(appearance.backButtonLeftOffset)
+			make.width.height.equalTo(appearance.backButtonHeight)
 		}
 		
 		titleLabel.snp.makeConstraints { (make) in
-			make.top.equalTo(backButton.snp.bottom).offset(30)
-			make.left.right.equalToSuperview().inset(33)
+			make.top.equalTo(backButton.snp.bottom).offset(appearance.titleTopOffset)
+			make.left.right.equalToSuperview().inset(appearance.titleLeftOffset)
 		}
 		
 		textView.snp.makeConstraints { (make) in
 			make.top.equalTo(titleLabel.snp.bottom)
-			make.left.right.bottom.equalToSuperview().inset(30)
+			make.left.right.bottom.equalToSuperview().inset(appearance.textViewOffset)
 		}
 	}
 	

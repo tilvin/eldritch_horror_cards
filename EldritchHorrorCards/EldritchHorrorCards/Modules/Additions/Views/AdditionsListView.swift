@@ -14,6 +14,12 @@ extension AdditionsListView {
 	struct Appearance {
 		let tableViewContentInsets = UIEdgeInsetsMake(0, 0, 0, 0)
 		let backgroundColor = UIColor.clear
+		let titleLabelTopOffset: CGFloat = 52
+		let titleLabelLeftOffset: CGFloat = 20
+		let tableViewBottomOffset: CGFloat = -10
+		let continueButtonHeight: CGFloat = 50
+		let continueButtonLeftOffset: CGFloat = 30
+		let continueButtonBottomOffset: CGFloat = 32
 	}
 }
 
@@ -70,20 +76,20 @@ class AdditionsListView: UIView {
 	
 	private func makeConstraints() {
 		titleLabel.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().inset(52)
-			make.left.right.equalToSuperview().inset(20)
+			make.top.equalToSuperview().inset(appearance.titleLabelTopOffset)
+			make.left.right.equalToSuperview().inset(appearance.titleLabelLeftOffset)
 		}
 		
 		tableView.snp.makeConstraints { (make) in
 			make.top.equalTo(titleLabel.snp.bottom)
 			make.left.right.equalToSuperview()
-			make.bottom.equalTo(continueButton.snp.top).inset(-10)
+			make.bottom.equalTo(continueButton.snp.top).offset(appearance.tableViewBottomOffset)
 		}
 		
 		continueButton.snp.makeConstraints { (make) in
-			make.height.equalTo(50)
-			make.left.right.equalToSuperview().inset(30)
-			make.bottom.equalToSuperview().inset(32)
+			make.height.equalTo(appearance.continueButtonHeight)
+			make.left.right.equalToSuperview().inset(appearance.continueButtonLeftOffset)
+			make.bottom.equalToSuperview().inset(appearance.continueButtonBottomOffset)
 		}
 	}
 	
