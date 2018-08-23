@@ -19,31 +19,9 @@ extension UIColor {
 	static var gallery: UIColor { return UIColor(hexString: "EBEBEB") }
 	static var alto: UIColor { return UIColor(hexString: "D8D8D8") }
 	static var mako: UIColor { return UIColor(hexString: "3D434A") }
-	
-	static var mineShaft: UIColor {
-		return UIColor(hexString: "3B3B3B")
-	}
-	
-	static var elm: UIColor {
-		return UIColor(hexString: "1F746E")
-	}
-	
-	static var alto: UIColor {
-		return UIColor(hexString: "D8D8D8")
-	}
-	
-	static var darkGreenBlue: UIColor {
-		return UIColor(hexString: "238780")
-	}
-	
-	static var viridian: UIColor {
-		return UIColor(hexString: "1F746E")
-	}
-	
-	static var viridianTwo: UIColor {
-		return UIColor(hexString: "228079")
-	}
-	
+	static var viridian: UIColor { return UIColor(hexString: "1F746E") }
+	static var viridianTwo: UIColor { return UIColor(hexString: "228079") }
+
 	//MARK: - Inits
 	
 	convenience init(components red: CGFloat, green: CGFloat, blue: CGFloat) {
