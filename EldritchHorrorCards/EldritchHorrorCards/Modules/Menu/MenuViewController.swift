@@ -140,8 +140,8 @@ extension MenuViewController: MenuViewDelegate {
 	}
 	
 	func logoutButtonTap() {
-		UserDefaults.standard.removeObject(forKey: "login")
-		UserDefaults.standard.removeObject(forKey: "token")
+		UserDefaults.standard.removeObject(forKey: User.Contants.login)
+		UserDefaults.standard.removeObject(forKey: User.Contants.token)
 		let controller = AuthViewController.controllerFromStoryboard(.main)
 		controller.modalTransitionStyle = .crossDissolve
 		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)

@@ -22,13 +22,13 @@ class ConfigProvider: ConfigProviderProtocol {
     var login: String = ""
     
     func load() {
-        token = UserDefaults.standard.string(forKey: "token") ?? ""
-        login = UserDefaults.standard.string(forKey: "login") ?? ""
+        token = UserDefaults.standard.string(forKey: User.Contants.token) ?? ""
+        login = UserDefaults.standard.string(forKey: User.Contants.login) ?? ""
     }
     
     func save(completion: ConfigCompletion? = nil) {
-        UserDefaults.standard.set(login, forKey: "login")
-        UserDefaults.standard.set(token, forKey: "token")
+        UserDefaults.standard.set(login, forKey: User.Contants.login)
+        UserDefaults.standard.set(token, forKey: User.Contants.token)
         completion?(true) 
     }
 }

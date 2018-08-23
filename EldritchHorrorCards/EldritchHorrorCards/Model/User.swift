@@ -22,3 +22,10 @@ struct User: Codable {
 		case imageURL = "image_url"
 	}
 }
+
+extension User {
+	struct Contants {
+		static let login = "login"
+		static let token = "token"
+	}	
+}
