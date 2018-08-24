@@ -205,15 +205,6 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                                                 <color key="value" red="0.13725490196078433" green="0.52941176470588236" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
-                                                <point key="value" x="0.0" y="2"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>

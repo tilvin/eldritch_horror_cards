@@ -37,11 +37,6 @@
                             <state key="normal" title=".signin">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                    <real key="value" value="-1"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="actionOneButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Pqv-5A-lWE"/>
                             </connections>
@@ -64,15 +59,6 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                             <color key="value" red="0.13725490200000001" green="0.52941176469999995" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                            <real key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
-                            <point key="value" x="0.0" y="2"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="15"/>
