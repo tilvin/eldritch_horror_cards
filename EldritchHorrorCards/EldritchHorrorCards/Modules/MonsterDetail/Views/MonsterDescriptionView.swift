@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 
 struct Appearance {
-	let tableViewContentInsets = UIEdgeInsetsMake(0, 0, 0, 0)
 	let backgroundColorTextView = UIColor.darkGreenBlue
 	let textColor = UIColor.white
 	let cornerRadiusTextView: CGFloat = 15
