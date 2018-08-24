@@ -8,7 +8,9 @@
 import UIKit
 
 class CardViewController: CardsCarousel {
-	private var cardsTypes: [CardType] = CardType.all
+    var cardsTypes: [CardType] = CardType.all
+    
+    let cardType = CardType.self
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
