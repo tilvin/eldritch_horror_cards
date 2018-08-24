@@ -52,6 +52,7 @@ class AdditionsListView: UIView {
 	override init(frame: CGRect = CGRect.zero) {
 		super.init(frame: frame)
 		backgroundColor = appearance.backgroundColor
+		titleLabel.textAlignment = .center
 		addSubviews()
 		makeConstraints()
 		continueButton.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
