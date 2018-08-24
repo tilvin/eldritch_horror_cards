@@ -2,7 +2,7 @@ import UIKit
 
 extension UIView {
   
-  public func makeRound() {
+    public func makeRound() {
     self.contentMode = .scaleAspectFill;
     self.clipsToBounds = true;
     var f = self.frame;

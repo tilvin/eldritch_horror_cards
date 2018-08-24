@@ -8,8 +8,19 @@
 
 import UIKit
 
+// NOT implemented yet
+extension MainViewController {
+    
+    struct Appearance {
+        let searchButtonHeight: CGFloat = 10
+        let searchButtonLeftOffset: CGFloat = 10
+        let searchButtonBottomOffset: CGFloat = 10
+    }
+}
 class MainViewController: BaseViewController {
-
+    
+    let appearance = Appearance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 		isHiddenNavigationBar = true
@@ -19,6 +30,13 @@ class MainViewController: BaseViewController {
 		addChildViewController(controller)
 		controller.didMove(toParentViewController: self)
 	}
+    
+    // NOT on view
+    lazy var searchButton: CustomButton = {
+        let button = CustomButton(type: .darkGreenBlue)
+        button.setImage(UIImage.info, for: .normal)     // info image while search image is not add
+        return button
+    }()
 }
 
 extension MainViewController: MonstersViewControllerDelegate {

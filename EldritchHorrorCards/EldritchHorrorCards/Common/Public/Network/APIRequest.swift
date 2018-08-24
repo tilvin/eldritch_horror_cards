@@ -11,7 +11,7 @@ enum APIRequest {
 
 extension APIRequest {
 	static private let version: Int = 1
-	static private let apiURL: URL = URL(string: "https://ya.ru")! //server URL
+	static private let apiURL: URL = URL(string: "https://ya.ru")! // server URL
 	static private let userAgent: String = {
 		return "EldritchHorrorCards:ios"
 	}()
