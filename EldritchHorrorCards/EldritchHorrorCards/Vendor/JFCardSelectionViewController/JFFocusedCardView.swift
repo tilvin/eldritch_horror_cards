@@ -47,9 +47,6 @@ class JFFocusedCardView: UIView {
 		imageView.layer.borderColor = UIColor.white.withAlphaComponent(0.4).cgColor
 		imageView.layer.borderWidth = 0.5
 		actionOneButton.isHidden = true
-		actionOneButton.layer.cornerRadius = 2
-		actionOneButton.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
-		actionOneButton.layer.borderWidth = 0.5
 		recognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
 		imageView.addGestureRecognizer(recognizer)
 		imageView.isUserInteractionEnabled = true
@@ -68,7 +65,6 @@ class JFFocusedCardView: UIView {
 		}
 		
 		self.card = _card
-		
 		if let _action = self.card.action {
 			let title = _action.title
 			actionOneButton.setTitle(title, for: UIControlState())

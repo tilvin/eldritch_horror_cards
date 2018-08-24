@@ -9,21 +9,37 @@
 import UIKit
 import SnapKit
 
+struct Appearance {
+	let backgroundColorTextView = UIColor.darkGreenBlue
+	let textColor = UIColor.white
+	let cornerRadiusTextView: CGFloat = 15
+	let fontTextView = UIFont.regular14
+	let backgroundColor = UIColor.wildSand
+	let textViewlLeftOffset: CGFloat = 10
+	let textViewTopOffset: CGFloat = 60
+	let closeButtonWidth: CGFloat = 25
+	let closeButtonTop: CGFloat = 30
+	let closeButtonRight: CGFloat = 10
+}
 protocol MonsterDescriptionViewDelegate: class {
 	func closeButtonPressed()
 }
 
-class MonsterDescriptionView: UIView {
-	var monsterDescription: String?
+final class MonsterDescriptionView: UIView {
+	private var viewModel: Monster!
 	weak var delegate: MonsterDescriptionViewDelegate?
+	let appearance = Appearance()
 	
 	//MARK: -
 	
 	private lazy var descriptionTextView: UITextView = {
 		let tv = UITextView()
-		tv.font = UIFont.regular14
-		tv.textColor = UIColor.darkGray
-		tv.text = monsterDescription
+		tv.font = appearance.fontTextView
+		tv.backgroundColor = appearance.backgroundColorTextView
+		tv.textColor = appearance.textColor
+		tv.layer.cornerRadius = appearance.cornerRadiusTextView
+		tv.clipsToBounds = true
+		tv.text = viewModel.other
 		return tv
 	}()
 	
@@ -34,9 +50,10 @@ class MonsterDescriptionView: UIView {
 	
 	//MARK: - Lifecycle
 	
-	override init(frame: CGRect = CGRect.zero) {
+	init(frame: CGRect = CGRect.zero, viewModel: Monster) {
 		super.init(frame: frame)
-		backgroundColor = UIColor.wildSand
+		backgroundColor = appearance.backgroundColor
+		self.viewModel = viewModel
 		addSubviews()
 		makeConstraints()
 		closeButtonView.closeButton.addTarget(self, action: #selector(closeButtonTap), for: .touchUpInside)
@@ -56,14 +73,14 @@ class MonsterDescriptionView: UIView {
 	
 	private func makeConstraints() {
 		descriptionTextView.snp.makeConstraints { (make) in
-			make.left.right.bottom.equalToSuperview().inset(10)
-			make.top.equalToSuperview().inset(60)
+			make.left.right.bottom.equalToSuperview().inset(appearance.textViewlLeftOffset)
+			make.top.equalToSuperview().inset(appearance.textViewTopOffset)
 		}
 		
 		closeButtonView.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().inset(30)
-			make.right.equalToSuperview().inset(10)
-			make.width.height.equalTo(25)
+			make.top.equalToSuperview().inset(appearance.closeButtonTop)
+			make.right.equalToSuperview().inset(appearance.closeButtonRight)
+			make.width.height.equalTo(appearance.closeButtonWidth)
 		}
 	}
 	
