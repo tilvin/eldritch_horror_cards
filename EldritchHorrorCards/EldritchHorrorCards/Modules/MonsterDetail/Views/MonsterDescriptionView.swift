@@ -26,7 +26,7 @@ protocol MonsterDescriptionViewDelegate: class {
 	func closeButtonPressed()
 }
 
-class MonsterDescriptionView: UIView {
+final class MonsterDescriptionView: UIView {
 	private var viewModel: Monster!
 	weak var delegate: MonsterDescriptionViewDelegate?
 	let appearance = Appearance()
