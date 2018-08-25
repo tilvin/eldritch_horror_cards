@@ -12,7 +12,8 @@ struct Addition: Codable {
 	let id: String
 	let name: String
 	let description: String
-	let isMap: Bool
+	let identity: String
+	var isMap: Bool = true
 	var isSelectedMap: Bool = false
 	var isSelected: Bool = false
 	
@@ -20,6 +21,6 @@ struct Addition: Codable {
 		case id = "id"
 		case name = "name"
 		case description = "description"
-		case isMap = "is_map"
+		case identity = "identity"
 	}
 }

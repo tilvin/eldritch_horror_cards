@@ -25,7 +25,8 @@ class MonsterDataProvider: MonsterDataProviderProtocol {
 			  let unzipJsonData = unzipData,
 			  let json = try? JSONSerialization.jsonObject(with: unzipJsonData, options: [JSONSerialization.ReadingOptions.mutableContainers]) else { return completion(false) }
 
-		DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [Monster].self, json: json) { [weak self] (result) in
+		let parser: DataParseServiceProtocol = DI.providers.resolve(DataParseServiceProtocol.self)!
+		parser.parse(type: [Monster].self, json: json) { [weak self] (result) in
 			if let value = result {
 				self?.monsters = value
 				completion(true)

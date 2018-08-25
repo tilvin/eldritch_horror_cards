@@ -7,11 +7,11 @@ import Foundation
 
 enum APIRequest {
 	case login(login: String, password: String)
+	case gameSets
 }
 
 extension APIRequest {
-	static private let version: Int = 1
-	static private let apiURL: URL = URL(string: "https://ya.ru")! // server URL
+	static private let apiURL: URL = URL(string: "https://82.202.236.16/api/mobile_app/v1")!  //https://82.202.236.16/api/mobile_app/v1/game_sets
 	static private let userAgent: String = {
 		return "EldritchHorrorCards:ios"
 	}()
@@ -43,7 +43,7 @@ extension APIRequest {
 	}
 
 	private struct Components {
-		var version: Int = APIRequest.version
+//		var version: Int = APIRequest.version
 		var path: String!
 		var parameters: [String: Any] = [:]
 		var headers: [String: String] = [:]
@@ -62,6 +62,10 @@ extension APIRequest {
 			components.parameters["password"] = password
 			components.needToken = false
 			return components
+		case .gameSets:
+			components.path = "/game_sets"
+			components.needToken = false
+			return components
 		}
 	}
 
@@ -69,6 +73,8 @@ extension APIRequest {
 		switch self {
 		case .login:
 			return "POST"
+		case .gameSets:
+			return "GET"
 		}
 	}
 

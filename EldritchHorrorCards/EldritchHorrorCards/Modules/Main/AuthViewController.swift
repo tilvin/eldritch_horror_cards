@@ -20,7 +20,7 @@ class AuthViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		if authProvider.loadToken() {
 			autoLogin()
 		}
