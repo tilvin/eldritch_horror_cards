@@ -21,15 +21,35 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 	private var dataTask: URLSessionDataTask?
 	
 	func load(completion: @escaping ([Addition]) -> Void){
-		let networkService: NetworkServiceProtocol = DI.providers.resolve(NetworkServiceProtocol.self)!
-		let parser: DataParseServiceProtocol = DI.providers.resolve(DataParseServiceProtocol.self)!
-
-		dataTask?.cancel()
-//		print(APIRequest.gameSets.request.url?.absoluteString)
-		dataTask = session.dataTask(with: APIRequest.gameSets.request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-			print(data, response, error)
-			print("...")
-			
+		guard let path = Bundle.main.path(forResource: "additions", ofType: "json"),
+			let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped) else {
+				print("can't parse json!")
+				completion([])
+				return
+		}
+		guard let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) else {
+			completion([])
+			return
+		}
+		DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [Addition].self, json: json) { [weak self] (result) in
+			if let value = result {
+				self?.additions = value
+				completion(value)
+			}
+			else {
+				completion([])
+			}
+		}
+		
+//		let networkService: NetworkServiceProtocol = DI.providers.resolve(NetworkServiceProtocol.self)!
+//		let parser: DataParseServiceProtocol = DI.providers.resolve(DataParseServiceProtocol.self)!
+//
+//		dataTask?.cancel()
+////		print(APIRequest.gameSets.request.url?.absoluteString)
+//		dataTask = session.dataTask(with: APIRequest.gameSets.request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+//			print(data, response, error)
+//			print("...")
+//
 			//			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			//			switch HTTPResponse.statusCode {
 			//			case 200:
@@ -54,8 +74,8 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 			//				}
 			//			}
 
-		}
-		dataTask?.resume()
+//		}
+//		dataTask?.resume()
 	}
 }
 
