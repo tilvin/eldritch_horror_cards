@@ -23,8 +23,9 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 	func load(completion: @escaping ([Addition]) -> Void){
 		let networkService: NetworkServiceProtocol = DI.providers.resolve(NetworkServiceProtocol.self)!
 		let parser: DataParseServiceProtocol = DI.providers.resolve(DataParseServiceProtocol.self)!
-		
+
 		dataTask?.cancel()
+//		print(APIRequest.gameSets.request.url?.absoluteString)
 		dataTask = session.dataTask(with: APIRequest.gameSets.request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
 			print(data, response, error)
 			print("...")
@@ -52,6 +53,7 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 			//					completion([])
 			//				}
 			//			}
+
 		}
 		dataTask?.resume()
 	}
@@ -60,22 +62,8 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 extension AdditionDataProvider: URLSessionDelegate {
 	
 	func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-		completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!) )
+		completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
 	}
-	
-	//	func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-	//
-	//		//accept all certs when testing, perform default handling otherwise
-	////	if webService.isTesting() {
-	////		print("Accepting cert as always")
-	////		completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
-	////	}
-	////	else {
-	////		print("Using default handling")
-	//		completionHandler(.performDefaultHandling, URLCredential(trust: challenge.protectionSpace.serverTrust!))
-	////	}
-	//	}
-	
 }
 
 

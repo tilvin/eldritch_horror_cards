@@ -308,7 +308,8 @@ open class JFCardSelectionViewController: UIViewController {
 				self.bgImageViewTwo.image = nil
 			}
 			self.focusedViewTwo.configureForCard(nil)
-		} else {
+		}
+		else {
 			if self.backgroundImage == nil {
 				self.bgImageView.image = nil
 			}
@@ -317,18 +318,14 @@ open class JFCardSelectionViewController: UIViewController {
 	}
 	
 	func shake() {
-		var startX: CGFloat
-		if self.showingImageViewOne {
-			startX = self.focusedView.center.x
-		} else {
-			startX = self.focusedViewTwo.center.x
-		}
+		var startX: CGFloat = self.showingImageViewOne ? self.focusedView.center.x : self.focusedViewTwo.center.x
+		
 		UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: UIViewKeyframeAnimationOptions(), animations: { () -> Void in
-			
 			UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.125) {
 				if self.showingImageViewOne {
 					self.focusedView.center.x += 10
-				} else {
+				}
+				else {
 					self.focusedViewTwo.center.x += 10
 				}
 			}
@@ -336,7 +333,8 @@ open class JFCardSelectionViewController: UIViewController {
 			UIView.addKeyframe(withRelativeStartTime: 0.125, relativeDuration: 0.125) {
 				if self.showingImageViewOne {
 					self.focusedView.center.x -= 10
-				} else {
+				}
+				else {
 					self.focusedViewTwo.center.x -= 10
 				}
 			}
@@ -344,7 +342,8 @@ open class JFCardSelectionViewController: UIViewController {
 			UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.125) {
 				if self.showingImageViewOne {
 					self.focusedView.center.x -= 10
-				} else {
+				}
+				else {
 					self.focusedViewTwo.center.x -= 10
 				}
 			}
@@ -352,7 +351,8 @@ open class JFCardSelectionViewController: UIViewController {
 			UIView.addKeyframe(withRelativeStartTime: 0.375, relativeDuration: 0.125) {
 				if self.showingImageViewOne {
 					self.focusedView.center.x = startX
-				} else {
+				}
+				else {
 					self.focusedViewTwo.center.x = startX
 				}
 			}
