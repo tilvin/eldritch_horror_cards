@@ -15,11 +15,11 @@ protocol AdditionDataProviderProtocol {
 
 class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 	var additions: [Addition] = []
-	lazy private var session: URLSession = {
-		return URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
-	}()
-	private var dataTask: URLSessionDataTask?
-	
+//	lazy private var session: URLSession = {
+//		return URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
+//	}()
+//	private var dataTask: URLSessionDataTask?
+//
 	func load(completion: @escaping ([Addition]) -> Void){
 		guard let path = Bundle.main.path(forResource: "additions", ofType: "json"),
 			let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped) else {
