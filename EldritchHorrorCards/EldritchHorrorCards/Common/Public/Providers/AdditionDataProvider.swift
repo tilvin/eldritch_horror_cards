@@ -24,26 +24,24 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 		}
 		
 		dataTask?.cancel()
- 
+		
 		dataTask = session!.dataTask(with: APIRequest.gameSets.request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			guard let data = data else {
 				completion([])
 				return
 			}
-			if HTTPResponse.statusCode == 200,
-				let jsonString = String(data: data, encoding: .utf8),
-				let jsonData = jsonString.data(using: .utf8) {
-				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [Addition].self, data: jsonData) { [weak self] (result) in
-					if let value = result {
-						self?.additions = value
-						completion(value)
-						return
-					}
-				}
-			}
-			else {
+			guard HTTPResponse.statusCode == 200 else {
 				completion([])
+				return
+			}
+		 
+			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [Addition].self, data: data) { [weak self] (result) in
+				if let value = result {
+					self?.additions = value
+					completion(value)
+					return
+				}
 			}
 		}
 		dataTask?.resume()
