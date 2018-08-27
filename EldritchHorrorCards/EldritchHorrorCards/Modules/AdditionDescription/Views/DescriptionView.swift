@@ -9,28 +9,28 @@
 import UIKit
 import SnapKit
 
-protocol AdditionDescriptionViewDelegate: class {
+protocol DescriptionViewDelegate: class {
 	func backButtonTap()
 }
 
-extension AdditionDescriptionView {
+extension DescriptionView {
 	
 	struct Appearance {
 		let backButtonTopOffset: CGFloat = 50
 		let backButtonLeftOffset: CGFloat = 30
 		let backButtonHeight: CGFloat = 30
-		let titleTopOffset: CGFloat = 30
-		let titleLeftOffset: CGFloat = 33
+		let titleTopOffset: CGFloat =  27
+		let titleLeftOffset: CGFloat = 80
 		let textViewOffset: CGFloat = 30
 		let textColor: UIColor = UIColor.mako
 	}
 }
 
-class AdditionDescriptionView: UIView {
-	var delegate: AdditionDescriptionViewDelegate?
+class DescriptionView: UIView {
+	var delegate: DescriptionViewDelegate?
 	
 	private let appearance = Appearance()
-	private var viewModel: Addition!
+	private var viewModel: Description!
 	
 	lazy var backButton: UIButton = {
 		let view = UIButton()
@@ -43,6 +43,7 @@ class AdditionDescriptionView: UIView {
 		let view = UILabel()
 		view.textColor = appearance.textColor
 		view.text = viewModel.name
+		view.numberOfLines = 0
 		view.font = UIFont.bold24
 		return view
 	}()
@@ -57,7 +58,7 @@ class AdditionDescriptionView: UIView {
 		return view
 	}()
 	
-	init(frame: CGRect = CGRect.zero, viewModel: Addition) {
+	init(frame: CGRect = CGRect.zero, viewModel: Description) {
 		super.init(frame: frame)
 		self.viewModel = viewModel
 		self.backgroundColor = .white
@@ -87,12 +88,12 @@ class AdditionDescriptionView: UIView {
 		}
 		
 		titleLabel.snp.makeConstraints { (make) in
-			make.top.equalTo(backButton.snp.bottom).offset(appearance.titleTopOffset)
+			make.top.equalTo(backButton.snp.bottom).inset(appearance.titleTopOffset)
 			make.left.right.equalToSuperview().inset(appearance.titleLeftOffset)
 		}
 		
 		textView.snp.makeConstraints { (make) in
-			make.top.equalTo(titleLabel.snp.bottom)
+			make.top.equalTo(backButton.snp.bottom).offset(appearance.textViewOffset)
 			make.left.right.bottom.equalToSuperview().inset(appearance.textViewOffset)
 		}
 	}

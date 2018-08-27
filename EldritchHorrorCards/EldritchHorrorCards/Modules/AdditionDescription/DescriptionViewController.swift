@@ -1,9 +1,14 @@
 import UIKit
 
-class AdditionDescriptionViewController: BaseViewController {
-	private var model: Addition!
+struct Description {
+	var name: String
+	var description: String
+}
+
+class DescriptionViewController: BaseViewController {
+	private var model: Description!
 	
-	init(with model: Addition) {
+	init(with model: Description) {
 		super.init(nibName: nil, bundle: nil)
 		self.isHiddenNavigationBar = true
 		self.model = model
@@ -14,13 +19,13 @@ class AdditionDescriptionViewController: BaseViewController {
 	}
 	
 	override func loadView() {
-		let view = AdditionDescriptionView(frame: UIScreen.main.bounds, viewModel: model)
+		let view = DescriptionView(frame: UIScreen.main.bounds, viewModel: model)
 		self.view = view
 		view.delegate = self
 	}
 }
 
-extension AdditionDescriptionViewController: AdditionDescriptionViewDelegate {
+extension DescriptionViewController: DescriptionViewDelegate {
 	
 	func backButtonTap() {
 		close()

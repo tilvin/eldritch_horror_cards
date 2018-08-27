@@ -59,7 +59,7 @@ class AdditionsViewController: BaseViewController {
 extension AdditionsViewController: AdditionsListTableAdapterDelegate {
 	
 	func didTapInfo(with model: Addition) {
-		let controller = AdditionDescriptionViewController(with: model)
+		let controller = DescriptionViewController(with: Description.init(name: model.name, description: model.description))
 		appNavigator?.go(controller: controller, mode: .push)
 	}
 }
