@@ -13,7 +13,6 @@
 		55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581983F398902734317516E /* UserDefaultsDataStore.swift */; };
 		9F0E79F22112F44D0080C907 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E79F12112F44D0080C907 /* users.json */; };
 		9F0E79F42112FDED0080C907 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E79F32112FDED0080C907 /* User.swift */; };
-		9F171C56211CD239005A8264 /* additions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F171C55211CD239005A8264 /* additions.json */; };
 		9F171C58211D59DE005A8264 /* Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C57211D59DE005A8264 /* Addition.swift */; };
 		9F171C5A211D5AB6005A8264 /* AdditionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */; };
 		9F322861210B7CF800ECD4A4 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322860210B7CF800ECD4A4 /* CardViewController.swift */; };
@@ -117,7 +116,6 @@
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
 		9F0E79F12112F44D0080C907 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		9F0E79F32112FDED0080C907 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		9F171C55211CD239005A8264 /* additions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = additions.json; sourceTree = "<group>"; };
 		9F171C57211D59DE005A8264 /* Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addition.swift; sourceTree = "<group>"; };
 		9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionDataProvider.swift; sourceTree = "<group>"; };
 		9F322860210B7CF800ECD4A4 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -532,7 +530,6 @@
 			children = (
 				A441BBC92109BA8100EAC5DD /* cards.json */,
 				9F0E79F12112F44D0080C907 /* users.json */,
-				9F171C55211CD239005A8264 /* additions.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -744,7 +741,6 @@
 				A441BBCA2109BA8100EAC5DD /* cards.json in Resources */,
 				A4FDB00E20D413DE00FA6E4B /* JFCardSelectionCell.xib in Resources */,
 				A4FE642720D0111E0064E52E /* Assets.xcassets in Resources */,
-				9F171C56211CD239005A8264 /* additions.json in Resources */,
 				9F32286A210B85D500ECD4A4 /* ImageCell.xib in Resources */,
 				A4FE642520D0111D0064E52E /* Main.storyboard in Resources */,
 				A4B8160920D01C6E00FC5651 /* Localizable.stringsdict in Resources */,

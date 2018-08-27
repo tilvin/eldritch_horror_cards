@@ -22,13 +22,8 @@ extension APIRequest {
 		var request = URLRequest(url: url)
 
 		request.httpMethod = self.method
-		request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-type")
-		request.setValue(APIRequest.userAgent, forHTTPHeaderField: "User-Agent")
-
-		if components.needToken {
-			request.setValue("Bearer \(DI.providers.resolve(AuthProviderProtocol.self)!.token)", forHTTPHeaderField: "Authorization")
-		}
-
+//		request.setValue(APIRequest.userAgent, forHTTPHeaderField: "User-Agent")
+		
 		for header in components.headers {
 			request.setValue(header.value, forHTTPHeaderField: header.key)
 		}
@@ -39,16 +34,15 @@ extension APIRequest {
 		else {
 			request.httpBody = urlEncodedParameters(params: components.parameters).data(using: .utf8)
 		}
+		
 		return request
 	}
 
 	private struct Components {
-//		var version: Int = APIRequest.version
 		var path: String!
 		var parameters: [String: Any] = [:]
 		var headers: [String: String] = [:]
 		var emptyBody: Bool = false
-		var needToken: Bool = true
 		var asJson: Bool = true
 	}
 
@@ -60,11 +54,10 @@ extension APIRequest {
 			components.path = "/login"
 			components.parameters["login"] = login
 			components.parameters["password"] = password
-			components.needToken = false
 			return components
 		case .gameSets:
 			components.path = "/game_sets"
-			components.needToken = false
+			components.asJson = false
 			return components
 		}
 	}

@@ -24,10 +24,8 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 		}
 		
 		dataTask?.cancel()
-		
-		let request = URLRequest(url: URL(string: "https://82.202.236.16/api/mobile_app/v1/game_sets")!)
-		
-		dataTask = session!.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+ 
+		dataTask = session!.dataTask(with: APIRequest.gameSets.request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			guard let data = data else {
 				completion([])
@@ -38,14 +36,15 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 				let jsonData = jsonString.data(using: .utf8) {
 				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [Addition].self, data: jsonData) { [weak self] (result) in
 					if let value = result {
-						self!.additions = value
+						self?.additions = value
 						completion(value)
-						print(self!.additions)
 						return
 					}
 				}
 			}
-			completion([])
+			else {
+				completion([])
+			}
 		}
 		dataTask?.resume()
 	}
