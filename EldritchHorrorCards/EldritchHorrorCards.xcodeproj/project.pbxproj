@@ -19,6 +19,7 @@
 		9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322867210B855C00ECD4A4 /* ImageCell.swift */; };
 		9F32286A210B85D500ECD4A4 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F322869210B85D500ECD4A4 /* ImageCell.xib */; };
 		9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9F3CBDA02110CB6F00E842A4 /* monsters.zip */; };
+		9F3E4578213522C4002DA88A /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E4577213522C4002DA88A /* Description.swift */; };
 		9F80B99B210C3C96007C4396 /* CardsCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B99A210C3C96007C4396 /* CardsCarousel.swift */; };
 		A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CA69720D23EC600E2F817 /* AuthViewController.swift */; };
 		A4208333212B1AFB0081E762 /* BaseTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208331212B1AFB0081E762 /* BaseTableAdapter.swift */; };
@@ -119,6 +120,7 @@
 		9F322867210B855C00ECD4A4 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		9F322869210B85D500ECD4A4 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		9F3CBDA02110CB6F00E842A4 /* monsters.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = monsters.zip; sourceTree = "<group>"; };
+		9F3E4577213522C4002DA88A /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		9F80B99A210C3C96007C4396 /* CardsCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCarousel.swift; sourceTree = "<group>"; };
 		9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EldritchHorrorCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41CA69720D23EC600E2F817 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				9F171C57211D59DE005A8264 /* Addition.swift */,
 				9F0E79F32112FDED0080C907 /* User.swift */,
 				A48C461420FD0DFD00DF1687 /* Monster.swift */,
+				9F3E4577213522C4002DA88A /* Description.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -833,6 +836,7 @@
 				A4FDB01420D413DE00FA6E4B /* PointerLayer.swift in Sources */,
 				A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */,
 				A4F3B1E3212ECB9F00F03E7B /* ZipExtension.swift in Sources */,
+				9F3E4578213522C4002DA88A /* Description.swift in Sources */,
 				9F171C5A211D5AB6005A8264 /* AdditionDataProvider.swift in Sources */,
 				A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */,
 				A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */,

@@ -1,10 +1,5 @@
 import UIKit
 
-struct Description {
-	var name: String
-	var description: String
-}
-
 class DescriptionViewController: BaseViewController {
 	private var model: Description!
 	

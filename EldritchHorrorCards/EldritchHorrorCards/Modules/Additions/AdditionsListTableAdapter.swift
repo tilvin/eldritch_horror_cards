@@ -57,6 +57,6 @@ extension AdditionsListTableAdapter: AdditionCellDelegate {
 	}
 	
 	func infoPressed(with model: Addition) {
-		delegate?.didTapInfo(with: model )
+		delegate?.didTapInfo(with: model)
 	}
 }
