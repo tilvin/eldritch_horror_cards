@@ -32,14 +32,14 @@ class DescriptionView: UIView {
 	private let appearance = Appearance()
 	private var viewModel: Description!
 	
-	lazy var backButton: UIButton = {
+	private lazy var backButton: UIButton = {
 		let view = UIButton()
 		view.setTitle("", for: .normal)
 		view.setImage(.backButton, for: .normal)
 		return view
 	}()
 	
-	lazy var titleLabel: UILabel = {
+	private lazy var titleLabel: UILabel = {
 		let view = UILabel()
 		view.textColor = appearance.textColor
 		view.text = viewModel.name
@@ -48,7 +48,7 @@ class DescriptionView: UIView {
 		return view
 	}()
 	
-	lazy var textView: UITextView = {
+	private lazy var textView: UITextView = {
 		let view = UITextView()
 		view.text = viewModel.description
 		view.font = UIFont.bold16
