@@ -168,7 +168,6 @@
 		A48C461620FD0F5300DF1687 /* DataParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParseService.swift; sourceTree = "<group>"; };
 		A4A9102D21285AD900652D25 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
-		A4B8158C20D0158000FC5651 /* EldritchHorrorCards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EldritchHorrorCards-Bridging-Header.h"; sourceTree = "<group>"; };
 		A4B8160C20D01C7200FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4B8160D20D01C7600FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		A4B8160E20D01C8500FC5651 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -273,9 +272,9 @@
 		A4208330212B1AE50081E762 /* TableAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				A4208335212B1AFF0081E762 /* Config */,
 				A4208331212B1AFB0081E762 /* BaseTableAdapter.swift */,
 				A4208332212B1AFB0081E762 /* StaticTableAdapter.swift */,
+				A4208335212B1AFF0081E762 /* Config */,
 			);
 			path = TableAdapter;
 			sourceTree = "<group>";
@@ -283,9 +282,9 @@
 		A4208335212B1AFF0081E762 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				A4208338212B1B0B0081E762 /* TableViewHeaderFooterConfiguration.swift */,
-				A4208336212B1B0B0081E762 /* TableSectionConfiguration.swift */,
 				A4208337212B1B0B0081E762 /* TableCellConfiguration.swift */,
+				A4208336212B1B0B0081E762 /* TableSectionConfiguration.swift */,
+				A4208338212B1B0B0081E762 /* TableViewHeaderFooterConfiguration.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -350,12 +349,12 @@
 		A441BBCB2109BAA100EAC5DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9F3CBD9F2110C97300E842A4 /* Zip */,
-				A441BBDD2109BCAE00EAC5DD /* JSON */,
 				A4B8161220D01D6800FC5651 /* Storyboards.swift */,
 				A4FE642620D0111E0064E52E /* Assets.xcassets */,
+				A441BBDD2109BCAE00EAC5DD /* JSON */,
 				A4B8160820D01C6700FC5651 /* Localizable.strings */,
 				A4B8160B20D01C6E00FC5651 /* Localizable.stringsdict */,
+				9F3CBD9F2110C97300E842A4 /* Zip */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -363,8 +362,8 @@
 		A441BBCC2109BAE000EAC5DD /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				A4AA1E512119830E000121C0 /* UPCarouselFlowLayout */,
 				A441BBCD2109BAED00EAC5DD /* JFCardSelectionViewController */,
+				A4AA1E512119830E000121C0 /* UPCarouselFlowLayout */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -467,23 +466,14 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
-		A441BBD52109BBAE00EAC5DD /* App */ = {
-			isa = PBXGroup;
-			children = (
-				A4FE641F20D0111D0064E52E /* AppDelegate.swift */,
-				A4FE642820D0111E0064E52E /* LaunchScreen.storyboard */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
 		A441BBD62109BC3C00EAC5DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A441BBBB2108BB0F00EAC5DD /* Cards.swift */,
 				9F171C57211D59DE005A8264 /* Addition.swift */,
-				9F0E79F32112FDED0080C907 /* User.swift */,
-				A48C461420FD0DFD00DF1687 /* Monster.swift */,
+				A441BBBB2108BB0F00EAC5DD /* Cards.swift */,
 				9F3E4577213522C4002DA88A /* Description.swift */,
+				A48C461420FD0DFD00DF1687 /* Monster.swift */,
+				9F0E79F32112FDED0080C907 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -491,11 +481,11 @@
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				A4208356212BE06E0081E762 /* Description */,
 				A4C2532F211DEE4400E0FF37 /* Additions */,
-				A441BBDB2109BC7C00EAC5DD /* Menu */,
-				A441BBDA2109BC7000EAC5DD /* Main */,
 				9F32286D210C341400ECD4A4 /* Cards */,
+				A4208356212BE06E0081E762 /* Description */,
+				A441BBDA2109BC7000EAC5DD /* Main */,
+				A441BBDB2109BC7C00EAC5DD /* Menu */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -534,9 +524,9 @@
 		A45E5660210B32C900590AE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A420833C212B1B510081E762 /* TableView */,
 				A45E5661210B32F500590AE7 /* BaseScrollView.swift */,
 				A4788AE0212D5F7D006D71FD /* CustomButton.swift */,
+				A420833C212B1B510081E762 /* TableView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -627,10 +617,10 @@
 		A4FE641E20D0111D0064E52E /* EldritchHorrorCards */ = {
 			isa = PBXGroup;
 			children = (
-				A4B8158C20D0158000FC5651 /* EldritchHorrorCards-Bridging-Header.h */,
 				A4FE4CD520D01418003A33D3 /* GoogleService-Info.plist */,
 				A4FE642B20D0111E0064E52E /* Info.plist */,
-				A441BBD52109BBAE00EAC5DD /* App */,
+				A4FE641F20D0111D0064E52E /* AppDelegate.swift */,
+				A4FE642820D0111E0064E52E /* LaunchScreen.storyboard */,
 				A441BBCE2109BB1000EAC5DD /* Common */,
 				A441BBD62109BC3C00EAC5DD /* Model */,
 				A441BBD82109BC5200EAC5DD /* Modules */,
@@ -1052,7 +1042,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = willian.eldritchhorrorcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "EldritchHorrorCards/EldritchHorrorCards-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1072,7 +1062,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = willian.eldritchhorrorcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "EldritchHorrorCards/EldritchHorrorCards-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
