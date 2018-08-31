@@ -9,18 +9,37 @@ extension AuthViewController {
 }
 
 class AuthViewController: BaseViewController {
+	
+	//MARK: - Outlets
+	
 	@IBOutlet private var emailTextField: UITextField!
 	@IBOutlet private var passwordTextField: UITextField!
 	@IBOutlet private var emailView: UIView!
 	@IBOutlet private var passwordView: UIView!
 	@IBOutlet private var avatarImageView: UIImageView!
 	@IBOutlet private var singinButton: UIButton!
+	
+	//MARK: - Public variables
+	
+	var notificationTokens: [NotificationToken] = []
+	var editableViews: [UIResponder] {
+		guard isViewLoaded else { return [] }
+		return [self.emailTextField, self.passwordTextField]
+	}
+	
+	//MARK: - Private variables
+	
 	private var appearence = Appearence()
 	private var authProvider: AuthProviderProtocol = DI.providers.resolve(AuthProviderProtocol.self)!
+	
+	//MARK: - Lifecycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(sender:)))
+		view.addGestureRecognizer(tap)
+		
 		if authProvider.loadToken() {
 			autoLogin()
 		}
@@ -28,6 +47,16 @@ class AuthViewController: BaseViewController {
 			let arrayMail = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"]
 			emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
 		}
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		registerKeyboardNotifications()
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		unregisterKeyboardNotifications()
 	}
 	
 	//MARK: - Handlers
@@ -68,6 +97,14 @@ class AuthViewController: BaseViewController {
 		}
 	}
 	
+	//MARK: - Private
+	@objc func dismissKeyboard(sender: UITapGestureRecognizer) {
+		guard editableViews.filter({ (responder) -> Bool in
+			return responder.isFirstResponder
+		}).count > 0 else { return }
+		editableViews.forEach { $0.resignFirstResponder() }
+	}
+	
 	private func checkLogin(login: String = "") {
 		//FIXME: Тут сложней схема. На сервер отправляется запрос с логином. По которому идет проверка и если такой пользователь есть - возаращется просто урл на его аватар. а дальше идет загрузка аватарки
 		if let avatar = UserDefaults.standard.data(forKey: "avatar") {
@@ -94,3 +131,5 @@ class AuthViewController: BaseViewController {
 		}
 	}
 }
+
+extension AuthViewController: Keyboardable {}

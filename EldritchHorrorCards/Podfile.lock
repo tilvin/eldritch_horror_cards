@@ -1,13 +1,11 @@
 PODS:
   - Fakery (3.3.0)
-  - IQKeyboardManagerSwift (6.0.3)
   - Reveal-SDK (17)
   - SnapKit (4.0.0)
   - Zip (1.1.0)
 
 DEPENDENCIES:
   - Fakery
-  - IQKeyboardManagerSwift
   - Reveal-SDK
   - SnapKit
   - Zip
@@ -15,18 +13,16 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Fakery
-    - IQKeyboardManagerSwift
     - Reveal-SDK
     - SnapKit
     - Zip
 
 SPEC CHECKSUMS:
   Fakery: 3aae11a87721c807c18c6456500d088c1230d3e5
-  IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
   Reveal-SDK: a6df49f47319bd19a110c960c498af32df72c0af
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: a2153ad9b3030cc310c2ec2ba59fab02b8594de2
+PODFILE CHECKSUM: 4c221c87fe10f48663d44b28978e51fdbb9ac5dd
 
 COCOAPODS: 1.5.3

@@ -3,7 +3,7 @@ platform :ios, '11.0'
 target 'EldritchHorrorCards' do
   use_frameworks!
   inhibit_all_warnings!
-  pod 'IQKeyboardManagerSwift'
+  
   pod 'Fakery'
   pod 'SnapKit'
   pod 'Zip'
