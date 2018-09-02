@@ -779,14 +779,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer-17/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
 			);
