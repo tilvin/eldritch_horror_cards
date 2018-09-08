@@ -64,7 +64,7 @@ public extension UIImageView {
 		if let _defaultImage = defaultImage { image = _defaultImage }
 
 		let request = URLRequest(url: URL(string: imageURL)!)
-		let downloadTask = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
+		let downloadTask = URLSession.shared.dataTask(with: request, completionHandler: { data, _, _ in
 			if let _data = data {
 				DispatchQueue.main.async {
 					self.image = nil

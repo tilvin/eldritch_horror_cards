@@ -26,8 +26,8 @@
 import UIKit
 
 protocol JFFocusedCardViewDelegate {
-	func focusedCardViewDidSelectDetailAction(_ focusedCardView: JFFocusedCardView) -> Void
-	func focusedCardViewDidSelectActionItemOne(_ focusedCardView: JFFocusedCardView) -> Void
+	func focusedCardViewDidSelectDetailAction(_ focusedCardView: JFFocusedCardView)
+	func focusedCardViewDidSelectActionItemOne(_ focusedCardView: JFFocusedCardView)
 }
 
 class JFFocusedCardView: UIView {

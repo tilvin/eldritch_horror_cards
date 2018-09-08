@@ -75,7 +75,8 @@ class AccessoryIndicator: UIControl {
                 ctxt?.addLine(to: CGPoint(x: x-(R/2), y: y))
                 ctxt?.addLine(to: CGPoint(x: x-R, y: y+R))
             }
-        } else {
+        }
+        else {
             let x = bounds.maxX
             ctxt?.move(to: CGPoint(x: x+R, y: y+R))
             ctxt?.addLine(to: CGPoint(x: x+(R/2), y: y))
@@ -87,7 +88,8 @@ class AccessoryIndicator: UIControl {
         ctxt?.setLineWidth(1)
         if isHighlighted {
             currentHighlightColor().setStroke()
-        } else {
+        }
+        else {
             currentAccessoryColor().setStroke()
         }
         ctxt?.strokePath()
@@ -109,11 +111,11 @@ class AccessoryIndicator: UIControl {
         return color
     }
     
-    override var intrinsicContentSize : CGSize {
+    override var intrinsicContentSize: CGSize {
         return frame.size
     }
     
-    override var alignmentRectInsets : UIEdgeInsets {
+    override var alignmentRectInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 

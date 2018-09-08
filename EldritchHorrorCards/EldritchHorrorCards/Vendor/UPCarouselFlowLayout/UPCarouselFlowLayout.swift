@@ -27,7 +27,6 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
 	
 	fileprivate var state = LayoutState(size: CGSize.zero, direction: .horizontal)
 	
-	
 	override open func prepare() {
 		super.prepare()
 		
@@ -101,7 +100,8 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
 		
 		if isHorizontal {
 			attributes.center.y = attributes.center.y + shift
-		} else {
+		}
+		else {
 			attributes.center.x = attributes.center.x + shift
 		}
 		
@@ -109,7 +109,7 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
 	}
 	
 	override open func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-		guard let collectionView = collectionView , !collectionView.isPagingEnabled,
+		guard let collectionView = collectionView, !collectionView.isPagingEnabled,
 			let layoutAttributes = self.layoutAttributesForElements(in: collectionView.bounds)
 			else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset) }
 		

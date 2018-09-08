@@ -11,14 +11,14 @@ extension UIViewController {
 		self.view.addSubview(spinner)
 	}
 	
-	public func setupBlurAppear(blurDuration: Double, blurViewPosition: Int = -1, completion: (()->Void)? = nil) {
+	public func setupBlurAppear(blurDuration: Double, blurViewPosition: Int = -1, completion: (() -> Void)? = nil) {
 		let tag = self.setupBlur(blurViewPosition: blurViewPosition)
 		DispatchQueue.main.asyncAfter(deadline: .now() + blurDuration) {
 			self.view.subviews
 				.filter { return $0.tag == tag }
 				.forEach { (view) in  UIView.animate(withDuration: 1, animations: {
 					view.alpha  = 0
-				}, completion: { (result) in
+				}, completion: { (_) in
 					view.removeFromSuperview()
 					if let completion = completion {
 						completion()

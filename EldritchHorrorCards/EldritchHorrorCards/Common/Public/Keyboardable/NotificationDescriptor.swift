@@ -21,7 +21,7 @@ final class NotificationToken {
 
 extension NotificationCenter {
 	
-	func addObserver<Payload>(with descriptor: NotificationDescriptor<Payload>, block: @escaping (Payload) -> ()) -> NotificationToken {
+	func addObserver<Payload>(with descriptor: NotificationDescriptor<Payload>, block: @escaping (Payload) -> Void) -> NotificationToken {
 		let token = addObserver(forName: descriptor.name, object: nil, queue: nil) { (note) in
 			block(descriptor.convert(note))
 		}

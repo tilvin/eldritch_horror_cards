@@ -38,7 +38,7 @@ class MonstersViewController: JFCardSelectionViewController {
 		
         setupMenu()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        monsterProvider.load()  { (success) in
+        monsterProvider.load { (success) in
             success ? print("Monster is load!") : print("Something gone wrong!")
         }
         

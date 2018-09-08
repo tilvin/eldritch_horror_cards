@@ -18,7 +18,7 @@ extension UIWindow {
   public func set(mainStoryboard: String,
                   animated: Bool = false,
                   condition: ((UIWindow) -> Bool)? = nil,
-                  completion: ((UIWindow) -> ())? = nil) {
+                  completion: ((UIWindow) -> Void)? = nil) {
     let condition = condition ?? { _ in mainStoryboard != UIWindow.mainStoryboard }
     
     guard condition(self) else {
@@ -36,7 +36,7 @@ extension UIWindow {
                         to: dst.view,
                         duration: 0.3,
                         options: .transitionCrossDissolve,
-                        completion: { (finished) in
+                        completion: { (_) in
                           self.rootViewController = dst
                           completion?(self)
       })
@@ -66,15 +66,18 @@ extension UIWindow {
     return nil
   }
   
-  public class func getVisibleViewControllerFrom(vc:UIViewController) -> UIViewController {
+  public class func getVisibleViewControllerFrom(vc: UIViewController) -> UIViewController {
     if let vc = vc as? UINavigationController {
       return UIWindow.getVisibleViewControllerFrom(vc: vc.visibleViewController!)
-    } else if let vc = vc as? UITabBarController {
+    }
+    else if let vc = vc as? UITabBarController {
       return UIWindow.getVisibleViewControllerFrom(vc: vc.selectedViewController!)
-    } else {
+    }
+    else {
       if let presentedViewController = vc.presentedViewController {
         return UIWindow.getVisibleViewControllerFrom(vc: presentedViewController)
-      } else {
+      }
+      else {
         return vc
       }
     }

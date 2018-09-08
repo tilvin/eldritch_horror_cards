@@ -79,7 +79,7 @@ struct GradientColor {
   
   // MARK: Lifecycle
   
-  override static var layerClass : AnyClass {
+  override static var layerClass: AnyClass {
     return CAGradientLayer.self
   }
   

@@ -26,7 +26,7 @@ class CardsDataProvider: CardsDataProviderProtocol {
 	var evidences: [PlaceCard] = []
 	var specialContacts: [StoryCard] = []
 	
-	func load(completion: @escaping (Bool) -> Void){
+	func load(completion: @escaping (Bool) -> Void) {
 		guard let path = Bundle.main.path(forResource: "cards", ofType: "json"),
 			let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped) else {
 				print("can't parse json!")

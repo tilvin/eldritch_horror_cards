@@ -13,7 +13,7 @@ extension UIView {
   }
   
   public func rotate(to radians: Double, duration: TimeInterval = -1) {
-    let animation: () -> () = {
+    let animation: () -> Void = {
       self.transform = CGAffineTransform(rotationAngle: CGFloat(radians))
     }
     

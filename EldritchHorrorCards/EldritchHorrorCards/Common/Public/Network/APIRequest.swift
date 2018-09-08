@@ -71,7 +71,6 @@ extension APIRequest {
 		}
 	}
 
-
 	private func urlEncodedParameters(params: [String: Any]?) -> String {
 		var result = ""
 		guard let keys = params?.keys else { return result }

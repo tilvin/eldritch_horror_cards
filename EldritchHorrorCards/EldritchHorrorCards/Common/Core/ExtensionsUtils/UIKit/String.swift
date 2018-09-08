@@ -12,7 +12,8 @@ extension String {
                                     options: [.documentType: NSAttributedString.DocumentType.html,
                                               .characterEncoding: String.Encoding.utf8.rawValue],
                                     documentAttributes: nil)
-    } catch {
+    }
+    catch {
       debugPrint("error:", error)
       return  nil
     }
@@ -84,7 +85,6 @@ extension String {
     return formatter.number(from: self.removingWhitespaces())?.doubleValue ?? 0.0
   }
 }
-
 
 //MARK:- Color
 

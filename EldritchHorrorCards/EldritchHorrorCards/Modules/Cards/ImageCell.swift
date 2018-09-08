@@ -1,5 +1,4 @@
 
-
 import UIKit
 
 class ImageCell: UICollectionViewCell {
@@ -19,7 +18,6 @@ class ImageCell: UICollectionViewCell {
         cardImageView.addGestureRecognizer(tapRecognizer)
         
     }
-    
     
     // TODO: - transition to this cell controller
     // Create

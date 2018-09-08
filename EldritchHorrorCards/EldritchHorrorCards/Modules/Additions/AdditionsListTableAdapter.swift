@@ -50,7 +50,7 @@ class AdditionsListTableAdapter: StaticTableAdapter {
 extension AdditionsListTableAdapter: AdditionCellDelegate {
  
 	func update(with model: Addition) {
-		guard let item = provider.additions.enumerated().filter({ (index, item) -> Bool in
+		guard let item = provider.additions.enumerated().filter({ (_, item) -> Bool in
 			return item.id == model.id
 		}).first else { return }
 		provider.additions[item.offset] = model

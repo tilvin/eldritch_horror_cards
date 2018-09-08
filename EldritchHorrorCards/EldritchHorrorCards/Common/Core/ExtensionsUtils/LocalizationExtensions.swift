@@ -3,9 +3,9 @@ import UIKit
 
 open class LocalizationExtensions {
   
-  public static let notificationMissingTransalation = "LocalizationExtensions.missingTranslation";
+  public static let notificationMissingTransalation = "LocalizationExtensions.missingTranslation"
   
-  fileprivate static var bundles : [Bundle] = []
+  fileprivate static var bundles: [Bundle] = []
   
   public static func addBundle(_ bundle: Bundle) {
     if !bundles.contains(bundle) && bundle != Bundle.main {
@@ -65,13 +65,13 @@ extension String {
       }
     }
     
-    return nil;
+    return nil
   }
 }
 
 extension UILabel {
   
-  @IBInspectable public var lzText: String?  {
+  @IBInspectable public var lzText: String? {
     set {
       self.attributedText = NSAttributedString(string: newValue != nil ? newValue!.localized : "", attributes: self.attributed)
     }
@@ -88,7 +88,7 @@ extension UILabel {
 
 extension UITextField {
   
-  @IBInspectable public var lzPlaceholder : String? {
+  @IBInspectable public var lzPlaceholder: String? {
     set {
       
       self.placeholder = newValue != nil ? newValue?.localized : nil
@@ -102,46 +102,46 @@ extension UITextField {
 
 extension UIButton {
   
-  @IBInspectable public var lzTitle : String? {
+  @IBInspectable public var lzTitle: String? {
     set { setLocalizedTitle(newValue, state: UIControlState()) }
     get { return getTitleForState(UIControlState()) }
   }
   
-  @IBInspectable public var lzHighlighted : String? {
+  @IBInspectable public var lzHighlighted: String? {
     set { setLocalizedTitle(newValue, state: UIControlState.highlighted) }
     get { return getTitleForState(UIControlState.highlighted) }
   }
   
-  @IBInspectable public var lzDisabled : String? {
+  @IBInspectable public var lzDisabled: String? {
     set { setLocalizedTitle(newValue, state: UIControlState.disabled) }
     get { return getTitleForState(UIControlState.disabled) }
   }
   
-  @IBInspectable public var lzSelected : String? {
+  @IBInspectable public var lzSelected: String? {
     set { setLocalizedTitle(newValue, state: UIControlState.selected) }
     get { return getTitleForState(UIControlState.selected) }
   }
   
-  @IBInspectable public var lzFocused : String? {
+  @IBInspectable public var lzFocused: String? {
     set { setLocalizedTitle(newValue, state: UIControlState.focused) }
     get { return getTitleForState(UIControlState.focused) }
   }
   
-  @IBInspectable public var lzApplication : String? {
+  @IBInspectable public var lzApplication: String? {
     set { setLocalizedTitle(newValue, state: UIControlState.application) }
     get { return getTitleForState(UIControlState.application) }
   }
   
-  @IBInspectable public var lzReserved : String? {
+  @IBInspectable public var lzReserved: String? {
     set { setLocalizedTitle(newValue, state: UIControlState.reserved) }
     get { return getTitleForState(UIControlState.reserved) }
   }
   
-  fileprivate func setLocalizedTitle(_ title:String?, state: UIControlState) {
+  fileprivate func setLocalizedTitle(_ title: String?, state: UIControlState) {
     self.setTitle(title != nil ? title!.localized : nil, for: state)
   }
   
-  fileprivate func getTitleForState(_ state: UIControlState) -> String?{
+  fileprivate func getTitleForState(_ state: UIControlState) -> String? {
     if let title = self.titleLabel {
       return title.text
     }
@@ -151,7 +151,7 @@ extension UIButton {
 
 extension UIBarItem {
   
-  @IBInspectable public var lzTitle : String? {
+  @IBInspectable public var lzTitle: String? {
     set {
       self.title = newValue?.localized ?? nil
     }
@@ -164,7 +164,7 @@ extension UIBarItem {
 
 extension UINavigationItem {
   
-  @IBInspectable public var lzTitle : String? {
+  @IBInspectable public var lzTitle: String? {
     set {
       self.title = newValue != nil ? newValue?.localized : nil
     }
@@ -174,7 +174,7 @@ extension UINavigationItem {
     }
   }
   
-  @IBInspectable public var lzPrompt : String? {
+  @IBInspectable public var lzPrompt: String? {
     set {
       self.prompt = newValue != nil ? newValue?.localized : nil
     }
@@ -187,7 +187,7 @@ extension UINavigationItem {
 
 extension UIViewController {
   
-  @IBInspectable public var lzTitle : String? {
+  @IBInspectable public var lzTitle: String? {
     set {
       self.title = newValue != nil ? newValue?.localized : nil
     }

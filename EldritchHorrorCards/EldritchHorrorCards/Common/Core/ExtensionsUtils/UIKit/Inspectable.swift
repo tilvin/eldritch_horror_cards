@@ -77,14 +77,14 @@ extension UIView {
   }
 }
 
-extension UITextField{
+extension UITextField {
   
   @IBInspectable public var colorPH: UIColor? {
     get {
       return self.colorPH
     }
     set {
-      self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedStringKey.foregroundColor: newValue!])
+      self.attributedPlaceholder = NSAttributedString(string: self.placeholder != nil ? self.placeholder! : "", attributes: [NSAttributedStringKey.foregroundColor: newValue!])
     }
   }
 }

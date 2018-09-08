@@ -23,8 +23,8 @@ public enum JFCardSelectionViewSelectionAnimationStyle {
 }
 
 public protocol JFCardSelectionViewControllerDelegate {
-	func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, didSelectCardAction cardAction: CardAction, forCardAtIndexPath indexPath: IndexPath) -> Void
-	func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, didSelectDetailActionForCardAtIndexPath indexPath: IndexPath) -> Void
+	func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, didSelectCardAction cardAction: CardAction, forCardAtIndexPath indexPath: IndexPath)
+	func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, didSelectDetailActionForCardAtIndexPath indexPath: IndexPath)
 }
 
 public protocol JFCardSelectionViewControllerDataSource {
@@ -106,7 +106,7 @@ open class JFCardSelectionViewController: UIViewController {
 		view.layoutIfNeeded()
 	}
 	
-	open override var shouldAutorotate : Bool {
+	open override var shouldAutorotate: Bool {
 		return false
 	}
 	
@@ -126,7 +126,7 @@ open class JFCardSelectionViewController: UIViewController {
 		bgImageViewTwo.alpha = 0
 		view.insertSubview(bgImageViewTwo, belowSubview: bgImageView)
 		
-		let views = ["bgImageView": bgImageView, "blurEffectView": blurEffectView, "bgImageViewTwo": bgImageViewTwo, "blurEffectViewTwo": blurEffectViewTwo] as [String : Any]
+		let views = ["bgImageView": bgImageView, "blurEffectView": blurEffectView, "bgImageViewTwo": bgImageViewTwo, "blurEffectViewTwo": blurEffectViewTwo] as [String: Any]
 		for val in ["V", "H"] {
 			view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "\(val):|[bgImageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
 			view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "\(val):|[bgImageViewTwo]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
@@ -236,7 +236,8 @@ open class JFCardSelectionViewController: UIViewController {
 				bgImageView.image = UIImage(named: card.imageURLString)
 			}
 			focusedView.configureForCard(card)
-		} else {
+		}
+		else {
 			if backgroundImage == nil {
 				bgImageView.image = UIImage(named: card.imageURLString)
 			}
@@ -297,7 +298,7 @@ open class JFCardSelectionViewController: UIViewController {
 			}
 			self.focusedView.alpha = !self.showingImageViewOne ? 1 : 0
 			self.focusedViewTwo.alpha = self.showingImageViewOne ? 1 : 0
-		}, completion: { finished in
+		}, completion: { _ in
 			self.finishAnimations()
 		})
 	}
@@ -357,7 +358,7 @@ open class JFCardSelectionViewController: UIViewController {
 				}
 			}
 			
-		}) { (finished) -> Void in
+		}) { (_) -> Void in
 			
 		}
 	}
@@ -374,7 +375,8 @@ open class JFCardSelectionViewController: UIViewController {
 			view.removeConstraints(focusedViewTwoHConstraints)
 			if scrollLeft {
 				focusedViewTwoHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(maxX)-[focusedViewTwo(==width)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
-			} else {
+			}
+			else {
 				focusedViewTwoHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(minX)-[focusedViewTwo(==width)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
 			}
 			view.addConstraints(focusedViewTwoHConstraints)
@@ -386,17 +388,20 @@ open class JFCardSelectionViewController: UIViewController {
 			focusedViewTwoHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(horizontalSpace)-[focusedViewTwo]-(horizontalSpace)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
 			if scrollLeft {
 				focusedViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(minX)-[focusedView(==width)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
-			} else {
+			}
+			else {
 				focusedViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(maxX)-[focusedView(==width)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
 			}
 			view.addConstraints(focusedViewHConstraints)
 			view.addConstraints(focusedViewTwoHConstraints)
-		} else {
+		}
+		else {
 			focusedView.isHidden = true
 			view.removeConstraints(focusedViewHConstraints)
 			if scrollLeft {
 				focusedViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(maxX)-[focusedView(==width)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
-			} else {
+			}
+			else {
 				focusedViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(minX)-[focusedView(==width)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
 			}
 			view.addConstraints(focusedViewHConstraints)
@@ -408,7 +413,8 @@ open class JFCardSelectionViewController: UIViewController {
 			focusedViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(horizontalSpace)-[focusedView]-(horizontalSpace)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
 			if scrollLeft {
 				focusedViewTwoHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(minX)-[focusedViewTwo(==width)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
-			} else {
+			}
+			else {
 				focusedViewTwoHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(maxX)-[focusedViewTwo(==width)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: focusedViewMetrics, views: focusedViewViews)
 			}
 			view.addConstraints(focusedViewHConstraints)
@@ -422,13 +428,13 @@ open class JFCardSelectionViewController: UIViewController {
 				self.bgImageView.alpha = !self.showingImageViewOne ? 1 : 0
 				self.bgImageViewTwo.alpha = self.showingImageViewOne ? 1 : 0
 			}
-		}) { finished in
+		}) { _ in
 			self.finishAnimations()
 		}
 	}
 	
 	var rotation: CGFloat = 0
-	open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+	open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
 		
 		guard let offset = (change?[NSKeyValueChangeKey.newKey] as AnyObject).cgPointValue else { return }
 		guard let flowLayout = collectionView.collectionViewLayout as? JFCardSelectionViewFlowLayout else { return }

@@ -18,14 +18,14 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 	var session: URLSession?
 	private var dataTask: URLSessionDataTask?
 	
-	func load(completion: @escaping ([Addition]) -> Void){
+	func load(completion: @escaping ([Addition]) -> Void) {
 		if session == nil {
 			session  = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
 		}
 		
 		dataTask?.cancel()
 		
-		dataTask = session!.dataTask(with: APIRequest.gameSets.request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+		dataTask = session!.dataTask(with: APIRequest.gameSets.request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			guard let data = data else {
 				completion([])

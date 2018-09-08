@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
 		if isSetAsCurrentController { appNavigator?.currentController = self }
 	}
 	
-	override var preferredStatusBarStyle : UIStatusBarStyle { return .default }
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .default }
 	
 	private var isLightStatusFont: Bool {
 		guard let identifier = self.restorationIdentifier else { return true }

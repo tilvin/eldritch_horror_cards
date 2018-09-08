@@ -26,7 +26,7 @@ extension AdditionsViewController: AdditionsListTableAdapterDelegate {
 	}
 }
 
-extension AdditionsViewController: MenuEmbedProtocol{}
+extension AdditionsViewController: MenuEmbedProtocol {}
 
 extension AdditionsViewController: AdditionsListViewDelegate {
 	

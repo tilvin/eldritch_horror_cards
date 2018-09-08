@@ -78,7 +78,7 @@ extension MenuView: MenuContentViewProtocol {
 		delegate?.testButtonTap()
 	}
 	
-	func logoutButtonPressed()  {
+	func logoutButtonPressed() {
 		delegate?.logoutButtonTap()
 	}
 }

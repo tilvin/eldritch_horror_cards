@@ -3,20 +3,21 @@ import UIKit
 extension UIView {
 	
 	public func makeRound() {
-		self.contentMode = .scaleAspectFill;
-		self.clipsToBounds = true;
-		var f = self.frame;
-		let w = f.width;
-		let h = f.height;
-		var corner = w;
+		self.contentMode = .scaleAspectFill
+		self.clipsToBounds = true
+		var f = self.frame
+		let w = f.width
+		let h = f.height
+		var corner = w
 		if (h > w) { // Portrait Orientation
-			f.size.height = w;
-		} else if (w > h) { // Landscape Orientation
-			f.size.width = h;
-			corner = h;
+			f.size.height = w
 		}
-		self.frame = f;
-		self.layer.cornerRadius = (corner / 2);
+		else if (w > h) { // Landscape Orientation
+			f.size.width = h
+			corner = h
+		}
+		self.frame = f
+		self.layer.cornerRadius = (corner / 2)
 	}
 	
 	public func makeRoundWithBorder(width: CGFloat, color: UIColor) {
@@ -67,7 +68,7 @@ extension UIView {
 	public func addConstraints(with format: String,
 							   views: [String: Any],
 							   options: NSLayoutFormatOptions = [],
-							   metrics: [String : Any]? = nil) {
+							   metrics: [String: Any]? = nil) {
 		self.addConstraints(NSLayoutConstraint.constraints(
 			withVisualFormat: format,
 			options: options,

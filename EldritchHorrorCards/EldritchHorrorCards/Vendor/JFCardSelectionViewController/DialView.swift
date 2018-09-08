@@ -23,7 +23,6 @@
 * SOFTWARE.
 */
 
-
 //  NOTE:
 //  This was adapted from the gist here: https://gist.github.com/sketchytech/d0a8909459aea899e67c
 //  That gist gave me a great starting point for learning how to determine the CGPoints around a circle and being able to draw lines and labels in or around the circle in equal distances
@@ -83,8 +82,8 @@ class DialView: UIView {
 	fileprivate func drawMarkers(_ ctx: CGContext, x: CGFloat, y: CGFloat, radius: CGFloat, sides: Int, color: UIColor) {
 		let points = circleCircumferencePoints(sides, x, y, radius)
 		let path = CGMutablePath()
-		let divider:CGFloat = 0.03
-		for (_,p) in points.enumerated() {
+		let divider: CGFloat = 0.03
+		for (_, p) in points.enumerated() {
 			let xn = p.x + divider * (x - p.x)
 			let yn = p.y + divider * (y - p.y)
 			// build path
@@ -105,10 +104,10 @@ class DialView: UIView {
 		ctx.translateBy(x: 0.0, y: rect.height)
 		ctx.scaleBy(x: 1.0, y: -1.0)
 		// dictates how inset/outset the ring of labels will be
-		let inset:CGFloat = 40
+		let inset: CGFloat = 40
 		// An adjustment to position labels correctly
 		let points = circleCircumferencePoints(sides, rect.midX, rect.midY - inset, radius + (inset / CGFloat(Double.pi)), adjustment: 314)
-		for (i,p) in points.enumerated() {
+		for (i, p) in points.enumerated() {
 			guard i > 0 else { continue }
 			guard i < labels.count + 1 else { return }
 			let index = i - 1

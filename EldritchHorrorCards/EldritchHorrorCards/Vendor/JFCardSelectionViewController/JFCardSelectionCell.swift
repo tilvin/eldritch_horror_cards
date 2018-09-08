@@ -82,7 +82,7 @@ class JFCardSelectionCell: UICollectionViewCell {
 		label.text = card.nameText
 	}
 	
-	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
 		self.transform = CGAffineTransform(rotationAngle: rotation)
 		center.y = centerY
 	}

@@ -69,7 +69,7 @@ class AuthProvider: AuthProviderProtocol {
 		configProvider.save(completion: nil)
 	}
 	
-	private func loadImage(imageURL:String, completion: @escaping (UIImage) -> ()) {
+	private func loadImage(imageURL: String, completion: @escaping (UIImage) -> Void) {
 		DispatchQueue.global(qos: .default).async {
 			guard let imageUrl = URL(string: imageURL),
 				let imageData = try? Data(contentsOf: imageUrl),
