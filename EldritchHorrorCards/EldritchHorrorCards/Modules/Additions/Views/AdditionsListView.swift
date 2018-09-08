@@ -11,6 +11,7 @@ import SnapKit
 
 protocol AdditionsListViewDelegate: class {
 	func menuButtonAction()
+	func continueButtonAction()
 }
 
 extension AdditionsListView {
@@ -136,7 +137,7 @@ class AdditionsListView: UIView {
 	//MARK: - Handlers
 	
 	@objc private func continueButtonPressed() {
-		print("continueButton pressed!")
+		delegate?.continueButtonAction()
 		
 	}
 	

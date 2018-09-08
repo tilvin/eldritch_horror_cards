@@ -68,6 +68,7 @@
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* DataParseService.swift */; };
+		A499E9812144413B001186A5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499E9802144413B001186A5 /* UIViewExtension.swift */; };
 		A4A9102E21285AD900652D25 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9102D21285AD900652D25 /* DescriptionViewController.swift */; };
 		A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */; };
 		A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4B8160820D01C6700FC5651 /* Localizable.strings */; };
@@ -174,6 +175,7 @@
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* DataParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParseService.swift; sourceTree = "<group>"; };
+		A499E9802144413B001186A5 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A4A9102D21285AD900652D25 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		A4B8160C20D01C7200FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 		A441BBCF2109BB1900EAC5DD /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				A499E97D2144411A001186A5 /* Helpers */,
 				A46EE7C82139243D00F47026 /* Keyboardable */,
 				A4563AF720F87F8B00B65428 /* Command.swift */,
 				A4563AFC20F87FF500B65428 /* DI.swift */,
@@ -595,6 +598,30 @@
 				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		A499E97D2144411A001186A5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A499E97E21444128001186A5 /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A499E97E21444128001186A5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A499E97F21444130001186A5 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A499E97F21444130001186A5 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A499E9802144413B001186A5 /* UIViewExtension.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		A4AA1E512119830E000121C0 /* UPCarouselFlowLayout */ = {
@@ -868,6 +895,7 @@
 				A4B8161320D01D6800FC5651 /* Storyboards.swift in Sources */,
 				A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */,
 				A4788ADF212D4F80006D71FD /* DescriptionView.swift in Sources */,
+				A499E9812144413B001186A5 /* UIViewExtension.swift in Sources */,
 				A4788AE1212D5F7D006D71FD /* CustomButton.swift in Sources */,
 				A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */,
 				9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */,
