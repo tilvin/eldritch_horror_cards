@@ -138,16 +138,21 @@ class AdditionCell: BaseTableViewCell {
 	
 	@objc private func switchPressed() {
 		model.isSelected = selectSwitch.isOn
+		if !model.isSelected {
+			model.isSelectedMap = false
+		}
+		update(with: model)
 		delegate?.update(with: model)
 	}
 	
 	@objc private func mapPressed() {
 		mapButton.alpha = mapButton.alpha == 1 ? 0.5 : 1
 		model.isSelectedMap = mapButton.alpha == 1
-		if !selectSwitch.isOn {
+		if !selectSwitch.isOn, model.isSelectedMap {
 			selectSwitch.isOn = true
 			model.isSelected = true
 		}
+		update(with: model)
 		delegate?.update(with: model)
 	}
 	

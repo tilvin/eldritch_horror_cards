@@ -490,6 +490,7 @@
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A499E97C214403B8001186A5 /* Auth */,
 				A4C2532F211DEE4400E0FF37 /* Additions */,
 				9F32286D210C341400ECD4A4 /* Cards */,
 				A4208356212BE06E0081E762 /* Description */,
@@ -502,7 +503,6 @@
 		A441BBDA2109BC7000EAC5DD /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
 				9F322860210B7CF800ECD4A4 /* CardViewController.swift */,
 				A479427C210C2FED00ED0851 /* MainViewController.swift */,
 				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
@@ -587,6 +587,14 @@
 				A479428A210C419F00ED0851 /* Fonts.swift */,
 			);
 			path = Themes;
+			sourceTree = "<group>";
+		};
+		A499E97C214403B8001186A5 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		A4AA1E512119830E000121C0 /* UPCarouselFlowLayout */ = {

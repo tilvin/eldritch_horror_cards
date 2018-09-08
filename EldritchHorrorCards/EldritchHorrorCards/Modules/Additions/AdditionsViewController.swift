@@ -4,55 +4,17 @@ class AdditionsViewController: BaseViewController {
 	var customView: AdditionsListView { return self.view as! AdditionsListView }
 	var adapter = AdditionsListTableAdapter()
 	var menuAction: CommandWith<Command>!
-	var menuContainerView: UIView { return self.menuContainer }
-	
-	private lazy var menuButton: UIButton = {
-		let button = UIButton()
-		button.setImage(UIImage(named: "menu_button")!, for: .normal)
-		button.addTarget(self, action: #selector(AdditionsViewController.menuButtonAction), for: .touchUpInside)
-		return button
-	}()
-	
-	lazy var menuContainer: UIView = {
-		let view = UIView()
-		view.backgroundColor = .clear
-		return view
-	}()
+	var menuContainerView: UIView { return customView.menuContainer }
 	
 	// MARK: - View lifecycle
 	
 	override func loadView() {
-		let view = AdditionsListView(frame: UIScreen.main.bounds)
-		self.view = view
+		self.view = AdditionsListView(frame: UIScreen.main.bounds)
 		adapter.delegate = self
-		adapter.load(tableView: view.tableView)
+		adapter.load(tableView: customView.tableView)
 		isHiddenNavigationBar = true
 		setupMenu()
-		addSubViews()
-		makeConstraints()
-	}
-	
-	@objc func menuButtonAction(_ sender: UIButton) {
-		let reloadCmd = Command {  (_) in
-			print("reload view!")
-		}
-		menuAction?.perform(with: reloadCmd)
-	}
-	private func addSubViews() {
-		view.addSubview(menuButton)
-		view.addSubview(menuContainer)
-	}
-	
-	private func makeConstraints() {
-		menuContainer.snp.makeConstraints { (make) in
-			make.edges.equalToSuperview()
-		}
-		
-		menuButton.snp.makeConstraints { (make) in
-			make.left.equalToSuperview()
-			make.top.equalToSuperview().inset(28)
-			make.width.height.equalTo(70)
-		}
+		customView.delegate = self
 	}
 }
 
@@ -64,4 +26,14 @@ extension AdditionsViewController: AdditionsListTableAdapterDelegate {
 	}
 }
 
-extension AdditionsViewController : MenuEmbedProtocol{}
+extension AdditionsViewController: MenuEmbedProtocol{}
+
+extension AdditionsViewController: AdditionsListViewDelegate {
+	
+	func menuButtonAction() {
+		let reloadCmd = Command {  (_) in
+			print("reload view!")
+		}
+		menuAction?.perform(with: reloadCmd)
+	}
+}

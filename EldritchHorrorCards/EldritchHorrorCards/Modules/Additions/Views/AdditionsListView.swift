@@ -9,6 +9,10 @@
 import UIKit
 import SnapKit
 
+protocol AdditionsListViewDelegate: class {
+	func menuButtonAction()
+}
+
 extension AdditionsListView {
 	
 	struct Appearance {
@@ -25,7 +29,28 @@ extension AdditionsListView {
 
 class AdditionsListView: UIView {
 	
-	let appearance = Appearance()
+	//MARK: - Public variables
+	
+	weak var delegate: AdditionsListViewDelegate?
+	
+	//MARK: - Private variables
+	
+	private let appearance = Appearance()
+	
+	//MARK: - Lazy variables
+	
+	private lazy var menuButton: UIButton = {
+		let button = UIButton()
+		button.setImage(UIImage(named: "menu_button")!, for: .normal)
+		button.addTarget(self, action: #selector(menuButtonAction), for: .touchUpInside)
+		return button
+	}()
+	
+	lazy var menuContainer: UIView = {
+		let view = UIView()
+		view.backgroundColor = .clear
+		return view
+	}()
 	
 	lazy var titleLabel: UILabel = {
 		let label = UILabel()
@@ -48,6 +73,8 @@ class AdditionsListView: UIView {
 		button.setTitle("additions.button.continue".localized.capitalized, for: .normal)
 		return button
 	}()
+	
+	//MARK: - Init
 	
 	override init(frame: CGRect = CGRect.zero) {
 		super.init(frame: frame)
@@ -72,6 +99,8 @@ class AdditionsListView: UIView {
 		addSubview(titleLabel)
 		addSubview(tableView)
 		addSubview(continueButton)
+		addSubview(menuContainer)
+		addSubview(menuButton)
 		backgroundColor = UIColor.clear
 	}
 	
@@ -92,9 +121,26 @@ class AdditionsListView: UIView {
 			make.left.right.equalToSuperview().inset(appearance.continueButtonLeftOffset)
 			make.bottom.equalToSuperview().inset(appearance.continueButtonBottomOffset)
 		}
+		
+		menuContainer.snp.makeConstraints { (make) in
+			make.edges.equalToSuperview()
+		}
+		
+		menuButton.snp.makeConstraints { (make) in
+			make.left.equalToSuperview()
+			make.top.equalToSuperview().inset(28)
+			make.width.height.equalTo(70)
+		}
 	}
+	
+	//MARK: - Handlers
 	
 	@objc private func continueButtonPressed() {
 		print("continueButton pressed!")
+		
+	}
+	
+	@objc private func menuButtonAction() {
+		delegate?.menuButtonAction()
 	}
 }

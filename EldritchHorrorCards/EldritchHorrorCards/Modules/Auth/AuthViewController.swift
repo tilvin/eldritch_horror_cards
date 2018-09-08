@@ -36,7 +36,7 @@ class AuthViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		
 		let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(sender:)))
 		view.addGestureRecognizer(tap)
 		
@@ -81,7 +81,7 @@ class AuthViewController: BaseViewController {
 		}
 		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
 			if result {
-				let controller = MainViewController()
+				let controller = AdditionsViewController()
 				controller.modalTransitionStyle = .crossDissolve
 				self?.appNavigator?.go(controller: controller, mode: .replace)
 			}
@@ -98,6 +98,7 @@ class AuthViewController: BaseViewController {
 	}
 	
 	//MARK: - Private
+	
 	@objc func dismissKeyboard(sender: UITapGestureRecognizer) {
 		guard editableViews.filter({ (responder) -> Bool in
 			return responder.isFirstResponder
@@ -123,7 +124,7 @@ class AuthViewController: BaseViewController {
 		emailTextField.typeOn(string: login) { [weak self] in
 			self?.passwordTextField.typeOn(string: "*********") {
 				delay(seconds: 1.5, completion: {
-					let controller = MainViewController()
+					let controller = AdditionsViewController()
 					controller.modalTransitionStyle = .crossDissolve
 					self?.appNavigator?.go(controller: controller, mode: .replace)
 				})
