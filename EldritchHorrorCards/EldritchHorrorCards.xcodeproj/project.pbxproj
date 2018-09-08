@@ -69,6 +69,7 @@
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* DataParseService.swift */; };
 		A499E9812144413B001186A5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499E9802144413B001186A5 /* UIViewExtension.swift */; };
+		A499E98621445A49001186A5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499E98521445A49001186A5 /* LoaderView.swift */; };
 		A4A9102E21285AD900652D25 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9102D21285AD900652D25 /* DescriptionViewController.swift */; };
 		A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */; };
 		A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4B8160820D01C6700FC5651 /* Localizable.strings */; };
@@ -176,6 +177,7 @@
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* DataParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParseService.swift; sourceTree = "<group>"; };
 		A499E9802144413B001186A5 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		A499E98521445A49001186A5 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		A4A9102D21285AD900652D25 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		A4B8160C20D01C7200FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -536,6 +538,7 @@
 		A45E5660210B32C900590AE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A499E98521445A49001186A5 /* LoaderView.swift */,
 				A45E5661210B32F500590AE7 /* BaseScrollView.swift */,
 				A4788AE0212D5F7D006D71FD /* CustomButton.swift */,
 				A420833C212B1B510081E762 /* TableView */,
@@ -857,6 +860,7 @@
 				A4208353212B57820081E762 /* CALayerExtensions.swift in Sources */,
 				A4563AFB20F87FAE00B65428 /* DIContainer.swift in Sources */,
 				A45E5667210B53B100590AE7 /* MenuContentView.swift in Sources */,
+				A499E98621445A49001186A5 /* LoaderView.swift in Sources */,
 				A4F3B1E4212ECB9F00F03E7B /* DateHelper.swift in Sources */,
 				A4208340212B1B8D0081E762 /* BaseTableViewCell.swift in Sources */,
 				A4F3B1D8212ECB8A00F03E7B /* ViewController.swift in Sources */,

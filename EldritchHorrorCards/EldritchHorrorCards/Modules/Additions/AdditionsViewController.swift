@@ -40,6 +40,6 @@ extension AdditionsViewController: AdditionsListViewDelegate {
 	func continueButtonAction() {
 		let provider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
 		let additions = provider.additions.filter { $0.isSelected }
-		view.showProccessing()
+//		view.showProccessing()
 	}
 }
