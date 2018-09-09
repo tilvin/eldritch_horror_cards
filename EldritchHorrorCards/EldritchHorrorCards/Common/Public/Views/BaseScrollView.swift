@@ -7,20 +7,27 @@
 //
 
 import UIKit
-import SnapKit
 
 extension BaseScrollView {
 	
 	fileprivate struct Appearance {
-		static let statusBarHeight: CGFloat = 20
-		static let animamtionDuration: TimeInterval = 0.5
+		let statusBarHeight: CGFloat = 20
+		let animamtionDuration: TimeInterval = 0.5
+		let defaultSideOffset: CGFloat = 0
 	}
 }
 class BaseScrollView: UIView {
 	
+	//MARK: - Private variables
+	
+	private let appearance = Appearance()
+	
+	//MARK: - Lazy variables
+	
 	lazy var scrollView: UIScrollView = {
 		let view = UIScrollView()
 		view.bounces = false
+		view.backgroundColor = UIColor.white
 		view.showsVerticalScrollIndicator = false
 		return view
 	}()
@@ -29,7 +36,7 @@ class BaseScrollView: UIView {
 		let view = UIStackView()
 		view.axis = .vertical
 		view.distribution = .fill
-		
+		view.backgroundColor = .clear
 		return view
 	}()
 	
@@ -40,6 +47,9 @@ class BaseScrollView: UIView {
 		addSubviews()
 		updateHeight()
 		makeConstraints()
+		if #available(iOS 11.0, *) {
+			scrollView.contentInsetAdjustmentBehavior = .never
+		}
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -53,7 +63,7 @@ class BaseScrollView: UIView {
 	
 	//MARK: - Public methods
 	
-	func addSeparatorView(height: CGFloat = 10, expandable: Bool = false) {
+	public func addSeparatorView(height: CGFloat = 10, expandable: Bool = false) {
 		let separatorView = UIView()
 		stackView.addArrangedSubview(separatorView)
 		separatorView.snp.makeConstraints { (make) in
@@ -64,24 +74,25 @@ class BaseScrollView: UIView {
 				make.height.equalTo(height)
 			}
 		}
-		
 	}
 	
-	func addToStackView(view: UIView, embed: Bool = false) {
-		if embed {
-			let embedView = UIView()
-			embedView.addSubview(view)
-			stackView.addArrangedSubview(embedView)
-			view.snp.makeConstraints { make in
-				make.top.bottom.equalToSuperview()
-			}
-			
-			embedView.snp.makeConstraints { (make) in
-				make.width.equalToSuperview()
-			}
-		}
-		else {
+	public func addToStackView(view: UIView, embed: Bool = false) {
+		guard embed else {
 			stackView.addArrangedSubview(view)
+			return
+		}
+		
+		let embedView = UIView()
+		embedView.addSubview(view)
+		stackView.addArrangedSubview(embedView)
+		
+		view.snp.makeConstraints { make in
+			make.top.bottom.equalToSuperview()
+			make.left.right.equalToSuperview().inset(appearance.defaultSideOffset)
+		}
+		
+		embedView.snp.makeConstraints { (make) in
+			make.width.equalToSuperview()
 		}
 	}
 	
@@ -89,7 +100,7 @@ class BaseScrollView: UIView {
 	
 	private func removeViewFromStack(_ view: UIView, animated: Bool) {
 		let block = {
-			UIView.animate(withDuration: Appearance.animamtionDuration,
+			UIView.animate(withDuration: self.appearance.animamtionDuration,
 						   animations: {
 							view.isHidden = true },
 						   completion: { isFinished in
@@ -124,6 +135,6 @@ class BaseScrollView: UIView {
 	}
 	
 	internal func updateHeight() {
-		scrollView.contentSize = CGSize(width: scrollView.frame.width, height: stackView.frame.height - Appearance.statusBarHeight)
+		scrollView.contentSize = CGSize(width: scrollView.frame.width, height: stackView.frame.height - appearance.statusBarHeight)
 	}
 }

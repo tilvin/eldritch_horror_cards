@@ -1,6 +1,7 @@
 "auth.email" = "Email";
 "auth.password" = "Password";
 "auth.signin" = "Sign in";
+"auth.signup" = "Sign Up";
 
 "call_monster" = "Call that monster";
 "card.type.portal" = "Portal";

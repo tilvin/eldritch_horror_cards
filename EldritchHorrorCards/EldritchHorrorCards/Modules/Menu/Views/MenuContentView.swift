@@ -25,8 +25,7 @@ class MenuContentView: BaseScrollView {
 	//MARK: -
 	
 	private lazy var avatarView: AvatarView = {
-		let avatar = AvatarView()
-		return avatar
+		return AvatarView()
 	}()
 	
 	private lazy var userName: UILabel = {
@@ -117,7 +116,10 @@ class MenuContentView: BaseScrollView {
 		
 		logoutButton.snp.makeConstraints { make in
 			make.height.equalTo(24)
-			make.leading.equalToSuperview().offset(32)
+			
+		}
+		logoutButton.snp.remakeConstraints { (make) in
+			make.left.equalToSuperview().offset(32)
 		}
 	}
 	

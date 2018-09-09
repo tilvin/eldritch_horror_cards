@@ -39,4 +39,5 @@ extension UIImage {
 	static var info: UIImage { return UIImage(named: "info")! }
 	static var map: UIImage { return UIImage(named: "map")! }
 	static var backButton: UIImage { return UIImage(named: "back_button")! }
+	static var authBackground: UIImage { return UIImage(named: "auth_background")! }
 }

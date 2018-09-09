@@ -1,35 +1,37 @@
 import UIKit
 
-extension AuthViewController {
-	
-	struct Appearence {
-		let errorColor: UIColor = UIColor(hexString: "D34747")
-		let borderColor: UIColor = UIColor(hexString: "61B1AB")
-	}
-}
-
 class AuthViewController: BaseViewController {
 	
-	//MARK: - Outlets
+	//MARK: - Public
 	
-	@IBOutlet private var emailTextField: UITextField!
-	@IBOutlet private var passwordTextField: UITextField!
-	@IBOutlet private var emailView: UIView!
-	@IBOutlet private var passwordView: UIView!
-	@IBOutlet private var avatarImageView: UIImageView!
-	@IBOutlet private var singinButton: UIButton!
+	var customView: AuthView { return self.view as! AuthView }
+	
+	// MARK: - Init
+	
+	init() {
+		super.init(nibName: nil, bundle: nil)
+		self.isHiddenNavigationBar = true
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func loadView() {
+		self.view = AuthView(frame: UIScreen.main.bounds)
+		customView.delegate = self
+	}
 	
 	//MARK: - Public variables
 	
 	var notificationTokens: [NotificationToken] = []
 	var editableViews: [UIResponder] {
 		guard isViewLoaded else { return [] }
-		return [self.emailTextField, self.passwordTextField]
+		return [self.customView.emailTextField, self.customView.passwordTextField]
 	}
 	
 	//MARK: - Private variables
 	
-	private var appearence = Appearence()
 	private var authProvider: AuthProviderProtocol = DI.providers.resolve(AuthProviderProtocol.self)!
 	
 	//MARK: - Lifecycle
@@ -45,7 +47,7 @@ class AuthViewController: BaseViewController {
 		}
 		else {
 			let arrayMail = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"]
-			emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
+			customView.emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
 		}
 	}
 	
@@ -61,41 +63,14 @@ class AuthViewController: BaseViewController {
 	
 	//MARK: - Handlers
 	
-	@IBAction private func signInAction(_ sender: Any) {
-		guard let login = emailTextField.text, !login.isEmpty else {
-			emailView.borderColor = appearence.errorColor
-			emailView.shake()
-			return
-		}
-		
-		guard let password = passwordTextField.text, !password.isEmpty else {
-			passwordView.borderColor = appearence.errorColor
-			passwordView.shake()
-			return
-		}
-		
-		passwordView.borderColor = appearence.borderColor
-		emailView.borderColor = appearence.borderColor
-		authProvider.load(with: login) { (success) in
-			success ? print("Users is load!") : print("Something gone wrong!")
-		}
-		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
-			if result {
-				let controller = AdditionsViewController()
-				controller.modalTransitionStyle = .crossDissolve
-				self?.appNavigator?.go(controller: controller, mode: .replace)
-			}
-		}
-	}
-	
-	@IBAction private func loginChanged(_ sender: UITextField) {
-		passwordView.borderColor = appearence.borderColor
-		emailView.borderColor = appearence.borderColor
-		
-		if emailView.tag == 0 {
-			checkLogin(login: emailTextField.text ?? "")
-		}
-	}
+//	@IBAction private func loginChanged(_ sender: UITextField) {
+//		passwordView.borderColor = appearence.borderColor
+//		emailView.borderColor = appearence.borderColor
+//
+//		if emailView.tag == 0 {
+//			checkLogin(login: emailTextField.text ?? "")
+//		}
+//	}
 	
 	//MARK: - Private
 	
@@ -110,27 +85,58 @@ class AuthViewController: BaseViewController {
 		//FIXME: Тут сложней схема. На сервер отправляется запрос с логином. По которому идет проверка и если такой пользователь есть - возаращется просто урл на его аватар. а дальше идет загрузка аватарки
 		if let avatar = UserDefaults.standard.data(forKey: "avatar") {
 			guard let image  = UIImage(data: avatar) else {return}
-			avatarImageView.set(image: image)
+			customView.avatarView.update(avatar: image)
 		}
 	}
 	
 	private func autoLogin() {
-		guard let login = UserDefaults.standard.string(forKey: "login") else { return }
-		singinButton.isEnabled = false
-		checkLogin(login: login)
-		authProvider.load(with: login) { (success) in
-			success ? print("Users is load!") : print("Something gone wrong!")
-		}
-		emailTextField.typeOn(string: login) { [weak self] in
-			self?.passwordTextField.typeOn(string: "*********") {
-				delay(seconds: 1.5, completion: {
-					let controller = AdditionsViewController()
-					controller.modalTransitionStyle = .crossDissolve
-					self?.appNavigator?.go(controller: controller, mode: .replace)
-				})
-			}
-		}
+//		guard let login = UserDefaults.standard.string(forKey: "login") else { return }
+//		singinButton.isEnabled = false
+//		checkLogin(login: login)1
+//		authProvider.load(with: login) { (success) in
+//			success ? print("Users is load!") : print("Something gone wrong!")
+//		}
+//		emailTextField.typeOn(string: login) { [weak self] in
+//			self?.passwordTextField.typeOn(string: "*********") {
+//				delay(seconds: 1.5, completion: {
+//					let controller = AdditionsViewController()
+//					controller.modalTransitionStyle = .crossDissolve
+//					self?.appNavigator?.go(controller: controller, mode: .replace)
+//				})
+//			}
+//		}
 	}
 }
 
 extension AuthViewController: Keyboardable {}
+
+extension AuthViewController: AuthViewDelegate {
+	
+	func loginButtonPressed() {
+		guard let login = customView.emailTextField.text, !login.isEmpty else {
+			customView.updateView(type: .email)
+			return
+		}
+		
+		guard let password = customView.passwordTextField.text, !password.isEmpty else {
+			customView.updateView(type: .password)
+			return
+		}
+		customView.updateView(type: .none)
+		
+		authProvider.load(with: login) { (success) in
+			success ? print("Users is load!") : print("Something gone wrong!")
+		}
+		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
+			if result {
+				let controller = AdditionsViewController()
+				controller.modalTransitionStyle = .crossDissolve
+				self?.appNavigator?.go(controller: controller, mode: .replace)
+			}
+		}
+	}
+	
+	func signupButtonPressed() {
+		print("sign up pressed")
+	}
+}

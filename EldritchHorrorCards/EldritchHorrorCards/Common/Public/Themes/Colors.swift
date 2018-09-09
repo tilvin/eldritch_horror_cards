@@ -21,7 +21,8 @@ extension UIColor {
 	static var mako: UIColor { return UIColor(hexString: "3D434A") }
 	static var viridian: UIColor { return UIColor(hexString: "1F746E") }
 	static var viridianTwo: UIColor { return UIColor(hexString: "228079") }
-
+	static var errorBorder: UIColor { return UIColor(hexString: "D34747") }
+	
 	//MARK: - Inits
 	
 	convenience init(components red: CGFloat, green: CGFloat, blue: CGFloat) {

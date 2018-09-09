@@ -11,7 +11,7 @@ import UIKit
 class CustomButton: UIButton {
 	
 	private struct Constants {
-		static let cornerRadius: CGFloat = 25
+		static let cornerRadius: CGFloat = 3
 		static let borderWidth: CGFloat = 0
 		static let highlightedAlpha: CGFloat = 0.7
 		static let shadowRadius: CGFloat = 0
@@ -94,23 +94,5 @@ class CustomButton: UIButton {
 		layer.cornerRadius = Constants.cornerRadius
 		layer.shadowOpacity = 0
 		layer.masksToBounds = false
-
-		//FIXME: не работает градиент!
-		if type == .darkGreenBlue {
-			let gradientLayer = CAGradientLayer()
-			gradientLayer.frame = self.frame
-			gradientLayer.colors = [UIColor.black.cgColor, UIColor.white.cgColor]
-			gradientLayer.locations = [0.1, 1.0]
-			gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-			gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-
-			self.layer.sublayers?.forEach({ (layer) in
-				if layer is CAGradientLayer {
-					layer.removeFromSuperlayer()
-				}
-			})
-
-			self.layer.insertSublayer(gradientLayer, at: 0)
-		}
 	}
 }

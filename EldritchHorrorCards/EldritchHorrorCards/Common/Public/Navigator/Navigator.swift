@@ -33,7 +33,7 @@ class AppNavigator: NSObject, NavigatorProtocol {
 	}
 	
 	func goMain() {
-		let controller = AuthViewController.controllerFromStoryboard(.main)
+		let controller = AuthViewController()
 		self.app?.window?.rootViewController = controller
 		currentController = controller
 	}

@@ -1,6 +1,7 @@
 "auth.email" = "Емейл";
 "auth.password" = "Пароль";
 "auth.signin" = "Войти";
+"auth.signup" = "Создать аккаунт";
 
 "call_monster" = "Вызвать этого монстра";
 "card.type.portal" = "Иные миры";

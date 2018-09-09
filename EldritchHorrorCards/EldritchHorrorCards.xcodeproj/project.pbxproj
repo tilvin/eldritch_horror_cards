@@ -53,6 +53,10 @@
 		A46EE7CC2139244C00F47026 /* Keyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7C92139244C00F47026 /* Keyboardable.swift */; };
 		A46EE7CD2139244C00F47026 /* KeyboardPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7CA2139244C00F47026 /* KeyboardPayload.swift */; };
 		A46EE7CE2139244C00F47026 /* NotificationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7CB2139244C00F47026 /* NotificationDescriptor.swift */; };
+		A47771A921452E81007F2058 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47771A821452E81007F2058 /* AuthView.swift */; };
+		A47771AB21452FF0007F2058 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47771AA21452FF0007F2058 /* UIImageViewExtension.swift */; };
+		A47771AD21453044007F2058 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47771AC21453044007F2058 /* UILabelExtension.swift */; };
+		A47771AF214531DD007F2058 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47771AE214531DD007F2058 /* UITextFieldExtension.swift */; };
 		A4788ADF212D4F80006D71FD /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788ADE212D4F80006D71FD /* DescriptionView.swift */; };
 		A4788AE1212D5F7D006D71FD /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788AE0212D5F7D006D71FD /* CustomButton.swift */; };
 		A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479427C210C2FED00ED0851 /* MainViewController.swift */; };
@@ -68,6 +72,7 @@
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* DataParseService.swift */; };
+		A49043082145610200397AC9 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49043072145610200397AC9 /* UIScreenExtension.swift */; };
 		A499E9812144413B001186A5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499E9802144413B001186A5 /* UIViewExtension.swift */; };
 		A499E98621445A49001186A5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499E98521445A49001186A5 /* LoaderView.swift */; };
 		A4A9102E21285AD900652D25 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9102D21285AD900652D25 /* DescriptionViewController.swift */; };
@@ -161,6 +166,10 @@
 		A46EE7C92139244C00F47026 /* Keyboardable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardable.swift; sourceTree = "<group>"; };
 		A46EE7CA2139244C00F47026 /* KeyboardPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPayload.swift; sourceTree = "<group>"; };
 		A46EE7CB2139244C00F47026 /* NotificationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDescriptor.swift; sourceTree = "<group>"; };
+		A47771A821452E81007F2058 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		A47771AA21452FF0007F2058 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		A47771AC21453044007F2058 /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		A47771AE214531DD007F2058 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		A4788ADE212D4F80006D71FD /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		A4788AE0212D5F7D006D71FD /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A479427C210C2FED00ED0851 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +185,7 @@
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* DataParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParseService.swift; sourceTree = "<group>"; };
+		A49043072145610200397AC9 /* UIScreenExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 		A499E9802144413B001186A5 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A499E98521445A49001186A5 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		A4A9102D21285AD900652D25 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
@@ -411,12 +421,12 @@
 		A441BBCF2109BB1900EAC5DD /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				A499E97D2144411A001186A5 /* Helpers */,
-				A46EE7C82139243D00F47026 /* Keyboardable */,
 				A4563AF720F87F8B00B65428 /* Command.swift */,
 				A4563AFC20F87FF500B65428 /* DI.swift */,
 				A45E565E210B0C8800590AE7 /* Images.swift */,
 				A4794282210C313C00ED0851 /* Controllers */,
+				A499E97D2144411A001186A5 /* Helpers */,
+				A46EE7C82139243D00F47026 /* Keyboardable */,
 				A441BBD32109BB8000EAC5DD /* Navigator */,
 				55819E70178EA040542F75C7 /* Network */,
 				A441BBD42109BB9100EAC5DD /* Providers */,
@@ -568,6 +578,14 @@
 			path = Keyboardable;
 			sourceTree = "<group>";
 		};
+		A47771A721452E57007F2058 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A47771A821452E81007F2058 /* AuthView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A4788ADD212D4F4E006D71FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +617,7 @@
 			isa = PBXGroup;
 			children = (
 				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
+				A47771A721452E57007F2058 /* Views */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -622,6 +641,10 @@
 		A499E97F21444130001186A5 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				A47771AA21452FF0007F2058 /* UIImageViewExtension.swift */,
+				A47771AC21453044007F2058 /* UILabelExtension.swift */,
+				A49043072145610200397AC9 /* UIScreenExtension.swift */,
+				A47771AE214531DD007F2058 /* UITextFieldExtension.swift */,
 				A499E9802144413B001186A5 /* UIViewExtension.swift */,
 			);
 			path = UIKit;
@@ -836,12 +859,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-17/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
 			);
@@ -863,13 +888,16 @@
 				A499E98621445A49001186A5 /* LoaderView.swift in Sources */,
 				A4F3B1E4212ECB9F00F03E7B /* DateHelper.swift in Sources */,
 				A4208340212B1B8D0081E762 /* BaseTableViewCell.swift in Sources */,
+				A47771A921452E81007F2058 /* AuthView.swift in Sources */,
 				A4F3B1D8212ECB8A00F03E7B /* ViewController.swift in Sources */,
 				A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */,
 				9F171C58211D59DE005A8264 /* Addition.swift in Sources */,
 				A4FDB01320D413DE00FA6E4B /* ShadowAttributes.swift in Sources */,
 				A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */,
 				9F80B99B210C3C96007C4396 /* CardsCarousel.swift in Sources */,
+				A49043082145610200397AC9 /* UIScreenExtension.swift in Sources */,
 				A4A9102E21285AD900652D25 /* DescriptionViewController.swift in Sources */,
+				A47771AD21453044007F2058 /* UILabelExtension.swift in Sources */,
 				A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */,
 				A4794286210C31C300ED0851 /* BaseNavigationController.swift in Sources */,
 				A4C25333211DEEAD00E0FF37 /* TableRowBuilder.swift in Sources */,
@@ -905,6 +933,7 @@
 				A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */,
 				A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */,
 				A420833B212B1B0B0081E762 /* TableViewHeaderFooterConfiguration.swift in Sources */,
+				A47771AF214531DD007F2058 /* UITextFieldExtension.swift in Sources */,
 				9F322861210B7CF800ECD4A4 /* CardViewController.swift in Sources */,
 				A4208333212B1AFB0081E762 /* BaseTableAdapter.swift in Sources */,
 				A4563AFD20F87FF500B65428 /* DI.swift in Sources */,
@@ -918,6 +947,7 @@
 				A4B8161320D01D6800FC5651 /* Storyboards.swift in Sources */,
 				A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */,
 				A4788ADF212D4F80006D71FD /* DescriptionView.swift in Sources */,
+				A47771AB21452FF0007F2058 /* UIImageViewExtension.swift in Sources */,
 				A499E9812144413B001186A5 /* UIViewExtension.swift in Sources */,
 				A4788AE1212D5F7D006D71FD /* CustomButton.swift in Sources */,
 				A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */,
