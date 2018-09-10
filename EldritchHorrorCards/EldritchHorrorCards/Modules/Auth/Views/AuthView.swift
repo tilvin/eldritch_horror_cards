@@ -54,23 +54,19 @@ class AuthView: BaseScrollView {
 	}()
 	
 	lazy var emailLineView: UIView = {
-		let view = UIView()
-		view.backgroundColor = .mako
-		return view
+		return UIView(backgroundColor: .mako)
 	}()
 	
 	lazy var passwordLineView: UIView = {
-		let view = UIView()
-		view.backgroundColor = .mako
+		return UIView(backgroundColor: .mako)
+	}()
+	
+	lazy var signUpButton: UIButton = {
+		let view = UIButton()
+		view.titleLabel?.font = .regular12
+		view.setTitle("auth.signup".localized, for: .normal)
+		view.setTitleColor(.darkGreenBlue, for: .normal)
 		return view
-	}()
-	
-	lazy var emailStack: UIStackView = {
-		createStackView(textField: emailTextField, view: emailLineView)
-	}()
-	
-	lazy var passwordStack: UIStackView = {
-		createStackView(textField: passwordTextField, view: passwordLineView)
 	}()
 	
 	//MARK: - Private lazy variables
@@ -92,14 +88,6 @@ class AuthView: BaseScrollView {
 		view.setTitle("auth.signin".localized, for: .normal)
 		return view
 	}()
-	
-	private lazy var signUpButton: UIButton = {
-		let view = UIButton()
-		view.titleLabel?.font = .regular12
-		view.setTitle("auth.signup".localized, for: .normal)
-		view.setTitleColor(.darkGreenBlue, for: .normal)
-		return view
-	}()
 
 	//MARK: - Init
 	
@@ -110,7 +98,6 @@ class AuthView: BaseScrollView {
 		makeConstraints()
 		loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
 		signUpButton.addTarget(self, action: #selector(signupButtonPressed), for: .touchUpInside)
-		layoutIfNeeded()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -123,10 +110,10 @@ class AuthView: BaseScrollView {
 		switch type {
 		case .email:
 			emailLineView.backgroundColor = appearance.errorColor
-			emailStack.shake()
+			emailTextField.shake()
 		case .password:
 			passwordLineView.backgroundColor = appearance.errorColor
-			passwordStack.shake()
+			passwordTextField.shake()
 		case .none:
 			emailLineView.backgroundColor = appearance.normalColor
 			passwordLineView.backgroundColor = appearance.normalColor
@@ -142,13 +129,19 @@ class AuthView: BaseScrollView {
 		addSeparatorView(height: 30)
 		addToStackView(view: avatarView, embed: true)
 		addSeparatorView(height: appearance.avatarBottomSeparatorHeight)
-		addToStackView(view: emailStack, embed: true)
-		addSeparatorView(height: 50)
-		addToStackView(view: passwordStack, embed: true)
-		addSeparatorView(height: 70)
+		
+		addToStackView(view: emailTextField, embed: true)
+		addSeparatorView(height: 5)
+		addToStackView(view: emailLineView, embed: true)
+		addSeparatorView(height: 25)
+		addToStackView(view: passwordTextField, embed: true)
+		addSeparatorView(height: 5)
+		addToStackView(view: passwordLineView, embed: true)
+		
+		addSeparatorView(height: 25)
 		addToStackView(view: loginButton, embed: true)
-		addSeparatorView(height: 30, expandable: true)
-		addToStackView(view: signUpButton, embed: true)
+		addSeparatorView(expandable: true)
+		addToStackView(view: signUpButton, embed: false)
 		addSeparatorView(height: 10)
 	}
 	
@@ -163,33 +156,33 @@ class AuthView: BaseScrollView {
 			make.centerY.centerX.equalToSuperview()
 			make.top.bottom.equalToSuperview()
 		}
-		
-		emailLineView.snp.makeConstraints { (make) in
-			make.height.equalTo(1)
-		}
-		
-		passwordLineView.snp.makeConstraints { (make) in
-			make.height.equalTo(1)
-		}
-		
-		emailStack.snp.remakeConstraints { (make) in
-			make.height.equalTo(40)
+
+		emailTextField.snp.remakeConstraints { (make) in
 			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
-			
+			make.top.bottom.equalToSuperview()
+		}
+
+		emailLineView.snp.remakeConstraints { (make) in
+			make.height.equalTo(1)
+			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
+			make.top.bottom.equalToSuperview()
 		}
 		
-		passwordStack.snp.remakeConstraints { (make) in
-			make.height.equalTo(40)
+		passwordTextField.snp.remakeConstraints { (make) in
 			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
+			make.top.bottom.equalToSuperview()
+		}
+		
+		passwordLineView.snp.remakeConstraints { (make) in
+			make.height.equalTo(1)
+			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
+			make.top.bottom.equalToSuperview()
 		}
 		
 		loginButton.snp.remakeConstraints { (make) in
 			make.left.right.equalToSuperview().inset(appearance.buttonSideOffset)
 			make.height.equalTo(45)
-		}
-
-		signUpButton.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
+			make.top.bottom.equalToSuperview()
 		}
 	}
 	

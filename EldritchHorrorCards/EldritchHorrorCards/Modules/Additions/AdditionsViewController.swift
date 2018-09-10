@@ -15,7 +15,7 @@ class AdditionsViewController: BaseViewController {
 		isHiddenNavigationBar = true
 		setupMenu()
 		customView.delegate = self
-	}
+	}	
 }
 
 extension AdditionsViewController: AdditionsListTableAdapterDelegate {

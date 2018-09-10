@@ -13,7 +13,6 @@ extension BaseScrollView {
 	fileprivate struct Appearance {
 		let statusBarHeight: CGFloat = 20
 		let animamtionDuration: TimeInterval = 0.5
-		let defaultSideOffset: CGFloat = 0
 	}
 }
 class BaseScrollView: UIView {
@@ -88,7 +87,7 @@ class BaseScrollView: UIView {
 		
 		view.snp.makeConstraints { make in
 			make.top.bottom.equalToSuperview()
-			make.left.right.equalToSuperview().inset(appearance.defaultSideOffset)
+			make.left.right.equalToSuperview()
 		}
 		
 		embedView.snp.makeConstraints { (make) in

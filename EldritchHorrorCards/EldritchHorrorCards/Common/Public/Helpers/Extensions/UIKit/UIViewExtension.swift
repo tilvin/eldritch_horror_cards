@@ -24,4 +24,9 @@ extension UIView {
 			}
 		}
 	}
+	
+	convenience init(backgroundColor: UIColor) {
+		self.init()
+		self.backgroundColor = backgroundColor
+	}
 }

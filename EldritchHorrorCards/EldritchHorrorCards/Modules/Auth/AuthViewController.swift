@@ -81,30 +81,30 @@ class AuthViewController: BaseViewController {
 		editableViews.forEach { $0.resignFirstResponder() }
 	}
 	
+	private func autoLogin() {
+		guard let login = UserDefaults.standard.string(forKey: "login") else { return }
+		customView.signUpButton.isEnabled = false
+		checkLogin(login: login)
+		authProvider.load(with: login) { (success) in
+			success ? print("Users is load!") : print("Something gone wrong!")
+		}
+		customView.emailTextField.typeOn(string: login) { [weak self] in
+			self?.customView.passwordTextField.typeOn(string: "*********") {
+				delay(seconds: 1, completion: {
+					let controller = AdditionsViewController()
+					controller.modalTransitionStyle = .crossDissolve
+					self?.appNavigator?.go(controller: controller, mode: .replace)
+				})
+			}
+		}
+	}
+	
 	private func checkLogin(login: String = "") {
 		//FIXME: Тут сложней схема. На сервер отправляется запрос с логином. По которому идет проверка и если такой пользователь есть - возаращется просто урл на его аватар. а дальше идет загрузка аватарки
 		if let avatar = UserDefaults.standard.data(forKey: "avatar") {
 			guard let image  = UIImage(data: avatar) else {return}
 			customView.avatarView.update(avatar: image)
 		}
-	}
-	
-	private func autoLogin() {
-//		guard let login = UserDefaults.standard.string(forKey: "login") else { return }
-//		singinButton.isEnabled = false
-//		checkLogin(login: login)1
-//		authProvider.load(with: login) { (success) in
-//			success ? print("Users is load!") : print("Something gone wrong!")
-//		}
-//		emailTextField.typeOn(string: login) { [weak self] in
-//			self?.passwordTextField.typeOn(string: "*********") {
-//				delay(seconds: 1.5, completion: {
-//					let controller = AdditionsViewController()
-//					controller.modalTransitionStyle = .crossDissolve
-//					self?.appNavigator?.go(controller: controller, mode: .replace)
-//				})
-//			}
-//		}
 	}
 }
 
