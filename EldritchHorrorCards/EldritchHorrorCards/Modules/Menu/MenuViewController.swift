@@ -1,5 +1,4 @@
 import UIKit
-import Fakery
 
 protocol MenuEmbedProtocol: class {
 	var menuContainerView: UIView { get}

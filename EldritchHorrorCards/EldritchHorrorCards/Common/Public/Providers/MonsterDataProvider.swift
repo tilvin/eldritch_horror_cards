@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Fakery
 import Zip
 
 protocol MonsterDataProviderProtocol {

@@ -1,12 +1,11 @@
 platform :ios, '11.0'
 
 target 'EldritchHorrorCards' do
-  use_frameworks!
-  inhibit_all_warnings!
-  
-  pod 'Fakery'
-  pod 'SnapKit'
-  pod 'Zip'
-  pod 'Reveal-SDK', :configurations => ['Debug']
- pod "SwiftLint"
+	use_frameworks!
+	inhibit_all_warnings!
+	
+	pod 'SnapKit'
+	pod 'Zip'
+#	pod 'Reveal-SDK', :configurations => ['Debug']
+	pod "SwiftLint"
 end
