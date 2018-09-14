@@ -6,7 +6,7 @@ protocol MonstersViewControllerDelegate: class {
 	func showDetail(monster: Monster)
 }
 
-class MonstersViewController: JFCardSelectionViewController {
+final class MonstersViewController: JFCardSelectionViewController {
 	var menuContainerView: UIView { return self.menuContainer }
 	var menuAction: CommandWith<Command>!
 	var monsterDelegate: MonstersViewControllerDelegate?
