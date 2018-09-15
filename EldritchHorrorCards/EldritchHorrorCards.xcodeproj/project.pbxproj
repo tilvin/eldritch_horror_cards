@@ -809,7 +809,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 			);
@@ -822,7 +822,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D0809C6E9947392F9159AC7 /* [CP] Check Pods Manifest.lock */ = {

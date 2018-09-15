@@ -64,11 +64,10 @@ class MenuContentView: BaseScrollView {
 	
 	override init(frame: CGRect = CGRect.zero) {
 		super.init(frame: frame)
-		backgroundColor =  UIColor.viridianTwo.withAlphaComponent(0.95)
+		scrollView.backgroundColor =  UIColor.viridianTwo.withAlphaComponent(0.95)
 		addSubviews()
 		makeConstraints()
 		layoutIfNeeded()
-		
 		testButton.addTarget(self, action: #selector(testButtonPressed), for: .touchUpInside)
 		logoutButton.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
 	}
@@ -94,18 +93,25 @@ class MenuContentView: BaseScrollView {
 	}
 	
 	private func makeConstraints() {
+		avatarView.snp.removeConstraints()
 		avatarView.snp.makeConstraints { (make) in
 			make.width.height.equalTo(150)
+			make.top.bottom.equalToSuperview()
 			make.centerX.equalToSuperview()
 		}
 		
+		userName.snp.removeConstraints()
 		userName.snp.makeConstraints { (make) in
 			make.width.equalToSuperview().multipliedBy(0.9)
+			make.top.bottom.equalToSuperview()
+			make.centerX.equalToSuperview()
 		}
 		
+		separatorLineView.snp.removeConstraints()
 		separatorLineView.snp.makeConstraints { (make) in
 			make.width.equalToSuperview().multipliedBy(0.9)
 			make.height.equalTo(1)
+			make.top.bottom.equalToSuperview()
 			make.centerX.equalToSuperview()
 		}
 		
@@ -114,12 +120,12 @@ class MenuContentView: BaseScrollView {
 			make.width.equalToSuperview()
 		}
 		
+		logoutButton.snp.removeConstraints()
 		logoutButton.snp.makeConstraints { make in
 			make.height.equalTo(24)
+			make.top.bottom.equalToSuperview()
+			make.leading.equalToSuperview().offset(32)
 			
-		}
-		logoutButton.snp.remakeConstraints { (make) in
-			make.left.equalToSuperview().offset(32)
 		}
 	}
 	
