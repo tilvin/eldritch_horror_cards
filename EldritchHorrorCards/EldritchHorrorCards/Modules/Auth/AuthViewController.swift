@@ -38,7 +38,7 @@ class AuthViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		customView.passwordTextField.isSecureTextEntry = true
 		let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(sender:)))
 		view.addGestureRecognizer(tap)
 		
@@ -123,7 +123,6 @@ extension AuthViewController: AuthViewDelegate {
 			return
 		}
 		customView.updateView(type: .none)
-		
 		authProvider.load(with: login) { (success) in
 			success ? print("Users is load!") : print("Something gone wrong!")
 		}

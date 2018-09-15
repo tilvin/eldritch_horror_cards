@@ -49,10 +49,35 @@ class AuthView: BaseScrollView {
 		return UITextField(placeholder: "auth.email".localized, textColor: .mako)
 	}()
 	
+	lazy var emailImage: UIImageView = {
+		return UIImageView(with: UIImage.email)
+	}()
+	
+	lazy var email: UIStackView = {
+		var emailStack = UIStackView()
+		emailStack.axis = .horizontal
+		emailStack.spacing = 10
+		emailStack.addArrangedSubview(emailImage)
+		emailStack.addArrangedSubview(emailTextField)
+		return emailStack
+	}()
+	
 	lazy var passwordTextField: UITextField = {
 		return UITextField(placeholder: "auth.password".localized, textColor: .mako)
 	}()
 	
+	lazy var passwordImage: UIImageView = {
+		return UIImageView(with: UIImage.password)
+	}()
+	
+	lazy var password: UIStackView = {
+		var passwordStack = UIStackView()
+		passwordStack.axis = .horizontal
+		passwordStack.spacing = 10
+		passwordStack.addArrangedSubview(passwordImage)
+		passwordStack.addArrangedSubview(passwordTextField)
+		return passwordStack
+	}()
 	lazy var emailLineView: UIView = {
 		return UIView(backgroundColor: .mako)
 	}()
@@ -130,11 +155,11 @@ class AuthView: BaseScrollView {
 		addToStackView(view: avatarView, embed: true)
 		addSeparatorView(height: appearance.avatarBottomSeparatorHeight)
 		
-		addToStackView(view: emailTextField, embed: true)
+		addToStackView(view: email, embed: true)
 		addSeparatorView(height: 5)
 		addToStackView(view: emailLineView, embed: true)
 		addSeparatorView(height: 25)
-		addToStackView(view: passwordTextField, embed: true)
+		addToStackView(view: password, embed: true)
 		addSeparatorView(height: 5)
 		addToStackView(view: passwordLineView, embed: true)
 		
@@ -157,9 +182,13 @@ class AuthView: BaseScrollView {
 			make.top.bottom.equalToSuperview()
 		}
 
-		emailTextField.snp.remakeConstraints { (make) in
+		email.snp.remakeConstraints { (make) in
 			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
 			make.top.bottom.equalToSuperview()
+		}
+		
+		emailImage.snp.remakeConstraints { (make) in
+			make.width.equalTo(24)
 		}
 
 		emailLineView.snp.remakeConstraints { (make) in
@@ -168,7 +197,11 @@ class AuthView: BaseScrollView {
 			make.top.bottom.equalToSuperview()
 		}
 		
-		passwordTextField.snp.remakeConstraints { (make) in
+		passwordImage.snp.remakeConstraints { (make) in
+			make.width.equalTo(24)
+		}
+		
+		password.snp.remakeConstraints { (make) in
 			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
 			make.top.bottom.equalToSuperview()
 		}

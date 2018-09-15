@@ -40,4 +40,6 @@ extension UIImage {
 	static var map: UIImage { return UIImage(named: "map")! }
 	static var backButton: UIImage { return UIImage(named: "back_button")! }
 	static var authBackground: UIImage { return UIImage(named: "auth_background")! }
+	static var email: UIImage { return UIImage(named: "email")! }
+	static var password: UIImage { return UIImage(named: "password")! }
 }
