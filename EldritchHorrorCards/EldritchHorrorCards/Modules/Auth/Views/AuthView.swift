@@ -188,7 +188,7 @@ class AuthView: BaseScrollView {
 		}
 		
 		emailImage.snp.remakeConstraints { (make) in
-			make.width.equalTo(24)
+			make.width.height.equalTo(24)
 		}
 
 		emailLineView.snp.remakeConstraints { (make) in
@@ -198,7 +198,7 @@ class AuthView: BaseScrollView {
 		}
 		
 		passwordImage.snp.remakeConstraints { (make) in
-			make.width.equalTo(24)
+			make.width.height.equalTo(24)
 		}
 		
 		password.snp.remakeConstraints { (make) in
