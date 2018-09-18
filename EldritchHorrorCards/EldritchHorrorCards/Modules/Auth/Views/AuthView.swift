@@ -26,6 +26,8 @@ extension AuthView {
 		let textFieldSideOffset: CGFloat = ScreenType.item(for: (.inch4, 50), (.inch5_5, 70), (.inch5_8, 70))
 		let buttonSideOffset: CGFloat = ScreenType.item(for: (.inch4, 30), (.inch5_5, 50), (.inch5_8, 50))
 		let avatarBottomSeparatorHeight: CGFloat = ScreenType.item(for: (.inch4, 30), (.inch5_5, 70), (.inch5_8, 70))
+		let stackViewSpacingHorizontal: CGFloat = 10
+		let stackViewSpacingVertical: CGFloat = 3
 	}
 }
 
@@ -49,34 +51,30 @@ class AuthView: BaseScrollView {
 		return UITextField(placeholder: "auth.email".localized, textColor: .mako)
 	}()
 	
-	lazy var emailImage: UIImageView = {
-		return UIImageView(with: UIImage.email)
+	lazy var emailImageView: UIImageView = {
+		return UIImageView(with: .email)
 	}()
 	
-	lazy var email: UIStackView = {
-		var emailStack = UIStackView()
-		emailStack.axis = .horizontal
-		emailStack.spacing = 10
-		emailStack.addArrangedSubview(emailImage)
-		emailStack.addArrangedSubview(emailTextField)
-		return emailStack
+	lazy var emailStackView: UIStackView = {
+		var view = UIStackView()
+		view.axis = .horizontal
+		view.spacing = appearance.stackViewSpacingHorizontal
+		return view
 	}()
 	
 	lazy var passwordTextField: UITextField = {
 		return UITextField(placeholder: "auth.password".localized, textColor: .mako)
 	}()
 	
-	lazy var passwordImage: UIImageView = {
+	lazy var passwordImageView: UIImageView = {
 		return UIImageView(with: UIImage.password)
 	}()
 	
-	lazy var password: UIStackView = {
-		var passwordStack = UIStackView()
-		passwordStack.axis = .horizontal
-		passwordStack.spacing = 10
-		passwordStack.addArrangedSubview(passwordImage)
-		passwordStack.addArrangedSubview(passwordTextField)
-		return passwordStack
+	lazy var passwordStackView: UIStackView = {
+		var view = UIStackView()
+		view.axis = .horizontal
+		view.spacing = appearance.stackViewSpacingHorizontal
+		return view
 	}()
 	lazy var emailLineView: UIView = {
 		return UIView(backgroundColor: .mako)
@@ -155,11 +153,15 @@ class AuthView: BaseScrollView {
 		addToStackView(view: avatarView, embed: true)
 		addSeparatorView(height: appearance.avatarBottomSeparatorHeight)
 		
-		addToStackView(view: email, embed: true)
+		addToStackView(view: emailStackView, embed: true)
+		emailStackView.addArrangedSubview(emailImageView)
+		emailStackView.addArrangedSubview(emailTextField)
 		addSeparatorView(height: 5)
 		addToStackView(view: emailLineView, embed: true)
 		addSeparatorView(height: 25)
-		addToStackView(view: password, embed: true)
+		addToStackView(view: passwordStackView, embed: true)
+		passwordStackView.addArrangedSubview(passwordImageView)
+		passwordStackView.addArrangedSubview(passwordTextField)
 		addSeparatorView(height: 5)
 		addToStackView(view: passwordLineView, embed: true)
 		
@@ -182,12 +184,12 @@ class AuthView: BaseScrollView {
 			make.top.bottom.equalToSuperview()
 		}
 
-		email.snp.remakeConstraints { (make) in
+		emailStackView.snp.remakeConstraints { (make) in
 			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
 			make.top.bottom.equalToSuperview()
 		}
 		
-		emailImage.snp.remakeConstraints { (make) in
+		emailImageView.snp.remakeConstraints { (make) in
 			make.width.height.equalTo(24)
 		}
 
@@ -197,11 +199,11 @@ class AuthView: BaseScrollView {
 			make.top.bottom.equalToSuperview()
 		}
 		
-		passwordImage.snp.remakeConstraints { (make) in
+		passwordImageView.snp.remakeConstraints { (make) in
 			make.width.height.equalTo(24)
 		}
 		
-		password.snp.remakeConstraints { (make) in
+		passwordStackView.snp.remakeConstraints { (make) in
 			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
 			make.top.bottom.equalToSuperview()
 		}
@@ -224,7 +226,7 @@ class AuthView: BaseScrollView {
 		stackView.addArrangedSubview(textField)
 		stackView.addArrangedSubview(view)
 		stackView.axis = .vertical
-		stackView.spacing = 3
+		stackView.spacing = appearance.stackViewSpacingVertical
 		stackView.alignment = .fill
 		stackView.distribution = .fill
 		return stackView
