@@ -76,6 +76,7 @@ class AuthView: BaseScrollView {
 		view.spacing = appearance.stackViewSpacingHorizontal
 		return view
 	}()
+	
 	lazy var emailLineView: UIView = {
 		return UIView(backgroundColor: .mako)
 	}()
