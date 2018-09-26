@@ -8,24 +8,29 @@
 
 import Foundation
 
-struct Constants {
-	static let gameIdKey = "game_id_key"
-	static let gameToken = "game_token"
-	static let expeditionLocation = "expedition_Location"
-}
-
 protocol GameDataProviderProtocol {
 	var game: Game? { get set }
 	func load(completion: @escaping (Bool) -> Void)
 }
 
 class GameDataProvider: NSObject, GameDataProviderProtocol {
+
+	struct Constants {
+		static let gameIdKey = "game_id_key"
+		static let gameToken = "game_token"
+		static let expeditionLocation = "expedition_Location"
+	}
+
 	//MARK: - Public variables
+	
 	var game: Game?
+	
 	//MARK: - Private variables
+	
 	private lazy var session: URLSession = {
 		return URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
 	}()
+	
 	private var dataTask: URLSessionDataTask?
 	
 	func load(completion: @escaping (Bool) -> Void) {
