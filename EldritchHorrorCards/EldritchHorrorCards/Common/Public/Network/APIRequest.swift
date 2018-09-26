@@ -60,6 +60,7 @@ extension APIRequest {
 		case .games(let user_uid):
 			components.path = "/games"
 			components.parameters["user_uid"] = user_uid
+			return components
 		case .gameSets:
 			components.path = "/game_sets"
 			components.asJson = false

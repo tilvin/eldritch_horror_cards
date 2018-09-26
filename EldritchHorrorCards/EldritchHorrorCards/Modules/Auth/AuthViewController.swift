@@ -33,7 +33,7 @@ class AuthViewController: BaseViewController {
 	//MARK: - Private variables
 	
 	private var authProvider: AuthProviderProtocol = DI.providers.resolve(AuthProviderProtocol.self)!
-	
+	private var gameProvider: GameDataProviderProtocol = DI.providers.resolve(GameDataProviderProtocol.self)!
 	//MARK: - Lifecycle
 	
 	override func viewDidLoad() {
@@ -61,6 +61,11 @@ class AuthViewController: BaseViewController {
 		unregisterKeyboardNotifications()
 	}
 	
+	override func viewDidDisappear(_ animated: Bool) {
+		gameProvider.load { (success) in
+			success ? print("Game is load!") : print("Something gone wrong!")
+		}
+	}
 	//MARK: - Handlers
 	
 //	@IBAction private func loginChanged(_ sender: UITextField) {

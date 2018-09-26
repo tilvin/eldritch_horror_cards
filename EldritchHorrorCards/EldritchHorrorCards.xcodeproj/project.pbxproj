@@ -21,6 +21,8 @@
 		9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9F3CBDA02110CB6F00E842A4 /* monsters.zip */; };
 		9F3E4578213522C4002DA88A /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E4577213522C4002DA88A /* Description.swift */; };
 		9F80B99B210C3C96007C4396 /* CardsCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B99A210C3C96007C4396 /* CardsCarousel.swift */; };
+		9FC7F668215AC90500A2A7B3 /* GameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F667215AC90500A2A7B3 /* GameProvider.swift */; };
+		9FC7F66A215AC9BE00A2A7B3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F669215AC9BE00A2A7B3 /* Game.swift */; };
 		A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CA69720D23EC600E2F817 /* AuthViewController.swift */; };
 		A4208333212B1AFB0081E762 /* BaseTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208331212B1AFB0081E762 /* BaseTableAdapter.swift */; };
 		A4208334212B1AFB0081E762 /* StaticTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208332212B1AFB0081E762 /* StaticTableAdapter.swift */; };
@@ -133,6 +135,8 @@
 		9F3CBDA02110CB6F00E842A4 /* monsters.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = monsters.zip; sourceTree = "<group>"; };
 		9F3E4577213522C4002DA88A /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		9F80B99A210C3C96007C4396 /* CardsCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCarousel.swift; sourceTree = "<group>"; };
+		9FC7F667215AC90500A2A7B3 /* GameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProvider.swift; sourceTree = "<group>"; };
+		9FC7F669215AC9BE00A2A7B3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EldritchHorrorCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41CA69720D23EC600E2F817 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A4208331212B1AFB0081E762 /* BaseTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableAdapter.swift; sourceTree = "<group>"; };
@@ -483,6 +487,7 @@
 			children = (
 				9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */,
 				A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */,
+				9FC7F667215AC90500A2A7B3 /* GameProvider.swift */,
 				A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */,
 				A4563B0A20F8846100B65428 /* ConfigProvider.swift */,
 				A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */,
@@ -498,6 +503,7 @@
 				9F3E4577213522C4002DA88A /* Description.swift */,
 				A48C461420FD0DFD00DF1687 /* Monster.swift */,
 				9F0E79F32112FDED0080C907 /* User.swift */,
+				9FC7F669215AC9BE00A2A7B3 /* Game.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -897,6 +903,7 @@
 				9F80B99B210C3C96007C4396 /* CardsCarousel.swift in Sources */,
 				A49043082145610200397AC9 /* UIScreenExtension.swift in Sources */,
 				A4A9102E21285AD900652D25 /* DescriptionViewController.swift in Sources */,
+				9FC7F668215AC90500A2A7B3 /* GameProvider.swift in Sources */,
 				A47771AD21453044007F2058 /* UILabelExtension.swift in Sources */,
 				A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */,
 				A4794286210C31C300ED0851 /* BaseNavigationController.swift in Sources */,
@@ -904,6 +911,7 @@
 				A4F3B1DA212ECB8A00F03E7B /* GradientView.swift in Sources */,
 				A4563B0220F880BB00B65428 /* NavigatorProtocol.swift in Sources */,
 				A4F3B1DF212ECB8A00F03E7B /* UIImageView.swift in Sources */,
+				9FC7F66A215AC9BE00A2A7B3 /* Game.swift in Sources */,
 				A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */,
 				A4208346212B51D30081E762 /* AdditionCell.swift in Sources */,
 				A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */,
