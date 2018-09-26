@@ -7,24 +7,31 @@
 //
 
 import Foundation
+
+struct Constants {
+	static let gameIdKey = "game_id_key"
+	static let gameToken = "game_token"
+	static let expeditionLocation = "expedition_Location"
+}
+
 protocol GameDataProviderProtocol {
 	var game: Game? { get set }
 	func load(completion: @escaping (Bool) -> Void)
 }
 
 class GameDataProvider: NSObject, GameDataProviderProtocol {
-	var game:Game?
-	var session: URLSession?
+	//MARK: - Public variables
+	var game: Game?
+	//MARK: - Private variables
+	private lazy var session: URLSession = {
+		return URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
+	}()
 	private var dataTask: URLSessionDataTask?
 	
 	func load(completion: @escaping (Bool) -> Void) {
-		if session == nil {
-			session  = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
-		}
 		
 		dataTask?.cancel()
-		
-		dataTask = session!.dataTask(with: APIRequest.games(user_uid: "1").request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
+		dataTask = session.dataTask(with: APIRequest.games(user_uid: "1").request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			guard let data = data else {
 				completion(false)
@@ -40,9 +47,9 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 					guard let game = self!.game else { completion(false)
 						return
 					}
-					UserDefaults.standard.set(game.id, forKey: "gameId")
-					UserDefaults.standard.set(game.token, forKey: "gameToken")
-					UserDefaults.standard.set(game.expeditionLocation, forKey: "expeditionLocation")
+					UserDefaults.standard.set(game.id, forKey: Constants.gameIdKey)
+					UserDefaults.standard.set(game.token, forKey: Constants.gameToken)
+					UserDefaults.standard.set(game.expeditionLocation, forKey: Constants.expeditionLocation)
 					completion(true)
 					return
 				}
