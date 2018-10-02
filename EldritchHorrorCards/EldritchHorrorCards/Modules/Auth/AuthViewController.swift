@@ -50,20 +50,14 @@ class AuthViewController: BaseViewController {
 		super.viewWillAppear(animated)
 		registerKeyboardNotifications()
 		
-		if gameProvider.isSessionActive {
-			let controller = CardViewController.controllerFromStoryboard(.main)
-			controller.modalTransitionStyle = .crossDissolve
-			appNavigator?.go(controller: controller, mode: .modal)
+		if authProvider.loadToken() {
+			autoLogin()
 		}
 		else {
-			if authProvider.loadToken() {
-				autoLogin()
-			}
-			else {
-				let arrayMail = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"]
-				customView.emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
-			}
+			let arrayMail = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"]
+			customView.emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
 		}
+		
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -93,9 +87,16 @@ class AuthViewController: BaseViewController {
 				guard let sSelf = self else { return }
 				sSelf.customView.passwordTextField.typeOn(string: "*********") {
 					delay(seconds: 1, completion: {
-						let controller = AdditionsViewController()
-						controller.modalTransitionStyle = .crossDissolve
-						sSelf.appNavigator?.go(controller: controller, mode: .replace)
+						if sSelf.gameProvider.isSessionActive {
+							let controller = CardViewController.controllerFromStoryboard(.main)
+							controller.modalTransitionStyle = .crossDissolve
+							sSelf.appNavigator?.go(controller: controller, mode: .modal)
+						}
+						else {
+							let controller = AdditionsViewController()
+							controller.modalTransitionStyle = .crossDissolve
+							sSelf.appNavigator?.go(controller: controller, mode: .replace)
+						}
 					})
 				}
 			}
@@ -133,9 +134,16 @@ extension AuthViewController: AuthViewDelegate {
 		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
 			guard let sSelf = self else { return }
 			if result {
-				let controller = AdditionsViewController()
-				controller.modalTransitionStyle = .crossDissolve
-				sSelf.appNavigator?.go(controller: controller, mode: .replace)
+				if sSelf.gameProvider.isSessionActive {
+					let controller = CardViewController.controllerFromStoryboard(.main)
+					controller.modalTransitionStyle = .crossDissolve
+					sSelf.appNavigator?.go(controller: controller, mode: .modal)
+				}
+				else {
+					let controller = AdditionsViewController()
+					controller.modalTransitionStyle = .crossDissolve
+					sSelf.appNavigator?.go(controller: controller, mode: .replace)
+				}
 			}
 		}
 	}
