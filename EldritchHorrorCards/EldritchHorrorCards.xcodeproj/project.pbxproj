@@ -487,9 +487,9 @@
 			children = (
 				9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */,
 				A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */,
-				9FC7F667215AC90500A2A7B3 /* GameProvider.swift */,
 				A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */,
 				A4563B0A20F8846100B65428 /* ConfigProvider.swift */,
+				9FC7F667215AC90500A2A7B3 /* GameProvider.swift */,
 				A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */,
 			);
 			path = Providers;
@@ -815,7 +815,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 			);
@@ -828,7 +828,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D0809C6E9947392F9159AC7 /* [CP] Check Pods Manifest.lock */ = {

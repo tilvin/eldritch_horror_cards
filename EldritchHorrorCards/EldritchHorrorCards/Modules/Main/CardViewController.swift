@@ -11,7 +11,7 @@ class CardViewController: CardsCarousel {
     var cardsTypes: [CardType] = CardType.all
     
     let cardType = CardType.self
-
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = UIColor.wildSand

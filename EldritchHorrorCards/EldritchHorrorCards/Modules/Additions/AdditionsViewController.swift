@@ -43,6 +43,5 @@ extension AdditionsViewController: AdditionsListViewDelegate {
 		let controller = MainViewController()
 		controller.modalTransitionStyle = .crossDissolve
 		appNavigator?.go(controller: controller, mode: .modal)
-//		view.showProccessing()
 	}
 }

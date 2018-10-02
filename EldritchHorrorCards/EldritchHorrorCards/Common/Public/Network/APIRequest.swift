@@ -7,7 +7,7 @@ import Foundation
 
 enum APIRequest {
 	case login(login: String, password: String)
-	case games(user_uid: String)
+	case games
 	case gameSets
 	
 }
@@ -57,9 +57,8 @@ extension APIRequest {
 			components.parameters["login"] = login
 			components.parameters["password"] = password
 			return components
-		case .games(let user_uid):
+		case .games:
 			components.path = "/games"
-			components.parameters["user_uid"] = user_uid
 			return components
 		case .gameSets:
 			components.path = "/game_sets"

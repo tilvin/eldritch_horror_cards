@@ -32,62 +32,44 @@ class AuthViewController: BaseViewController {
 	
 	//MARK: - Private variables
 	
-	private var activeSession = false
-	private let dataEndSession = UserDefaults.standard.object(forKey: GameDataProvider.Constants.gameDate) as! Date
 	private var authProvider: AuthProviderProtocol = DI.providers.resolve(AuthProviderProtocol.self)!
-	private var gameProvider: GameDataProviderProtocol = DI.providers.resolve(GameDataProviderProtocol.self)!
+	private let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 	
 	//MARK: - Lifecycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		if UserDefaults.standard.string(forKey: GameDataProvider.Constants.gameIdKey) != nil &&
-			dataEndSession > Date() {
-			activeSession = true
-		}
+		
 		customView.passwordTextField.isSecureTextEntry = true
+		
 		let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(sender:)))
 		view.addGestureRecognizer(tap)
-		
-		if authProvider.loadToken() {
-			autoLogin()
-		}
-		else {
-			let arrayMail = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"]
-			customView.emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
-		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		registerKeyboardNotifications()
+		
+		if gameProvider.isSessionActive {
+			let controller = CardViewController.controllerFromStoryboard(.main)
+			controller.modalTransitionStyle = .crossDissolve
+			appNavigator?.go(controller: controller, mode: .modal)
+		}
+		else {
+			if authProvider.loadToken() {
+				autoLogin()
+			}
+			else {
+				let arrayMail = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"]
+				customView.emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
+			}
+		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		unregisterKeyboardNotifications()
-		if !activeSession {
-			gameProvider.load { (success) in
-				success ? print("Game is load!") : print("Something gone wrong!")
-			}
-		}
-		else {
-			activeSession = true
-		}
 	}
-	
-	override func viewDidDisappear(_ animated: Bool) {
-	}
-	//MARK: - Handlers
-	
-	//	@IBAction private func loginChanged(_ sender: UITextField) {
-	//		passwordView.borderColor = appearence.borderColor
-	//		emailView.borderColor = appearence.borderColor
-	//
-	//		if emailView.tag == 0 {
-	//			checkLogin(login: emailTextField.text ?? "")
-	//		}
-	//	}
 	
 	//MARK: - Private
 	
@@ -100,30 +82,23 @@ class AuthViewController: BaseViewController {
 	
 	private func autoLogin() {
 		guard let login = UserDefaults.standard.string(forKey: "login") else { return }
-		customView.signUpButton.isEnabled = false
-		checkLogin(login: login)
-		authProvider.load(with: login) { (success) in
-			success ? print("Users is load!") : print("Something gone wrong!")
-		}
-		customView.emailTextField.typeOn(string: login) { [weak self] in
-			self?.customView.passwordTextField.typeOn(string: "*********") {
-				delay(seconds: 1, completion: {
-					self!.initFormToSession(activeSession: self!.activeSession)
-				})
+		gameProvider.load { [weak self] (success) in
+			guard let sSelf = self else { return }
+			sSelf.customView.signUpButton.isEnabled = false
+			sSelf.checkLogin(login: login)
+			sSelf.authProvider.load(with: login) { (success) in
+				success ? print("Users is load!") : print("Something gone wrong!")
 			}
-		}
-	}
-	
-	private func initFormToSession (activeSession: Bool) {
-		if activeSession {
-			let controller = CardViewController.controllerFromStoryboard(.main)
-			controller.modalTransitionStyle = .crossDissolve
-			appNavigator?.go(controller: controller, mode: .replace)
-		}
-		else {
-			let controller = AdditionsViewController()
-			controller.modalTransitionStyle = .crossDissolve
-			appNavigator?.go(controller: controller, mode: .replace)
+			sSelf.customView.emailTextField.typeOn(string: login) {
+				guard let sSelf = self else { return }
+				sSelf.customView.passwordTextField.typeOn(string: "*********") {
+					delay(seconds: 1, completion: {
+						let controller = AdditionsViewController()
+						controller.modalTransitionStyle = .crossDissolve
+						sSelf.appNavigator?.go(controller: controller, mode: .replace)
+					})
+				}
+			}
 		}
 		
 	}
@@ -156,8 +131,11 @@ extension AuthViewController: AuthViewDelegate {
 			success ? print("Users is load!") : print("Something gone wrong!")
 		}
 		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
+			guard let sSelf = self else { return }
 			if result {
-				self!.initFormToSession(activeSession: self!.activeSession)
+				let controller = AdditionsViewController()
+				controller.modalTransitionStyle = .crossDissolve
+				sSelf.appNavigator?.go(controller: controller, mode: .replace)
 			}
 		}
 	}
