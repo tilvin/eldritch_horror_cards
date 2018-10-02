@@ -14,13 +14,14 @@ protocol GameDataProviderProtocol {
 }
 
 class GameDataProvider: NSObject, GameDataProviderProtocol {
-
+	
 	struct Constants {
 		static let gameIdKey = "game_id_key"
 		static let gameToken = "game_token"
 		static let expeditionLocation = "expedition_Location"
+		static let gameDate = "game_date"
 	}
-
+	
 	//MARK: - Public variables
 	
 	var game: Game?
@@ -55,6 +56,7 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 					UserDefaults.standard.set(game.id, forKey: Constants.gameIdKey)
 					UserDefaults.standard.set(game.token, forKey: Constants.gameToken)
 					UserDefaults.standard.set(game.expeditionLocation, forKey: Constants.expeditionLocation)
+					UserDefaults.standard.set(Date(timeIntervalSinceNow: 172800), forKey: Constants.gameDate)
 					completion(true)
 					return
 				}

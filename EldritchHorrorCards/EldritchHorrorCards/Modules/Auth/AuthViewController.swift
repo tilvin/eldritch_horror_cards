@@ -32,12 +32,19 @@ class AuthViewController: BaseViewController {
 	
 	//MARK: - Private variables
 	
+	private var activeSession = false
+	private let dataEndSession = UserDefaults.standard.object(forKey: GameDataProvider.Constants.gameDate) as! Date
 	private var authProvider: AuthProviderProtocol = DI.providers.resolve(AuthProviderProtocol.self)!
 	private var gameProvider: GameDataProviderProtocol = DI.providers.resolve(GameDataProviderProtocol.self)!
+	
 	//MARK: - Lifecycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		if UserDefaults.standard.string(forKey: GameDataProvider.Constants.gameIdKey) != nil &&
+			dataEndSession > Date() {
+			activeSession = true
+		}
 		customView.passwordTextField.isSecureTextEntry = true
 		let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(sender:)))
 		view.addGestureRecognizer(tap)
@@ -59,23 +66,28 @@ class AuthViewController: BaseViewController {
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		unregisterKeyboardNotifications()
+		if !activeSession {
+			gameProvider.load { (success) in
+				success ? print("Game is load!") : print("Something gone wrong!")
+			}
+		}
+		else {
+			activeSession = true
+		}
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
-		gameProvider.load { (success) in
-			success ? print("Game is load!") : print("Something gone wrong!")
-		}
 	}
 	//MARK: - Handlers
 	
-//	@IBAction private func loginChanged(_ sender: UITextField) {
-//		passwordView.borderColor = appearence.borderColor
-//		emailView.borderColor = appearence.borderColor
-//
-//		if emailView.tag == 0 {
-//			checkLogin(login: emailTextField.text ?? "")
-//		}
-//	}
+	//	@IBAction private func loginChanged(_ sender: UITextField) {
+	//		passwordView.borderColor = appearence.borderColor
+	//		emailView.borderColor = appearence.borderColor
+	//
+	//		if emailView.tag == 0 {
+	//			checkLogin(login: emailTextField.text ?? "")
+	//		}
+	//	}
 	
 	//MARK: - Private
 	
@@ -96,12 +108,24 @@ class AuthViewController: BaseViewController {
 		customView.emailTextField.typeOn(string: login) { [weak self] in
 			self?.customView.passwordTextField.typeOn(string: "*********") {
 				delay(seconds: 1, completion: {
-					let controller = AdditionsViewController()
-					controller.modalTransitionStyle = .crossDissolve
-					self?.appNavigator?.go(controller: controller, mode: .replace)
+					self!.initFormToSession(activeSession: self!.activeSession)
 				})
 			}
 		}
+	}
+	
+	private func initFormToSession (activeSession: Bool) {
+		if activeSession {
+			let controller = CardViewController.controllerFromStoryboard(.main)
+			controller.modalTransitionStyle = .crossDissolve
+			appNavigator?.go(controller: controller, mode: .replace)
+		}
+		else {
+			let controller = AdditionsViewController()
+			controller.modalTransitionStyle = .crossDissolve
+			appNavigator?.go(controller: controller, mode: .replace)
+		}
+		
 	}
 	
 	private func checkLogin(login: String = "") {
@@ -133,9 +157,7 @@ extension AuthViewController: AuthViewDelegate {
 		}
 		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
 			if result {
-				let controller = AdditionsViewController()
-				controller.modalTransitionStyle = .crossDissolve
-				self?.appNavigator?.go(controller: controller, mode: .replace)
+				self!.initFormToSession(activeSession: self!.activeSession)
 			}
 		}
 	}

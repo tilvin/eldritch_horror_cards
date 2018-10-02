@@ -40,6 +40,9 @@ extension AdditionsViewController: AdditionsListViewDelegate {
 	func continueButtonAction() {
 		let provider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
 		let additions = provider.additions.filter { $0.isSelected }
+		let controller = MainViewController()
+		controller.modalTransitionStyle = .crossDissolve
+		appNavigator?.go(controller: controller, mode: .modal)
 //		view.showProccessing()
 	}
 }

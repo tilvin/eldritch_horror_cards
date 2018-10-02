@@ -13,7 +13,7 @@ enum APIRequest {
 }
 
 extension APIRequest {
-	static private let apiURL: URL = URL(string: "https://82.202.236.16/api/mobile_app/v1")!
+	static private let apiURL: URL = URL(string: "http://82.202.236.16/api/mobile_app/v1")!
 	static private let userAgent: String = {
 		return "EldritchHorrorCards:ios"
 	}()
