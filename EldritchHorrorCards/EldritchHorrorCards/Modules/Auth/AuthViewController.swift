@@ -82,22 +82,17 @@ class AuthViewController: BaseViewController {
 			sSelf.checkLogin(login: login)
 			sSelf.authProvider.load(with: login) { (success) in
 				success ? print("Users is load!") : print("Something gone wrong!")
-			}
-			sSelf.customView.emailTextField.typeOn(string: login) {
-				guard let sSelf = self else { return }
-				sSelf.customView.passwordTextField.typeOn(string: "*********") {
-					delay(seconds: 1, completion: {
-						if sSelf.gameProvider.isSessionActive {
-							let controller = CardViewController.controllerFromStoryboard(.main)
-							controller.modalTransitionStyle = .crossDissolve
-							sSelf.appNavigator?.go(controller: controller, mode: .modal)
-						}
-						else {
-							let controller = AdditionsViewController()
-							controller.modalTransitionStyle = .crossDissolve
-							sSelf.appNavigator?.go(controller: controller, mode: .replace)
-						}
-					})
+				sSelf.customView.emailTextField.text = login
+				sSelf.customView.passwordTextField.text = "*********"
+				if sSelf.gameProvider.isSessionActive {
+					let controller = CardViewController.controllerFromStoryboard(.main)
+					controller.modalTransitionStyle = .crossDissolve
+					sSelf.appNavigator?.go(controller: controller, mode: .modal)
+				}
+				else {
+					let controller = AdditionsViewController()
+					controller.modalTransitionStyle = .crossDissolve
+					sSelf.appNavigator?.go(controller: controller, mode: .replace)
 				}
 			}
 		}
