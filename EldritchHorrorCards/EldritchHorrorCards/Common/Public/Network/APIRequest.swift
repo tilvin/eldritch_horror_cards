@@ -5,10 +5,35 @@
 
 import Foundation
 
+public struct GameSet: Codable {
+	public let game: GameSetType
+	
+	public init(game: GameSetType) {
+		self.game = game
+	}
+	
+	enum CodingKeys: String, CodingKey {
+		case game = "game"
+	}
+}
+
+public struct GameSetType: Codable {
+	public let gameSetIdentity: [String]
+	
+	enum CodingKeys: String, CodingKey {
+		case gameSetIdentity = "game_set_identity"
+	}
+	
+	public init(gameSetIdentity: [String]) {
+		self.gameSetIdentity = gameSetIdentity
+	}
+}
+
 enum APIRequest {
 	case login(login: String, password: String)
 	case games
 	case gameSets
+	case gameSetsPost(gameSetIdentity: [String])
 	
 }
 
@@ -64,12 +89,16 @@ extension APIRequest {
 			components.path = "/game_sets"
 			components.asJson = false
 			return components
+		case .gameSetsPost(let addidions):
+			components.path = "/games/\(String(describing: UserDefaults.standard.string(forKey: GameDataProvider.Constants.idKey)))"
+			components.parameters["game"] = GameSet(game: GameSetType(gameSetIdentity: addidions))
+			return components
 		}
 	}
 
 	private var method: String {
 		switch self {
-		case .login, .games:
+		case .login, .games, .gameSetsPost:
 			return "POST"
 		case .gameSets:
 			return "GET"

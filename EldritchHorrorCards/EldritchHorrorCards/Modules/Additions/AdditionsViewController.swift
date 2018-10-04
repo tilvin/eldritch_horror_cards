@@ -1,10 +1,12 @@
 import UIKit
 
 class AdditionsViewController: BaseViewController {
+
 	var customView: AdditionsListView { return self.view as! AdditionsListView }
 	var adapter = AdditionsListTableAdapter()
 	var menuAction: CommandWith<Command>!
 	var menuContainerView: UIView { return customView.menuContainer }
+	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
 	
 	// MARK: - View lifecycle
 	
@@ -39,9 +41,13 @@ extension AdditionsViewController: AdditionsListViewDelegate {
 	
 	func continueButtonAction() {
 		let provider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
-		let additions = provider.additions.filter { $0.isSelected }
+		let additions = provider.additions.filter { $0.isSelected}.map { String($0.id)}
+		userDefaultsProvider.set(key: "additions", value: additions)
 		let controller = MainViewController()
 		controller.modalTransitionStyle = .crossDissolve
 		appNavigator?.go(controller: controller, mode: .modal)
+		provider.unloading { (success) in
+			success ? print("Additions is unloading!") : print("Something gone wrong!")
+		}
 	}
 }

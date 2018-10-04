@@ -11,12 +11,14 @@ import Foundation
 protocol AdditionDataProviderProtocol {
 	var additions: [Addition] { get set }
 	func load(completion: @escaping ([Addition]) -> Void)
+	func unloading(completion: @escaping (Bool) -> Void)
 }
 
 class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 	var additions: [Addition] = []
 	var session: URLSession?
 	private var dataTask: URLSessionDataTask?
+	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
 	
 	func load(completion: @escaping ([Addition]) -> Void) {
 		if session == nil {
@@ -46,6 +48,27 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 		}
 		dataTask?.resume()
 	}
+	
+	func unloading(completion: @escaping (Bool) -> Void) {
+		let additions = UserDefaults.standard.object(forKey: "additions") as! [String]
+		print(additions)
+		print(APIRequest.gameSetsPost(gameSetIdentity: additions).request)
+		dataTask?.cancel()
+		dataTask = session!.dataTask(with: APIRequest.gameSetsPost(gameSetIdentity: additions).request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
+			guard let HTTPResponse = response as? HTTPURLResponse else { return }
+			print(APIRequest.gameSetsPost(gameSetIdentity: additions).request)
+			guard data != nil else {
+				completion(false)
+				return
+			}
+			guard HTTPResponse.statusCode == 200 else {
+				completion(false)
+				return
+			}
+			completion(true)
+			return
+	}
+}
 }
 
 extension AdditionDataProvider: URLSessionDelegate {
