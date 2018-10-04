@@ -11,23 +11,26 @@ import Foundation
 protocol AdditionDataProviderProtocol {
 	var additions: [Addition] { get set }
 	func load(completion: @escaping ([Addition]) -> Void)
-	func unloading(completion: @escaping (Bool) -> Void)
+	func unloading(gameId: Int, additions: [String], completion: @escaping (Bool) -> Void)
 }
 
-class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
+final class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 	var additions: [Addition] = []
 	var session: URLSession?
 	private var dataTask: URLSessionDataTask?
 	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
 	
-	func load(completion: @escaping ([Addition]) -> Void) {
+	override init() {
+		super.init()
 		if session == nil {
 			session  = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
 		}
-		
+	}
+	
+	func load(completion: @escaping ([Addition]) -> Void) {
+		guard let session = session else { fatalError() }
 		dataTask?.cancel()
-		
-		dataTask = session!.dataTask(with: APIRequest.gameSets.request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
+		dataTask = session.dataTask(with: APIRequest.gameSets.request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			guard let data = data else {
 				completion([])
@@ -49,11 +52,15 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 		dataTask?.resume()
 	}
 	
-	func unloading(completion: @escaping (Bool) -> Void) {
-		let addons = UserDefaults.standard.object(forKey: "additions") as! [String]
-		let gameId = "34"
+	func unloading(gameId: Int, additions: [String], completion: @escaping (Bool) -> Void) {
+		guard let session = session else { fatalError() }
 		dataTask?.cancel()
-		dataTask = session!.dataTask(with: APIRequest.selectGameSets(gameId: gameId, addons: addons).request) { (_: Data?, response: URLResponse?, _: Error?) -> Void in
+		dataTask = session.dataTask(with: APIRequest.selectGameSets(gameId: gameId, addons: additions).request) { (_: Data?, response: URLResponse?, error: Error?) -> Void in
+			if let error = error {
+				print(error.localizedDescription)
+				completion(false)
+				return
+			}
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			completion(HTTPResponse.statusCode == 200)
 			return

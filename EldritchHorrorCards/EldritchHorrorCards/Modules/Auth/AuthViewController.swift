@@ -56,8 +56,7 @@ class AuthViewController: BaseViewController {
 		else {
 			let arrayMail = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"]
 			customView.emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
-		}
-		
+		}		
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -90,9 +89,11 @@ class AuthViewController: BaseViewController {
 					sSelf.appNavigator?.go(controller: controller, mode: .modal)
 				}
 				else {
-					let controller = AdditionsViewController()
-					controller.modalTransitionStyle = .crossDissolve
-					sSelf.appNavigator?.go(controller: controller, mode: .replace)
+					sSelf.gameProvider.load(completion: { (_) in
+						let controller = AdditionsViewController()
+						controller.modalTransitionStyle = .crossDissolve
+						sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
+					})
 				}
 			}
 		}
@@ -135,9 +136,11 @@ extension AuthViewController: AuthViewDelegate {
 					sSelf.appNavigator?.go(controller: controller, mode: .modal)
 				}
 				else {
-					let controller = AdditionsViewController()
-					controller.modalTransitionStyle = .crossDissolve
-					sSelf.appNavigator?.go(controller: controller, mode: .replace)
+					sSelf.gameProvider.load(completion: { (_) in
+						let controller = AdditionsViewController()
+						controller.modalTransitionStyle = .crossDissolve
+						sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
+					})
 				}
 			}
 		}

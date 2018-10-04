@@ -9,7 +9,7 @@ enum APIRequest {
 	case login(login: String, password: String)
 	case games
 	case gameSets
-	case selectGameSets(gameId: String, addons: [String])
+	case selectGameSets(gameId: Int, addons: [String])
 	
 }
 
@@ -32,7 +32,7 @@ extension APIRequest {
 		}
 		
 		if components.asJson {
-			request.httpBody = try! JSONSerialization.data(withJSONObject: components.parameters, options: .prettyPrinted)
+			request.httpBody = try! JSONSerialization.data(withJSONObject: components.parameters, options: [])
 		}
 		else {
 			request.httpBody = urlEncodedParameters(params: components.parameters).data(using: .utf8)
@@ -67,9 +67,8 @@ extension APIRequest {
 			return components
 		case .selectGameSets(let gameId, let addons):
 			components.path = "/games/\(gameId))"
-			print(components.path)
 			components.parameters = ["game": ["game_set_identity": addons]]
-			print(components.parameters)
+			components.headers["Content-Type"] = "application/json; charset=utf-8"
 			return components
 		}
 	}
