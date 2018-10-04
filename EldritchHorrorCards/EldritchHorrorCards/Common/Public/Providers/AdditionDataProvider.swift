@@ -37,7 +37,7 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 				completion([])
 				return
 			}
-		 
+			
 			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [Addition].self, data: data) { [weak self] (result) in
 				if let value = result {
 					self?.additions = value
@@ -50,25 +50,16 @@ class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 	}
 	
 	func unloading(completion: @escaping (Bool) -> Void) {
-		let additions = UserDefaults.standard.object(forKey: "additions") as! [String]
-		print(additions)
-		print(APIRequest.gameSetsPost(gameSetIdentity: additions).request)
+		let addons = UserDefaults.standard.object(forKey: "additions") as! [String]
+		let gameId = "34"
 		dataTask?.cancel()
-		dataTask = session!.dataTask(with: APIRequest.gameSetsPost(gameSetIdentity: additions).request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
+		dataTask = session!.dataTask(with: APIRequest.selectGameSets(gameId: gameId, addons: addons).request) { (_: Data?, response: URLResponse?, _: Error?) -> Void in
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
-			print(APIRequest.gameSetsPost(gameSetIdentity: additions).request)
-			guard data != nil else {
-				completion(false)
-				return
-			}
-			guard HTTPResponse.statusCode == 200 else {
-				completion(false)
-				return
-			}
-			completion(true)
+			completion(HTTPResponse.statusCode == 200)
 			return
+		}
+		dataTask?.resume()
 	}
-}
 }
 
 extension AdditionDataProvider: URLSessionDelegate {
@@ -77,5 +68,4 @@ extension AdditionDataProvider: URLSessionDelegate {
 		let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
 		completionHandler(.useCredential, urlCredential)
 	}
-	
 }
