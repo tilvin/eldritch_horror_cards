@@ -71,7 +71,7 @@ class JFFocusedCardView: UIView {
 			actionOneButton.isHidden = false
 		}
 		imageView.image = UIImage(named: self.card.imageURLString)
-		titleLabel.text = self.card.nameText
+		titleLabel.text = self.card.nameText + " (\(self.card.score))"
 		subTitleLabelOne.text = self.card.detailText
 	}
 	
