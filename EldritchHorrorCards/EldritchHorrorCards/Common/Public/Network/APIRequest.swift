@@ -20,6 +20,7 @@ enum APIRequest {
 	case gameSets
 	case selectGameSets(gameId: Int, addons: [String])
 	case ancients(gameId: Int)
+	case selectAncient(gameId: Int, ancient: Int)
 }
 
 extension APIRequest {
@@ -76,7 +77,7 @@ extension APIRequest {
 			components.asJson = false
 			return components
 		case .selectGameSets(let gameId, let addons):
-			components.path = "/games/\(gameId))"
+			components.path = "/games/\(gameId)"
 			components.parameters = ["game": ["game_set_identity": addons]]
 			components.headers["Content-Type"] = "application/json; charset=utf-8"
 			return components
@@ -84,6 +85,11 @@ extension APIRequest {
 			components.path = "/ancients"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
+			return components
+		case .selectAncient(let gameId, let ancient):
+			components.path = "/games/\(gameId)"
+			components.parameters = ["game": ["ancient_id": ancient]]
+			components.headers["Content-Type"] = "application/json; charset=utf-8"
 			return components
 		}
 	}
@@ -94,7 +100,7 @@ extension APIRequest {
 			return "POST"
 		case .gameSets, .ancients:
 			return "GET"
-		case .selectGameSets:
+		case .selectGameSets, .selectAncient:
 			return "PUT"
 		}
 	}

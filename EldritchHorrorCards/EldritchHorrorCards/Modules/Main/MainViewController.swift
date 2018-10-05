@@ -12,8 +12,8 @@ class MainViewController: BaseViewController {
 	
 	//MARK: - Init
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		isHiddenNavigationBar = true
 		let controller = MonstersViewController()
 		controller.monsterDelegate = self
@@ -24,11 +24,24 @@ class MainViewController: BaseViewController {
 }
 
 extension MainViewController: MonstersViewControllerDelegate {
-
+	
 	func call(monster: Monster) {
-		let vc = CardViewController.controllerFromStoryboard(.main)
-		vc.modalTransitionStyle = .crossDissolve
-		appNavigator?.go(controller: vc, mode: .modal)
+		let provider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
+		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+		let ancient = monster.id
+		
+		provider.unloading(gameId: gameProvider.game.id, ancient: ancient) { [weak self] (success) in
+			guard let sSelf = self else { return }
+			if success {
+				print("Monster is unload!")
+				let controller = CardViewController.controllerFromStoryboard(.main)
+				controller.modalTransitionStyle = .crossDissolve
+				sSelf.appNavigator?.go(controller: controller, mode: .modal)
+			}
+			else {
+				print("error!")
+			}
+		}
 	}
 	
 	func showDetail(monster: Monster) {
