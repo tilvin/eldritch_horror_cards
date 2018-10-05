@@ -7,29 +7,61 @@
 //
 
 import Foundation
-import Zip
 
 protocol MonsterDataProviderProtocol {
 	var monsters: [Monster] { get set }
-	func load(completion: @escaping (Bool) -> Void)
+	func load(gameId: Int, completion: @escaping (Bool) -> Void)
 }
 
-class MonsterDataProvider: MonsterDataProviderProtocol {
-	var monsters: [Monster] = []
-
-	func load(completion: @escaping (Bool) -> Void) {
-		guard let zipPath = Bundle.main.url(forResource: "monsters", withExtension: "zip"),
-			  let data = try? Data(contentsOf: zipPath) else { return completion(false) }
-		guard let unzipData = try? data.unzip(dataType: .monsters),
-			  let unzipJsonData = unzipData,
-			  let json = try? JSONSerialization.jsonObject(with: unzipJsonData, options: [JSONSerialization.ReadingOptions.mutableContainers]) else { return completion(false) }
-
-		let parser: DataParseServiceProtocol = DI.providers.resolve(DataParseServiceProtocol.self)!
-		parser.parse(type: [Monster].self, json: json) { [weak self] (result) in
-			if let value = result {
-				self?.monsters = value
-				completion(true)
+final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
+	var monsters: [Monster]  = []
+	var session: URLSession?
+	private var dataTask: URLSessionDataTask?
+	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
+	
+	override init() {
+		super.init()
+		if session == nil {
+			session  = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
+		}
+	}
+	
+	func load(gameId: Int, completion: @escaping (Bool) -> Void) {
+		guard let session = session else { fatalError() }
+		dataTask?.cancel()
+		dataTask = session.dataTask(with: APIRequest.ancients(gameId: gameId).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+			if let error = error {
+				print(error.localizedDescription)
+				completion(false)
+				return
+			}
+			guard let HTTPResponse = response as? HTTPURLResponse else { return }
+			guard let data = data else {
+				completion(false)
+				return
+			}
+			guard HTTPResponse.statusCode == 200 else {
+				print(HTTPResponse.statusCode)
+				completion(false)
+				return
+			}
+			
+			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [Monster].self, data: data) { [weak self] (result) in
+				if let value = result {
+					self?.monsters = value
+					completion(true)
+					return
+				}
 			}
 		}
+		dataTask?.resume()
+	}
+}
+
+extension MonsterDataProvider: URLSessionDelegate {
+	
+	func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+		let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+		completionHandler(.useCredential, urlCredential)
 	}
 }

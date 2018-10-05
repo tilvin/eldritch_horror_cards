@@ -5,12 +5,21 @@
 
 import Foundation
 
+private extension URL {
+	func appendingQueryParameters(_ parameters: [String: String]) -> URL {
+		var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
+		var items = urlComponents.queryItems ?? []
+		items += parameters.map({ URLQueryItem(name: $0, value: $1) })
+		urlComponents.queryItems = items
+		return urlComponents.url!
+	}
+}
 enum APIRequest {
 	case login(login: String, password: String)
 	case games
 	case gameSets
 	case selectGameSets(gameId: Int, addons: [String])
-	
+	case ancients(gameId: Int)
 }
 
 extension APIRequest {
@@ -21,11 +30,11 @@ extension APIRequest {
 	
 	var request: URLRequest {
 		let components = self.components
-		let url = APIRequest.apiURL.appendingPathComponent(components.path)
+		let url = APIRequest.apiURL.appendingPathComponent(components.path).appendingQueryParameters(components.urlParameters)
+		
 		var request = URLRequest(url: url)
 		
 		request.httpMethod = self.method
-		//		request.setValue(APIRequest.userAgent, forHTTPHeaderField: "User-Agent")
 		
 		for header in components.headers {
 			request.setValue(header.value, forHTTPHeaderField: header.key)
@@ -44,6 +53,7 @@ extension APIRequest {
 	private struct Components {
 		var path: String!
 		var parameters: [String: Any] = [:]
+		var urlParameters: [String: String] = [:]
 		var headers: [String: String] = [:]
 		var emptyBody: Bool = false
 		var asJson: Bool = true
@@ -70,6 +80,11 @@ extension APIRequest {
 			components.parameters = ["game": ["game_set_identity": addons]]
 			components.headers["Content-Type"] = "application/json; charset=utf-8"
 			return components
+		case .ancients(let gameId):
+			components.path = "/ancients"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.asJson = false
+			return components
 		}
 	}
 	
@@ -77,7 +92,7 @@ extension APIRequest {
 		switch self {
 		case .login, .games:
 			return "POST"
-		case .gameSets:
+		case .gameSets, .ancients:
 			return "GET"
 		case .selectGameSets:
 			return "PUT"

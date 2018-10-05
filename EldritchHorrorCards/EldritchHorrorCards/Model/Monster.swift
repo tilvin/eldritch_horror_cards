@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import Foundation
 
 struct Monster: Codable {
-    var name: String
-    var subtitle: String
-    var cultist: [Int]
-    var prepeare: String
-    var myth_stack: [[Int]]
-    var description_info: [String]
-    var other: String
-    var imageURLString: String
-    var score: Int
+	public let id: Int
+	public let imageURLString: String
+	public let name: String
+	public let score: Int
+	public let description: String
+	public let slogan: String
+	
+	enum CodingKeys: String, CodingKey {
+		case id = "id"
+		case imageURLString = "identity"
+		case name = "name"
+		case score = "despair"
+		case description = "description"
+		case slogan = "slogan"
+	}
 }
 
 extension Monster: CardPresentable {
@@ -36,7 +43,7 @@ extension Monster: CardPresentable {
 	}
 	
 	var detailText: String {
-        return subtitle
+		return slogan
 	}
 	
 	var action: CardAction? {

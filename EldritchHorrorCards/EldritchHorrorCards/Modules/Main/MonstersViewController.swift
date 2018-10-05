@@ -11,8 +11,8 @@ final class MonstersViewController: JFCardSelectionViewController {
 	var menuAction: CommandWith<Command>!
 	var monsterDelegate: MonstersViewControllerDelegate?
 	
-    private var monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
-    private var monsters: [Monster] = []
+	private var monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
+	private var monsters: [Monster] = []
 	
 	private lazy var menuButton: UIButton = {
 		let button = UIButton()
@@ -27,25 +27,20 @@ final class MonstersViewController: JFCardSelectionViewController {
 		return view
 	}()
 	
-    override func viewDidLoad() {
-        dataSource = self
-        delegate = self
-        selectionAnimationStyle = .slide
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		dataSource = self
+		delegate = self
+		selectionAnimationStyle = .slide
+		super.viewDidLoad()
 		self.navigationController?.isNavigationBarHidden = true
 		addSubViews()
 		makeConstraints()
-		
-        setupMenu()
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        monsterProvider.load { (success) in
-            success ? print("Monster is load!") : print("Something gone wrong!")
-        }
-        
-        monsters = monsterProvider.monsters
-        reloadData()
+		setupMenu()
+		navigationController?.setNavigationBarHidden(true, animated: false)
+		monsters = monsterProvider.monsters
+		reloadData()
 		view.layoutIfNeeded()
-    }
+	}
 	
 	private func addSubViews() {
 		view.addSubview(menuButton)
@@ -73,27 +68,27 @@ final class MonstersViewController: JFCardSelectionViewController {
 }
 
 extension MonstersViewController: JFCardSelectionViewControllerDataSource {
-    
-    func numberOfCardsForCardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController) -> Int {
-        return monsters.count
-    }
-    
-    func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, cardForItemAtIndexPath indexPath: IndexPath) -> CardPresentable {
-        return monsters[indexPath.row]
-    }
+	
+	func numberOfCardsForCardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController) -> Int {
+		return monsters.count
+	}
+	
+	func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, cardForItemAtIndexPath indexPath: IndexPath) -> CardPresentable {
+		return monsters[indexPath.row]
+	}
 }
 
 extension MonstersViewController: JFCardSelectionViewControllerDelegate {
-    
-    func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, didSelectCardAction cardAction: CardAction, forCardAtIndexPath indexPath: IndexPath) {
+	
+	func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, didSelectCardAction cardAction: CardAction, forCardAtIndexPath indexPath: IndexPath) {
 		let monster = monsters[indexPath.row]
 		self.monsterDelegate?.call(monster: monster)
-    }
-    
-    func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, didSelectDetailActionForCardAtIndexPath indexPath: IndexPath) {
+	}
+	
+	func cardSelectionViewController(_ cardSelectionViewController: JFCardSelectionViewController, didSelectDetailActionForCardAtIndexPath indexPath: IndexPath) {
 		let monster = monsters[indexPath.row]
 		self.monsterDelegate?.showDetail(monster: monster)
-    }
+	}
 }
 
 extension MonstersViewController: MenuEmbedProtocol { }

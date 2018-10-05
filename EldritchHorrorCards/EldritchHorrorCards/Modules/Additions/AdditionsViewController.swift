@@ -42,14 +42,24 @@ extension AdditionsViewController: AdditionsListViewDelegate {
 	func continueButtonAction() {
 		let provider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
 		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+		let monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let additions = provider.additions.filter { $0.isSelected}.map { String($0.id)}
 		
 		provider.unloading(gameId: gameProvider.game.id, additions: additions) { [weak self] (success) in
 			guard let sSelf = self else { return }
 			if success {
-				let controller = MainViewController()
-				controller.modalTransitionStyle = .crossDissolve
-				sSelf.appNavigator?.go(controller: controller, mode: .modal)
+				print("Additions is unload!")
+				monsterProvider.load(gameId: gameProvider.game.id) { (success) in
+					if success {
+						print("Monster is load!")
+						let controller = MainViewController()
+						controller.modalTransitionStyle = .crossDissolve
+						sSelf.appNavigator?.go(controller: controller, mode: .modal)
+					}
+					else {
+						print("Something gone wrong!")
+					}
+				}
 			}
 			else {
 				print("error!")
