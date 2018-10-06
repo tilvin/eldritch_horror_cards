@@ -11,7 +11,7 @@ import Foundation
 protocol MonsterDataProviderProtocol {
 	var monsters: [Monster] { get set }
 	func load(gameId: Int, completion: @escaping (Bool) -> Void)
-	func unloading(gameId: Int, ancient: Int, completion: @escaping (Bool) -> Void)
+	func selectAncient(gameId: Int, ancient: Int, completion: @escaping (Bool) -> Void)
 }
 
 final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
@@ -58,7 +58,7 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 		dataTask?.resume()
 	}
 	
-	func unloading(gameId: Int, ancient: Int, completion: @escaping (Bool) -> Void) {
+	func selectAncient(gameId: Int, ancient: Int, completion: @escaping (Bool) -> Void) {
 		guard let session = session else { fatalError() }
 		dataTask?.cancel()
 		dataTask = session.dataTask(with: APIRequest.selectAncient(gameId: gameId, ancient: ancient).request) { (_: Data?, response: URLResponse?, error: Error?) -> Void in

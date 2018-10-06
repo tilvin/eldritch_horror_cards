@@ -19,7 +19,7 @@ class MonsterDetailViewController: BaseViewController {
 		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 		let ancient = monster.id
 		
-		provider.unloading(gameId: gameProvider.game.id, ancient: ancient) { [weak self] (success) in
+		provider.selectAncient(gameId: gameProvider.game.id, ancient: ancient) { [weak self] (success) in
 			guard let sSelf = self else { return }
 			if success {
 				print("Monster is unload!")
