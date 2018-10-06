@@ -10,3 +10,5 @@
 "additions.button.continue" = "Continue";
 
 "menu.logout.button.label" = "Exit";
+"loadMonsterError" = "Error loading the Ancients";
+"ok" = "Ок";

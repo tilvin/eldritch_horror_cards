@@ -39,7 +39,8 @@ extension MainViewController: MonstersViewControllerDelegate {
 				sSelf.appNavigator?.go(controller: controller, mode: .modal)
 			}
 			else {
-				print("error!")
+//				Alert(alert: String(.loadMonsterError), actions: String(.ok)).present(in: self)
+//				print("error!")
 			}
 		}
 	}

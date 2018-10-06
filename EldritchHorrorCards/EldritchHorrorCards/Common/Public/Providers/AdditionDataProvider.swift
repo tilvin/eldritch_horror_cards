@@ -36,7 +36,7 @@ final class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 				completion([])
 				return
 			}
-			guard HTTPResponse.statusCode == 200 else {
+			guard HTTPResponse.status == .ok else {
 				completion([])
 				return
 			}
@@ -62,7 +62,7 @@ final class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 				return
 			}
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
-			completion(HTTPResponse.statusCode == 200)
+			completion(HTTPResponse.status == .ok)
 			return
 		}
 		dataTask?.resume()

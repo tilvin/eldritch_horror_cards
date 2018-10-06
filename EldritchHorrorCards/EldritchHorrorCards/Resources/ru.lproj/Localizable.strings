@@ -10,3 +10,5 @@
 "additions.button.continue" = "Продолжить";
 
 "menu.logout.button.label" = "Выход";
+"loadMonsterError" = "Ошибка при загрузке Древних.";
+"ok" = "Ок";
