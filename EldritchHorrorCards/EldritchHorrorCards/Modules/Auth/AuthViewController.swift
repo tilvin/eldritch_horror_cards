@@ -44,19 +44,25 @@ class AuthViewController: BaseViewController {
 		
 		let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(sender:)))
 		view.addGestureRecognizer(tap)
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		registerKeyboardNotifications()
-		
 		if authProvider.loadToken() {
 			autoLogin()
 		}
 		else {
 			let arrayMail = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"]
 			customView.emailTextField.text = arrayMail[Int(arc4random_uniform(UInt32(arrayMail.count)))]
-		}		
+		}
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		registerKeyboardNotifications()
+		
+		
+		//FIXME: тут при переходе в окно всегда будет очищаться логин-пароль.
+		// c другой стороны, мы не должны затирать логин пароль при первом запуске.
+		// это не критичный баг, потом его можно выпилить
+//		customView.emailTextField.text = ""
+//		customView.passwordTextField.text = ""
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
