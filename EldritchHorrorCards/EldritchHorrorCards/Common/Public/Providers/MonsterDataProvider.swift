@@ -41,7 +41,7 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 				completion(false)
 				return
 			}
-			guard HTTPResponse.statusCode == 200 else {
+			guard HTTPResponse.status == .ok else {
 				print(HTTPResponse.statusCode)
 				completion(false)
 				return
@@ -68,7 +68,7 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 				return
 			}
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
-			completion(HTTPResponse.statusCode == 200)
+			completion(HTTPResponse.status == .ok)
 			return
 		}
 		dataTask?.resume()

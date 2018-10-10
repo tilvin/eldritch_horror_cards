@@ -57,12 +57,11 @@ class AuthViewController: BaseViewController {
 		super.viewWillAppear(animated)
 		registerKeyboardNotifications()
 		
-		
 		//FIXME: тут при переходе в окно всегда будет очищаться логин-пароль.
 		// c другой стороны, мы не должны затирать логин пароль при первом запуске.
 		// это не критичный баг, потом его можно выпилить
-//		customView.emailTextField.text = ""
-//		customView.passwordTextField.text = ""
+		//		customView.emailTextField.text = ""
+		//		customView.passwordTextField.text = ""
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -80,30 +79,60 @@ class AuthViewController: BaseViewController {
 	}
 	
 	private func autoLogin() {
+		let provider = DI.providers.resolve(CardDataProviderProtocol.self)!
+		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 		guard let login = UserDefaults.standard.string(forKey: "login") else { return }
-		gameProvider.load { [weak self] (success) in
-			guard let sSelf = self else { return }
-			sSelf.customView.signUpButton.isEnabled = false
-			sSelf.checkLogin(login: login)
-			sSelf.authProvider.load(with: login) { (success) in
-				success ? print("Users is load!") : print("Something gone wrong!")
-				sSelf.customView.emailTextField.text = login
-				sSelf.customView.passwordTextField.text = "*********"
-				if sSelf.gameProvider.isSessionActive {
+		if gameProvider.isSessionActive {
+			self.customView.signUpButton.isEnabled = false
+			self.checkLogin(login: login)
+			self.customView.emailTextField.text = login
+			self.customView.passwordTextField.text = "*********"
+			provider.load(gameId: gameProvider.game.id) { [weak self] (success) in
+				guard let sSelf = self else { return }
+				if success {
+					print("Card is load!")
 					let controller = CardViewController.controllerFromStoryboard(.main)
 					controller.modalTransitionStyle = .crossDissolve
 					sSelf.appNavigator?.go(controller: controller, mode: .modal)
 				}
 				else {
-					sSelf.gameProvider.load(completion: { (_) in
-						let controller = AdditionsViewController()
-						controller.modalTransitionStyle = .crossDissolve
-						sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
-					})
+					print("error!")
 				}
 			}
 		}
-		
+		else {
+			gameProvider.load { [weak self] (success) in
+				guard let sSelf = self else { return }
+				sSelf.customView.signUpButton.isEnabled = false
+				sSelf.checkLogin(login: login)
+				sSelf.authProvider.load(with: login) { (success) in
+					success ? print("Users is load!") : print("Something gone wrong!")
+					sSelf.customView.emailTextField.text = login
+					sSelf.customView.passwordTextField.text = "*********"
+					if sSelf.gameProvider.isSessionActive {
+						provider.load(gameId: gameProvider.game.id) { [weak self] (success) in
+							guard let sSelf = self else { return }
+							if success {
+								print("Card is load!!")
+								let controller = CardViewController.controllerFromStoryboard(.main)
+								controller.modalTransitionStyle = .crossDissolve
+								sSelf.appNavigator?.go(controller: controller, mode: .modal)
+							}
+							else {
+								print("error!")
+							}
+						}
+					}
+					else {
+						sSelf.gameProvider.load(completion: { (_) in
+							let controller = AdditionsViewController()
+							controller.modalTransitionStyle = .crossDissolve
+							sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
+						})
+					}
+				}
+			}
+		}
 	}
 	
 	private func checkLogin(login: String = "") {
@@ -120,6 +149,7 @@ extension AuthViewController: Keyboardable {}
 extension AuthViewController: AuthViewDelegate {
 	
 	func loginButtonPressed() {
+		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 		guard let login = customView.emailTextField.text, !login.isEmpty else {
 			customView.updateView(type: .email)
 			return
@@ -130,8 +160,10 @@ extension AuthViewController: AuthViewDelegate {
 			return
 		}
 		customView.updateView(type: .none)
-		authProvider.load(with: login) { (success) in
-			success ? print("Users is load!") : print("Something gone wrong!")
+		if !gameProvider.isSessionActive {
+			authProvider.load(with: login) { (success) in
+				success ? print("Users is load!") : print("Something gone wrong!")
+			}
 		}
 		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
 			guard let sSelf = self else { return }

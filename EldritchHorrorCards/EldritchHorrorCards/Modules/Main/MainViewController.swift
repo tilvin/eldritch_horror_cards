@@ -28,19 +28,29 @@ extension MainViewController: MonstersViewControllerDelegate {
 	func call(monster: Monster) {
 		let provider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+		let cardProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
 		let ancient = monster.id
 		
 		provider.selectAncient(gameId: gameProvider.game.id, ancient: ancient) { [weak self] (success) in
-			guard let sSelf = self else { return }
 			if success {
 				print("Monster is unload!")
-				let controller = CardViewController.controllerFromStoryboard(.main)
-				controller.modalTransitionStyle = .crossDissolve
-				sSelf.appNavigator?.go(controller: controller, mode: .modal)
+				cardProvider .load(gameId: gameProvider.game.id) { [weak self] (success) in
+					guard let sSelf = self else { return }
+					if success {
+						
+						print("Card is load!")
+						let controller = CardViewController.controllerFromStoryboard(.main)
+						controller.modalTransitionStyle = .crossDissolve
+						sSelf.appNavigator?.go(controller: controller, mode: .modal)
+					}
+					else {
+						print("error!")
+					}
+				}
 			}
 			else {
-//				Alert(alert: String(.loadMonsterError), actions: String(.ok)).present(in: self)
-//				print("error!")
+				//				Alert(alert: String(.loadMonsterError), actions: String(.ok)).present(in: self)
+				//				print("error!")
 			}
 		}
 	}
