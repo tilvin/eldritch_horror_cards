@@ -28,7 +28,7 @@ class CardViewController: CardsCarousel {
 extension CardViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return cards!.avaliableCardTypes.first!.count
+		return cards!.avaliableCardTypes.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -36,8 +36,8 @@ extension CardViewController: UICollectionViewDataSource, UICollectionViewDelega
 		if (indexPath.row == 0) {
 			collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
 		}
-		cell.cardImageView.image = UIImage(named: cards!.avaliableCardTypes.first![indexPath.row])
-		cell.cardTypeLabel.text = cards!.avaliableCardTypes.first![indexPath.row].localized
+		cell.cardImageView.image = UIImage(named: cards!.avaliableCardTypes[indexPath.row])
+		cell.cardTypeLabel.text = cards!.avaliableCardTypes[indexPath.row].localized
 		return cell
 	}
 	

@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Cards: Codable {
-	public let avaliableCardTypes: [[String]]
+	public let avaliableCardTypes: [String]
 	
 	enum CodingKeys: String, CodingKey {
 		case avaliableCardTypes = "avaliable_card_types"

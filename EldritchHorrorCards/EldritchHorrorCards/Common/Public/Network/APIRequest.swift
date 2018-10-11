@@ -38,9 +38,7 @@ extension APIRequest {
 		
 		request.httpMethod = self.method
 		
-		for header in components.headers {
-			request.setValue(header.value, forHTTPHeaderField: header.key)
-		}
+		request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
 		
 		if components.asJson {
 			request.httpBody = try! JSONSerialization.data(withJSONObject: components.parameters, options: [])
@@ -80,7 +78,6 @@ extension APIRequest {
 		case .selectGameSets(let gameId, let addons):
 			components.path = "/games/\(gameId)"
 			components.parameters = ["game": ["game_set_identity": addons]]
-			components.headers["Content-Type"] = "application/json; charset=utf-8"
 			return components
 		case .ancients(let gameId):
 			components.path = "/ancients"
@@ -90,7 +87,6 @@ extension APIRequest {
 		case .selectAncient(let gameId, let ancient):
 			components.path = "/games/\(gameId)"
 			components.parameters = ["game": ["ancient_id": ancient]]
-			components.headers["Content-Type"] = "application/json; charset=utf-8"
 			return components
 		case .cards(let gameId):
 			components.path = "/cards"
