@@ -86,8 +86,7 @@ class BaseScrollView: UIView {
 		stackView.addArrangedSubview(embedView)
 		
 		view.snp.makeConstraints { make in
-			make.top.bottom.equalToSuperview()
-			make.left.right.equalToSuperview()
+			make.edges.equalToSuperview()
 		}
 		
 		embedView.snp.makeConstraints { (make) in

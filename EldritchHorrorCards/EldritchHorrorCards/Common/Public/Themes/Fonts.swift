@@ -22,6 +22,7 @@ extension UIFont {
 	static var bold28: UIFont { return UIFont.bold(of: 28) }
 	static var bold24: UIFont { return UIFont.bold(of: 24) }
 	static var bold16: UIFont { return UIFont.bold(of: 16) }
+	static var bold14: UIFont { return UIFont.bold(of: 14) }
 	
 	//MARK: Regular
 	

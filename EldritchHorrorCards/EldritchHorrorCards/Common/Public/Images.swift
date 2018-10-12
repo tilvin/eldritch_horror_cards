@@ -42,4 +42,5 @@ extension UIImage {
 	static var authBackground: UIImage { return UIImage(named: "auth_background")! }
 	static var email: UIImage { return UIImage(named: "email")! }
 	static var password: UIImage { return UIImage(named: "password")! }
+	static var pyramids: UIImage { return UIImage(named: "pyramids")! }
 }

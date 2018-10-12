@@ -22,6 +22,8 @@ extension UIColor {
 	static var viridian: UIColor { return UIColor(hexString: "1F746E") }
 	static var viridianTwo: UIColor { return UIColor(hexString: "228079") }
 	static var errorBorder: UIColor { return UIColor(hexString: "D34747") }
+	static var paleSalmon: UIColor { return UIColor(hexString: "FEB4B2") }
+	static var whiteTwo: UIColor { return UIColor(hexString: "FFFFFF") }
 	
 	//MARK: - Inits
 	
