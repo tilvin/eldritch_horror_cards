@@ -20,6 +20,10 @@
 		9F32286A210B85D500ECD4A4 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F322869210B85D500ECD4A4 /* ImageCell.xib */; };
 		9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9F3CBDA02110CB6F00E842A4 /* monsters.zip */; };
 		9F3E4578213522C4002DA88A /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E4577213522C4002DA88A /* Description.swift */; };
+		9F61A1E72170746C00A5003C /* ExpeditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1E62170746C00A5003C /* ExpeditionView.swift */; };
+		9F61A1EB2170751300A5003C /* ExpeditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EA2170751300A5003C /* ExpeditionViewController.swift */; };
+		9F61A1ED217079C800A5003C /* ExpeditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EC217079C800A5003C /* ExpeditionViewModel.swift */; };
+		9F61A1EF2170841B00A5003C /* StoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EE2170841B00A5003C /* StoryCard.swift */; };
 		9F80B99B210C3C96007C4396 /* CardsCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B99A210C3C96007C4396 /* CardsCarousel.swift */; };
 		9FC7F668215AC90500A2A7B3 /* GameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F667215AC90500A2A7B3 /* GameProvider.swift */; };
 		9FC7F66A215AC9BE00A2A7B3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F669215AC9BE00A2A7B3 /* Game.swift */; };
@@ -136,6 +140,10 @@
 		9F322869210B85D500ECD4A4 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		9F3CBDA02110CB6F00E842A4 /* monsters.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = monsters.zip; sourceTree = "<group>"; };
 		9F3E4577213522C4002DA88A /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
+		9F61A1E62170746C00A5003C /* ExpeditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionView.swift; sourceTree = "<group>"; };
+		9F61A1EA2170751300A5003C /* ExpeditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionViewController.swift; sourceTree = "<group>"; };
+		9F61A1EC217079C800A5003C /* ExpeditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionViewModel.swift; sourceTree = "<group>"; };
+		9F61A1EE2170841B00A5003C /* StoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCard.swift; sourceTree = "<group>"; };
 		9F80B99A210C3C96007C4396 /* CardsCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCarousel.swift; sourceTree = "<group>"; };
 		9FC7F667215AC90500A2A7B3 /* GameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProvider.swift; sourceTree = "<group>"; };
 		9FC7F669215AC9BE00A2A7B3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -284,6 +292,7 @@
 		9F32286D210C341400ECD4A4 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				9F61A1E8217074B800A5003C /* Expedition */,
 				9F80B99A210C3C96007C4396 /* CardsCarousel.swift */,
 				9F322867210B855C00ECD4A4 /* ImageCell.swift */,
 				9F322869210B85D500ECD4A4 /* ImageCell.xib */,
@@ -297,6 +306,24 @@
 				9F3CBDA02110CB6F00E842A4 /* monsters.zip */,
 			);
 			path = Zip;
+			sourceTree = "<group>";
+		};
+		9F61A1E8217074B800A5003C /* Expedition */ = {
+			isa = PBXGroup;
+			children = (
+				9F61A1EA2170751300A5003C /* ExpeditionViewController.swift */,
+				9F61A1E9217074D500A5003C /* View */,
+			);
+			path = Expedition;
+			sourceTree = "<group>";
+		};
+		9F61A1E9217074D500A5003C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9F61A1E62170746C00A5003C /* ExpeditionView.swift */,
+				9F61A1EC217079C800A5003C /* ExpeditionViewModel.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A4208330212B1AE50081E762 /* TableAdapter */ = {
@@ -504,6 +531,7 @@
 			children = (
 				9F171C57211D59DE005A8264 /* Addition.swift */,
 				A441BBBB2108BB0F00EAC5DD /* Cards.swift */,
+				9F61A1EE2170841B00A5003C /* StoryCard.swift */,
 				9F3E4577213522C4002DA88A /* Description.swift */,
 				A48C461420FD0DFD00DF1687 /* Monster.swift */,
 				9F0E79F32112FDED0080C907 /* User.swift */,
@@ -829,7 +857,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 			);
@@ -842,7 +870,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D0809C6E9947392F9159AC7 /* [CP] Check Pods Manifest.lock */ = {
@@ -911,6 +939,7 @@
 				A47771A921452E81007F2058 /* AuthView.swift in Sources */,
 				A4F3B1D8212ECB8A00F03E7B /* ViewController.swift in Sources */,
 				A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */,
+				9F61A1EB2170751300A5003C /* ExpeditionViewController.swift in Sources */,
 				9F171C58211D59DE005A8264 /* Addition.swift in Sources */,
 				A4FDB01320D413DE00FA6E4B /* ShadowAttributes.swift in Sources */,
 				A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */,
@@ -946,6 +975,7 @@
 				A4563AF820F87F8B00B65428 /* Command.swift in Sources */,
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
 				A45E565F210B0C8800590AE7 /* Images.swift in Sources */,
+				9F61A1EF2170841B00A5003C /* StoryCard.swift in Sources */,
 				A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */,
 				A4208334212B1AFB0081E762 /* StaticTableAdapter.swift in Sources */,
 				A4FDB01420D413DE00FA6E4B /* PointerLayer.swift in Sources */,
@@ -976,6 +1006,7 @@
 				A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */,
 				9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */,
 				A4F3B1DD212ECB8A00F03E7B /* View.swift in Sources */,
+				9F61A1ED217079C800A5003C /* ExpeditionViewModel.swift in Sources */,
 				A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */,
 				A4FDB01520D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift in Sources */,
 				A4563ADF20F7DBF500B65428 /* String.swift in Sources */,
@@ -1002,6 +1033,7 @@
 				A420833A212B1B0B0081E762 /* TableCellConfiguration.swift in Sources */,
 				558197CF168E0D83FEB2BB06 /* NetworkService.swift in Sources */,
 				A4208342212B51C40081E762 /* AdditionsViewController.swift in Sources */,
+				9F61A1E72170746C00A5003C /* ExpeditionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
