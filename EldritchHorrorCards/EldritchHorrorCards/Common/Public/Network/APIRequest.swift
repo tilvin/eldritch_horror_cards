@@ -22,6 +22,7 @@ enum APIRequest {
 	case ancients(gameId: Int)
 	case selectAncient(gameId: Int, ancient: Int)
 	case cards(gameId: Int)
+	case expedition(gameId: Int, type: String)
 }
 
 extension APIRequest {
@@ -93,14 +94,22 @@ extension APIRequest {
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			return components
+			
+		case .expedition(let gameId, let type):
+			components.path = "/expedition_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.urlParameters["contact_type"] = "\(type)"
+			components.asJson = false
+			return components
 		}
+		
 	}
 	
 	private var method: String {
 		switch self {
 		case .login, .games:
 			return "POST"
-		case .gameSets, .ancients, .cards:
+		case .gameSets, .ancients, .cards, .expedition:
 			return "GET"
 		case .selectGameSets, .selectAncient:
 			return "PUT"

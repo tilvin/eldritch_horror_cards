@@ -12,29 +12,32 @@ class ExpeditionViewController: BaseViewController {
 	//MARK: - Public variables
 	
 	var customView: ExpeditionView { return self.view as! ExpeditionView }
+	let provider = DI.providers.resolve(ExpeditionDataProviderProtocol.self)!
 	
 	//MARK: - Private variables
 	
 	private var cardsDataProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
-	private var expeditions: [StoryCard] = []
+	private var expeditions: [Expedition] = []
 	
 	// MARK: - View lifecycle
 	
 	override func loadView() {
-		view = ExpeditionView(frame: UIScreen.main.bounds, viewModel: ExpeditionViewModel())
+		let view = ExpeditionView(frame: UIScreen.main.bounds, viewModel: ExpeditionViewModel())
 		isHiddenNavigationBar = true
+		self.view = view
+		view.delegate = self
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		cardsDataProvider.load(gameId: 34) { [weak self] (success) in
-			//guard let sSelf = self,
-				//success,
-				//let expedition = sSelf.cardsDataProvider.expeditions.first else { return }
-			//sSelf.customView.update(viewModel: ExpeditionViewModel(with: expedition))
-		}
-		
+		guard let expedition = provider.expedition, let type = provider.expeditionType else { return }
+		customView.update(viewModel: ExpeditionViewModel(with: expedition, type: type))		
 	}
 }
 
+extension ExpeditionViewController: ExpeditionViewDelegate {
+	
+	func backButtonTap() {
+		close()
+	}
+}

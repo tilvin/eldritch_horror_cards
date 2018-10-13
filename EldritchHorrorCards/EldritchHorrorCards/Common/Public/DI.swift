@@ -26,5 +26,6 @@ class DI {
 		container.register(TabBarControllersProviderProtocol.self, asSingleTone: true) { TabBarControllersProvider() }
 		container.register(DataParseServiceProtocol.self) { DataParseService() }
 		container.register(NetworkServiceProtocol.self, asSingleTone: true) { NetworkService() }
+		container.register(ExpeditionDataProviderProtocol.self, asSingleTone: true) { ExpeditionDataProvider() }
 	}
 }

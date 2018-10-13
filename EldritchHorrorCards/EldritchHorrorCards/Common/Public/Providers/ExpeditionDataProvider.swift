@@ -1,19 +1,22 @@
 //
-//  CardDataProvider.swift
+//  ExpeditionDataProvider.swift
 //  EldritchHorrorCards
 //
-//  Created by Andrey Torlopov on 7/25/18.
+//  Created by Вероника Садовская on 13/10/2018.
 //  Copyright © 2018 Andrey Torlopov. All rights reserved.
 //
+
 import Foundation
 
-protocol CardDataProviderProtocol {
-	var cards: Cards? { get set }
-	func load(gameId: Int, completion: @escaping (Bool) -> Void)
+protocol ExpeditionDataProviderProtocol {
+	var expedition: Expedition? { get set }
+	var expeditionType: String? { get set }
+	func load(gameId: Int, type: String, completion: @escaping (Bool) -> Void)
 }
 
-final class CardDataProvider: NSObject, CardDataProviderProtocol {
-	var cards: Cards?
+final class ExpeditionDataProvider: NSObject, ExpeditionDataProviderProtocol {
+	var expedition: Expedition?
+	var expeditionType: String?
 	var session: URLSession?
 	private var dataTask: URLSessionDataTask?
 	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
@@ -25,10 +28,10 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 		}
 	}
 	
-	func load(gameId: Int, completion: @escaping (Bool) -> Void) {
+	func load(gameId: Int, type: String, completion: @escaping (Bool) -> Void) {
 		guard let session = session else { fatalError() }
 		dataTask?.cancel()
-		dataTask = session.dataTask(with: APIRequest.cards(gameId: gameId).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+		dataTask = session.dataTask(with: APIRequest.expedition(gameId: gameId, type: type).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
 			if let error = error {
 				print(error.localizedDescription)
 				completion(false)
@@ -44,9 +47,9 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 				return
 			}
 			
-			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: Cards.self, data: data) { [weak self] (result) in
+			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: Expedition.self, data: data) { [weak self] (result) in
 				if let value = result {
-					self?.cards = value
+					self?.expedition = value
 					completion(true)
 					return
 				}
@@ -56,7 +59,7 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 	}
 }
 
-extension CardDataProvider: URLSessionDelegate {
+extension ExpeditionDataProvider: URLSessionDelegate {
 	
 	func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
 		let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)

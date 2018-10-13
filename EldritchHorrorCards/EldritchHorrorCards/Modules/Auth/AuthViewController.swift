@@ -90,7 +90,6 @@ class AuthViewController: BaseViewController {
 			provider.load(gameId: gameProvider.game.id) { [weak self] (success) in
 				guard let sSelf = self else { return }
 				if success {
-					print("Card is load!")
 					let controller = CardViewController.controllerFromStoryboard(.main)
 					controller.modalTransitionStyle = .crossDissolve
 					sSelf.appNavigator?.go(controller: controller, mode: .modal)

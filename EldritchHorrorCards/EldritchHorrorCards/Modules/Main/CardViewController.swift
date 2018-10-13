@@ -38,6 +38,7 @@ extension CardViewController: UICollectionViewDataSource, UICollectionViewDelega
 		}
 		cell.cardImageView.image = UIImage(named: cards!.avaliableCardTypes[indexPath.row])
 		cell.cardTypeLabel.text = cards!.avaliableCardTypes[indexPath.row].localized
+		cell.cardType = cards!.avaliableCardTypes[indexPath.row]
 		return cell
 	}
 	

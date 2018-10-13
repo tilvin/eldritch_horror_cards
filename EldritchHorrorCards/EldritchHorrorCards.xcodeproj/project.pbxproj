@@ -23,7 +23,8 @@
 		9F61A1E72170746C00A5003C /* ExpeditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1E62170746C00A5003C /* ExpeditionView.swift */; };
 		9F61A1EB2170751300A5003C /* ExpeditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EA2170751300A5003C /* ExpeditionViewController.swift */; };
 		9F61A1ED217079C800A5003C /* ExpeditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EC217079C800A5003C /* ExpeditionViewModel.swift */; };
-		9F61A1EF2170841B00A5003C /* StoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EE2170841B00A5003C /* StoryCard.swift */; };
+		9F61A1EF2170841B00A5003C /* Expedition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EE2170841B00A5003C /* Expedition.swift */; };
+		9F61A1F12171F90700A5003C /* ExpeditionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1F02171F90700A5003C /* ExpeditionDataProvider.swift */; };
 		9F80B99B210C3C96007C4396 /* CardsCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B99A210C3C96007C4396 /* CardsCarousel.swift */; };
 		9FC7F668215AC90500A2A7B3 /* GameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F667215AC90500A2A7B3 /* GameProvider.swift */; };
 		9FC7F66A215AC9BE00A2A7B3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F669215AC9BE00A2A7B3 /* Game.swift */; };
@@ -143,7 +144,8 @@
 		9F61A1E62170746C00A5003C /* ExpeditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionView.swift; sourceTree = "<group>"; };
 		9F61A1EA2170751300A5003C /* ExpeditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionViewController.swift; sourceTree = "<group>"; };
 		9F61A1EC217079C800A5003C /* ExpeditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionViewModel.swift; sourceTree = "<group>"; };
-		9F61A1EE2170841B00A5003C /* StoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCard.swift; sourceTree = "<group>"; };
+		9F61A1EE2170841B00A5003C /* Expedition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expedition.swift; sourceTree = "<group>"; };
+		9F61A1F02171F90700A5003C /* ExpeditionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionDataProvider.swift; sourceTree = "<group>"; };
 		9F80B99A210C3C96007C4396 /* CardsCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCarousel.swift; sourceTree = "<group>"; };
 		9FC7F667215AC90500A2A7B3 /* GameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProvider.swift; sourceTree = "<group>"; };
 		9FC7F669215AC9BE00A2A7B3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 				A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */,
 				A4563B0A20F8846100B65428 /* ConfigProvider.swift */,
 				9FC7F667215AC90500A2A7B3 /* GameProvider.swift */,
+				9F61A1F02171F90700A5003C /* ExpeditionDataProvider.swift */,
 				A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */,
 			);
 			path = Providers;
@@ -531,7 +534,7 @@
 			children = (
 				9F171C57211D59DE005A8264 /* Addition.swift */,
 				A441BBBB2108BB0F00EAC5DD /* Cards.swift */,
-				9F61A1EE2170841B00A5003C /* StoryCard.swift */,
+				9F61A1EE2170841B00A5003C /* Expedition.swift */,
 				9F3E4577213522C4002DA88A /* Description.swift */,
 				A48C461420FD0DFD00DF1687 /* Monster.swift */,
 				9F0E79F32112FDED0080C907 /* User.swift */,
@@ -964,6 +967,7 @@
 				A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */,
 				A4F3B1DE212ECB8A00F03E7B /* ExtTextField.swift in Sources */,
 				A479428D210C776500ED0851 /* AvatarView.swift in Sources */,
+				9F61A1F12171F90700A5003C /* ExpeditionDataProvider.swift in Sources */,
 				A4FDB00F20D413DE00FA6E4B /* AccessoryIndicator.swift in Sources */,
 				A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */,
 				A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */,
@@ -975,7 +979,7 @@
 				A4563AF820F87F8B00B65428 /* Command.swift in Sources */,
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
 				A45E565F210B0C8800590AE7 /* Images.swift in Sources */,
-				9F61A1EF2170841B00A5003C /* StoryCard.swift in Sources */,
+				9F61A1EF2170841B00A5003C /* Expedition.swift in Sources */,
 				A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */,
 				A4208334212B1AFB0081E762 /* StaticTableAdapter.swift in Sources */,
 				A4FDB01420D413DE00FA6E4B /* PointerLayer.swift in Sources */,

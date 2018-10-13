@@ -9,9 +9,16 @@
 import UIKit
 import SnapKit
 
+protocol ExpeditionViewDelegate: class {
+	func backButtonTap()
+}
+
 extension ExpeditionView {
 	
 	struct Appearance {
+		let backButtonTopOffset: CGFloat = 50
+		let backButtonLeftOffset: CGFloat = 30
+		let backButtonHeight: CGFloat = 30
 		let backgroundColor = UIColor.clear
 		let defaultSideOffset: CGFloat = 25
 		let titleLabelViewOffset: CGFloat = 5
@@ -30,12 +37,21 @@ extension ExpeditionView {
 
 class ExpeditionView: BaseScrollView {
 	
+	var delegate: ExpeditionViewDelegate?
+	
 	//MARK: - Private variables
 	
 	private let appearance = Appearance()
 	private var viewModel: ExpeditionViewModel!
 	
 	//MARK: - Private lazy variables
+	
+	private lazy var backButton: UIButton = {
+		let view = UIButton()
+		view.setTitle("", for: .normal)
+		view.setImage(.backButton, for: .normal)
+		return view
+	}()
 	
 	private lazy var titleImageView: UIImageView = {
 		let view = UIImageView(with: .pyramids, contentMode: UIViewContentMode.scaleAspectFill )
@@ -123,6 +139,7 @@ class ExpeditionView: BaseScrollView {
 	init(frame: CGRect = CGRect.zero, viewModel: ExpeditionViewModel) {
 		super.init(frame: frame)
 		self.viewModel = viewModel
+		titleImageView.image = viewModel.image
 		titleLabel.text = viewModel.title
 		descriptionTextView.text = viewModel.story
 		successTextView.text = viewModel.success
@@ -130,6 +147,7 @@ class ExpeditionView: BaseScrollView {
 		backgroundColor = appearance.backgroundColor
 		addSubviews()
 		makeConstraints()
+		backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
 		layoutIfNeeded()
 	}
 	
@@ -141,15 +159,18 @@ class ExpeditionView: BaseScrollView {
 	
 	public func update(viewModel: ExpeditionViewModel) {
 		self.viewModel = viewModel
+		titleImageView.image = viewModel.image
 		titleLabel.text = viewModel.title
 		descriptionTextView.text = viewModel.story
 		successTextView.text = viewModel.success
 		failureTextView.text = viewModel.failure
+		backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
 	}
 	
 	//MARK: - Private
 	
 	private func addSubviews() {
+		addSubview(backButton)
 		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: titleImageView, embed: true)
 		titleImageView.addSubview(titleLabelView)
@@ -168,6 +189,13 @@ class ExpeditionView: BaseScrollView {
 	}
 	
 	private func makeConstraints() {
+		
+		backButton.snp.makeConstraints { (make) in
+			make.top.equalToSuperview().inset(appearance.backButtonTopOffset)
+			make.left.equalToSuperview().inset(appearance.backButtonLeftOffset)
+			make.width.height.equalTo(appearance.backButtonHeight)
+		}
+		
 		titleImageView.snp.remakeConstraints { (make) in
 			make.top.bottom.equalToSuperview()
 			make.height.equalTo(appearance.titleImageViewHeight)
@@ -228,5 +256,9 @@ class ExpeditionView: BaseScrollView {
 	
 	override func updateHeight() {
 		scrollView.contentSize = CGSize(width: scrollView.frame.width, height: stackView.frame.height)
+	}
+	
+	@objc private func backButtonPressed() {
+		delegate?.backButtonTap()
 	}
 }
