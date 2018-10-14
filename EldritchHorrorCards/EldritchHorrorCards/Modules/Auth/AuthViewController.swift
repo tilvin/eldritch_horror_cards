@@ -180,6 +180,9 @@ extension AuthViewController: AuthViewDelegate {
 					})
 				}
 			}
+			else {
+				Alert(alert: String(.authError), actions: String(.ok)).present(in: sSelf)
+			}
 		}
 	}
 	

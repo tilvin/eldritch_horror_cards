@@ -93,6 +93,7 @@
 		A4C25333211DEEAD00E0FF37 /* TableRowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C25332211DEEAD00E0FF37 /* TableRowBuilder.swift */; };
 		A4D220922168B6DE00EF790F /* HTTPURLResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D220912168B6DE00EF790F /* HTTPURLResponseExtension.swift */; };
 		A4D220942168CAAD00EF790F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D220932168CAAD00EF790F /* Alert.swift */; };
+		A4F288522173DEC9004CBA25 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F288512173DEC9004CBA25 /* Strings.swift */; };
 		A4F3B1D6212ECB8A00F03E7B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3B1CB212ECB8A00F03E7B /* Color.swift */; };
 		A4F3B1D7212ECB8A00F03E7B /* ViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3B1CC212ECB8A00F03E7B /* ViewAnimation.swift */; };
 		A4F3B1D8212ECB8A00F03E7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3B1CD212ECB8A00F03E7B /* ViewController.swift */; };
@@ -217,6 +218,7 @@
 		A4C25332211DEEAD00E0FF37 /* TableRowBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowBuilder.swift; sourceTree = "<group>"; };
 		A4D220912168B6DE00EF790F /* HTTPURLResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPURLResponseExtension.swift; sourceTree = "<group>"; };
 		A4D220932168CAAD00EF790F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		A4F288512173DEC9004CBA25 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A4F3B1CB212ECB8A00F03E7B /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A4F3B1CC212ECB8A00F03E7B /* ViewAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAnimation.swift; sourceTree = "<group>"; };
 		A4F3B1CD212ECB8A00F03E7B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -648,6 +650,7 @@
 		A4794287210C40DE00ED0851 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				A4F288512173DEC9004CBA25 /* Strings.swift */,
 				A4794288210C40EA00ED0851 /* Colors.swift */,
 				A479428A210C419F00ED0851 /* Fonts.swift */,
 			);
@@ -860,7 +863,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 			);
@@ -873,7 +876,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D0809C6E9947392F9159AC7 /* [CP] Check Pods Manifest.lock */ = {
@@ -1027,6 +1030,7 @@
 				A4208349212B524D0081E762 /* AdditionsListTableAdapter.swift in Sources */,
 				A46EE7CD2139244C00F47026 /* KeyboardPayload.swift in Sources */,
 				A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */,
+				A4F288522173DEC9004CBA25 /* Strings.swift in Sources */,
 				A4F3B1D6212ECB8A00F03E7B /* Color.swift in Sources */,
 				A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */,
 				55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */,

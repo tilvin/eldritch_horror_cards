@@ -58,3 +58,5 @@
 "special_contact_cities_on_the_lake" = "Cities on the lake";
 "special_contact_unspeakable_one" = "Unspeakable one";
 "special_contact_king_in_yellow" = "King in yellow";
+"authError" = "Could not log in! Try again!";
+

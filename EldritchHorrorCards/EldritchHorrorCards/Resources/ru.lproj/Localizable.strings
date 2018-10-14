@@ -58,3 +58,4 @@
 "special_contact_cities_on_the_lake" = "Города на озере";
 "special_contact_unspeakable_one" = "Невыразимый";
 "special_contact_king_in_yellow" = "Король в желтом";
+"authError" = "Не удалось пройти авторизацию! Пробуйте еще!";
