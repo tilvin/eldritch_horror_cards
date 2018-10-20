@@ -12,6 +12,11 @@ import SnapKit
 protocol AuthViewDelegate: class {
 	func loginButtonPressed()
 	func signupButtonPressed()
+	func validateActiveField(type: AuthTextViewType, text: String)
+	
+	func beginEditing(fieldType: AuthTextViewType, text: String)
+	func endEditing(fieldType: AuthTextViewType, text: String)
+	func valueChanged(fieldType: AuthTextViewType, text: String)
 }
 
 enum AuthErrorType {
@@ -31,7 +36,7 @@ extension AuthView {
 	}
 }
 
-class AuthView: BaseScrollView {
+final class AuthView: BaseScrollView {
 	
 	//MARK: - Public variables
 	
@@ -40,6 +45,7 @@ class AuthView: BaseScrollView {
 	//MARK: - Private variables
 	
 	private let appearance = Appearance()
+	private var viewModel: AuthViewModel!
 	
 	//MARK: - Public lazy variables
 	
@@ -47,49 +53,24 @@ class AuthView: BaseScrollView {
 		return AvatarView()
 	}()
 	
-	lazy var emailTextField: UITextField = {
-		return UITextField(placeholder: "auth.email".localized, textColor: .mako)
-	}()
-	
-	lazy var emailImageView: UIImageView = {
-		return UIImageView(with: .email)
-	}()
-	
-	lazy var emailStackView: UIStackView = {
-		var view = UIStackView()
-		view.axis = .horizontal
-		view.spacing = appearance.stackViewSpacingHorizontal
+	lazy var emailTextView: AuthTextView = {
+		let view = AuthTextView(viewModel: AuthTextViewModel(type: .email, state: .active))
+		view.delegate = self
 		return view
 	}()
 	
-	lazy var passwordTextField: UITextField = {
-		return UITextField(placeholder: "auth.password".localized, textColor: .mako)
-	}()
-	
-	lazy var passwordImageView: UIImageView = {
-		return UIImageView(with: UIImage.password)
-	}()
-	
-	lazy var passwordStackView: UIStackView = {
-		var view = UIStackView()
-		view.axis = .horizontal
-		view.spacing = appearance.stackViewSpacingHorizontal
+	lazy var passwordTextView: AuthTextView = {
+		let view = AuthTextView(viewModel: AuthTextViewModel(type: .password))
+		view.delegate = self
 		return view
-	}()
-	
-	lazy var emailLineView: UIView = {
-		return UIView(backgroundColor: .mako)
-	}()
-	
-	lazy var passwordLineView: UIView = {
-		return UIView(backgroundColor: .mako)
 	}()
 	
 	lazy var signUpButton: UIButton = {
 		let view = UIButton()
 		view.titleLabel?.font = .regular12
-		view.setTitle("auth.signup".localized, for: .normal)
+		view.setTitle(String(.authSignup), for: .normal)
 		view.setTitleColor(.darkGreenBlue, for: .normal)
+		view.addTarget(self, action: #selector(signupButtonPressed), for: .touchUpInside)
 		return view
 	}()
 	
@@ -103,13 +84,14 @@ class AuthView: BaseScrollView {
 		let view = UILabel(font: .bold32, textColor: .darkGreenBlue)
 		view.numberOfLines = 2
 		view.textAlignment = .center
-		view.text = "Eldritch Horror\nCards"
+		view.text = String(.authTitle)
 		return view
 	}()
 	
 	private lazy var loginButton: CustomButton = {
 		let view = CustomButton(type: .darkGreenBlue)
-		view.setTitle("auth.signin".localized, for: .normal)
+		view.setTitle(String(.authSignin), for: .normal)
+		view.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
 		return view
 	}()
 
@@ -117,11 +99,12 @@ class AuthView: BaseScrollView {
 	
 	override init(frame: CGRect = CGRect.zero) {
 		super.init(frame: frame)
+		viewModel = AuthViewModel()
 		scrollView.backgroundColor = .clear
+		emailTextView.update(viewModel: viewModel.item(type: .email))
+		passwordTextView.update(viewModel: viewModel.item(type: .password))
 		addSubviews()
 		makeConstraints()
-		loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
-		signUpButton.addTarget(self, action: #selector(signupButtonPressed), for: .touchUpInside)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -130,17 +113,13 @@ class AuthView: BaseScrollView {
 	
 	//MARK: - Public
 	
-	public func updateView(type: AuthErrorType) {
-		switch type {
+	public func update(textFieldType: AuthTextViewType, text: String, state: AuthTextViewState) {
+		viewModel.update(itemType: textFieldType, value: text, state: state)
+		switch textFieldType {
 		case .email:
-			emailLineView.backgroundColor = appearance.errorColor
-			emailTextField.shake()
+			emailTextView.update(viewModel: AuthTextViewModel(type: textFieldType, text: text, state: state))
 		case .password:
-			passwordLineView.backgroundColor = appearance.errorColor
-			passwordTextField.shake()
-		case .none:
-			emailLineView.backgroundColor = appearance.normalColor
-			passwordLineView.backgroundColor = appearance.normalColor
+			passwordTextView.update(viewModel: AuthTextViewModel(type: textFieldType, text: text, state: state))
 		}
 	}
 	
@@ -153,19 +132,9 @@ class AuthView: BaseScrollView {
 		addSeparatorView(height: 30)
 		addToStackView(view: avatarView, embed: true)
 		addSeparatorView(height: appearance.avatarBottomSeparatorHeight)
-		
-		addToStackView(view: emailStackView, embed: true)
-		emailStackView.addArrangedSubview(emailImageView)
-		emailStackView.addArrangedSubview(emailTextField)
-		addSeparatorView(height: 5)
-		addToStackView(view: emailLineView, embed: true)
+		addToStackView(view: emailTextView, embed: true)
 		addSeparatorView(height: 25)
-		addToStackView(view: passwordStackView, embed: true)
-		passwordStackView.addArrangedSubview(passwordImageView)
-		passwordStackView.addArrangedSubview(passwordTextField)
-		addSeparatorView(height: 5)
-		addToStackView(view: passwordLineView, embed: true)
-		
+		addToStackView(view: passwordTextView, embed: true)
 		addSeparatorView(height: 25)
 		addToStackView(view: loginButton, embed: true)
 		addSeparatorView(expandable: true)
@@ -185,32 +154,12 @@ class AuthView: BaseScrollView {
 			make.top.bottom.equalToSuperview()
 		}
 
-		emailStackView.snp.remakeConstraints { (make) in
+		emailTextView.snp.remakeConstraints { (make) in
 			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
 			make.top.bottom.equalToSuperview()
 		}
 		
-		emailImageView.snp.remakeConstraints { (make) in
-			make.width.height.equalTo(24)
-		}
-
-		emailLineView.snp.remakeConstraints { (make) in
-			make.height.equalTo(1)
-			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
-			make.top.bottom.equalToSuperview()
-		}
-		
-		passwordImageView.snp.remakeConstraints { (make) in
-			make.width.height.equalTo(24)
-		}
-		
-		passwordStackView.snp.remakeConstraints { (make) in
-			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
-			make.top.bottom.equalToSuperview()
-		}
-		
-		passwordLineView.snp.remakeConstraints { (make) in
-			make.height.equalTo(1)
+		passwordTextView.snp.remakeConstraints { (make) in
 			make.left.right.equalToSuperview().inset(appearance.textFieldSideOffset)
 			make.top.bottom.equalToSuperview()
 		}
@@ -236,10 +185,26 @@ class AuthView: BaseScrollView {
 	//MARK: - Handlers
 	
 	@objc private func loginButtonPressed() {
+		print("authView loginButtonPressed")
 		delegate?.loginButtonPressed()
 	}
 	
 	@objc private func signupButtonPressed() {
 		delegate?.signupButtonPressed()
+	}
+}
+
+extension AuthView: AuthTextViewDelegate {
+	
+	func beginEditing(fieldType: AuthTextViewType, text: String) {
+		delegate?.beginEditing(fieldType: fieldType, text: text)
+	}
+	
+	func endEditing(fieldType: AuthTextViewType, text: String) {
+		delegate?.endEditing(fieldType: fieldType, text: text)
+	}
+	
+	func valueChanged(fieldType: AuthTextViewType, text: String) {
+		delegate?.valueChanged(fieldType: fieldType, text: text)
 	}
 }

@@ -84,6 +84,12 @@
 		A499E98621445A49001186A5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499E98521445A49001186A5 /* LoaderView.swift */; };
 		A4A9102E21285AD900652D25 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9102D21285AD900652D25 /* DescriptionViewController.swift */; };
 		A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */; };
+		A4B35E4F217A813C002496E7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E4E217A813C002496E7 /* UIImageExtension.swift */; };
+		A4B35E52217A8748002496E7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E51217A8748002496E7 /* AuthViewModel.swift */; };
+		A4B35E54217A879C002496E7 /* AuthTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E53217A879C002496E7 /* AuthTextView.swift */; };
+		A4B35E56217A890F002496E7 /* AuthTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E55217A890F002496E7 /* AuthTextViewModel.swift */; };
+		A4B35E5A217A8A4A002496E7 /* DefaultAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E59217A8A4A002496E7 /* DefaultAppearance.swift */; };
+		A4B35E5C217B421C002496E7 /* NSPredicateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E5B217B421C002496E7 /* NSPredicateExtension.swift */; };
 		A4B8160620D01C6700FC5651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4B8160820D01C6700FC5651 /* Localizable.strings */; };
 		A4B8160920D01C6E00FC5651 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = A4B8160B20D01C6E00FC5651 /* Localizable.stringsdict */; };
 		A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B8161020D01D6000FC5651 /* BaseViewController.swift */; };
@@ -207,6 +213,12 @@
 		A499E98521445A49001186A5 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		A4A9102D21285AD900652D25 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
+		A4B35E4E217A813C002496E7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		A4B35E51217A8748002496E7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		A4B35E53217A879C002496E7 /* AuthTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextView.swift; sourceTree = "<group>"; };
+		A4B35E55217A890F002496E7 /* AuthTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextViewModel.swift; sourceTree = "<group>"; };
+		A4B35E59217A8A4A002496E7 /* DefaultAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppearance.swift; sourceTree = "<group>"; };
+		A4B35E5B217B421C002496E7 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
 		A4B8160C20D01C7200FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4B8160D20D01C7600FC5651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		A4B8160E20D01C8500FC5651 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -625,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				A47771A821452E81007F2058 /* AuthView.swift */,
+				A4B35E57217A8919002496E7 /* AuthTextView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -661,6 +674,7 @@
 			isa = PBXGroup;
 			children = (
 				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
+				A4B35E50217A873B002496E7 /* Model */,
 				A47771A721452E57007F2058 /* Views */,
 			);
 			path = Auth;
@@ -677,6 +691,7 @@
 		A499E97E21444128001186A5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A4B35E58217A8A3F002496E7 /* Themes */,
 				A4D220902168B6D200EF790F /* Foundation */,
 				A499E97F21444130001186A5 /* UIKit */,
 			);
@@ -687,6 +702,7 @@
 			isa = PBXGroup;
 			children = (
 				A4D220932168CAAD00EF790F /* Alert.swift */,
+				A4B35E4E217A813C002496E7 /* UIImageExtension.swift */,
 				A47771AA21452FF0007F2058 /* UIImageViewExtension.swift */,
 				A47771AC21453044007F2058 /* UILabelExtension.swift */,
 				A49043072145610200397AC9 /* UIScreenExtension.swift */,
@@ -704,6 +720,31 @@
 			path = UPCarouselFlowLayout;
 			sourceTree = "<group>";
 		};
+		A4B35E50217A873B002496E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4B35E51217A8748002496E7 /* AuthViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A4B35E57217A8919002496E7 /* AuthTextView */ = {
+			isa = PBXGroup;
+			children = (
+				A4B35E53217A879C002496E7 /* AuthTextView.swift */,
+				A4B35E55217A890F002496E7 /* AuthTextViewModel.swift */,
+			);
+			path = AuthTextView;
+			sourceTree = "<group>";
+		};
+		A4B35E58217A8A3F002496E7 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				A4B35E59217A8A4A002496E7 /* DefaultAppearance.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
 		A4C2532F211DEE4400E0FF37 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
@@ -717,6 +758,7 @@
 		A4D220902168B6D200EF790F /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				A4B35E5B217B421C002496E7 /* NSPredicateExtension.swift */,
 				A4D220912168B6DE00EF790F /* HTTPURLResponseExtension.swift */,
 			);
 			path = Foundation;
@@ -980,6 +1022,7 @@
 				A4794280210C311500ED0851 /* TabBarControllersProviderProtocol.swift in Sources */,
 				A4794281210C311500ED0851 /* TabBarControllersProvider.swift in Sources */,
 				A4563AF820F87F8B00B65428 /* Command.swift in Sources */,
+				A4B35E52217A8748002496E7 /* AuthViewModel.swift in Sources */,
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
 				A45E565F210B0C8800590AE7 /* Images.swift in Sources */,
 				9F61A1EF2170841B00A5003C /* Expedition.swift in Sources */,
@@ -998,6 +1041,7 @@
 				A4208333212B1AFB0081E762 /* BaseTableAdapter.swift in Sources */,
 				A4563AFD20F87FF500B65428 /* DI.swift in Sources */,
 				A4F3B1DC212ECB8A00F03E7B /* ViewControllerUI.swift in Sources */,
+				A4B35E4F217A813C002496E7 /* UIImageExtension.swift in Sources */,
 				A4794284210C31B900ED0851 /* BaseTabBarController.swift in Sources */,
 				A4563ADC20F7DBD400B65428 /* LocalizationExtensions.swift in Sources */,
 				A47AE99C21397E9700BEF472 /* KeybordViewHelper.swift in Sources */,
@@ -1009,13 +1053,16 @@
 				A4788ADF212D4F80006D71FD /* DescriptionView.swift in Sources */,
 				A47771AB21452FF0007F2058 /* UIImageViewExtension.swift in Sources */,
 				A499E9812144413B001186A5 /* UIViewExtension.swift in Sources */,
+				A4B35E56217A890F002496E7 /* AuthTextViewModel.swift in Sources */,
 				A4788AE1212D5F7D006D71FD /* CustomButton.swift in Sources */,
 				A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */,
 				9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */,
 				A4F3B1DD212ECB8A00F03E7B /* View.swift in Sources */,
 				9F61A1ED217079C800A5003C /* ExpeditionViewModel.swift in Sources */,
 				A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */,
+				A4B35E54217A879C002496E7 /* AuthTextView.swift in Sources */,
 				A4FDB01520D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift in Sources */,
+				A4B35E5C217B421C002496E7 /* NSPredicateExtension.swift in Sources */,
 				A4563ADF20F7DBF500B65428 /* String.swift in Sources */,
 				A4563B0120F880BB00B65428 /* Navigator.swift in Sources */,
 				A4D220942168CAAD00EF790F /* Alert.swift in Sources */,
@@ -1027,6 +1074,7 @@
 				A4FDB01020D413DE00FA6E4B /* JFCardSelectionViewController.swift in Sources */,
 				A4FDB01120D413DE00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift in Sources */,
 				A4563AF220F7DD4C00B65428 /* Queues.swift in Sources */,
+				A4B35E5A217A8A4A002496E7 /* DefaultAppearance.swift in Sources */,
 				A4208349212B524D0081E762 /* AdditionsListTableAdapter.swift in Sources */,
 				A46EE7CD2139244C00F47026 /* KeyboardPayload.swift in Sources */,
 				A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */,

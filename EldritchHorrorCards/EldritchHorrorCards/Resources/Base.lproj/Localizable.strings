@@ -1,8 +1,8 @@
-"auth.email" = "Email";
-"auth.password" = "Password";
-"auth.signin" = "Sign in";
-"auth.signup" = "Sign Up";
-
+"email" = "Email";
+"password" = "Password";
+"authSignin" = "Sign in";
+"authSignup" = "Sign Up";
+"authTitle" = "Eldritch Horror\nCards";
 "call_monster" = "Call that monster";
 "card.type.portal" = "Portal";
 

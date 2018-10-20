@@ -100,8 +100,8 @@ class AdditionsListView: UIView {
 		addSubview(titleLabel)
 		addSubview(tableView)
 		addSubview(continueButton)
-		addSubview(menuContainer)
 		addSubview(menuButton)
+		addSubview(menuContainer)
 		backgroundColor = UIColor.clear
 	}
 	

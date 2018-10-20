@@ -1,7 +1,8 @@
-"auth.email" = "Емейл";
-"auth.password" = "Пароль";
-"auth.signin" = "Войти";
-"auth.signup" = "Создать аккаунт";
+"email" = "Емейл";
+"password" = "Пароль";
+"authSignin" = "Войти";
+"authSignup" = "Создать аккаунт";
+"authTitle" = "Eldritch Horror\nCards";
 
 "call_monster" = "Вызвать этого монстра";
 "card.type.portal" = "Иные миры";

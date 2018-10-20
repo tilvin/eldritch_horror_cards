@@ -125,7 +125,6 @@ class MenuContentView: BaseScrollView {
 			make.height.equalTo(24)
 			make.top.bottom.equalToSuperview()
 			make.leading.equalToSuperview().offset(32)
-			
 		}
 	}
 	
