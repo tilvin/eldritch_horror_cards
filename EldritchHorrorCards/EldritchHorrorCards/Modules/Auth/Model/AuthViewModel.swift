@@ -31,7 +31,7 @@ struct AuthViewModel {
 	}
 	
 	init() {
-		items[.email] = AuthTextViewModel(type: .email, state: .active)
+		items[.email] = AuthTextViewModel(type: .email)
 		items[.password] = AuthTextViewModel(type: .password)
 	}
 	

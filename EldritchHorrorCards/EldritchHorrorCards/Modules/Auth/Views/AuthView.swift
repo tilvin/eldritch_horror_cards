@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 protocol AuthViewDelegate: class {
-	func loginButtonPressed()
+	func loginButtonPressed(login: String, password: String)
 	func signupButtonPressed()
 	func validateActiveField(type: AuthTextViewType, text: String)
 	
@@ -50,7 +50,7 @@ final class AuthView: BaseScrollView {
 	//MARK: - Public lazy variables
 	
 	lazy var emailTextView: AuthTextView = {
-		let view = AuthTextView(viewModel: AuthTextViewModel(type: .email, state: .active))
+		let view = AuthTextView(viewModel: AuthTextViewModel(type: .email))
 		view.delegate = self
 		return view
 	}()
@@ -105,6 +105,7 @@ final class AuthView: BaseScrollView {
 		passwordTextView.update(viewModel: viewModel.item(type: .password))
 		addSubviews()
 		makeConstraints()
+		emailTextView.becomeFirstResponder()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -189,8 +190,8 @@ final class AuthView: BaseScrollView {
 	//MARK: - Handlers
 	
 	@objc private func loginButtonPressed() {
-		print("authView loginButtonPressed")
-		delegate?.loginButtonPressed()
+		
+		delegate?.loginButtonPressed(login: viewModel.item(type: .email).text, password: viewModel.item(type: .password).text)
 	}
 	
 	@objc private func signupButtonPressed() {

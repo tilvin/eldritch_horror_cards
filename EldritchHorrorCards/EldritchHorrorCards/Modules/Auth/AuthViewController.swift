@@ -36,14 +36,9 @@ class AuthViewController: BaseViewController {
 		super.viewDidLoad()
 		
 		view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(sender:))))
-//		if authProvider.loadToken() {
-//			autoLogin()
-//		}
-//		else {
-//			if let email = ["gary@testmail.com", "bonita@testmail.com", "luther@testmail.com"].shuffled().first {
-////				customView.emailTextField.text = email
-//			}
-//		}
+		if let email = ["torlopov.andrey@testmail.com", "foo@bar.baz"].shuffled().first {
+			customView.update(textFieldType: .email, text: email, state: .normal)
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -65,8 +60,76 @@ class AuthViewController: BaseViewController {
 		editableViews.forEach { $0.resignFirstResponder() }
 	}
 	
-	private func autoLogin() {
-		guard let login = authProvider.login else { return }
+	private func checkLogin(login: String = "") {
+		customView.update(avatar: authProvider.avatar)
+	}
+}
+
+extension AuthViewController: Keyboardable {}
+
+extension AuthViewController: AuthViewDelegate {
+
+	func loginButtonPressed(login: String, password: String) {
+		guard authProvider.allFieldIsValid else {
+			Alert(alert: String(.authError), actions: String(.ok)).present(in: self)
+			return
+		}
+		if !gameProvider.isSessionActive {
+			authProvider.load(with: login) { (success) in
+				success ? print("Users is load!") : print("Something gone wrong!")
+			}
+		}
+		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
+			guard let sSelf = self else { return }
+//			if result {
+//				if sSelf.gameProvider.isSessionActive {
+//					let controller = CardViewController.controllerFromStoryboard(.main)
+//					controller.modalTransitionStyle = .crossDissolve
+//					sSelf.appNavigator?.go(controller: controller, mode: .modal)
+//				}
+//				else {
+//					sSelf.gameProvider.load(completion: { (_) in
+//						let controller = AdditionsViewController()
+//						controller.modalTransitionStyle = .crossDissolve
+//						sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
+//					})
+//				}
+//			}
+//			else {
+//				Alert(alert: String(.authError), actions: String(.ok)).present(in: sSelf)
+//			}
+		}
+	}
+	
+	func signupButtonPressed() {
+		print("sign up pressed")
+	}
+	
+	func validateActiveField(type: AuthTextViewType, text: String) {
+		let isValid = authProvider.isValid(type: type, text: text)
+		customView.update(textFieldType: type, text: text, state: isValid ? .active : .error)
+	}
+	
+	func beginEditing(fieldType: AuthTextViewType, text: String) {
+		authProvider.isValid(type: fieldType, text: text)
+		customView.update(textFieldType: fieldType, text: text, state: .active)
+	}
+	
+	func endEditing(fieldType: AuthTextViewType, text: String) {
+		let isValid = authProvider.isValid(type: fieldType, text: text)
+		customView.update(textFieldType: fieldType, text: text, state: isValid ? .normal : .error)
+	}
+	
+	func valueChanged(fieldType: AuthTextViewType, text: String) {
+		authProvider.isValid(type: fieldType, text: text)
+		customView.update(textFieldType: fieldType, text: text, state: .active)
+	}
+}
+
+/*
+private func autoLogin() {
+guard let login = authProvider.login else { return }
+print("autologin...")
 //
 //		if gameProvider.isSessionActive {
 //			self.customView.signUpButton.isEnabled = false
@@ -118,75 +181,5 @@ class AuthViewController: BaseViewController {
 //				}
 //			}
 //		}
-	}
-	
-	private func checkLogin(login: String = "") {
-		customView.update(avatar: authProvider.avatar)
-	}
 }
-
-extension AuthViewController: Keyboardable {}
-
-extension AuthViewController: AuthViewDelegate {
-	
-	func loginButtonPressed() {
-		
-//		guard let login = customView.emailTextField.text, !login.isEmpty else {
-//			customView.updateView(type: .email)
-//			return
-//		}
-//
-//		guard let password = customView.passwordTextField.text, !password.isEmpty else {
-//			customView.updateView(type: .password)
-//			return
-//		}
-//		customView.updateView(type: .none)
-//		if !gameProvider.isSessionActive {
-//			authProvider.load(with: login) { (success) in
-//				success ? print("Users is load!") : print("Something gone wrong!")
-//			}
-//		}
-//		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
-//			guard let sSelf = self else { return }
-//			if result {
-//				if sSelf.gameProvider.isSessionActive {
-//					let controller = CardViewController.controllerFromStoryboard(.main)
-//					controller.modalTransitionStyle = .crossDissolve
-//					sSelf.appNavigator?.go(controller: controller, mode: .modal)
-//				}
-//				else {
-//					sSelf.gameProvider.load(completion: { (_) in
-//						let controller = AdditionsViewController()
-//						controller.modalTransitionStyle = .crossDissolve
-//						sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
-//					})
-//				}
-//			}
-//			else {
-//				Alert(alert: String(.authError), actions: String(.ok)).present(in: sSelf)
-//			}
-//		}
-	}
-	
-	func signupButtonPressed() {
-		print("sign up pressed")
-	}
-	
-	func validateActiveField(type: AuthTextViewType, text: String) {
-		let isValid = authProvider.isValid(type: type, text: text)
-		customView.update(textFieldType: type, text: text, state: isValid ? .active : .error)
-	}
-	
-	func beginEditing(fieldType: AuthTextViewType, text: String) {
-		customView.update(textFieldType: fieldType, text: text, state: .active)
-	}
-	
-	func endEditing(fieldType: AuthTextViewType, text: String) {
-		let isValid = authProvider.isValid(type: fieldType, text: text)
-		customView.update(textFieldType: fieldType, text: text, state: isValid ? .normal : .error)
-	}
-	
-	func valueChanged(fieldType: AuthTextViewType, text: String) {
-		customView.update(textFieldType: fieldType, text: text, state: .active)
-	}
-}
+*/

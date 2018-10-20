@@ -12,17 +12,15 @@ protocol AuthProviderProtocol {
 	var currentUser: User? { get set }
 	var token: String { get }
 	
-	//TODO: продумать как это можно сделать проще
 	var login: String? { get set }
 	var avatar: UIImage? { get set }
 	var isTokenLoaded: Bool { get }
 	var allFieldIsValid: Bool { get }
-	
 	func authorize(with login: String, password: String, completion: @escaping (Bool) -> Void)
 	func logout(error: String?)
 	func clear()
 	func load(with login: String, completion: @escaping (Bool) -> Void)
-	func isValid(type: AuthTextViewType, text: String) -> Bool
+	@discardableResult func isValid(type: AuthTextViewType, text: String) -> Bool
 }
 
 final class AuthProvider: AuthProviderProtocol {
@@ -49,7 +47,6 @@ final class AuthProvider: AuthProviderProtocol {
 	private var userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
 	private var emailIsValid: Bool = false
 	private var passwordIsValid: Bool = false
-	
 	
 	//MARK: - Init
 	
@@ -126,8 +123,8 @@ final class AuthProvider: AuthProviderProtocol {
 		}
 	}
 	
+	@discardableResult
 	func isValid(type: AuthTextViewType, text: String) -> Bool {
-		
 		switch type {
 		case .email:
 			let value = NSPredicate.emailValidator.evaluate(with: text)

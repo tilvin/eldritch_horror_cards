@@ -545,6 +545,7 @@
 		A441BBD62109BC3C00EAC5DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4B35E5F217BB92A002496E7 /* Realm */,
 				9F171C57211D59DE005A8264 /* Addition.swift */,
 				A441BBBB2108BB0F00EAC5DD /* Cards.swift */,
 				9F61A1EE2170841B00A5003C /* Expedition.swift */,
@@ -751,6 +752,13 @@
 				A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */,
 			);
 			path = Provider;
+			sourceTree = "<group>";
+		};
+		A4B35E5F217BB92A002496E7 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		A4C2532F211DEE4400E0FF37 /* Additions */ = {
