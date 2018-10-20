@@ -533,7 +533,6 @@
 			isa = PBXGroup;
 			children = (
 				9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */,
-				A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */,
 				A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */,
 				A4563B0A20F8846100B65428 /* ConfigProvider.swift */,
 				9FC7F667215AC90500A2A7B3 /* GameProvider.swift */,
@@ -674,6 +673,7 @@
 			isa = PBXGroup;
 			children = (
 				A41CA69720D23EC600E2F817 /* AuthViewController.swift */,
+				A4B35E5E217BA001002496E7 /* Provider */,
 				A4B35E50217A873B002496E7 /* Model */,
 				A47771A721452E57007F2058 /* Views */,
 			);
@@ -743,6 +743,14 @@
 				A4B35E59217A8A4A002496E7 /* DefaultAppearance.swift */,
 			);
 			path = Themes;
+			sourceTree = "<group>";
+		};
+		A4B35E5E217BA001002496E7 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				A4B92D8F20FCCA37002C9936 /* AuthProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		A4C2532F211DEE4400E0FF37 /* Additions */ = {

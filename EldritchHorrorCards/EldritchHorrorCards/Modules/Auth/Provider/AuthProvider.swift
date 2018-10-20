@@ -11,13 +11,18 @@ import UIKit
 protocol AuthProviderProtocol {
 	var currentUser: User? { get set }
 	var token: String { get }
-	var login: String { get set }
-	var isChachedLogin: Bool { get }
-	func loadToken() -> Bool
+	
+	//TODO: продумать как это можно сделать проще
+	var login: String? { get set }
+	var avatar: UIImage? { get set }
+	var isTokenLoaded: Bool { get }
+	var allFieldIsValid: Bool { get }
+	
 	func authorize(with login: String, password: String, completion: @escaping (Bool) -> Void)
 	func logout(error: String?)
 	func clear()
 	func load(with login: String, completion: @escaping (Bool) -> Void)
+	func isValid(type: AuthTextViewType, text: String) -> Bool
 }
 
 final class AuthProvider: AuthProviderProtocol {
@@ -27,19 +32,26 @@ final class AuthProvider: AuthProviderProtocol {
 		static let loginKey = "login_key"
 	}
 	
+	var avatar: UIImage?
 	var currentUser: User?
 	var token: String {
 		guard let user = currentUser else { return "" }
 		return user.token
 	}
-	var login: String = ""
-	var isChachedLogin: Bool {
-		return !login.isEmpty
+	var login: String?
+	var allFieldIsValid: Bool {
+		return emailIsValid && passwordIsValid
 	}
+	
 	//MARK: - Private
 	
 	private var configProvider = DI.providers.resolve(ConfigProviderProtocol.self)!
 	private var userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
+	private var emailIsValid: Bool = false
+	private var passwordIsValid: Bool = false
+	
+	
+	//MARK: - Init
 	
 	init() {
 		loadData()
@@ -47,7 +59,7 @@ final class AuthProvider: AuthProviderProtocol {
 	
 	//MARK: - Public
 	
-	func loadToken() -> Bool {
+	var isTokenLoaded: Bool {
 		guard !configProvider.token.isEmpty else { return false }
 		return !configProvider.login.isEmpty && !configProvider.token.isEmpty
 	}
@@ -114,11 +126,27 @@ final class AuthProvider: AuthProviderProtocol {
 		}
 	}
 	
+	func isValid(type: AuthTextViewType, text: String) -> Bool {
+		
+		switch type {
+		case .email:
+			let value = NSPredicate.emailValidator.evaluate(with: text)
+			emailIsValid = value
+			return emailIsValid
+		case .password:
+			let value = text.count >= 6
+			passwordIsValid = value
+			return passwordIsValid
+		}
+	}
+	
 	//MARK: - Private
 	
 	func loadData() {
-		if let login = userDefaultsProvider.get(key: Constants.loginKey, type: String.self) {
-			self.login = login
+		self.login = userDefaultsProvider.get(key: Constants.loginKey, type: String.self)
+		if let data = userDefaultsProvider.get(key: Constants.avatarKey, type: Data.self),
+			let image = UIImage(data: data) {
+			self.avatar = image
 		}
 	}
 }

@@ -66,7 +66,7 @@ class AuthViewController: BaseViewController {
 	}
 	
 	private func autoLogin() {
-		guard authProvider.isChachedLogin else { return }
+		guard let login = authProvider.login else { return }
 //
 //		if gameProvider.isSessionActive {
 //			self.customView.signUpButton.isEnabled = false
@@ -121,11 +121,7 @@ class AuthViewController: BaseViewController {
 	}
 	
 	private func checkLogin(login: String = "") {
-		//FIXME: Тут сложней схема. На сервер отправляется запрос с логином. По которому идет проверка и если такой пользователь есть - возаращется просто урл на его аватар. а дальше идет загрузка аватарки
-		if let avatar = UserDefaults.standard.data(forKey: "avatar") {
-			guard let image  = UIImage(data: avatar) else {return}
-			customView.avatarView.update(avatar: image)
-		}
+		customView.update(avatar: authProvider.avatar)
 	}
 }
 
@@ -134,6 +130,7 @@ extension AuthViewController: Keyboardable {}
 extension AuthViewController: AuthViewDelegate {
 	
 	func loginButtonPressed() {
+		
 //		guard let login = customView.emailTextField.text, !login.isEmpty else {
 //			customView.updateView(type: .email)
 //			return
@@ -176,8 +173,8 @@ extension AuthViewController: AuthViewDelegate {
 	}
 	
 	func validateActiveField(type: AuthTextViewType, text: String) {
-//		validateProvider.isValid(type: type, text: text)
-		customView.update(textFieldType: type, text: text, state: .active)
+		let isValid = authProvider.isValid(type: type, text: text)
+		customView.update(textFieldType: type, text: text, state: isValid ? .active : .error)
 	}
 	
 	func beginEditing(fieldType: AuthTextViewType, text: String) {
@@ -185,22 +182,11 @@ extension AuthViewController: AuthViewDelegate {
 	}
 	
 	func endEditing(fieldType: AuthTextViewType, text: String) {
-		customView.update(textFieldType: fieldType, text: text, state: .normal)
-//		switch fieldType {
-//		case .email:
-//
-//		case .password:
-//
-//		}
+		let isValid = authProvider.isValid(type: fieldType, text: text)
+		customView.update(textFieldType: fieldType, text: text, state: isValid ? .normal : .error)
 	}
 	
 	func valueChanged(fieldType: AuthTextViewType, text: String) {
 		customView.update(textFieldType: fieldType, text: text, state: .active)
-//		switch fieldType {
-//		case .email:
-//			
-//		case .password:
-//			
-//		}
 	}
 }

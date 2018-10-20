@@ -49,10 +49,6 @@ final class AuthView: BaseScrollView {
 	
 	//MARK: - Public lazy variables
 	
-	lazy var avatarView: AvatarView = {
-		return AvatarView()
-	}()
-	
 	lazy var emailTextView: AuthTextView = {
 		let view = AuthTextView(viewModel: AuthTextViewModel(type: .email, state: .active))
 		view.delegate = self
@@ -65,7 +61,13 @@ final class AuthView: BaseScrollView {
 		return view
 	}()
 	
-	lazy var signUpButton: UIButton = {
+	//MARK: - Private lazy variables
+	
+	private lazy var avatarView: AvatarView = {
+		return AvatarView()
+	}()
+	
+	private lazy var signUpButton: UIButton = {
 		let view = UIButton()
 		view.titleLabel?.font = .regular12
 		view.setTitle(String(.authSignup), for: .normal)
@@ -73,8 +75,6 @@ final class AuthView: BaseScrollView {
 		view.addTarget(self, action: #selector(signupButtonPressed), for: .touchUpInside)
 		return view
 	}()
-	
-	//MARK: - Private lazy variables
 	
 	private lazy var authBackgroundImageView: UIImageView = {
 		return UIImageView(with: UIImage.authBackground, contentMode: .scaleToFill)
@@ -121,6 +121,10 @@ final class AuthView: BaseScrollView {
 		case .password:
 			passwordTextView.update(viewModel: AuthTextViewModel(type: textFieldType, text: text, state: state))
 		}
+	}
+	
+	public func update(avatar: UIImage?) {
+		avatarView.update(avatar: avatar)
 	}
 	
 	//MARK: - Private

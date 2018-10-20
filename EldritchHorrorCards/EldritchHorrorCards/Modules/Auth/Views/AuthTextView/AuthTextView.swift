@@ -90,7 +90,9 @@ final class AuthTextView: UIView {
 			underLineView.backgroundColor = .gallery
 		case .error:
 			underLineView.backgroundColor = .errorBorder
+			textField.shake()
 		}
+		
 	}
 	
 	//MARK: - Private
