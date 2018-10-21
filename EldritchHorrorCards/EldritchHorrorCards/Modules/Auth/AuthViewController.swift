@@ -1,6 +1,6 @@
 import UIKit
 
-class AuthViewController: BaseViewController {
+final class AuthViewController: BaseViewController {
 	var customView: AuthView { return self.view as! AuthView }
 	var notificationTokens: [NotificationToken] = []
 	var editableViews: [UIResponder] {
@@ -60,7 +60,7 @@ class AuthViewController: BaseViewController {
 		editableViews.forEach { $0.resignFirstResponder() }
 	}
 	
-	private func checkLogin(login: String = "") {
+	private func checkLogin(login: String) {
 		authProvider.loadAvatar(login: login) { [weak self] (image) in
 			self?.customView.update(avatar: image)
 		}
@@ -77,32 +77,18 @@ extension AuthViewController: AuthViewDelegate {
 			return
 		}
 		
-		gameProvider.load(completion: { [weak self] (_) in
-			guard let sSelf = self else { return }
-			let controller = AdditionsViewController()
-			controller.modalTransitionStyle = .crossDissolve
-			sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
-		})
-		
-		
-		//		if !gameProvider.isSessionActive {
-		//			authProvider.load(with: login) { (success) in
-		//				success ? print("Users is load!") : print("Something gone wrong!")
-		//			}
-		//		}
-		//
-		//		//TODO: сделать реальный метод загрузки данных
-		//		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
-		//			guard let sSelf = self else { return }
-		//			if sSelf.gameProvider.isSessionActive {
-		//				let controller = CardViewController.controllerFromStoryboard(.main)
-		//				controller.modalTransitionStyle = .crossDissolve
-		//				sSelf.appNavigator?.go(controller: controller, mode: .modal)
-		//			}
-		//			else {
-		//
-		//			}
-		//		}
+		authProvider.authorize(with: login, password: password) { [weak self] (result) in
+			guard let sSelf = self, result else {
+				Alert(alert: String(.authError), actions: String(.ok)).present(in: self)
+				return
+			}
+			
+			sSelf.gameProvider.load(completion: { (_) in
+				let controller = AdditionsViewController()
+				controller.modalTransitionStyle = .crossDissolve
+				sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
+			})
+		}
 	}
 	
 	func signupButtonPressed() {
@@ -116,6 +102,11 @@ extension AuthViewController: AuthViewDelegate {
 	
 	func beginEditing(fieldType: AuthTextViewType, text: String) {
 		authProvider.isValid(type: fieldType, text: text)
+		
+		//FIXME: костыль! надо придумать покрасивше!
+		if fieldType == .password {
+			checkLogin(login: customView.viewModel.item(type: .email).text)
+		}
 		customView.update(textFieldType: fieldType, text: text, state: .active)
 	}
 	
@@ -129,61 +120,3 @@ extension AuthViewController: AuthViewDelegate {
 		customView.update(textFieldType: fieldType, text: text, state: .active)
 	}
 }
-
-/*
-private func autoLogin() {
-guard let login = authProvider.login else { return }
-print("autologin...")
-//
-//		if gameProvider.isSessionActive {
-//			self.customView.signUpButton.isEnabled = false
-//			self.checkLogin(login: authProvider.login)
-//			self.customView.emailTextField.text = authProvider.login
-//			self.customView.passwordTextField.text = "*********"
-//			cardDataProvider.load(gameId: gameProvider.game.id) { [weak self] (success) in
-//				guard let sSelf = self else { return }
-//				if success {
-//					let controller = CardViewController.controllerFromStoryboard(.main)
-//					controller.modalTransitionStyle = .crossDissolve
-//					sSelf.appNavigator?.go(controller: controller, mode: .modal)
-//				}
-//				else {
-//					print("error!")
-//				}
-//			}
-//		}
-//		else {
-//			gameProvider.load { [weak self] (success) in
-//				guard let sSelf = self else { return }
-//				sSelf.customView.signUpButton.isEnabled = false
-//				sSelf.checkLogin(login: login)
-//				sSelf.authProvider.load(with: login) { (success) in
-//					success ? print("Users is load!") : print("Something gone wrong!")
-//					sSelf.customView.emailTextField.text = login
-//					sSelf.customView.passwordTextField.text = "*********"
-//					if sSelf.gameProvider.isSessionActive {
-//						provider.load(gameId: gameProvider.game.id) { [weak self] (success) in
-//							guard let sSelf = self else { return }
-//							if success {
-//								print("Card is load!!")
-//								let controller = CardViewController.controllerFromStoryboard(.main)
-//								controller.modalTransitionStyle = .crossDissolve
-//								sSelf.appNavigator?.go(controller: controller, mode: .modal)
-//							}
-//							else {
-//								print("error!")
-//							}
-//						}
-//					}
-//					else {
-//						sSelf.gameProvider.load(completion: { (_) in
-//							let controller = AdditionsViewController()
-//							controller.modalTransitionStyle = .crossDissolve
-//							sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
-//						})
-//					}
-//				}
-//			}
-//		}
-}
-*/

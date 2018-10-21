@@ -41,11 +41,12 @@ final class AuthView: BaseScrollView {
 	//MARK: - Public variables
 	
 	var delegate: AuthViewDelegate?
+	var viewModel: AuthViewModel!
 	
 	//MARK: - Private variables
 	
 	private let appearance = Appearance()
-	private var viewModel: AuthViewModel!
+	
 	
 	//MARK: - Public lazy variables
 	
