@@ -7,7 +7,10 @@ target 'EldritchHorrorCards' do
 	pod 'SnapKit'
 	pod 'Zip'
 	pod "SwiftLint"
+	
+	pod 'ObjectMapper+Realm'
 	pod 'RealmSwift'
+	pod 'ObjectMapper', :git => 'https://github.com/alecdoconnor/ObjectMapper.git'
 	
 	#	pod 'Reveal-SDK', :configurations => ['Debug']
 end

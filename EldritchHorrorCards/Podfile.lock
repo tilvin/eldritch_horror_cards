@@ -1,24 +1,52 @@
 PODS:
+  - ObjectMapper (3.2.0)
+  - "ObjectMapper+Realm (0.6)":
+    - ObjectMapper
+    - RealmSwift
+  - Realm (3.10.0):
+    - Realm/Headers (= 3.10.0)
+  - Realm/Headers (3.10.0)
+  - RealmSwift (3.10.0):
+    - Realm (= 3.10.0)
   - SnapKit (4.0.0)
   - SwiftLint (0.27.0)
   - Zip (1.1.0)
 
 DEPENDENCIES:
+  - ObjectMapper (from `https://github.com/alecdoconnor/ObjectMapper.git`)
+  - "ObjectMapper+Realm"
+  - RealmSwift
   - SnapKit
   - SwiftLint
   - Zip
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - "ObjectMapper+Realm"
+    - Realm
+    - RealmSwift
     - SnapKit
     - SwiftLint
     - Zip
 
+EXTERNAL SOURCES:
+  ObjectMapper:
+    :git: https://github.com/alecdoconnor/ObjectMapper.git
+
+CHECKOUT OPTIONS:
+  ObjectMapper:
+    :commit: 36308e935de04a27ed7d5c469900f965c9d29983
+    :git: https://github.com/alecdoconnor/ObjectMapper.git
+
 SPEC CHECKSUMS:
+  ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
+  "ObjectMapper+Realm": 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
+  Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
+  RealmSwift: 69121c8b86d0ae005fb779efdb10e606732e1c74
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 06dd27a5d84e2393d8faa5127e72e4b87298e97a
+PODFILE CHECKSUM: fb3fcf575818f0df72f9035efb568fbfa00ddf9c
 
 COCOAPODS: 1.5.3

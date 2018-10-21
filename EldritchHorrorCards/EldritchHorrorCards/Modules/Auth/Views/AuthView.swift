@@ -190,7 +190,8 @@ final class AuthView: BaseScrollView {
 	//MARK: - Handlers
 	
 	@objc private func loginButtonPressed() {
-		
+		delegate?.valueChanged(fieldType: .email, text: viewModel.item(type: .email).text)
+		delegate?.valueChanged(fieldType: .password, text: viewModel.item(type: .password).text)
 		delegate?.loginButtonPressed(login: viewModel.item(type: .email).text, password: viewModel.item(type: .password).text)
 	}
 	

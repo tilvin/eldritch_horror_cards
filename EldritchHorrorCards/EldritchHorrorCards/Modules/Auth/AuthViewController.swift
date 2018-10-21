@@ -61,44 +61,48 @@ class AuthViewController: BaseViewController {
 	}
 	
 	private func checkLogin(login: String = "") {
-		customView.update(avatar: authProvider.avatar)
+		authProvider.loadAvatar(login: login) { [weak self] (image) in
+			self?.customView.update(avatar: image)
+		}
 	}
 }
 
 extension AuthViewController: Keyboardable {}
 
 extension AuthViewController: AuthViewDelegate {
-
+	
 	func loginButtonPressed(login: String, password: String) {
 		guard authProvider.allFieldIsValid else {
 			Alert(alert: String(.authError), actions: String(.ok)).present(in: self)
 			return
 		}
-		if !gameProvider.isSessionActive {
-			authProvider.load(with: login) { (success) in
-				success ? print("Users is load!") : print("Something gone wrong!")
-			}
-		}
-		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
+		
+		gameProvider.load(completion: { [weak self] (_) in
 			guard let sSelf = self else { return }
-//			if result {
-//				if sSelf.gameProvider.isSessionActive {
-//					let controller = CardViewController.controllerFromStoryboard(.main)
-//					controller.modalTransitionStyle = .crossDissolve
-//					sSelf.appNavigator?.go(controller: controller, mode: .modal)
-//				}
-//				else {
-//					sSelf.gameProvider.load(completion: { (_) in
-//						let controller = AdditionsViewController()
-//						controller.modalTransitionStyle = .crossDissolve
-//						sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
-//					})
-//				}
-//			}
-//			else {
-//				Alert(alert: String(.authError), actions: String(.ok)).present(in: sSelf)
-//			}
-		}
+			let controller = AdditionsViewController()
+			controller.modalTransitionStyle = .crossDissolve
+			sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)
+		})
+		
+		
+		//		if !gameProvider.isSessionActive {
+		//			authProvider.load(with: login) { (success) in
+		//				success ? print("Users is load!") : print("Something gone wrong!")
+		//			}
+		//		}
+		//
+		//		//TODO: сделать реальный метод загрузки данных
+		//		authProvider.authorize(with: login, password: password) { [weak self] (result: Bool) in
+		//			guard let sSelf = self else { return }
+		//			if sSelf.gameProvider.isSessionActive {
+		//				let controller = CardViewController.controllerFromStoryboard(.main)
+		//				controller.modalTransitionStyle = .crossDissolve
+		//				sSelf.appNavigator?.go(controller: controller, mode: .modal)
+		//			}
+		//			else {
+		//
+		//			}
+		//		}
 	}
 	
 	func signupButtonPressed() {

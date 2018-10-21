@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,6 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print("\n\(documentsPath)\n")
+		
+		var config = Realm.Configuration.defaultConfiguration
+		config.schemaVersion = 1
+		config.deleteRealmIfMigrationNeeded = true
+		Realm.Configuration.defaultConfiguration = config
 		
         DI.registerProviders()
         DI.providers.resolve(ConfigProviderProtocol.self)!.load()
