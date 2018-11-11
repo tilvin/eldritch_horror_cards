@@ -14,7 +14,6 @@
 		9F0E79F42112FDED0080C907 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E79F32112FDED0080C907 /* User.swift */; };
 		9F171C58211D59DE005A8264 /* Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C57211D59DE005A8264 /* Addition.swift */; };
 		9F171C5A211D5AB6005A8264 /* AdditionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */; };
-		9F322861210B7CF800ECD4A4 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322860210B7CF800ECD4A4 /* CardViewController.swift */; };
 		9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322867210B855C00ECD4A4 /* ImageCell.swift */; };
 		9F32286A210B85D500ECD4A4 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F322869210B85D500ECD4A4 /* ImageCell.xib */; };
 		9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9F3CBDA02110CB6F00E842A4 /* monsters.zip */; };
@@ -40,6 +39,7 @@
 		A4208346212B51D30081E762 /* AdditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208345212B51D30081E762 /* AdditionCell.swift */; };
 		A4208349212B524D0081E762 /* AdditionsListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */; };
 		A4208353212B57820081E762 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208352212B57820081E762 /* CALayerExtensions.swift */; };
+		A42190AC21985BD100AADC68 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42190AB21985BD000AADC68 /* CartView.swift */; };
 		A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBB2108BB0F00EAC5DD /* Cards.swift */; };
 		A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */; };
 		A4563ADC20F7DBD400B65428 /* LocalizationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */; };
@@ -153,7 +153,6 @@
 		9F0E79F32112FDED0080C907 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9F171C57211D59DE005A8264 /* Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addition.swift; sourceTree = "<group>"; };
 		9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionDataProvider.swift; sourceTree = "<group>"; };
-		9F322860210B7CF800ECD4A4 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		9F322867210B855C00ECD4A4 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		9F322869210B85D500ECD4A4 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		9F3CBDA02110CB6F00E842A4 /* monsters.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = monsters.zip; sourceTree = "<group>"; };
@@ -180,6 +179,7 @@
 		A4208345212B51D30081E762 /* AdditionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionCell.swift; sourceTree = "<group>"; };
 		A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionsListTableAdapter.swift; sourceTree = "<group>"; };
 		A4208352212B57820081E762 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
+		A42190AB21985BD000AADC68 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		A441BBBB2108BB0F00EAC5DD /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProvider.swift; sourceTree = "<group>"; };
 		A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationExtensions.swift; sourceTree = "<group>"; };
@@ -317,7 +317,6 @@
 		9F32286D210C341400ECD4A4 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				9F80B99A210C3C96007C4396 /* CardsCarouselViewController.swift */,
 				9F322867210B855C00ECD4A4 /* ImageCell.swift */,
 				9F322869210B85D500ECD4A4 /* ImageCell.xib */,
 				9F61A1E8217074B800A5003C /* Expedition */,
@@ -431,7 +430,7 @@
 		A42190A921985AC500AADC68 /* CardsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9F322860210B7CF800ECD4A4 /* CardViewController.swift */,
+				9F80B99A210C3C96007C4396 /* CardsCarouselViewController.swift */,
 				A42190AA21985AFA00AADC68 /* Views */,
 				9F32286D210C341400ECD4A4 /* Cards */,
 			);
@@ -441,6 +440,7 @@
 		A42190AA21985AFA00AADC68 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A42190AB21985BD000AADC68 /* CartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -616,9 +616,9 @@
 		A45E5660210B32C900590AE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A499E98521445A49001186A5 /* LoaderView.swift */,
 				A45E5661210B32F500590AE7 /* BaseScrollView.swift */,
 				A4788AE0212D5F7D006D71FD /* CustomButton.swift */,
+				A499E98521445A49001186A5 /* LoaderView.swift */,
 				A420833C212B1B510081E762 /* TableView */,
 			);
 			path = Views;
@@ -1023,6 +1023,7 @@
 				A4F3B1E4212ECB9F00F03E7B /* DateHelper.swift in Sources */,
 				A4208340212B1B8D0081E762 /* BaseTableViewCell.swift in Sources */,
 				A47771A921452E81007F2058 /* AuthView.swift in Sources */,
+				A42190AC21985BD100AADC68 /* CartView.swift in Sources */,
 				A4F3B1D8212ECB8A00F03E7B /* ViewController.swift in Sources */,
 				A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */,
 				9F61A1EB2170751300A5003C /* ExpeditionViewController.swift in Sources */,
@@ -1075,7 +1076,6 @@
 				A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */,
 				A420833B212B1B0B0081E762 /* TableViewHeaderFooterConfiguration.swift in Sources */,
 				A47771AF214531DD007F2058 /* UITextFieldExtension.swift in Sources */,
-				9F322861210B7CF800ECD4A4 /* CardViewController.swift in Sources */,
 				A4208333212B1AFB0081E762 /* BaseTableAdapter.swift in Sources */,
 				A4563AFD20F87FF500B65428 /* DI.swift in Sources */,
 				A4F3B1DC212ECB8A00F03E7B /* ViewControllerUI.swift in Sources */,

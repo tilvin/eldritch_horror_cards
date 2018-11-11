@@ -1,31 +1,43 @@
 //
-//  CardViewController.swift
+//  CardsCarousel.swift
 //  EldritchHorrorCards
 //
-//  Created by Вероника Садовская on 27.07.2018.
+//  Created by Вероника Садовская on 28.07.2018.
 //  Copyright © 2018 Andrey Torlopov. All rights reserved.
 //
+
 import UIKit
 
-class CardViewController: CardsCarouselViewController {
+class CardsCarouselViewController: BaseViewController {
 	
-	//MARK: - Private variables
-	
+	public var customView: CartView { return view as! CartView }
 	private var cardProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
 	private var cards: Cards?
 	
-	//MARK: - Lifecycle
+	//MARK: - Init
+	
+	init() {
+		super.init(nibName: nil, bundle: nil)
+		self.isHiddenNavigationBar = true
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func loadView() {
+		view = CartView(frame: UIScreen.main.bounds)
+		customView.cartCollectionView.delegate = self
+		customView.cartCollectionView.dataSource = self
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = UIColor.wildSand
-		isHiddenNavigationBar = true
-		viewConfigrations()
 		cards = cardProvider.cards
 	}
 }
 
-extension CardViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CardsCarouselViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return cards!.avaliableCardTypes.count

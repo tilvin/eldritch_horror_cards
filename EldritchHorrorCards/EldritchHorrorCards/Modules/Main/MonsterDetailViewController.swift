@@ -25,7 +25,7 @@ class MonsterDetailViewController: BaseViewController {
 				cardProvider .load(gameId: gameProvider.game.id) { [weak self] (success) in
 					guard let sSelf = self else { return }
 					if success {
-						let controller = CardViewController.controllerFromStoryboard(.main)
+						let controller = CardsCarouselViewController()
 						controller.modalTransitionStyle = .crossDissolve
 						sSelf.appNavigator?.go(controller: controller, mode: .modal)
 					}
