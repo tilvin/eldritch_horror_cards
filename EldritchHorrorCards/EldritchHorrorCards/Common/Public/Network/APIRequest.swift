@@ -6,6 +6,7 @@
 import Foundation
 
 private extension URL {
+
 	func appendingQueryParameters(_ parameters: [String: String]) -> URL {
 		var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
 		var items = urlComponents.queryItems ?? []
@@ -14,11 +15,12 @@ private extension URL {
 		return urlComponents.url!
 	}
 }
+
 enum APIRequest {
 	case login(login: String, password: String)
 	case games
 	case gameSets
-	case selectGameSets(gameId: Int, addons: [String])
+	case selectGameSets(gameId: Int, addons: [String], maps: [String])
 	case ancients(gameId: Int)
 	case selectAncient(gameId: Int, ancient: Int)
 	case cards(gameId: Int)
@@ -76,9 +78,9 @@ extension APIRequest {
 			components.path = "/game_sets"
 			components.asJson = false
 			return components
-		case .selectGameSets(let gameId, let addons):
+		case .selectGameSets(let gameId, let addons, let maps):
 			components.path = "/games/\(gameId)"
-			components.parameters = ["game": ["game_set_identity": addons]]
+			components.parameters = ["game": ["game_set_identity": addons, "with_map": maps]]
 			return components
 		case .ancients(let gameId):
 			components.path = "/ancients"
@@ -94,7 +96,6 @@ extension APIRequest {
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			return components
-			
 		case .expedition(let gameId, let type):
 			components.path = "/expedition_contacts"
 			components.urlParameters["game_id"] = "\(gameId)"
@@ -102,7 +103,6 @@ extension APIRequest {
 			components.asJson = false
 			return components
 		}
-		
 	}
 	
 	private var method: String {

@@ -45,7 +45,9 @@ class AvatarView: DesignableView {
 	
 	func update(avatar: UIImage?) {
 		let image = avatar ?? UIImage.defaultAvatar
-		userAvatar.set(image: image)
+		DispatchQueue.main.async {
+			self.userAvatar.set(image: image)
+		}
 	}
 	
 	//MARK: - Private

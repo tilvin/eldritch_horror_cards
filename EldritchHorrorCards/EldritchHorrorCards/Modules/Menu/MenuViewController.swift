@@ -38,6 +38,7 @@ final class MenuViewController: BaseViewController {
 	}
 	
 	override func loadView() {
+		//FIXME: ошибка с потоками.
 		if let currentUser = authProvider.currentUser {
 			let viewModel = MenuViewModel(userName: (currentUser.userName), avatar: UIImage.defaultAvatar)
 			let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)

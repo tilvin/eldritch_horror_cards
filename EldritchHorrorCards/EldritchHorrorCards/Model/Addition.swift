@@ -18,9 +18,9 @@ struct Addition: Codable {
 	var isSelected: Bool = false
 	
 	enum CodingKeys: String, CodingKey {
-		case id = "id"
-		case name = "name"
-		case description = "description"
-		case identity = "identity"
+		case id
+		case name
+		case description
+		case identity
 	}
 }

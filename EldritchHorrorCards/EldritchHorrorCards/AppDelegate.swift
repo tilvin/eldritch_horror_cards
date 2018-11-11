@@ -7,11 +7,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		
-		#if DEBUG
-		print("debug mode: on!")
-		#endif
-		
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print("\n\(documentsPath)\n")
 		
@@ -24,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DI.providers.resolve(ConfigProviderProtocol.self)!.load()
         DI.providers.resolve(NavigatorProtocol.self)?.create(self)
 		
-		if let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView  {
+		if let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView {
 			statusBarView.backgroundColor = .wildSand
 		}
 		

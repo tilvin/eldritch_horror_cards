@@ -28,7 +28,7 @@ extension AdditionsListView {
 	}
 }
 
-class AdditionsListView: UIView {
+final class AdditionsListView: UIView {
 	
 	//MARK: - Public variables
 	
@@ -88,10 +88,7 @@ class AdditionsListView: UIView {
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-		addSubviews()
-		makeConstraints()
-		layoutIfNeeded()
+		fatalError("required init!")
 	}
 	
 	//MARK: - Private

@@ -37,22 +37,22 @@ private struct Download {
 public extension UIImageView {
 
 	public func set(image: UIImage, duration: CGFloat = 1.5, animation: Bool = true) {
-		let imageView = UIImageView(frame: frame)
+		let imageView = UIImageView(frame: self.frame)
 		imageView.image = image
 		imageView.alpha = 0
 		if animation {
-			addSubview(imageView)
+			self.addSubview(imageView)
 			UIView.animate(withDuration: TimeInterval(duration),
-					animations: {
-						imageView.alpha = 1.0
-					}) { (_) in
+						   animations: {
+							imageView.alpha = 1.0
+			}) { (_) in
 				self.image = image
 				imageView.removeFromSuperview()
 			}
 		}
 		else {
 			imageView.alpha = 1
-			addSubview(imageView)
+			self.addSubview(imageView)
 		}
 	}
 

@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import ObjectMapper
+import ObjectMapper_Realm
+import RealmSwift
 
 protocol GameDataProviderProtocol {
-	var game: Game! { get set }
+	var game: GameProtocol! { get set }
 	var isSessionActive: Bool { get }
-	func load(completion: @escaping (Bool) -> Void)
+	func loadGameId(completion: @escaping (Bool) -> Void)
 }
 
 class GameDataProvider: NSObject, GameDataProviderProtocol {
@@ -25,7 +28,7 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	
 	//MARK: - Public variables
 	
-	var game: Game!
+	var game: GameProtocol!
 	var isSessionActive: Bool {
 		return !game.token.isEmpty && !game.tokenExpire
 	}
@@ -46,7 +49,7 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 		loadLocalGame()
 	}
 	
-	public func load(completion: @escaping (Bool) -> Void) {
+	public func loadGameId(completion: @escaping (Bool) -> Void) {
 		dataTask?.cancel()
 		dataTask = session.dataTask(with: APIRequest.games.request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
@@ -58,35 +61,31 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 				completion(false)
 				return
 			}
-			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: Game.self, data: data) { [weak self] (result) in
-				guard let sSelf = self else {
-					completion(false)
-					return
-				}
-				if let value = result {
-					sSelf.game = value
-					sSelf.game.tokenExpire = false
-					sSelf.userDefaultsProvider.set(key: Constants.idKey, value: value.id)
-					sSelf.userDefaultsProvider.set(key: Constants.tokenKey, value: value.token)
-					sSelf.userDefaultsProvider.set(key: Constants.expeditionKey, value: value.expeditionLocation)
-					sSelf.userDefaultsProvider.set(key: Constants.expireDateKey, value: Date().adjust(.day, offset: 2))
-					completion(true)
-					return
-				}
+			
+			guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) as? [String: Any],
+				let jsonObject = jsonData,
+				let model = Mapper<Game>().map(JSON: jsonObject) else { return }
+			
+			self.game = model
+			let realm = try! Realm()
+			try! realm.write {
+				realm.add(model, update: true)
+				debugPrint("write game model!")
+				completion(true)
 			}
 		}
 		dataTask?.resume()
 	}
 	
 	private func loadLocalGame() {
-		guard let id = userDefaultsProvider.get(key: Constants.idKey, type: Int.self),
-			let token = userDefaultsProvider.get(key: Constants.tokenKey, type: String.self),
-			let expidition = userDefaultsProvider.get(key: Constants.expeditionKey, type: String.self),
-			let expireDate = userDefaultsProvider.get(key: Constants.expireDateKey, type: Date.self) else {
-				game = Game.init(id: 0, token: "", expeditionLocation: "", tokenExpire: true)
-				return
+		let realm = try! Realm()
+		if realm.objects(Game.self).count == 0 {
+			try! realm.write {
+				realm.add(Game(), update: true)
+			}
 		}
-		game = Game.init(id: id, token: token, expeditionLocation: expidition, tokenExpire: expireDate <= Date())
+		
+		self.game = realm.objects(Game.self).first
 	}
 }
 

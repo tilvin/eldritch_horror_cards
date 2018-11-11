@@ -61,7 +61,10 @@
 * body params: 
 ``` JSON
  { 
-    "game": { "game_set_identity" : ["2", "5"] }
+    "game": {
+         "game_set_identity" : ["2", "5"],
+        "with_map": ["2"]
+         }
  }
 ```
 * response: приходит техническая инфа, которая нам не нужна по сути, главное получить статус `200`.

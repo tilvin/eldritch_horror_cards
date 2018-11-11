@@ -11,7 +11,7 @@ import Foundation
 protocol AdditionDataProviderProtocol {
 	var additions: [Addition] { get set }
 	func load(completion: @escaping ([Addition]) -> Void)
-	func selectAdditions(gameId: Int, additions: [String], completion: @escaping (Bool) -> Void)
+	func selectAdditions(gameId: Int, additions: [String], maps: [String], completion: @escaping (Bool) -> Void)
 }
 
 final class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
@@ -52,10 +52,10 @@ final class AdditionDataProvider: NSObject, AdditionDataProviderProtocol {
 		dataTask?.resume()
 	}
 	
-	func selectAdditions(gameId: Int, additions: [String], completion: @escaping (Bool) -> Void) {
+	func selectAdditions(gameId: Int, additions: [String], maps: [String], completion: @escaping (Bool) -> Void) {
 		guard let session = session else { fatalError() }
 		dataTask?.cancel()
-		dataTask = session.dataTask(with: APIRequest.selectGameSets(gameId: gameId, addons: additions).request) { (_: Data?, response: URLResponse?, error: Error?) -> Void in
+		dataTask = session.dataTask(with: APIRequest.selectGameSets(gameId: gameId, addons: additions, maps: maps).request) { (_: Data?, response: URLResponse?, error: Error?) -> Void in
 			if let error = error {
 				print(error.localizedDescription)
 				completion(false)

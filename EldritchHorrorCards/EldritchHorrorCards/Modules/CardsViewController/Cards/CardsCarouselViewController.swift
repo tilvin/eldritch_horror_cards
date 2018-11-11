@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CardsCarousel: BaseViewController {
+class CardsCarouselViewController: BaseViewController {
 	@IBOutlet private var collectionView: UICollectionView!
+	
+	//MARK: - Lifecycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

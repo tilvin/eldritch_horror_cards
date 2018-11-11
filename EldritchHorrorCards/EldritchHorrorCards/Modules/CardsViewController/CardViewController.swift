@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class CardViewController: CardsCarousel {
+class CardViewController: CardsCarouselViewController {
 	
 	//MARK: - Private variables
 	

@@ -54,10 +54,7 @@ final class AuthViewController: BaseViewController {
 	//MARK: - Private
 	
 	@objc func dismissKeyboard(sender: UITapGestureRecognizer) {
-		guard editableViews.filter({ (responder) -> Bool in
-			return responder.isFirstResponder
-		}).count > 0 else { return }
-		editableViews.forEach { $0.resignFirstResponder() }
+		self.customView.endEditing(true)
 	}
 	
 	private func checkLogin(login: String) {
@@ -83,7 +80,7 @@ extension AuthViewController: AuthViewDelegate {
 				return
 			}
 			
-			sSelf.gameProvider.load(completion: { (_) in
+			sSelf.gameProvider.loadGameId(completion: { (_) in
 				let controller = AdditionsViewController()
 				controller.modalTransitionStyle = .crossDissolve
 				sSelf.appNavigator?.go(controller: controller, mode: .replaceWithPush)

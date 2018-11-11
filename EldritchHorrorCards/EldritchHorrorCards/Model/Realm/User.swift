@@ -26,6 +26,7 @@ class User: Object, Mappable {
 	@objc dynamic var userName: String = ""
 	@objc dynamic var imageURL: String = ""
 	
+	//TODO: дописать метод, который из папки с документами по логику пользователя будет извлекать картинку.
 	var image: UIImage?
 	
 	required convenience init?(map: Map) {

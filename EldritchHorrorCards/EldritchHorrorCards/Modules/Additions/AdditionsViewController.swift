@@ -44,11 +44,12 @@ extension AdditionsViewController: AdditionsListViewDelegate {
 		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 		let monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let additions = provider.additions.filter { $0.isSelected}.map { String($0.id)}
+		let maps = provider.additions.filter { $0.isSelectedMap }.map { String($0.id)}
 		
-		provider.selectAdditions(gameId: gameProvider.game.id, additions: additions) { [weak self] (success) in
+		provider.selectAdditions(gameId: gameProvider.game.id, additions: additions, maps: maps) { [weak self] (success) in
 			guard let sSelf = self else { return }
 			if success {
-				print("Additions is unload!")
+				print("Additions sent...")
 				monsterProvider.load(gameId: gameProvider.game.id) { (success) in
 					if success {
 						print("Monster is load!")
@@ -57,11 +58,13 @@ extension AdditionsViewController: AdditionsListViewDelegate {
 						sSelf.appNavigator?.go(controller: controller, mode: .modal)
 					}
 					else {
-						print("Something gone wrong!")
+						//TODO: Алерт и переход к авторизации или выбору дополнений (как договоримся)
+						print("error! Something gone wrong!")
 					}
 				}
 			}
 			else {
+				//TODO: Алерт и переход к авторизации или выбору дополнений (как договоримся)
 				print("error!")
 			}
 		}

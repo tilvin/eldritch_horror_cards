@@ -45,23 +45,33 @@ final class AuthProvider: AuthProviderProtocol {
 	}
 	
 	func authorize(with login: String, password: String, completion: @escaping (Bool) -> Void) {
+		
 		//TODO: отправка запроса на сервер и получение данных
+		
 		let  user = User()
 		user.login = login
 		user.token = UUID().uuidString
 		user.userName = "Foo Bar"
 		user.imageURL = "https://www.fakepersongenerator.com/Face/male/male20171086711834930.jpg"
-		UIImage.loadImageWith(url: user.imageURL) { [weak self] (image) in
+		
+		UIImage.loadImageWith(url: user.imageURL) { (image) in
+			debugPrint("avatar is loaded...")
 			user.image = image
-			try! self?.realm.write {
-				self?.realm.add(user, update: true)
-				completion(true)
-			}
+			completion(true)
+		}
+		let realmObj = try! Realm()
+		try! realmObj.write {
+			realmObj.add(user, update: true)
+			debugPrint("realm writed, completion...")
 		}
 	}
 	
 	func logout(error: String?) {
-		realm.delete(realm.objects(User.self))
+		try! realm.write {
+			currentUser = nil
+			realm.delete(realm.objects(User.self))
+			realm.delete(realm.objects(Game.self))
+		}
 	}
 	
 	@discardableResult
@@ -79,7 +89,8 @@ final class AuthProvider: AuthProviderProtocol {
 	}
 	
 	func loadAvatar(login: String, completion: @escaping (UIImage?) -> Void) {
-		//TODO: load avatar from server
+		//TODO: Загрузка аватара с сервера!
+		
 		let url = "https://www.fakepersongenerator.com/Face/female/female1021897675110.jpg"
 		UIImage.loadImageWith(url: url) { (image) in
 			completion(image)
