@@ -36,8 +36,16 @@ final class AuthViewController: BaseViewController {
 		super.viewDidLoad()
 		
 		view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(sender:))))
-		if let email = ["torlopov.andrey@testmail.com", "foo@bar.baz"].shuffled().first {
-			customView.update(textFieldType: .email, text: email, state: .normal)
+		
+		if let currentUser = authProvider.currentUser,
+			gameProvider.game.isSessionActive {
+			print(currentUser)
+			print("load session!")
+		}
+		else {
+			if let email = ["torlopov.andrey@testmail.com", "foo@bar.baz"].shuffled().first {
+				customView.update(textFieldType: .email, text: email, state: .normal)
+			}
 		}
 	}
 	

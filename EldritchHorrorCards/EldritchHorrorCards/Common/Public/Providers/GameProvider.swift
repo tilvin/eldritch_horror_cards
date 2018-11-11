@@ -13,7 +13,6 @@ import RealmSwift
 
 protocol GameDataProviderProtocol {
 	var game: GameProtocol! { get set }
-	var isSessionActive: Bool { get }
 	func loadGameId(completion: @escaping (Bool) -> Void)
 }
 
@@ -29,9 +28,6 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	//MARK: - Public variables
 	
 	var game: GameProtocol!
-	var isSessionActive: Bool {
-		return !game.token.isEmpty && !game.tokenExpire
-	}
 	
 	//MARK: - Private variables
 	

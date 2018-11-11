@@ -45,9 +45,7 @@ final class AuthProvider: AuthProviderProtocol {
 	}
 	
 	func authorize(with login: String, password: String, completion: @escaping (Bool) -> Void) {
-		
 		//TODO: отправка запроса на сервер и получение данных
-		
 		let  user = User()
 		user.login = login
 		user.token = UUID().uuidString

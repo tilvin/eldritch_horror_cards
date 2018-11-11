@@ -15,7 +15,7 @@ protocol GameProtocol: class {
 	var id: Int { get set }
 	var token: String { get set }
 	var expeditionLocation: String { get set }
-	var tokenExpire: Bool { get set }
+	var isSessionActive: Bool { get }
 }
 
 final class Game: Object, Mappable {
@@ -23,8 +23,13 @@ final class Game: Object, Mappable {
 	@objc dynamic var id: Int = 0
 	@objc dynamic var token: String = ""
 	@objc dynamic var expeditionLocation: String = ""
-	@objc dynamic var tokenExpire: Bool = true
 	@objc dynamic var expireDate: Date = Date().adjust(.day, offset: 2)
+	
+	var isSessionActive: Bool {
+		return Date() > expireDate || token.isEmpty
+	}
+	
+	//MARK: - Init
 	
 	required convenience init?(map: Map) {
 		self.init()
