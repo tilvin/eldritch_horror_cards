@@ -10,6 +10,9 @@ extension String {
 		case authSignup
 		case authSignin
 		case authTitle
+		case gameOverAlert
+		case warning
+		case cancel
 	}
 	
 	//MARK: - Inits

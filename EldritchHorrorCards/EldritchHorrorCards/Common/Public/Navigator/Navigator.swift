@@ -8,9 +8,7 @@
 
 import UIKit
 
-import UIKit
-
-class AppNavigator: NSObject, NavigatorProtocol {
+final class AppNavigator: NSObject, NavigatorProtocol {
 	
 	var currentController: BaseViewController?
 	var tabBarControllersProvider: TabBarControllersProviderProtocol
@@ -22,8 +20,8 @@ class AppNavigator: NSObject, NavigatorProtocol {
 		tabBarController = BaseTabBarController()
 	}
 	
-	func go(controller: BaseViewController, mode: NavigatorPresentationMode) {
-		display(controller: controller, mode: mode)
+	func go(controller: BaseViewController, mode: NavigatorPresentationMode, animated: Bool) {
+		display(controller: controller, mode: mode, animated: animated)
 	}
 	
 	func create(_ app: AppDelegate) {
@@ -45,49 +43,40 @@ class AppNavigator: NSObject, NavigatorProtocol {
 		return current
 	}
 	
-	private func display(controller: UIViewController, mode: NavigatorPresentationMode) {
-		if let current = currentController, current.isExclusiveController, current.isKind(of: type(of: controller)) {
-			return
-		}
+	private func display(controller: UIViewController, mode: NavigatorPresentationMode, animated: Bool) {
+		if let current = currentController, current.isExclusiveController, current.isKind(of: type(of: controller)) { return }
 		
 		switch mode {
 		case .push:
-			
 			guard let navController = safetyCurrentController.navigationController else {
-				present(controller: controller)
+				present(controller: controller, animated: animated)
 				return
 			}
-			navController.pushViewController(controller, animated: true)
-			
+			navController.pushViewController(controller, animated: animated)
 		case .modalWithNavigation:
-			
 			let navController = BaseNavigationController(rootViewController: controller)
-			present(controller: navController)
-			
+			present(controller: navController, animated: animated)
 		case .replace:
-			
 			guard let navController = safetyCurrentController.navigationController else {
-				present(controller: controller)
+				present(controller: controller, animated: animated)
 				return
 			}
-			navController.setViewControllers([controller], animated: false)
-			
+			navController.setViewControllers([controller], animated: animated)
 		case .replaceWithPush:
-			
 			guard let navController = safetyCurrentController.navigationController else {
-				present(controller: controller)
+				present(controller: controller, animated: animated)
 				return
 			}
-			navController.pushViewController(controller, animated: true)
+			navController.pushViewController(controller, animated: animated)
 			let controllers = navController.viewControllers.filter { $0 != currentController }
 			navController.setViewControllers(controllers, animated: false)
 		case .modal:
-			present(controller: controller)
+			present(controller: controller, animated: animated)
 		}
 	}
 	
-	private func present(controller: UIViewController) {
-		safetyCurrentController.present(controller, animated: true, completion: nil)
+	private func present(controller: UIViewController, animated: Bool) {
+		safetyCurrentController.present(controller, animated: animated, completion: nil)
 	}
 	
 	private func makeWindowVisible(_ app: AppDelegate) {
@@ -98,8 +87,8 @@ class AppNavigator: NSObject, NavigatorProtocol {
 }
 
 extension AppNavigator: UITabBarControllerDelegate {
+	
 	func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
 		currentController = (viewController as? UINavigationController)?.topViewController as? BaseViewController
 	}
 }
-

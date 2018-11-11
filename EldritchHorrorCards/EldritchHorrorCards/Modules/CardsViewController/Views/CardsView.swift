@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol CartViewDelegate: class {
+protocol CardsViewDelegate: class {
 	func closeButtonPressed()
 }
 
-extension CartView {
+extension CardsView {
 	
 	struct Appearance {
 		let closeTopOffset: CGFloat = 30
@@ -22,8 +22,8 @@ extension CartView {
 	}
 }
 
-final class CartView: UIView {
-	weak var delegate: CartViewDelegate?
+final class CardsView: UIView {
+	weak var delegate: CardsViewDelegate?
 	private let appearance = Appearance()
 	
 	//MARK: - Lazy variables

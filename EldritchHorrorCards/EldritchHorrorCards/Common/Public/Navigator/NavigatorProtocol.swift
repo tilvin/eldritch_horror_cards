@@ -27,8 +27,14 @@ enum NavigatorPresentationMode {
 }
 
 protocol NavigatorProtocol {
-	var currentController: BaseViewController? {get set}
-	func go(controller: BaseViewController, mode: NavigatorPresentationMode)
+	var currentController: BaseViewController? { get set }
+	func go(controller: BaseViewController, mode: NavigatorPresentationMode, animated: Bool)
 	func create(_ app: AppDelegate)
 	func goMain()
+}
+
+extension NavigatorProtocol {
+	func go(controller: BaseViewController, mode: NavigatorPresentationMode, animated: Bool = true) {
+		go(controller: controller, mode: mode, animated: animated)
+	}
 }

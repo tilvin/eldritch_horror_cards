@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CardsCarouselViewController: BaseViewController {
+class CardsViewController: BaseViewController {
 	
-	public var customView: CartView { return view as! CartView }
+	public var customView: CardsView { return view as! CardsView }
 	private var cardProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
 	private var cards: Cards?
 	
@@ -26,9 +26,10 @@ class CardsCarouselViewController: BaseViewController {
 	}
 	
 	override func loadView() {
-		view = CartView(frame: UIScreen.main.bounds)
+		view = CardsView(frame: UIScreen.main.bounds)
 		customView.cartCollectionView.delegate = self
 		customView.cartCollectionView.dataSource = self
+		customView.delegate = self
 	}
 	
 	override func viewDidLoad() {
@@ -37,7 +38,7 @@ class CardsCarouselViewController: BaseViewController {
 	}
 }
 
-extension CardsCarouselViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CardsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return cards!.avaliableCardTypes.count
@@ -59,5 +60,19 @@ extension CardsCarouselViewController: UICollectionViewDataSource, UICollectionV
 		cellSize.width -= collectionView.contentInset.left * 2
 		cellSize.width -= collectionView.contentInset.right * 2
 		return cellSize
+	}
+}
+
+extension CardsViewController: CardsViewDelegate {
+	
+	func closeButtonPressed() {
+		let alert = Alert(title: String(.warning), message: String(.gameOverAlert), preferredStyle: .alert)
+		alert.addAction(title: String(.ok), style: .default) { [weak self] (_) in
+			let additionVC = AdditionsViewController()
+			additionVC.modalTransitionStyle = .crossDissolve
+			self?.appNavigator?.go(controller: additionVC, mode: .replace)
+		}
+		alert.addAction(title: String(.cancel), style: .cancel)
+		alert.present(in: self)
 	}
 }
