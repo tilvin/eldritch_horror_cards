@@ -59,6 +59,7 @@ final class AuthProvider: AuthProviderProtocol {
 			user.image = image
 			completion(true)
 		}
+		currentUser = user
 		let realmObj = try! Realm()
 		try! realmObj.write {
 			realmObj.add(user, update: true)

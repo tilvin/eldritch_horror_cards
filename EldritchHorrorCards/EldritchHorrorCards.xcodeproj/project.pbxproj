@@ -444,6 +444,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A42190AD219871C000AADC68 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 		A441BBCB2109BAA100EAC5DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,9 +590,9 @@
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				A42190A921985AC500AADC68 /* CardsViewController */,
-				A499E97C214403B8001186A5 /* Auth */,
 				A4C2532F211DEE4400E0FF37 /* Additions */,
+				A499E97C214403B8001186A5 /* Auth */,
+				A42190A921985AC500AADC68 /* CardsViewController */,
 				A4208356212BE06E0081E762 /* Description */,
 				A441BBDA2109BC7000EAC5DD /* Main */,
 				A441BBDB2109BC7C00EAC5DD /* Menu */,
@@ -778,8 +786,8 @@
 		A4C2532F211DEE4400E0FF37 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */,
 				A4208341212B51C40081E762 /* AdditionsViewController.swift */,
+				A42190AD219871C000AADC68 /* Providers */,
 				A4E422812129A87D00244744 /* Views */,
 			);
 			path = Additions;

@@ -1,11 +1,12 @@
 import UIKit
 
-class AdditionsViewController: BaseViewController {
+final class AdditionsViewController: BaseViewController {
 
 	var customView: AdditionsListView { return self.view as! AdditionsListView }
 	var adapter = AdditionsListTableAdapter()
 	var menuAction: CommandWith<Command>!
 	var menuContainerView: UIView { return customView.menuContainer }
+	
 	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
 	
 	// MARK: - View lifecycle
@@ -15,9 +16,13 @@ class AdditionsViewController: BaseViewController {
 		adapter.delegate = self
 		adapter.load(tableView: customView.tableView)
 		isHiddenNavigationBar = true
-		setupMenu()
 		customView.delegate = self
-	}	
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		setupMenu()
+	}
 }
 
 extension AdditionsViewController: AdditionsListTableAdapterDelegate {
