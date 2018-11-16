@@ -13,6 +13,7 @@ extension String {
 		case gameOverAlert
 		case warning
 		case cancel
+        case empty
 	}
 	
 	//MARK: - Inits

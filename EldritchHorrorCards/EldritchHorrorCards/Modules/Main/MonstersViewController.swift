@@ -16,15 +16,13 @@ final class MonstersViewController: JFCardSelectionViewController {
 	
 	private lazy var menuButton: UIButton = {
 		let button = UIButton()
-		button.setImage(UIImage(named: "menu_button")!, for: .normal)
+		button.setImage(UIImage.menuButton, for: .normal)
 		button.addTarget(self, action: #selector(MonstersViewController.menuButtonAction), for: .touchUpInside)
 		return button
 	}()
 	
 	private lazy var menuContainer: UIView = {
-		let view = UIView()
-		view.backgroundColor = .clear
-		return view
+		return UIView(backgroundColor: .clear)
 	}()
 	
 	override func viewDidLoad() {
@@ -53,9 +51,9 @@ final class MonstersViewController: JFCardSelectionViewController {
 		}
 		
 		menuButton.snp.makeConstraints { (make) in
-			make.left.equalToSuperview()
+			make.left.equalToSuperview().inset(10)
 			make.top.equalToSuperview().inset(30)
-			make.width.height.equalTo(70)
+			make.width.height.equalTo(40)
 		}
 	}
 	

@@ -27,6 +27,7 @@ extension UIFont {
 	//MARK: Regular
 	
 	static var regular24: UIFont { return UIFont.regular(of: 24) }
+    static var regular18: UIFont { return UIFont.regular(of: 18) }
 	static var regular14: UIFont { return UIFont.regular(of: 14) }
 	static var regular12: UIFont { return UIFont.regular(of: 12) }
 

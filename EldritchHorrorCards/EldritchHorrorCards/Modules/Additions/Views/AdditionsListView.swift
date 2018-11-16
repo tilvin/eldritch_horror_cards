@@ -42,7 +42,7 @@ final class AdditionsListView: UIView {
 	
 	private lazy var menuButton: UIButton = {
 		let button = UIButton()
-		button.setImage(UIImage(named: "menu_button")!, for: .normal)
+		button.setImage(UIImage.menuButton, for: .normal)
 		button.addTarget(self, action: #selector(menuButtonAction), for: .touchUpInside)
 		return button
 	}()
