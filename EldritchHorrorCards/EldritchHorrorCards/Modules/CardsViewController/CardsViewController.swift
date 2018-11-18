@@ -11,8 +11,7 @@ import UIKit
 class CardsViewController: BaseViewController {
 	
 	private var customView: CardsView { return view as! CardsView }
-    private var privider = DI.providers.resolve(CardDataProviderProtocol.self)!
-//    private var cards: [String] = []
+    private var provider = DI.providers.resolve(CardDataProviderProtocol.self)!
     private var adapter = CardsCollectionAdapter()
     
 	//MARK: - Init
@@ -31,37 +30,7 @@ class CardsViewController: BaseViewController {
 		customView.delegate = self
         adapter.load(collectionView: customView.cartCollectionView, delegate: self)
 	}
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        cards = privider.cards?.avaliableCardTypes ?? []
-//    }
 }
-//
-//extension CardsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return cards.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
-//        if (indexPath.row == 0) {
-//            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
-//        }
-//        cell.imageView.image =  UIImage(named: cards[indexPath.row])
-//        cell.typeLabel.text = cards[indexPath.row].localized
-//        cell.cardType = cards[indexPath.row]
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        var cellSize: CGSize = collectionView.bounds.size
-//        cellSize.width -= collectionView.contentInset.left * 2
-//        cellSize.width -= collectionView.contentInset.right * 2
-//        return cellSize
-//    }
-//}
 
 extension CardsViewController: CardsViewDelegate {
 	
@@ -79,4 +48,20 @@ extension CardsViewController: CardsViewDelegate {
 
 extension CardsViewController: CardsCollectionAdapterDelegate {
     
+    func cardSelected(type: String) {
+        var provider = DI.providers.resolve(ExpeditionDataProviderProtocol.self)!
+        let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+        provider.expeditionType = type
+        provider.load(gameId: gameProvider.game.id, type: type) { [weak self] (success) in
+            guard let sSelf = self else { return }
+            if success {
+                let controller = ExpeditionViewController()
+                controller.modalTransitionStyle = .crossDissolve
+                sSelf.appNavigator?.go(controller: controller, mode: .push)
+            }
+            else {
+                print("error!")
+            }
+        }
+    }
 }
