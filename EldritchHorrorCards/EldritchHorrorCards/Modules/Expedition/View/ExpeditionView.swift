@@ -25,8 +25,8 @@ extension ExpeditionView {
 		let titleLabelViewHeight: CGFloat = 40
 		let titleLabelViewWidth: CGFloat = 150
 		let titleImageViewHeight: CGFloat = 151
+		let sectionViewHeight: CGFloat = 140
 		let descriptionTextViewHeight: CGFloat = ScreenType.item(for: (.inch4, 90), (.inch5_5, 72))
-		let successFailureViewHeight: CGFloat = 140
 		let successFailureTextViewRight: CGFloat = ScreenType.item(for: (.inch4, 0), (.inch5_5, 24))
 		let successFailureTextViewTopBottom: CGFloat = ScreenType.item(for: (.inch4, 0), (.inch5_5, 16))
 		let markViewDefault: CGFloat = 8
@@ -46,15 +46,8 @@ class ExpeditionView: BaseScrollView {
 	
 	//MARK: - Private lazy variables
 	
-	private lazy var backButton: UIButton = {
-		let view = UIButton()
-		view.setTitle("", for: .normal)
-		view.setImage(.backButton, for: .normal)
-        view.layer.shadowOpacity = 1
-        view.layer.shadowRadius = 5
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 0)
-		return view
+	private lazy var backButton: CustomButton = {
+		return CustomButton(type: .back)
 	}()
 	
 	private lazy var titleImageView: UIImageView = {
@@ -86,12 +79,8 @@ class ExpeditionView: BaseScrollView {
 		return view
 	}()
 	
-	private lazy var successView: UIView = {
-		let view = UIView()
-		view.clipsToBounds = true
-		view.layer.cornerRadius = 8
-		view.backgroundColor = .gallery
-		return view
+	private lazy var successView: SectionView = {
+		return SectionView(viewColor: .gallery)
 	}()
 	
 	private lazy var successTextView: UITextView = {
@@ -104,12 +93,8 @@ class ExpeditionView: BaseScrollView {
 		return view
 	}()
 	
-	private lazy var failureView: UIView = {
-		let view = UIView()
-		view.clipsToBounds = true
-		view.layer.cornerRadius = 8
-		view.backgroundColor = .paleSalmon
-		return view
+	private lazy var failureView: SectionView = {
+		return SectionView(viewColor: .paleSalmon)
 	}()
 	
 	private lazy var failureTextView: UITextView = {
@@ -119,22 +104,6 @@ class ExpeditionView: BaseScrollView {
 		view.backgroundColor = .clear
 		view.textAlignment = .left
 		view.font = .regular14
-		return view
-	}()
-	
-	private lazy var markSuccessView: UIView = {
-		let view = UIView()
-		view.backgroundColor = .whiteTwo
-		view.layer.cornerRadius = 4
-		view.clipsToBounds = true
-		return view
-	}()
-	
-	private lazy var markFailureView: UIView = {
-		let view = UIView()
-		view.backgroundColor = .whiteTwo
-		view.layer.cornerRadius = 4
-		view.clipsToBounds = true
 		return view
 	}()
 	
@@ -184,11 +153,9 @@ class ExpeditionView: BaseScrollView {
 		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: successView, embed: true)
 		successView.addSubview(successTextView)
-		successView.addSubview(markSuccessView)
 		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: failureView, embed: true)
 		failureView.addSubview(failureTextView)
-		failureView.addSubview(markFailureView)
 		addSeparatorView(expandable: true)
 	}
 	
@@ -224,7 +191,7 @@ class ExpeditionView: BaseScrollView {
 		}
 		
 		successView.snp.remakeConstraints { (make) in
-			make.height.equalTo(appearance.successFailureViewHeight)
+			make.height.equalTo(appearance.sectionViewHeight)
 			make.left.right.equalToSuperview().inset(appearance.defaultSideOffset)
 			make.top.bottom.equalToSuperview()
 		}
@@ -236,7 +203,7 @@ class ExpeditionView: BaseScrollView {
 		}
 		
 		failureView.snp.remakeConstraints { (make) in
-			make.height.equalTo(appearance.successFailureViewHeight)
+			make.height.equalTo(appearance.sectionViewHeight)
 			make.left.right.equalToSuperview().inset(appearance.defaultSideOffset)
 			make.top.bottom.equalToSuperview()
 		}
@@ -245,16 +212,6 @@ class ExpeditionView: BaseScrollView {
 			make.left.equalToSuperview().inset(appearance.defaultSideOffset)
 			make.right.equalToSuperview().inset(appearance.successFailureTextViewRight)
 			make.top.bottom.equalToSuperview().inset(appearance.successFailureTextViewTopBottom)
-		}
-		
-		markSuccessView.snp.makeConstraints { (make) in
-			make.width.height.equalTo(appearance.markViewDefault)
-			make.left.top.equalToSuperview().inset(appearance.markViewDefault)
-		}
-		
-		markFailureView.snp.makeConstraints { (make) in
-			make.width.height.equalTo(appearance.markViewDefault)
-			make.left.top.equalToSuperview().inset(appearance.markViewDefault)
 		}
 	}
 	
