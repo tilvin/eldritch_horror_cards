@@ -16,7 +16,6 @@ class ExpeditionViewController: BaseViewController {
 	
 	//MARK: - Private variables
 	
-	private var cardsDataProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
 	private var expeditions: [Expedition] = []
 	
 	// MARK: - View lifecycle

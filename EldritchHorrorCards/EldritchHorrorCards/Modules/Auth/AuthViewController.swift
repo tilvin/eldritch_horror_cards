@@ -11,7 +11,6 @@ final class AuthViewController: BaseViewController {
 	//MARK: - Private variables
 	
 	private var gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
-	private let cardDataProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
 	private var authProvider: AuthProviderProtocol = DI.providers.resolve(AuthProviderProtocol.self)!
 	
 	// MARK: - Init

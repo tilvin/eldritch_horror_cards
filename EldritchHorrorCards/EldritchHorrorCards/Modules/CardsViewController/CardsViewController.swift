@@ -10,8 +10,10 @@ import UIKit
 
 class CardsViewController: BaseViewController {
 	
-	public var customView: CardsView { return view as! CardsView }
-	private var adapter = CardsCollectionAdapter()
+	private var customView: CardsView { return view as! CardsView }
+    private var privider = DI.providers.resolve(CardDataProviderProtocol.self)!
+//    private var cards: [String] = []
+    private var adapter = CardsCollectionAdapter()
     
 	//MARK: - Init
 	
@@ -29,12 +31,17 @@ class CardsViewController: BaseViewController {
 		customView.delegate = self
         adapter.load(collectionView: customView.cartCollectionView, delegate: self)
 	}
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        cards = privider.cards?.avaliableCardTypes ?? []
+//    }
 }
 //
 //extension CardsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 //
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return cards!.avaliableCardTypes.count
+//        return cards.count
 //    }
 //
 //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -42,9 +49,9 @@ class CardsViewController: BaseViewController {
 //        if (indexPath.row == 0) {
 //            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
 //        }
-//        cell.imageView.image =  cards!.avaliableCardTypes[indexPath.row])
-//        cell.typeLabel.text = cards!.avaliableCardTypes[indexPath.row].localized
-//        cell.cardType = cards!.avaliableCardTypes[indexPath.row]
+//        cell.imageView.image =  UIImage(named: cards[indexPath.row])
+//        cell.typeLabel.text = cards[indexPath.row].localized
+//        cell.cardType = cards[indexPath.row]
 //        return cell
 //    }
 //

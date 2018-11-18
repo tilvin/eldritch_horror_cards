@@ -19,6 +19,7 @@ extension CardsView {
 		let closeRightOffset: CGFloat = 10
 		let closeSizeWH: CGFloat = 25
 		let collectionViewTopOffset: CGFloat = 80
+          let itemSizeIndex: CGFloat = 0.6
 	}
 }
 
@@ -41,6 +42,7 @@ final class CardsView: UIView {
 		layout.sideItemAlpha = 0.6
 		layout.sideItemScale = 0.8
 		layout.spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 10)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width * appearance.itemSizeIndex, height: UIScreen.main.bounds.height * appearance.itemSizeIndex) 
 		
 		let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
 		view.backgroundColor = UIColor.wildSand

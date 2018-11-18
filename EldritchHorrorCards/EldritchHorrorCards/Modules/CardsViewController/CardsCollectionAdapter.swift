@@ -11,7 +11,7 @@ import UIKit
 extension CardsCollectionAdapter {
     
     private struct Appearance {
-        static let emptyViewTopOffset: CGFloat = 24
+        let emptyViewTopOffset: CGFloat = 24
     }
 }
 
@@ -22,6 +22,7 @@ class CardsCollectionAdapter: BaseCollectionAdapter {
     private weak var delegate: CardsCollectionAdapterDelegate?
     private var viewModels: [CardCellViewModel] = []
     private var cardProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
+    private var appearance = Appearance()
     
     func load(collectionView: UICollectionView, delegate: CardsCollectionAdapterDelegate?) {
         connect(collectionView: collectionView)
@@ -45,7 +46,7 @@ class CardsCollectionAdapter: BaseCollectionAdapter {
         collectionView?.reloadData()
         
         if models.isEmpty {
-            collectionView?.showEmptyView(title: String(.empty), at: .top(offset: Appearance.emptyViewTopOffset))
+            collectionView?.showEmptyView(title: String(.empty), at: .top(offset: appearance.emptyViewTopOffset))
         }
         else {
             collectionView?.hideEmptyView()

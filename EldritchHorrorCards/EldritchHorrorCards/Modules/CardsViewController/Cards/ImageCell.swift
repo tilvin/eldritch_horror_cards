@@ -1,7 +1,7 @@
 
 import UIKit
 
-final class ImageCell: UICollectionViewCell {
+final class ImageCell: BaseCollectionViewCell {
 	var cardType = ""
 	
     //MARK: -
@@ -15,7 +15,10 @@ final class ImageCell: UICollectionViewCell {
     }()
     
     lazy var typeLabel: UILabel = {
-       return UILabel(font: .regular18, textColor: UIColor.darkGreenBlue)
+       let view = UILabel(font: .regular18, textColor: UIColor.darkGreenBlue)
+        view.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        view.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        return view
     }()
     
     //MARK: - Lifecycle
@@ -27,6 +30,7 @@ final class ImageCell: UICollectionViewCell {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         imageView.addGestureRecognizer(tapRecognizer)
         addSubviews()
+        makeConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
