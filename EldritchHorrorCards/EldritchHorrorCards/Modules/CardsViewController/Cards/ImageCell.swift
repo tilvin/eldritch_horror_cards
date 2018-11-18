@@ -1,23 +1,41 @@
 
 import UIKit
 
+extension ImageCell {
+    
+    struct Appearance {
+        let spacing: CGFloat = 10
+    }
+}
+
 final class ImageCell: BaseCollectionViewCell {
-	var cardType = ""
-	
+    var cardType = ""
+    
+    private let appearance = Appearance()
+    
     //MARK: -
     
-    lazy var imageView: UIImageView = {
-       let view = UIImageView()
+    private lazy var imageView: UIImageView = {
+        let view = UIImageView()
         view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         view.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
-    lazy var typeLabel: UILabel = {
-       let view = UILabel(font: .regular18, textColor: UIColor.darkGreenBlue)
+    private lazy var typeLabel: UILabel = {
+        let view = UILabel(font: .regular18, textColor: UIColor.darkGreenBlue)
         view.setContentHuggingPriority(.defaultLow, for: .horizontal)
         view.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        return view
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .center
+        view.distribution = .fill
+        view.spacing = appearance.spacing
         return view
     }()
     
@@ -33,10 +51,10 @@ final class ImageCell: BaseCollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-	override func awakeFromNib() {
-		super.awakeFromNib()
-	}
-	
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.shadowOffset = CGPoint.zero
@@ -56,18 +74,14 @@ final class ImageCell: BaseCollectionViewCell {
     //MARK: - Private
     
     private func addSubviews() {
-        addSubview(typeLabel)
-        addSubview(imageView)
+        stackView.addArrangedSubview(typeLabel)
+        stackView.addArrangedSubview(imageView)
+        addSubview(stackView)
     }
     
     private func makeConstraints() {
-        typeLabel.snp.makeConstraints { (make) in
-            make.left.top.right.equalToSuperview()
-        }
-        
-        imageView.snp.makeConstraints { (make) in
-            make.left.bottom.right.equalToSuperview()
-            make.top.equalTo(typeLabel.snp.bottom)
+        stackView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
     }
 }

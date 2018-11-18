@@ -42,11 +42,9 @@ final class CardsView: UIView {
 		layout.sideItemAlpha = 0.6
 		layout.sideItemScale = 0.8
 		layout.spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 10)
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width * appearance.itemSizeIndex, height: UIScreen.main.bounds.height * appearance.itemSizeIndex) 
-		
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width * appearance.itemSizeIndex, height: UIScreen.main.bounds.height * appearance.itemSizeIndex)
 		let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
 		view.backgroundColor = UIColor.wildSand
-		view.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
 		view.contentInset = UIEdgeInsetsMake(0, 30, 0, 30)
 		view.decelerationRate = UIScrollViewDecelerationRateFast
 		return view

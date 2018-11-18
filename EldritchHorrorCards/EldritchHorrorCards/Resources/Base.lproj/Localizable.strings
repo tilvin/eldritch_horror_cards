@@ -51,7 +51,7 @@
 "research_contact_azathoth" = "улики для Азатота";
 "research_contact_cthulhu" = "улики для Ктулху";
 "special_contact_rlyeh_risen" = "Поднявшийся Р`льех";
-"research_contact_abhoth" = "улики для Абхота";
+"research_contact_abhoth" = "Улики для Абхота";
 "special_contact_deep_caverns" = "Глубокие пещеры";
 "special_contact_spawn_of_abhoth" = "Отродье Абхота";
 "research_contact_shub-niggurath" = "улики для Шуб-Ниггурат";
@@ -60,7 +60,6 @@
 "special_contact_unspeakable_one" = "Невыразимый";
 "special_contact_king_in_yellow" = "Король в желтом";
 "authError" = "Не удалось пройти авторизацию! Пробуйте еще!";
-
 "gameOverAlert" = "Закончить игру?";
 "warning" = "Внимание";
 "cancel" = "Отмена";
