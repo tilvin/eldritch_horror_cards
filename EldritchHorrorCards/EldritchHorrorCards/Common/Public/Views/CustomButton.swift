@@ -12,6 +12,7 @@ enum CustomButtonType {
 	case darkGreenBlue
 	case light
 	case close
+    case back
 }
 
 extension CustomButton {
@@ -48,6 +49,8 @@ final class CustomButton: UIButton {
 			return self.isHighlighted ? UIColor.gallery : UIColor.white
 		case .close:
 			return self.isHighlighted ? UIColor.black.withAlphaComponent(appearance.closeButtonAlpha * 2) : UIColor.black.withAlphaComponent(appearance.closeButtonAlpha)
+        case .back:
+            return UIColor.clear
 		}
 	}
 
@@ -59,6 +62,8 @@ final class CustomButton: UIButton {
 			return self.isHighlighted ? UIColor.gallery : UIColor.white
 		case .close:
 			return self.isHighlighted ? UIColor.black.withAlphaComponent(appearance.closeButtonAlpha * 2) : UIColor.black.withAlphaComponent(appearance.closeButtonAlpha)
+        case .back:
+            return UIColor.clear
 		}
 	}
 	
@@ -70,6 +75,8 @@ final class CustomButton: UIButton {
 			return .black
 		case .close:
 			return .black
+        case .back:
+            return .clear
 		}
 	}
 	
@@ -77,11 +84,18 @@ final class CustomButton: UIButton {
 	
 	init(type: CustomButtonType) {
 		self.type = type
-		
 		super.init(frame: .zero)
-		self.titleLabel?.font = UIFont.bold16
-		self.titleLabel?.lineBreakMode = .byWordWrapping
-		self.titleLabel?.textAlignment = .center
+        
+        switch type {
+        case .back:
+            setImage(UIImage.backButton, for: .normal)
+            self.titleLabel?.isHidden = true
+        default:
+            self.titleLabel?.font = UIFont.bold16
+            self.titleLabel?.lineBreakMode = .byWordWrapping
+            self.titleLabel?.textAlignment = .center
+        }
+		
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -116,6 +130,12 @@ final class CustomButton: UIButton {
 			layer.shadowOpacity = 1
 			layer.shadowColor = UIColor.black.withAlphaComponent(appearance.closeButtonAlpha).cgColor
 			layer.masksToBounds = false
+        case .back:
+            layer.shadowOpacity = 1
+            layer.shadowRadius = 5
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOffset = CGSize(width: 0, height: 0)
+            layer.masksToBounds = false
 		default:
 			layer.cornerRadius = appearance.cornerRadius
 			layer.shadowOpacity = 0

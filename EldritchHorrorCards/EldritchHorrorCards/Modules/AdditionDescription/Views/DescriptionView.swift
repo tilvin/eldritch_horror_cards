@@ -32,11 +32,8 @@ class DescriptionView: UIView {
 	private let appearance = Appearance()
 	private var viewModel: Description!
 	
-	private lazy var backButton: UIButton = {
-		let view = UIButton()
-		view.setTitle("", for: .normal)
-		view.setImage(.backButton, for: .normal)
-		return view
+	private lazy var backButton: CustomButton = {
+        return CustomButton(type: .back)
 	}()
 	
 	private lazy var titleLabel: UILabel = {

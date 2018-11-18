@@ -50,6 +50,10 @@ class ExpeditionView: BaseScrollView {
 		let view = UIButton()
 		view.setTitle("", for: .normal)
 		view.setImage(.backButton, for: .normal)
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 5
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
 		return view
 	}()
 	
