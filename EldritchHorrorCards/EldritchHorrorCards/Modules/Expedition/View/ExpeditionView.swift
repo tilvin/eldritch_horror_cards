@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 protocol ExpeditionViewDelegate: class {
 	func backButtonTap()
@@ -27,8 +26,6 @@ extension ExpeditionView {
 		let titleImageViewHeight: CGFloat = 151
 		let sectionViewHeight: CGFloat = 140
 		let descriptionTextViewHeight: CGFloat = ScreenType.item(for: (.inch4, 90), (.inch5_5, 72))
-		let successFailureTextViewRight: CGFloat = ScreenType.item(for: (.inch4, 0), (.inch5_5, 24))
-		let successFailureTextViewTopBottom: CGFloat = ScreenType.item(for: (.inch4, 0), (.inch5_5, 16))
 		let markViewDefault: CGFloat = 8
 		let statusBarHeight: CGFloat = 20
 		let defaultSeparator: CGFloat = 20
@@ -80,21 +77,11 @@ class ExpeditionView: BaseScrollView {
 	}()
 	
 	private lazy var successView: SectionView = {
-		return SectionView(viewColor: .gallery)
-	}()
-	
-	private lazy var successTextView: UITextView = {
-		let view = UITextView()
-		view.isEditable = false
-		view.textColor = .mako
-		view.backgroundColor = .clear
-		view.textAlignment = .left
-		view.font = .regular14
-		return view
+		return SectionView(viewModel: SectionViewModel(text: viewModel.success, color: .gallery))
 	}()
 	
 	private lazy var failureView: SectionView = {
-		return SectionView(viewColor: .paleSalmon)
+		return SectionView(viewModel: SectionViewModel(text: viewModel.failure, color: .paleSalmon ))
 	}()
 	
 	private lazy var failureTextView: UITextView = {
@@ -115,8 +102,6 @@ class ExpeditionView: BaseScrollView {
 		titleImageView.image = viewModel.image
 		titleLabel.text = viewModel.title
 		descriptionTextView.text = viewModel.story
-		successTextView.text = viewModel.success
-		failureTextView.text = viewModel.failure
 		backgroundColor = appearance.backgroundColor
 		addSubviews()
 		makeConstraints()
@@ -134,9 +119,9 @@ class ExpeditionView: BaseScrollView {
 		self.viewModel = viewModel
 		titleImageView.image = viewModel.image
 		titleLabel.text = viewModel.title
+		successView.update(viewModel: SectionViewModel(text: viewModel.success, color: .gallery))
+		failureView.update(viewModel: SectionViewModel(text: viewModel.failure, color: .paleSalmon))
 		descriptionTextView.text = viewModel.story
-		successTextView.text = viewModel.success
-		failureTextView.text = viewModel.failure
 		backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
 	}
 	
@@ -152,10 +137,8 @@ class ExpeditionView: BaseScrollView {
 		addToStackView(view: descriptionTextView, embed: true)
 		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: successView, embed: true)
-		successView.addSubview(successTextView)
 		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: failureView, embed: true)
-		failureView.addSubview(failureTextView)
 		addSeparatorView(expandable: true)
 	}
 	
@@ -196,22 +179,10 @@ class ExpeditionView: BaseScrollView {
 			make.top.bottom.equalToSuperview()
 		}
 		
-		successTextView.snp.makeConstraints { (make) in
-			make.left.equalToSuperview().inset(appearance.defaultSideOffset)
-			make.right.equalToSuperview().inset(appearance.successFailureTextViewRight)
-			make.top.bottom.equalToSuperview().inset(appearance.successFailureTextViewTopBottom)
-		}
-		
 		failureView.snp.remakeConstraints { (make) in
 			make.height.equalTo(appearance.sectionViewHeight)
 			make.left.right.equalToSuperview().inset(appearance.defaultSideOffset)
 			make.top.bottom.equalToSuperview()
-		}
-		
-		failureTextView.snp.makeConstraints { (make) in
-			make.left.equalToSuperview().inset(appearance.defaultSideOffset)
-			make.right.equalToSuperview().inset(appearance.successFailureTextViewRight)
-			make.top.bottom.equalToSuperview().inset(appearance.successFailureTextViewTopBottom)
 		}
 	}
 	
