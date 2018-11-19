@@ -9,11 +9,13 @@
 import UIKit
 
 struct SectionViewModel {
-	let  text: String
-	let color: UIColor
+	let text: String
+	let backgroundColor: UIColor
+	let textColor: UIColor
 	
-	init(text: String, color: UIColor) {
+	init(text: String, backgroundColor: UIColor, textColor: UIColor) {
 		self.text = text
-		self.color = color
+		self.backgroundColor = backgroundColor
+		self.textColor = textColor		
 	}
 }

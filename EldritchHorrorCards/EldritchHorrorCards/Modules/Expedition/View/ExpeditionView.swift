@@ -77,11 +77,11 @@ class ExpeditionView: BaseScrollView {
 	}()
 	
 	private lazy var successView: SectionView = {
-		return SectionView(viewModel: SectionViewModel(text: viewModel.success, color: .gallery))
+		return SectionView(viewModel: SectionViewModel(text: viewModel.success, backgroundColor: .gallery, textColor: .mako))
 	}()
 	
 	private lazy var failureView: SectionView = {
-		return SectionView(viewModel: SectionViewModel(text: viewModel.failure, color: .paleSalmon ))
+		return SectionView(viewModel: SectionViewModel(text: viewModel.failure, backgroundColor: .paleSalmon, textColor: .mako ))
 	}()
 	
 	private lazy var failureTextView: UITextView = {
@@ -119,8 +119,8 @@ class ExpeditionView: BaseScrollView {
 		self.viewModel = viewModel
 		titleImageView.image = viewModel.image
 		titleLabel.text = viewModel.title
-		successView.update(viewModel: SectionViewModel(text: viewModel.success, color: .gallery))
-		failureView.update(viewModel: SectionViewModel(text: viewModel.failure, color: .paleSalmon))
+		successView.update(viewModel: SectionViewModel(text: viewModel.success, backgroundColor: .gallery, textColor: .mako))
+		failureView.update(viewModel: SectionViewModel(text: viewModel.failure, backgroundColor: .paleSalmon, textColor: .mako))
 		descriptionTextView.text = viewModel.story
 		backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
 	}

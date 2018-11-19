@@ -37,7 +37,6 @@ final class SectionView: UIView {
 	private lazy var textView: UITextView = {
 		let view = UITextView()
 		view.isEditable = false
-		view.textColor = .mako
 		view.backgroundColor = .clear
 		view.textAlignment = .left
 		view.font = .regular14
@@ -48,10 +47,7 @@ final class SectionView: UIView {
 	
 	init(viewModel: SectionViewModel) {
 		super.init(frame: .zero)
-		backgroundColor = viewModel.color
-		textView.text = viewModel.text
-		clipsToBounds = true
-		layer.cornerRadius = 8
+		update(viewModel: viewModel)
 		addSubviews()
 		makeConstraints()
 	}
@@ -60,10 +56,18 @@ final class SectionView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		cornerRadius = 8
+		clipsToBounds = true
+	}
+	
 	//MARK: - Public
 	
 	public func update(viewModel: SectionViewModel) {
+		backgroundColor = viewModel.backgroundColor
 		textView.text = viewModel.text
+		textView.textColor = viewModel.textColor
 	}
 	
 	//MARK: - Private
