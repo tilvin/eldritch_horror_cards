@@ -45,7 +45,7 @@ final class SectionView: UIView {
 	
 	//MARK: - Init
 	
-	init(viewModel: SectionViewModel) {
+	init(viewModel: SectionViewModel?) {
 		super.init(frame: .zero)
 		update(viewModel: viewModel)
 		addSubviews()
@@ -64,10 +64,11 @@ final class SectionView: UIView {
 	
 	//MARK: - Public
 	
-	public func update(viewModel: SectionViewModel) {
-		backgroundColor = viewModel.backgroundColor
-		textView.text = viewModel.text
-		textView.textColor = viewModel.textColor
+	public func update(viewModel: SectionViewModel?) {
+        guard let viewModel = viewModel else { return }
+        backgroundColor = viewModel.backgroundColor
+        textView.text = viewModel.text
+        textView.textColor = viewModel.textColor
 	}
 	
 	//MARK: - Private

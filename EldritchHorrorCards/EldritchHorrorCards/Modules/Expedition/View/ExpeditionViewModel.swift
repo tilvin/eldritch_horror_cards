@@ -11,8 +11,8 @@ struct ExpeditionViewModel {
 	let title: String
 	let image: UIImage?
 	let story: String
-	let success: String
-	let failure: String
+    let successViewModel: SectionViewModel
+    let failureViewModel: SectionViewModel
 	
 	//MARK: - Init
 	
@@ -21,15 +21,15 @@ struct ExpeditionViewModel {
 			self.title = type.localized
 			self.image = UIImage(named: type)!
 			self.story = model.initialEffect ?? ""
-			self.success = model.passEffect ?? ""
-			self.failure = model.failEffect ?? ""
+            successViewModel = SectionViewModel(text: model.passEffect ?? "", backgroundColor: .gallery, textColor: .mako)
+            failureViewModel = SectionViewModel(text: model.failEffect ?? "", backgroundColor: .paleSalmon, textColor: .mako)
 		}
 		else {
-			self.title = ""
-			self.image = nil
-			self.story = ""
-			self.success = ""
-			self.failure = ""
+			title = ""
+			image = nil
+			story = ""
+            successViewModel = SectionViewModel(text: "", backgroundColor: .gallery, textColor: .mako)
+            failureViewModel = SectionViewModel(text: "", backgroundColor: .paleSalmon, textColor: .mako)
 		}
 	}
 }
