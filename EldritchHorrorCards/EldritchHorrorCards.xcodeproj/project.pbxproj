@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		442A1F7A1B830447984C57D9 /* Pods_EldritchHorrorCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */; };
 		5581953C9BCA2678DA8B3DFB /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55819F9357AE6E6CD4A64D19 /* APIRequest.swift */; };
-		558197CF168E0D83FEB2BB06 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558190E9E2B7EDCC46915562 /* NetworkService.swift */; };
 		55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581983F398902734317516E /* UserDefaultsDataStore.swift */; };
 		9F0E79F42112FDED0080C907 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E79F32112FDED0080C907 /* User.swift */; };
 		9F171C58211D59DE005A8264 /* Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C57211D59DE005A8264 /* Addition.swift */; };
@@ -86,6 +85,16 @@
 		A479428F210C8F6000ED0851 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479428E210C8F6000ED0851 /* MenuViewModel.swift */; };
 		A47AE99C21397E9700BEF472 /* KeybordViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47AE99B21397E9700BEF472 /* KeybordViewHelper.swift */; };
 		A47B354D21A4734E00C12A45 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B354C21A4734E00C12A45 /* AlertHelper.swift */; };
+		A47B355221A4823300C12A45 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B355021A4823300C12A45 /* Network.swift */; };
+		A47B355321A4823300C12A45 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B355121A4823300C12A45 /* NetworkProtocol.swift */; };
+		A47B355C21A4827C00C12A45 /* NetworkRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B355621A4827C00C12A45 /* NetworkRoute.swift */; };
+		A47B355D21A4827C00C12A45 /* NetworkRoutePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B355721A4827C00C12A45 /* NetworkRoutePath.swift */; };
+		A47B355E21A4827C00C12A45 /* NetworkClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B355821A4827C00C12A45 /* NetworkClientProvider.swift */; };
+		A47B355F21A4827C00C12A45 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B355921A4827C00C12A45 /* NetworkResponse.swift */; };
+		A47B356021A4827C00C12A45 /* NetworkSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B355A21A4827C00C12A45 /* NetworkSettingsProvider.swift */; };
+		A47B356121A4827C00C12A45 /* MultipartDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B355B21A4827C00C12A45 /* MultipartDataItem.swift */; };
+		A47B356421A4869600C12A45 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B356321A4869600C12A45 /* NetworkService.swift */; };
+		A47B356721A4870B00C12A45 /* NotificationExtantion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B356621A4870B00C12A45 /* NotificationExtantion.swift */; };
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* DataParseService.swift */; };
@@ -158,7 +167,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		558190E9E2B7EDCC46915562 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5581983F398902734317516E /* UserDefaultsDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataStore.swift; sourceTree = "<group>"; };
 		55819F9357AE6E6CD4A64D19 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
@@ -238,6 +246,16 @@
 		A479428E210C8F6000ED0851 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		A47AE99B21397E9700BEF472 /* KeybordViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybordViewHelper.swift; sourceTree = "<group>"; };
 		A47B354C21A4734E00C12A45 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		A47B355021A4823300C12A45 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A47B355121A4823300C12A45 /* NetworkProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		A47B355621A4827C00C12A45 /* NetworkRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRoute.swift; sourceTree = "<group>"; };
+		A47B355721A4827C00C12A45 /* NetworkRoutePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRoutePath.swift; sourceTree = "<group>"; };
+		A47B355821A4827C00C12A45 /* NetworkClientProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClientProvider.swift; sourceTree = "<group>"; };
+		A47B355921A4827C00C12A45 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		A47B355A21A4827C00C12A45 /* NetworkSettingsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSettingsProvider.swift; sourceTree = "<group>"; };
+		A47B355B21A4827C00C12A45 /* MultipartDataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipartDataItem.swift; sourceTree = "<group>"; };
+		A47B356321A4869600C12A45 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A47B356621A4870B00C12A45 /* NotificationExtantion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtantion.swift; sourceTree = "<group>"; };
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* DataParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParseService.swift; sourceTree = "<group>"; };
@@ -324,7 +342,6 @@
 			isa = PBXGroup;
 			children = (
 				55819F9357AE6E6CD4A64D19 /* APIRequest.swift */,
-				558190E9E2B7EDCC46915562 /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -549,6 +566,7 @@
 				A441BBD32109BB8000EAC5DD /* Navigator */,
 				55819E70178EA040542F75C7 /* Network */,
 				A441BBD42109BB9100EAC5DD /* Providers */,
+				A47B356521A486AB00C12A45 /* Services */,
 				A4208330212B1AE50081E762 /* TableAdapter */,
 				A4794287210C40DE00ED0851 /* Themes */,
 				A45E5660210B32C900590AE7 /* Views */,
@@ -562,6 +580,7 @@
 				A4563AFA20F87FAE00B65428 /* DIContainer.swift */,
 				5581916006E1BCE07DE5C3F3 /* DataStore */,
 				A441BBD22109BB5E00EAC5DD /* ExtensionsUtils */,
+				A47B354E21A481EB00C12A45 /* Providers */,
 				A441BBD12109BB4F00EAC5DD /* Services */,
 			);
 			path = Core;
@@ -606,6 +625,7 @@
 				9F61A1F02171F90700A5003C /* ExpeditionDataProvider.swift */,
 				9FC7F667215AC90500A2A7B3 /* GameProvider.swift */,
 				A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */,
+				A47B355421A4827C00C12A45 /* Network */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -763,6 +783,52 @@
 			path = Themes;
 			sourceTree = "<group>";
 		};
+		A47B354E21A481EB00C12A45 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				A47B354F21A4823300C12A45 /* Network */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		A47B354F21A4823300C12A45 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A47B355021A4823300C12A45 /* Network.swift */,
+				A47B355121A4823300C12A45 /* NetworkProtocol.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A47B355421A4827C00C12A45 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A47B355521A4827C00C12A45 /* Route */,
+				A47B355821A4827C00C12A45 /* NetworkClientProvider.swift */,
+				A47B355921A4827C00C12A45 /* NetworkResponse.swift */,
+				A47B355A21A4827C00C12A45 /* NetworkSettingsProvider.swift */,
+				A47B355B21A4827C00C12A45 /* MultipartDataItem.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A47B355521A4827C00C12A45 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				A47B355621A4827C00C12A45 /* NetworkRoute.swift */,
+				A47B355721A4827C00C12A45 /* NetworkRoutePath.swift */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		A47B356521A486AB00C12A45 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A47B356321A4869600C12A45 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		A499E97C214403B8001186A5 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,8 +938,9 @@
 		A4D220902168B6D200EF790F /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				A4B35E5B217B421C002496E7 /* NSPredicateExtension.swift */,
 				A4D220912168B6DE00EF790F /* HTTPURLResponseExtension.swift */,
+				A47B356621A4870B00C12A45 /* NotificationExtantion.swift */,
+				A4B35E5B217B421C002496E7 /* NSPredicateExtension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1017,7 +1084,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -1029,6 +1097,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -1038,7 +1107,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D0809C6E9947392F9159AC7 /* [CP] Check Pods Manifest.lock */ = {
@@ -1123,6 +1192,7 @@
 				A45D188E219E0A7900F330D6 /* CardCellViewModel.swift in Sources */,
 				A4C25333211DEEAD00E0FF37 /* TableRowBuilder.swift in Sources */,
 				A4F3B1DA212ECB8A00F03E7B /* GradientView.swift in Sources */,
+				A47B355D21A4827C00C12A45 /* NetworkRoutePath.swift in Sources */,
 				A4D220922168B6DE00EF790F /* HTTPURLResponseExtension.swift in Sources */,
 				A4563B0220F880BB00B65428 /* NavigatorProtocol.swift in Sources */,
 				A4F3B1DF212ECB8A00F03E7B /* UIImageView.swift in Sources */,
@@ -1131,11 +1201,13 @@
 				A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */,
 				A45D1881219E021400F330D6 /* BaseCollectionViewCell.swift in Sources */,
 				A4208346212B51D30081E762 /* AdditionCell.swift in Sources */,
+				A47B356021A4827C00C12A45 /* NetworkSettingsProvider.swift in Sources */,
 				A45D18C221A0527B00F330D6 /* CardsCollectionAdapter.swift in Sources */,
 				A4FDB00A20D413DE00FA6E4B /* DialView.swift in Sources */,
 				A479428F210C8F6000ED0851 /* MenuViewModel.swift in Sources */,
 				A4F3B1DB212ECB8A00F03E7B /* Inspectable.swift in Sources */,
 				A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */,
+				A47B356721A4870B00C12A45 /* NotificationExtantion.swift in Sources */,
 				A4F3B1DE212ECB8A00F03E7B /* ExtTextField.swift in Sources */,
 				A479428D210C776500ED0851 /* AvatarView.swift in Sources */,
 				A45D1890219E0B1900F330D6 /* TableEmptyView.swift in Sources */,
@@ -1144,11 +1216,13 @@
 				A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */,
 				A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */,
 				A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */,
+				A47B356421A4869600C12A45 /* NetworkService.swift in Sources */,
 				A4FDB00C20D413DE00FA6E4B /* JFCardSelectionCell.swift in Sources */,
 				A479428B210C419F00ED0851 /* Fonts.swift in Sources */,
 				A4794280210C311500ED0851 /* TabBarControllersProviderProtocol.swift in Sources */,
 				A4794281210C311500ED0851 /* TabBarControllersProvider.swift in Sources */,
 				A4563AF820F87F8B00B65428 /* Command.swift in Sources */,
+				A47B355E21A4827C00C12A45 /* NetworkClientProvider.swift in Sources */,
 				A4B35E52217A8748002496E7 /* AuthViewModel.swift in Sources */,
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
 				9F9B55D121A1F1480016C577 /* SectionView.swift in Sources */,
@@ -1166,6 +1240,7 @@
 				A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */,
 				A420833B212B1B0B0081E762 /* TableViewHeaderFooterConfiguration.swift in Sources */,
 				A47771AF214531DD007F2058 /* UITextFieldExtension.swift in Sources */,
+				A47B355221A4823300C12A45 /* Network.swift in Sources */,
 				A4208333212B1AFB0081E762 /* BaseTableAdapter.swift in Sources */,
 				A4563AFD20F87FF500B65428 /* DI.swift in Sources */,
 				9F9B55DF21A294850016C577 /* SectionViewModel.swift in Sources */,
@@ -1185,6 +1260,7 @@
 				A4B35E56217A890F002496E7 /* AuthTextViewModel.swift in Sources */,
 				A4788AE1212D5F7D006D71FD /* CustomButton.swift in Sources */,
 				A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */,
+				A47B355321A4823300C12A45 /* NetworkProtocol.swift in Sources */,
 				9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */,
 				A47B354D21A4734E00C12A45 /* AlertHelper.swift in Sources */,
 				A45D18BF21A0527B00F330D6 /* CollectionCellConfiguration.swift in Sources */,
@@ -1198,6 +1274,7 @@
 				A4563ADF20F7DBF500B65428 /* String.swift in Sources */,
 				A4563B0120F880BB00B65428 /* Navigator.swift in Sources */,
 				A4D220942168CAAD00EF790F /* Alert.swift in Sources */,
+				A47B355C21A4827C00C12A45 /* NetworkRoute.swift in Sources */,
 				A4208344212B51CB0081E762 /* AdditionsListView.swift in Sources */,
 				A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */,
 				A45D1892219E0B3700F330D6 /* CollectionEmptyView.swift in Sources */,
@@ -1213,14 +1290,15 @@
 				A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */,
 				A4F288522173DEC9004CBA25 /* Strings.swift in Sources */,
 				A4F3B1D6212ECB8A00F03E7B /* Color.swift in Sources */,
+				A47B356121A4827C00C12A45 /* MultipartDataItem.swift in Sources */,
 				A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */,
+				A47B355F21A4827C00C12A45 /* NetworkResponse.swift in Sources */,
 				55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */,
 				5581953C9BCA2678DA8B3DFB /* APIRequest.swift in Sources */,
 				A4F3B1D9212ECB8A00F03E7B /* UIViewControllerExtension.swift in Sources */,
 				A4F3B1E0212ECB8A00F03E7B /* Window.swift in Sources */,
 				A46EE7CC2139244C00F47026 /* Keyboardable.swift in Sources */,
 				A420833A212B1B0B0081E762 /* TableCellConfiguration.swift in Sources */,
-				558197CF168E0D83FEB2BB06 /* NetworkService.swift in Sources */,
 				A4208342212B51C40081E762 /* AdditionsViewController.swift in Sources */,
 				9F61A1E72170746C00A5003C /* ExpeditionView.swift in Sources */,
 			);
@@ -1387,14 +1465,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LR9B6B36Z9;
 				INFOPLIST_FILE = EldritchHorrorCards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = willian.eldritchhorrorcards;
+				PRODUCT_BUNDLE_IDENTIFIER = cubux.ios.ver2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
@@ -1408,14 +1486,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LR9B6B36Z9;
 				INFOPLIST_FILE = EldritchHorrorCards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = willian.eldritchhorrorcards;
+				PRODUCT_BUNDLE_IDENTIFIER = cubux.ios.ver2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;

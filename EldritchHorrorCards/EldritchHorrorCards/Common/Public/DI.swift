@@ -27,5 +27,6 @@ class DI {
 		container.register(DataParseServiceProtocol.self) { DataParseService() }
 		container.register(NetworkServiceProtocol.self, asSingleTone: true) { NetworkService() }
 		container.register(ExpeditionDataProviderProtocol.self, asSingleTone: true) { ExpeditionDataProvider() }
+        container.register(NetworkServiceProtocol.self, asSingleTone: true) { NetworkService() }
 	}
 }

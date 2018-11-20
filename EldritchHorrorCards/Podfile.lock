@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.3)
   - ObjectMapper (3.2.0)
   - "ObjectMapper+Realm (0.6)":
     - ObjectMapper
@@ -13,6 +14,7 @@ PODS:
   - Zip (1.1.0)
 
 DEPENDENCIES:
+  - Alamofire
   - ObjectMapper (from `https://github.com/alecdoconnor/ObjectMapper.git`)
   - "ObjectMapper+Realm"
   - RealmSwift
@@ -22,6 +24,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - "ObjectMapper+Realm"
     - Realm
     - RealmSwift
@@ -39,6 +42,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/alecdoconnor/ObjectMapper.git
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
   "ObjectMapper+Realm": 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
   Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
@@ -47,6 +51,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: fb3fcf575818f0df72f9035efb568fbfa00ddf9c
+PODFILE CHECKSUM: 5394bb1cadaab5588f809388c33b534abd77fb03
 
 COCOAPODS: 1.5.3

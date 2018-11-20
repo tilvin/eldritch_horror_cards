@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DI.registerProviders()
         DI.providers.resolve(ConfigProviderProtocol.self)!.load()
         DI.providers.resolve(NavigatorProtocol.self)?.create(self)
-		
+		DI.providers.resolve(NetworkServiceProtocol.self)!.startNetworkObserve()
+        
 		if let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView {
 			statusBarView.backgroundColor = .wildSand
 		}
