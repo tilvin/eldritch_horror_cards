@@ -85,6 +85,7 @@
 		A479428D210C776500ED0851 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479428C210C776500ED0851 /* AvatarView.swift */; };
 		A479428F210C8F6000ED0851 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479428E210C8F6000ED0851 /* MenuViewModel.swift */; };
 		A47AE99C21397E9700BEF472 /* KeybordViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47AE99B21397E9700BEF472 /* KeybordViewHelper.swift */; };
+		A47B354D21A4734E00C12A45 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B354C21A4734E00C12A45 /* AlertHelper.swift */; };
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* DataParseService.swift */; };
@@ -236,6 +237,7 @@
 		A479428C210C776500ED0851 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		A479428E210C8F6000ED0851 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		A47AE99B21397E9700BEF472 /* KeybordViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybordViewHelper.swift; sourceTree = "<group>"; };
+		A47B354C21A4734E00C12A45 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* DataParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParseService.swift; sourceTree = "<group>"; };
@@ -775,6 +777,7 @@
 		A499E97D2144411A001186A5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A47B354C21A4734E00C12A45 /* AlertHelper.swift */,
 				A499E97E21444128001186A5 /* Extensions */,
 			);
 			path = Helpers;
@@ -1183,6 +1186,7 @@
 				A4788AE1212D5F7D006D71FD /* CustomButton.swift in Sources */,
 				A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */,
 				9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */,
+				A47B354D21A4734E00C12A45 /* AlertHelper.swift in Sources */,
 				A45D18BF21A0527B00F330D6 /* CollectionCellConfiguration.swift in Sources */,
 				A45D18C121A0527B00F330D6 /* BaseCollectionAdapter.swift in Sources */,
 				A4F3B1DD212ECB8A00F03E7B /* View.swift in Sources */,

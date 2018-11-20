@@ -14,6 +14,8 @@ extension String {
 		case warning
 		case cancel
         case empty
+        case error
+        case unknownError
 	}
 	
 	//MARK: - Inits

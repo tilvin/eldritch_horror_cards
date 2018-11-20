@@ -61,6 +61,8 @@
 "special_contact_king_in_yellow" = "Король в желтом";
 "authError" = "Не удалось пройти авторизацию! Пробуйте еще!";
 "gameOverAlert" = "Закончить игру?";
-"warning" = "Внимание";
+"warning" = "Внимание!";
 "cancel" = "Отмена";
 "empty" = "Пусто";
+"error" = "Ошибка!";
+"unknownError" = "Неизвестная ошибка.";

@@ -17,11 +17,26 @@ class BaseViewController: UIViewController {
 	}
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .default }
-	
-	private var isLightStatusFont: Bool {
-		guard let identifier = self.restorationIdentifier else { return true }
-		return identifier == "AuthViewController"
-	}
+    
+    public func processing(_ isEnabled: Bool) {
+        if isEnabled {
+            view.showProccessing()
+        }
+        else {
+            view.hideProccessing()
+        }
+    }
+    
+    public func showErrorAlert(type: AlertType = .warning, message: String?, completion: (() -> Void)? = nil) {
+        let alert = AlertHelper.alertWith(
+            title: type.title,
+            message: message ?? String(.unknownError),
+            controller: self,
+            buttons: nil) { (_, _, _) in
+                completion?()
+        }
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 class TabBarAddableController: BaseViewController {
