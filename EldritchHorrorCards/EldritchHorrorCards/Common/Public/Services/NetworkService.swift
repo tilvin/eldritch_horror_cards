@@ -33,16 +33,16 @@ final class NetworkService: NetworkServiceProtocol {
             let notificationCenter = NotificationCenter.default
 			switch status {
 			case .notReachable:
-                sSelf.appNavigator.currentController?.processing(true)
+                sSelf.appNavigator.currentController?.internetState(isConnected: false)
                 notificationCenter.post(name: Notification.Name.ehOffline, object: nil)
 			case .unknown:
-                sSelf.appNavigator.currentController?.processing(false)
+                sSelf.appNavigator.currentController?.internetState(isConnected: true)
                 notificationCenter.post(name: Notification.Name.ehOnline, object: nil)
 			case .reachable(.ethernetOrWiFi):
-                sSelf.appNavigator.currentController?.processing(false)
+                sSelf.appNavigator.currentController?.internetState(isConnected: true)
                 notificationCenter.post(name: Notification.Name.ehOnline, object: nil)
 			case .reachable(.wwan):
-                sSelf.appNavigator.currentController?.processing(false)
+                sSelf.appNavigator.currentController?.internetState(isConnected: true)
                 notificationCenter.post(name: Notification.Name.ehOnline, object: nil)
 			}
 		}

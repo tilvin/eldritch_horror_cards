@@ -37,6 +37,16 @@ class BaseViewController: UIViewController {
         }
         present(alert, animated: true, completion: nil)
     }
+	
+	public func internetState(isConnected: Bool) {
+		view.showInternetStatus(isConnected: isConnected)
+		
+		if isConnected {
+			DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+				self.view.hideInternetStatus()
+			}
+		}
+	}
 }
 
 class TabBarAddableController: BaseViewController {

@@ -16,6 +16,8 @@ extension String {
         case empty
         case error
         case unknownError
+		case online
+		case offline
 	}
 	
 	//MARK: - Inits

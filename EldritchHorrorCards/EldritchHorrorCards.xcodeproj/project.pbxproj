@@ -65,6 +65,7 @@
 		A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5661210B32F500590AE7 /* BaseScrollView.swift */; };
 		A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5664210B33DC00590AE7 /* MenuView.swift */; };
 		A45E5667210B53B100590AE7 /* MenuContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5666210B53B100590AE7 /* MenuContentView.swift */; };
+		A46704E121A5FFC100582ABB /* InternetStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46704E021A5FFC100582ABB /* InternetStatusView.swift */; };
 		A46EE7CC2139244C00F47026 /* Keyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7C92139244C00F47026 /* Keyboardable.swift */; };
 		A46EE7CD2139244C00F47026 /* KeyboardPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7CA2139244C00F47026 /* KeyboardPayload.swift */; };
 		A46EE7CE2139244C00F47026 /* NotificationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7CB2139244C00F47026 /* NotificationDescriptor.swift */; };
@@ -226,6 +227,7 @@
 		A45E5661210B32F500590AE7 /* BaseScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 		A45E5664210B33DC00590AE7 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A45E5666210B53B100590AE7 /* MenuContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentView.swift; sourceTree = "<group>"; };
+		A46704E021A5FFC100582ABB /* InternetStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetStatusView.swift; sourceTree = "<group>"; };
 		A46EE7C92139244C00F47026 /* Keyboardable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardable.swift; sourceTree = "<group>"; };
 		A46EE7CA2139244C00F47026 /* KeyboardPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPayload.swift; sourceTree = "<group>"; };
 		A46EE7CB2139244C00F47026 /* NotificationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDescriptor.swift; sourceTree = "<group>"; };
@@ -717,6 +719,7 @@
 			children = (
 				A45E5661210B32F500590AE7 /* BaseScrollView.swift */,
 				A4788AE0212D5F7D006D71FD /* CustomButton.swift */,
+				A46704E021A5FFC100582ABB /* InternetStatusView.swift */,
 				A499E98521445A49001186A5 /* LoaderView.swift */,
 				A45D187F219E01F800F330D6 /* CollectionView */,
 				A420833C212B1B510081E762 /* TableView */,
@@ -1235,6 +1238,7 @@
 				A4F3B1E3212ECB9F00F03E7B /* ZipExtension.swift in Sources */,
 				9F3E4578213522C4002DA88A /* Description.swift in Sources */,
 				9F171C5A211D5AB6005A8264 /* AdditionDataProvider.swift in Sources */,
+				A46704E121A5FFC100582ABB /* InternetStatusView.swift in Sources */,
 				A45D18C021A0527B00F330D6 /* StaticCollectionAdapter.swift in Sources */,
 				A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */,
 				A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */,
