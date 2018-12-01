@@ -40,6 +40,7 @@
 		A4208349212B524D0081E762 /* AdditionsListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */; };
 		A4208353212B57820081E762 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208352212B57820081E762 /* CALayerExtensions.swift */; };
 		A42190AC21985BD100AADC68 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42190AB21985BD000AADC68 /* CardsView.swift */; };
+		A429AB9821B2D02C004DBEA2 /* EldritchHorrorCardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429AB9721B2D02C004DBEA2 /* EldritchHorrorCardsTests.swift */; };
 		A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBB2108BB0F00EAC5DD /* Cards.swift */; };
 		A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */; };
 		A4563ADC20F7DBD400B65428 /* LocalizationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */; };
@@ -154,6 +155,16 @@
 		A4FE642A20D0111E0064E52E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FE642820D0111E0064E52E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A429AB9A21B2D02C004DBEA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4FE641420D0111D0064E52E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4FE641B20D0111D0064E52E;
+			remoteInfo = EldritchHorrorCards;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		A4B35E63217CE28E002496E7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -202,6 +213,9 @@
 		A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionsListTableAdapter.swift; sourceTree = "<group>"; };
 		A4208352212B57820081E762 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 		A42190AB21985BD000AADC68 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		A429AB9521B2D02C004DBEA2 /* EldritchHorrorCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EldritchHorrorCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A429AB9721B2D02C004DBEA2 /* EldritchHorrorCardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EldritchHorrorCardsTests.swift; sourceTree = "<group>"; };
+		A429AB9921B2D02C004DBEA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A441BBBB2108BB0F00EAC5DD /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProvider.swift; sourceTree = "<group>"; };
 		A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationExtensions.swift; sourceTree = "<group>"; };
@@ -321,6 +335,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A429AB9221B2D02C004DBEA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4FE641920D0111D0064E52E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -504,6 +525,15 @@
 				A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */,
 			);
 			path = Providers;
+			sourceTree = "<group>";
+		};
+		A429AB9621B2D02C004DBEA2 /* EldritchHorrorCardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A429AB9721B2D02C004DBEA2 /* EldritchHorrorCardsTests.swift */,
+				A429AB9921B2D02C004DBEA2 /* Info.plist */,
+			);
+			path = EldritchHorrorCardsTests;
 			sourceTree = "<group>";
 		};
 		A441BBCB2109BAA100EAC5DD /* Resources */ = {
@@ -961,6 +991,7 @@
 			isa = PBXGroup;
 			children = (
 				A4FE641E20D0111D0064E52E /* EldritchHorrorCards */,
+				A429AB9621B2D02C004DBEA2 /* EldritchHorrorCardsTests */,
 				A4FE641D20D0111D0064E52E /* Products */,
 				AE039ACCF4B6DB9E9F82170F /* Pods */,
 				6AA1357CCA43B3C8CE5442BA /* Frameworks */,
@@ -971,6 +1002,7 @@
 			isa = PBXGroup;
 			children = (
 				A4FE641C20D0111D0064E52E /* EldritchHorrorCards.app */,
+				A429AB9521B2D02C004DBEA2 /* EldritchHorrorCardsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1003,6 +1035,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A429AB9421B2D02C004DBEA2 /* EldritchHorrorCardsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A429AB9E21B2D02C004DBEA2 /* Build configuration list for PBXNativeTarget "EldritchHorrorCardsTests" */;
+			buildPhases = (
+				A429AB9121B2D02C004DBEA2 /* Sources */,
+				A429AB9221B2D02C004DBEA2 /* Frameworks */,
+				A429AB9321B2D02C004DBEA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A429AB9B21B2D02C004DBEA2 /* PBXTargetDependency */,
+			);
+			name = EldritchHorrorCardsTests;
+			productName = EldritchHorrorCardsTests;
+			productReference = A429AB9521B2D02C004DBEA2 /* EldritchHorrorCardsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A4FE641B20D0111D0064E52E /* EldritchHorrorCards */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4FE642E20D0111E0064E52E /* Build configuration list for PBXNativeTarget "EldritchHorrorCards" */;
@@ -1031,10 +1081,14 @@
 		A4FE641420D0111D0064E52E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Andrey Torlopov";
 				TargetAttributes = {
+					A429AB9421B2D02C004DBEA2 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A4FE641B20D0111D0064E52E;
+					};
 					A4FE641B20D0111D0064E52E = {
 						CreatedOnToolsVersion = 9.4;
 					};
@@ -1055,11 +1109,19 @@
 			projectRoot = "";
 			targets = (
 				A4FE641B20D0111D0064E52E /* EldritchHorrorCards */,
+				A429AB9421B2D02C004DBEA2 /* EldritchHorrorCardsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A429AB9321B2D02C004DBEA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4FE641A20D0111D0064E52E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1166,6 +1228,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A429AB9121B2D02C004DBEA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A429AB9821B2D02C004DBEA2 /* EldritchHorrorCardsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4FE641820D0111D0064E52E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1310,6 +1380,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A429AB9B21B2D02C004DBEA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4FE641B20D0111D0064E52E /* EldritchHorrorCards */;
+			targetProxy = A429AB9A21B2D02C004DBEA2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		A4B8160820D01C6700FC5651 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -1347,6 +1425,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A429AB9C21B2D02C004DBEA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79798GRSHW;
+				INFOPLIST_FILE = EldritchHorrorCardsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = WA.EldritchHorrorCardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EldritchHorrorCards.app/EldritchHorrorCards";
+			};
+			name = Debug;
+		};
+		A429AB9D21B2D02C004DBEA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79798GRSHW;
+				INFOPLIST_FILE = EldritchHorrorCardsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = WA.EldritchHorrorCardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EldritchHorrorCards.app/EldritchHorrorCards";
+			};
+			name = Release;
+		};
 		A4FE642C20D0111E0064E52E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1508,6 +1631,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A429AB9E21B2D02C004DBEA2 /* Build configuration list for PBXNativeTarget "EldritchHorrorCardsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A429AB9C21B2D02C004DBEA2 /* Debug */,
+				A429AB9D21B2D02C004DBEA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A4FE641720D0111D0064E52E /* Build configuration list for PBXProject "EldritchHorrorCards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
