@@ -28,11 +28,12 @@ extension AuthView {
 	struct Appearance {
 		let errorColor: UIColor = UIColor.errorBorder
 		let normalColor: UIColor = UIColor.mako
-		let textFieldSideOffset: CGFloat = ScreenType.item(for: (.inch4, 50), (.inch5_5, 70), (.inch5_8, 70))
-		let buttonSideOffset: CGFloat = ScreenType.item(for: (.inch4, 30), (.inch5_5, 50), (.inch5_8, 50))
-		let avatarBottomSeparatorHeight: CGFloat = ScreenType.item(for: (.inch4, 30), (.inch5_5, 70), (.inch5_8, 70))
+		let textFieldSideOffset: CGFloat = ScreenType.item(for: (.inch4, 50), (.inch5_5, 70))
+		let buttonSideOffset: CGFloat = ScreenType.item(for: (.inch4, 30), (.inch5_5, 50))
+		let avatarBottomSeparatorHeight: CGFloat = ScreenType.item(for: (.inch4, 30), (.inch5_5, 70))
 		let stackViewSpacingHorizontal: CGFloat = 10
 		let stackViewSpacingVertical: CGFloat = 3
+		let titleTopOffset: CGFloat = ScreenType.item(for: (.inch4, 30), (.inch5_8, 60))
 	}
 }
 
@@ -64,6 +65,14 @@ final class AuthView: BaseScrollView {
 	
 	//MARK: - Private lazy variables
 	
+	private lazy var titleLabel: UILabel = {
+		let view = UILabel(font: .bold32, textColor: .darkGreenBlue)
+		view.numberOfLines = 2
+		view.textAlignment = .center
+		view.text = String(.authTitle)
+		return view
+	}()
+	
 	private lazy var avatarView: AvatarView = {
 		return AvatarView()
 	}()
@@ -79,14 +88,6 @@ final class AuthView: BaseScrollView {
 	
 	private lazy var authBackgroundImageView: UIImageView = {
 		return UIImageView(with: UIImage.authBackground, contentMode: .scaleToFill)
-	}()
-	
-	private lazy var titleLabel: UILabel = {
-		let view = UILabel(font: .bold32, textColor: .darkGreenBlue)
-		view.numberOfLines = 2
-		view.textAlignment = .center
-		view.text = String(.authTitle)
-		return view
 	}()
 	
 	private lazy var loginButton: CustomButton = {
@@ -133,7 +134,7 @@ final class AuthView: BaseScrollView {
 	
 	private func addSubviews() {
 		insertSubview(authBackgroundImageView, at: 0)
-		addSeparatorView(height: 30)
+		addSeparatorView(height: appearance.titleTopOffset)
 		addToStackView(view: titleLabel, embed: true)
 		addSeparatorView(height: 30)
 		addToStackView(view: avatarView, embed: true)
@@ -145,7 +146,7 @@ final class AuthView: BaseScrollView {
 		addToStackView(view: loginButton, embed: true)
 		addSeparatorView(expandable: true)
 		addToStackView(view: signUpButton, embed: false)
-		addSeparatorView(height: 10)
+		addSeparatorView()
 	}
 	
 	private func makeConstraints() {

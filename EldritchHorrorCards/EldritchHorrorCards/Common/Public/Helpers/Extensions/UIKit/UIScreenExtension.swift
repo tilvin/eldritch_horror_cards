@@ -13,6 +13,7 @@ public enum ScreenType: CGFloat {
 	case inch4_7 = 667//iPhone 6, 6s, 7, 8
 	case inch5_5 = 736//iPhone 6+, 6s+, 7+, 8+
 	case inch5_8 = 812 //iPhone X
+	case inch6_1 = 896 //iPhone XR, XS
 	case inch9_7 = 1024 //iPad mini & iPad Air & iPad Pro
 	case inch10_5 = 1112//iPad Pro
 	case inch12_9 = 1366//iPad Pro
