@@ -8,25 +8,20 @@
 import Foundation
 
 protocol CardDataProviderProtocol {
-	var cards: Cards? { get set }
+	var cards: [Card] { get set }
 	func load(gameId: Int, completion: @escaping (Bool) -> Void)
 }
 
 final class CardDataProvider: NSObject, CardDataProviderProtocol {
-	var cards: Cards?
-	var session: URLSession?
+	var cards: [Card] = []
+	lazy var session: URLSession = {
+		return URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
+	}()
+	
 	private var dataTask: URLSessionDataTask?
 	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
 	
-	override init() {
-		super.init()
-		if session == nil {
-			session  = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
-		}
-	}
-	
 	func load(gameId: Int, completion: @escaping (Bool) -> Void) {
-		guard let session = session else { fatalError() }
 		dataTask?.cancel()
 		dataTask = session.dataTask(with: APIRequest.cards(gameId: gameId).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
 			if let error = error {
@@ -46,7 +41,8 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 			
 			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: Cards.self, data: data) { [weak self] (result) in
 				if let value = result {
-					self?.cards = value
+					print(value)
+//					self?.cards = value
 					completion(true)
 					return
 				}

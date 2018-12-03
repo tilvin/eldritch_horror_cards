@@ -18,6 +18,7 @@ extension String {
         case unknownError
 		case online
 		case offline
+		case loadMonsterError
 	}
 	
 	//MARK: - Inits

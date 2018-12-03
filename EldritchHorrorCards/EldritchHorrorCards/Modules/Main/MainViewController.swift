@@ -28,26 +28,17 @@ extension MainViewController: MonstersViewControllerDelegate {
 	func call(monster: Monster) {
 		let provider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
-		let cardProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
 		let ancient = monster.id
 		
 		provider.selectAncient(gameId: gameProvider.game.id, ancient: ancient) { [weak self] (success) in
+			guard let sSelf = self else { return }
 			if success {
-				cardProvider .load(gameId: gameProvider.game.id) { [weak self] (success) in
-					guard let sSelf = self else { return }
-					if success {
-						let controller = CardsViewController()
-						controller.modalTransitionStyle = .crossDissolve
-						sSelf.appNavigator?.go(controller: controller, mode: .modal)
-					}
-					else {
-						print("error!")
-					}
-				}
+				let controller = CardsViewController()
+				controller.modalTransitionStyle = .crossDissolve
+				sSelf.appNavigator?.go(controller: controller, mode: .modal)
 			}
 			else {
-				//				Alert(alert: String(.loadMonsterError), actions: String(.ok)).present(in: self)
-				//				print("error!")
+				sSelf.showErrorAlert(message: String(.loadMonsterError))
 			}
 		}
 	}

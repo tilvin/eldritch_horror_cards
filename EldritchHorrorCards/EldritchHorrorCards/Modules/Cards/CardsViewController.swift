@@ -11,14 +11,15 @@ import UIKit
 class CardsViewController: BaseViewController {
 	
 	private var customView: CardsView { return view as! CardsView }
-    private var provider = DI.providers.resolve(CardDataProviderProtocol.self)!
+	private var provider = DI.providers.resolve(CardDataProviderProtocol.self)!
     private var adapter = CardsCollectionAdapter()
     
 	//MARK: - Init
 	
 	init() {
 		super.init(nibName: nil, bundle: nil)
-		self.isHiddenNavigationBar = true
+		isHiddenNavigationBar = true
+		hidesBottomBarWhenPushed = true
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -28,7 +29,12 @@ class CardsViewController: BaseViewController {
 	override func loadView() {
 		view = CardsView(frame: UIScreen.main.bounds)
 		customView.delegate = self
-        adapter.load(collectionView: customView.cartCollectionView, delegate: self)
+		
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		adapter.load(collectionView: customView.cartCollectionView, delegate: self)
 	}
 }
 

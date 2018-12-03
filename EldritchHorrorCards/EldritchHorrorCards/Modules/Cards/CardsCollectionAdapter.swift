@@ -28,12 +28,10 @@ class CardsCollectionAdapter: BaseCollectionAdapter {
     func load(collectionView: UICollectionView, delegate: CardsCollectionAdapterDelegate?) {
         connect(collectionView: collectionView)
         self.delegate = delegate
-        
-        if let cards = cardProvider.cards {
-            viewModel = cards.avaliableCardTypes.map({ (item) -> CardCellViewModel in
-                return CardCellViewModel.init(title: item, image: UIImage(named: item))
-            })
-        }
+		
+		viewModel = cardProvider.cards.map({ (card) -> CardCellViewModel in
+			return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue))
+		})
     }
     
    override func connect(collectionView: UICollectionView) {

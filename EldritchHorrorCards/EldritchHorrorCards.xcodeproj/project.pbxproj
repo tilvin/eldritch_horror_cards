@@ -40,7 +40,10 @@
 		A4208349212B524D0081E762 /* AdditionsListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */; };
 		A4208353212B57820081E762 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208352212B57820081E762 /* CALayerExtensions.swift */; };
 		A42190AC21985BD100AADC68 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42190AB21985BD000AADC68 /* CardsView.swift */; };
-		A429AB9821B2D02C004DBEA2 /* EldritchHorrorCardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429AB9721B2D02C004DBEA2 /* EldritchHorrorCardsTests.swift */; };
+		A429ABB221B2E951004DBEA2 /* CardsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429ABB121B2E951004DBEA2 /* CardsViewControllerTests.swift */; };
+		A429ABB621B33D5F004DBEA2 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429ABB521B33D5F004DBEA2 /* CardTests.swift */; };
+		A429ABB821B344DD004DBEA2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429ABB721B344DD004DBEA2 /* Card.swift */; };
+		A429ABBB21B3B675004DBEA2 /* CardDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429ABBA21B3B675004DBEA2 /* CardDataProviderTests.swift */; };
 		A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBB2108BB0F00EAC5DD /* Cards.swift */; };
 		A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */; };
 		A4563ADC20F7DBD400B65428 /* LocalizationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */; };
@@ -156,7 +159,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A429AB9A21B2D02C004DBEA2 /* PBXContainerItemProxy */ = {
+		A429ABAC21B2E939004DBEA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A4FE641420D0111D0064E52E /* Project object */;
 			proxyType = 1;
@@ -213,9 +216,12 @@
 		A4208348212B524D0081E762 /* AdditionsListTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionsListTableAdapter.swift; sourceTree = "<group>"; };
 		A4208352212B57820081E762 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 		A42190AB21985BD000AADC68 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
-		A429AB9521B2D02C004DBEA2 /* EldritchHorrorCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EldritchHorrorCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A429AB9721B2D02C004DBEA2 /* EldritchHorrorCardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EldritchHorrorCardsTests.swift; sourceTree = "<group>"; };
-		A429AB9921B2D02C004DBEA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A429ABA721B2E939004DBEA2 /* EldritchHorrorCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EldritchHorrorCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A429ABAB21B2E939004DBEA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A429ABB121B2E951004DBEA2 /* CardsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewControllerTests.swift; sourceTree = "<group>"; };
+		A429ABB521B33D5F004DBEA2 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
+		A429ABB721B344DD004DBEA2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		A429ABBA21B3B675004DBEA2 /* CardDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProviderTests.swift; sourceTree = "<group>"; };
 		A441BBBB2108BB0F00EAC5DD /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProvider.swift; sourceTree = "<group>"; };
 		A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationExtensions.swift; sourceTree = "<group>"; };
@@ -335,7 +341,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A429AB9221B2D02C004DBEA2 /* Frameworks */ = {
+		A429ABA421B2E939004DBEA2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -375,14 +381,6 @@
 				9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9F32286D210C341400ECD4A4 /* Cards */ = {
-			isa = PBXGroup;
-			children = (
-				9F322867210B855C00ECD4A4 /* ImageCell.swift */,
-			);
-			path = Cards;
 			sourceTree = "<group>";
 		};
 		9F3CBD9F2110C97300E842A4 /* Zip */ = {
@@ -499,21 +497,22 @@
 			path = AdditionDescription;
 			sourceTree = "<group>";
 		};
-		A42190A921985AC500AADC68 /* CardsViewController */ = {
+		A42190A921985AC500AADC68 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
 				A45D18BE21A0527A00F330D6 /* CardsCollectionAdapter.swift */,
 				9F80B99A210C3C96007C4396 /* CardsViewController.swift */,
-				9F32286D210C341400ECD4A4 /* Cards */,
 				A45D188B219E0A5C00F330D6 /* Model */,
+				A429ABBC21B3B69D004DBEA2 /* Provider */,
 				A42190AA21985AFA00AADC68 /* Views */,
 			);
-			path = CardsViewController;
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		A42190AA21985AFA00AADC68 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9F322867210B855C00ECD4A4 /* ImageCell.swift */,
 				A42190AB21985BD000AADC68 /* CardsView.swift */,
 			);
 			path = Views;
@@ -527,13 +526,47 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
-		A429AB9621B2D02C004DBEA2 /* EldritchHorrorCardsTests */ = {
+		A429ABA821B2E939004DBEA2 /* EldritchHorrorCardsTests */ = {
 			isa = PBXGroup;
 			children = (
-				A429AB9721B2D02C004DBEA2 /* EldritchHorrorCardsTests.swift */,
-				A429AB9921B2D02C004DBEA2 /* Info.plist */,
+				A429ABAB21B2E939004DBEA2 /* Info.plist */,
+				A429ABB321B33D42004DBEA2 /* Cards */,
 			);
 			path = EldritchHorrorCardsTests;
+			sourceTree = "<group>";
+		};
+		A429ABB321B33D42004DBEA2 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				A429ABB121B2E951004DBEA2 /* CardsViewControllerTests.swift */,
+				A429ABB921B3B65E004DBEA2 /* Provider */,
+				A429ABB421B33D49004DBEA2 /* Model */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		A429ABB421B33D49004DBEA2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A429ABB521B33D5F004DBEA2 /* CardTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A429ABB921B3B65E004DBEA2 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				A429ABBA21B3B675004DBEA2 /* CardDataProviderTests.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		A429ABBC21B3B69D004DBEA2 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		A441BBCB2109BAA100EAC5DD /* Resources */ = {
@@ -652,7 +685,6 @@
 			isa = PBXGroup;
 			children = (
 				9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */,
-				A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */,
 				A4563B0A20F8846100B65428 /* ConfigProvider.swift */,
 				9F61A1F02171F90700A5003C /* ExpeditionDataProvider.swift */,
 				9FC7F667215AC90500A2A7B3 /* GameProvider.swift */,
@@ -680,7 +712,7 @@
 			children = (
 				A4C2532F211DEE4400E0FF37 /* Additions */,
 				A499E97C214403B8001186A5 /* Auth */,
-				A42190A921985AC500AADC68 /* CardsViewController */,
+				A42190A921985AC500AADC68 /* Cards */,
 				A4208356212BE06E0081E762 /* Description */,
 				9F61A1E8217074B800A5003C /* Expedition */,
 				A441BBDA2109BC7000EAC5DD /* Main */,
@@ -722,6 +754,7 @@
 			isa = PBXGroup;
 			children = (
 				A45D188D219E0A7900F330D6 /* CardCellViewModel.swift */,
+				A429ABB721B344DD004DBEA2 /* Card.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -991,7 +1024,7 @@
 			isa = PBXGroup;
 			children = (
 				A4FE641E20D0111D0064E52E /* EldritchHorrorCards */,
-				A429AB9621B2D02C004DBEA2 /* EldritchHorrorCardsTests */,
+				A429ABA821B2E939004DBEA2 /* EldritchHorrorCardsTests */,
 				A4FE641D20D0111D0064E52E /* Products */,
 				AE039ACCF4B6DB9E9F82170F /* Pods */,
 				6AA1357CCA43B3C8CE5442BA /* Frameworks */,
@@ -1002,7 +1035,7 @@
 			isa = PBXGroup;
 			children = (
 				A4FE641C20D0111D0064E52E /* EldritchHorrorCards.app */,
-				A429AB9521B2D02C004DBEA2 /* EldritchHorrorCardsTests.xctest */,
+				A429ABA721B2E939004DBEA2 /* EldritchHorrorCardsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1035,22 +1068,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A429AB9421B2D02C004DBEA2 /* EldritchHorrorCardsTests */ = {
+		A429ABA621B2E939004DBEA2 /* EldritchHorrorCardsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A429AB9E21B2D02C004DBEA2 /* Build configuration list for PBXNativeTarget "EldritchHorrorCardsTests" */;
+			buildConfigurationList = A429ABAE21B2E939004DBEA2 /* Build configuration list for PBXNativeTarget "EldritchHorrorCardsTests" */;
 			buildPhases = (
-				A429AB9121B2D02C004DBEA2 /* Sources */,
-				A429AB9221B2D02C004DBEA2 /* Frameworks */,
-				A429AB9321B2D02C004DBEA2 /* Resources */,
+				A429ABA321B2E939004DBEA2 /* Sources */,
+				A429ABA421B2E939004DBEA2 /* Frameworks */,
+				A429ABA521B2E939004DBEA2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A429AB9B21B2D02C004DBEA2 /* PBXTargetDependency */,
+				A429ABAD21B2E939004DBEA2 /* PBXTargetDependency */,
 			);
 			name = EldritchHorrorCardsTests;
 			productName = EldritchHorrorCardsTests;
-			productReference = A429AB9521B2D02C004DBEA2 /* EldritchHorrorCardsTests.xctest */;
+			productReference = A429ABA721B2E939004DBEA2 /* EldritchHorrorCardsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		A4FE641B20D0111D0064E52E /* EldritchHorrorCards */ = {
@@ -1085,8 +1118,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Andrey Torlopov";
 				TargetAttributes = {
-					A429AB9421B2D02C004DBEA2 = {
+					A429ABA621B2E939004DBEA2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = A4FE641B20D0111D0064E52E;
 					};
 					A4FE641B20D0111D0064E52E = {
@@ -1109,13 +1143,13 @@
 			projectRoot = "";
 			targets = (
 				A4FE641B20D0111D0064E52E /* EldritchHorrorCards */,
-				A429AB9421B2D02C004DBEA2 /* EldritchHorrorCardsTests */,
+				A429ABA621B2E939004DBEA2 /* EldritchHorrorCardsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A429AB9321B2D02C004DBEA2 /* Resources */ = {
+		A429ABA521B2E939004DBEA2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1228,11 +1262,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A429AB9121B2D02C004DBEA2 /* Sources */ = {
+		A429ABA321B2E939004DBEA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A429AB9821B2D02C004DBEA2 /* EldritchHorrorCardsTests.swift in Sources */,
+				A429ABB221B2E951004DBEA2 /* CardsViewControllerTests.swift in Sources */,
+				A429ABB621B33D5F004DBEA2 /* CardTests.swift in Sources */,
+				A429ABBB21B3B675004DBEA2 /* CardDataProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1263,6 +1299,7 @@
 				A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */,
 				A4794286210C31C300ED0851 /* BaseNavigationController.swift in Sources */,
 				A45D188E219E0A7900F330D6 /* CardCellViewModel.swift in Sources */,
+				A429ABB821B344DD004DBEA2 /* Card.swift in Sources */,
 				A4C25333211DEEAD00E0FF37 /* TableRowBuilder.swift in Sources */,
 				A4F3B1DA212ECB8A00F03E7B /* GradientView.swift in Sources */,
 				A47B355D21A4827C00C12A45 /* NetworkRoutePath.swift in Sources */,
@@ -1381,10 +1418,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A429AB9B21B2D02C004DBEA2 /* PBXTargetDependency */ = {
+		A429ABAD21B2E939004DBEA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A4FE641B20D0111D0064E52E /* EldritchHorrorCards */;
-			targetProxy = A429AB9A21B2D02C004DBEA2 /* PBXContainerItemProxy */;
+			targetProxy = A429ABAC21B2E939004DBEA2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1425,10 +1462,11 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A429AB9C21B2D02C004DBEA2 /* Debug */ = {
+		A429ABAF21B2E939004DBEA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79798GRSHW;
 				INFOPLIST_FILE = EldritchHorrorCardsTests/Info.plist;
@@ -1440,18 +1478,20 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = WA.EldritchHorrorCardsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = GloveSoft.EldritchHorrorCardsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EldritchHorrorCards.app/EldritchHorrorCards";
 			};
 			name = Debug;
 		};
-		A429AB9D21B2D02C004DBEA2 /* Release */ = {
+		A429ABB021B2E939004DBEA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79798GRSHW;
 				INFOPLIST_FILE = EldritchHorrorCardsTests/Info.plist;
@@ -1462,7 +1502,7 @@
 					"@loader_path/Frameworks",
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = WA.EldritchHorrorCardsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = GloveSoft.EldritchHorrorCardsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1631,11 +1671,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A429AB9E21B2D02C004DBEA2 /* Build configuration list for PBXNativeTarget "EldritchHorrorCardsTests" */ = {
+		A429ABAE21B2E939004DBEA2 /* Build configuration list for PBXNativeTarget "EldritchHorrorCardsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A429AB9C21B2D02C004DBEA2 /* Debug */,
-				A429AB9D21B2D02C004DBEA2 /* Release */,
+				A429ABAF21B2E939004DBEA2 /* Debug */,
+				A429ABB021B2E939004DBEA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
