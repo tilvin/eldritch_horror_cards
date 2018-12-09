@@ -44,7 +44,6 @@
 		A429ABB621B33D5F004DBEA2 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429ABB521B33D5F004DBEA2 /* CardTests.swift */; };
 		A429ABB821B344DD004DBEA2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429ABB721B344DD004DBEA2 /* Card.swift */; };
 		A429ABBB21B3B675004DBEA2 /* CardDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429ABBA21B3B675004DBEA2 /* CardDataProviderTests.swift */; };
-		A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBB2108BB0F00EAC5DD /* Cards.swift */; };
 		A441BBBE2108BDB800EAC5DD /* CardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */; };
 		A4563ADC20F7DBD400B65428 /* LocalizationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */; };
 		A4563ADF20F7DBF500B65428 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563ADD20F7DBF500B65428 /* String.swift */; };
@@ -222,7 +221,6 @@
 		A429ABB521B33D5F004DBEA2 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
 		A429ABB721B344DD004DBEA2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A429ABBA21B3B675004DBEA2 /* CardDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProviderTests.swift; sourceTree = "<group>"; };
-		A441BBBB2108BB0F00EAC5DD /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		A441BBBD2108BDB800EAC5DD /* CardDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProvider.swift; sourceTree = "<group>"; };
 		A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationExtensions.swift; sourceTree = "<group>"; };
 		A4563ADD20F7DBF500B65428 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -699,7 +697,6 @@
 			children = (
 				A4B35E5F217BB92A002496E7 /* Realm */,
 				9F171C57211D59DE005A8264 /* Addition.swift */,
-				A441BBBB2108BB0F00EAC5DD /* Cards.swift */,
 				9F61A1EE2170841B00A5003C /* Expedition.swift */,
 				9F3E4577213522C4002DA88A /* Description.swift */,
 				A48C461420FD0DFD00DF1687 /* Monster.swift */,
@@ -1364,7 +1361,6 @@
 				A4794289210C40EA00ED0851 /* Colors.swift in Sources */,
 				A4F3B1D7212ECB8A00F03E7B /* ViewAnimation.swift in Sources */,
 				A4B8161320D01D6800FC5651 /* Storyboards.swift in Sources */,
-				A441BBBC2108BB0F00EAC5DD /* Cards.swift in Sources */,
 				A4788ADF212D4F80006D71FD /* DescriptionView.swift in Sources */,
 				A47771AB21452FF0007F2058 /* UIImageViewExtension.swift in Sources */,
 				A499E9812144413B001186A5 /* UIViewExtension.swift in Sources */,
