@@ -29,12 +29,33 @@ class CardsViewController: BaseViewController {
 	override func loadView() {
 		view = CardsView(frame: UIScreen.main.bounds)
 		customView.delegate = self
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 		
+		provider.load(gameId: gameProvider.game.id) { [weak self] (success) in
+			guard let sSelf = self else { return }
+			guard success else {
+				sSelf.showErrorAlert(message: String(.cantLoadCards))
+				return
+			}
+			sSelf.updateViewModel()
+		}
+		updateViewModel()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		adapter.load(collectionView: customView.cartCollectionView, delegate: self)
+	}
+	
+	private func updateViewModel() {
+		let viewModel = provider.cards.map({ (card) -> CardCellViewModel in
+			return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue))
+		})
+		adapter.configure(with: viewModel)
 	}
 }
 

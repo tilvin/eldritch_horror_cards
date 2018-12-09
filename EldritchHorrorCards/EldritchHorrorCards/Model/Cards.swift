@@ -14,4 +14,5 @@ public struct Cards: Codable {
 	enum CodingKeys: String, CodingKey {
 		case avaliableCardTypes = "avaliable_card_types"
 	}
+	
 }

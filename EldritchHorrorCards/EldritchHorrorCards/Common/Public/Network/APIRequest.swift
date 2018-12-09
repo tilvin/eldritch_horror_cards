@@ -41,7 +41,9 @@ extension APIRequest {
 		
 		request.httpMethod = self.method
 		
-		request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+		components.headers.forEach { (key: String, value: String) in
+			request.setValue(value, forHTTPHeaderField: key)
+		}
 		
 		if components.asJson {
 			request.httpBody = try! JSONSerialization.data(withJSONObject: components.parameters, options: [])
@@ -57,7 +59,7 @@ extension APIRequest {
 		var path: String!
 		var parameters: [String: Any] = [:]
 		var urlParameters: [String: String] = [:]
-		var headers: [String: String] = [:]
+		var headers: [String: String] = ["Content-Type": "application/json; charset=utf-8"]
 		var emptyBody: Bool = false
 		var asJson: Bool = true
 	}
@@ -95,6 +97,7 @@ extension APIRequest {
 			components.path = "/cards"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
+			components.headers = [:]
 			return components
 		case .expedition(let gameId, let type):
 			components.path = "/expedition_contacts"

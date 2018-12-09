@@ -28,18 +28,14 @@ class CardsCollectionAdapter: BaseCollectionAdapter {
     func load(collectionView: UICollectionView, delegate: CardsCollectionAdapterDelegate?) {
         connect(collectionView: collectionView)
         self.delegate = delegate
-		
-		viewModel = cardProvider.cards.map({ (card) -> CardCellViewModel in
-			return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue))
-		})
     }
-    
+	
    override func connect(collectionView: UICollectionView) {
         super.connect(collectionView: collectionView)
         collectionView.contentSize = UICollectionViewFlowLayoutAutomaticSize
         registerCell(items: [ImageCell.identifier: ImageCell.self])
     }
-    
+	
     func configure(with models: [CardCellViewModel]) {
         viewModel = models
         collectionView?.reloadData()

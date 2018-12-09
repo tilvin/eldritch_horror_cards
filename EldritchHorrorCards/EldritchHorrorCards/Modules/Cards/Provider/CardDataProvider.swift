@@ -39,13 +39,14 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 				return
 			}
 			
-			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: Cards.self, data: data) { [weak self] (result) in
-				if let value = result {
-					print(value)
-//					self?.cards = value
-					completion(true)
+			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [String].self, data: data) { [unowned self] (result) in
+				guard let values = result else {
+					completion(false)
 					return
 				}
+				self.cards = values.map { return Card(type: $0) }
+				completion(true)
+				return
 			}
 		}
 		dataTask?.resume()

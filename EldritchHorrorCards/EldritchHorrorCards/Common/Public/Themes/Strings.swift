@@ -19,6 +19,8 @@ extension String {
 		case online
 		case offline
 		case loadMonsterError
+		case cantSelectAncient
+		case cantLoadCards
 	}
 	
 	//MARK: - Inits
