@@ -8,23 +8,15 @@
 import UIKit
 
 class ExpeditionViewController: BaseViewController {
-	
-	//MARK: - Public variables
-	
-	var customView: ExpeditionView { return self.view as! ExpeditionView }
-	let provider = DI.providers.resolve(ExpeditionDataProviderProtocol.self)!
-	
-	//MARK: - Private variables
-	
-	private var expeditions: [Expedition] = []
+	public var customView: ExpeditionView { return self.view as! ExpeditionView }
+	private let provider = DI.providers.resolve(ExpeditionDataProviderProtocol.self)!
 	
 	// MARK: - View lifecycle
-	
+
 	override func loadView() {
-		let view = ExpeditionView(frame: UIScreen.main.bounds, viewModel: ExpeditionViewModel())
 		isHiddenNavigationBar = true
-		self.view = view
-		view.delegate = self
+		view = ExpeditionView(frame: UIScreen.main.bounds, viewModel: ExpeditionViewModel())
+		customView.delegate = self
 	}
 	
 	override func viewDidLoad() {

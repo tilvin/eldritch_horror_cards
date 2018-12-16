@@ -389,14 +389,14 @@
 			path = Zip;
 			sourceTree = "<group>";
 		};
-		9F61A1E8217074B800A5003C /* Expedition */ = {
+		9F61A1E8217074B800A5003C /* SuccessFailureStory */ = {
 			isa = PBXGroup;
 			children = (
 				9F61A1EA2170751300A5003C /* ExpeditionViewController.swift */,
 				9F9B55DD21A294590016C577 /* Model */,
 				9F61A1E9217074D500A5003C /* View */,
 			);
-			path = Expedition;
+			path = SuccessFailureStory;
 			sourceTree = "<group>";
 		};
 		9F61A1E9217074D500A5003C /* View */ = {
@@ -711,7 +711,7 @@
 				A499E97C214403B8001186A5 /* Auth */,
 				A42190A921985AC500AADC68 /* Cards */,
 				A4208356212BE06E0081E762 /* Description */,
-				9F61A1E8217074B800A5003C /* Expedition */,
+				9F61A1E8217074B800A5003C /* SuccessFailureStory */,
 				A441BBDA2109BC7000EAC5DD /* Main */,
 				A441BBDB2109BC7C00EAC5DD /* Menu */,
 			);

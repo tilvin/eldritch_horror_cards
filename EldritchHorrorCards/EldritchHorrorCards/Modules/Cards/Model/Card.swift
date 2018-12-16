@@ -8,9 +8,15 @@
 
 import Foundation
 
+enum CardViewType {
+	case locationStory
+	case successFailureStory
+}
+
 enum CardType: String {
 	case general = "general_contacts"
 	case otherWorldContact = "other_world_contacts"
+	
 	case expeditionAntarctica = "expedition_location_antarctica"
 	case expeditionAmazonia = "expedition_location_amazonia"
 	case expeditionHimalayas = "expedition_location_himalayas"
@@ -23,6 +29,7 @@ enum CardType: String {
 	case expeditionRoma = "expedition_location_rome"
 	case expeditionArkham = "expedition_location_arkham"
 	case expeditionSydney = "expedition_location_sydney"
+	
 	case americaContact = "contact_in_america"
 	case europeContact = "contact_in_europe"
 	case mountainsContact = "contact_in_mountains"
@@ -30,6 +37,7 @@ enum CardType: String {
 	case asiaAustraliaContact = "contact_in_asia_australia"
 	case egyptContact = "contact_in_egypt"
 	case africaeContact = "contact_in_africa"
+	
 	case yigResearchContact = "research_contact_yig"
 	case knyanUnearthedSpecialContact = "special_contact_knyan_unearthed"
 	case ithaquaResearchContact = "research_contact_ithaqua"
@@ -54,7 +62,17 @@ enum CardType: String {
 	case citiesOnLakeSpecialContact = "special_contact_cities_on_the_lake"
 	case unspeakableOneSpecialContact = "special_contact_unspeakable_one"
 	case kingInYellowSpecialContact = "special_contact_king_in_yellow"
+	
 	case unknown
+	
+	var viewType: CardViewType {
+		switch self {
+		case .general, .americaContact, .europeContact, .mountainsContact, .miskatonicExpeditionContact, .asiaAustraliaContact, .egyptContact, .africaeContact:
+			return .locationStory
+		default:
+			return .successFailureStory
+		}
+	}
 }
 
 struct Card {

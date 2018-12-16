@@ -16,7 +16,7 @@ extension CardsCollectionAdapter {
 }
 
 protocol CardsCollectionAdapterDelegate: class {
-    func cardSelected(type: String)
+    func cardSelected(type: CardType)
 }
 
 class CardsCollectionAdapter: BaseCollectionAdapter {
@@ -74,6 +74,7 @@ class CardsCollectionAdapter: BaseCollectionAdapter {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         guard indexPath.row < viewModel.count else { return }
-        delegate?.cardSelected(type: viewModel[indexPath.row].title)
+		guard let cardType = CardType(rawValue: viewModel[indexPath.row].title) else { return }
+        delegate?.cardSelected(type: cardType)
     }
 }
