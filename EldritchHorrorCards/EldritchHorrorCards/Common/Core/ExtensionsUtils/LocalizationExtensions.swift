@@ -35,12 +35,10 @@ extension String {
   }
   
   fileprivate func localizedWithComment(_ comment: String, bundles: [Bundle]) -> String? {
-    for bundle in bundles {
-      if bundle != Bundle.main {
+    for bundle in bundles where bundle != Bundle.main {
         if let string = self.localizedWithComment(comment, bundle: bundle, recursion: 1) {
           return string
         }
-      }
     }
     
     return nil

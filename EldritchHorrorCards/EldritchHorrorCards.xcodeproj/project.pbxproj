@@ -1122,6 +1122,7 @@
 					};
 					A4FE641B20D0111D0064E52E = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
