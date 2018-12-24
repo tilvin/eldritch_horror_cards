@@ -63,15 +63,16 @@ class LocalStoryView: BaseScrollView {
 	
 	//MARK: - Lifecycle 
 	
-	override init(frame: CGRect = .zero) {
+	init(frame: CGRect = .zero, viewModel: LocalStoryViewModel) {
 		super.init(frame: frame)
 		backgroundColor = .white
-		topTitleLabel.text = "111"
-		topView.update(viewModel: CardSectionViewModel(text: "121222", backgroundColor: .red, textColor: .white))
-		middleTitleLabel.text = "222"
-		middleView.update(viewModel: CardSectionViewModel(text: "3333", backgroundColor: .gray, textColor: .white))
-		bottomTitleLabel.text = "333"
-		bottomView.update(viewModel: CardSectionViewModel(text: "444", backgroundColor: .black, textColor: .white))
+		topTitleLabel.text = viewModel.topTitle
+		topView.update(viewModel: viewModel.topViewModel)
+		middleTitleLabel.text = viewModel.middleTitle
+		middleView.update(viewModel: viewModel.middleViewModel)
+		bottomTitleLabel.text = viewModel.bottomTitle
+		bottomView.update(viewModel: viewModel.bottomViewModel)
+		backButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
 		addSubviews()
 		makeContraints()
 	}
@@ -148,5 +149,12 @@ class LocalStoryView: BaseScrollView {
 	
 	override func updateHeight() {
 		scrollView.contentSize = CGSize(width: scrollView.frame.width, height: stackView.frame.height)
+	}
+	
+	//MARK: - Handlers
+	
+	@objc
+	private func backButtonAction() {
+		delegate?.backButtonPressed()
 	}
 }

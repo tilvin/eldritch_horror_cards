@@ -109,6 +109,8 @@
 		A499E9812144413B001186A5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499E9802144413B001186A5 /* UIViewExtension.swift */; };
 		A499E98621445A49001186A5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499E98521445A49001186A5 /* LoaderView.swift */; };
 		A4A9102E21285AD900652D25 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9102D21285AD900652D25 /* DescriptionViewController.swift */; };
+		A4A9DC8D21D122A200EC2F5E /* LocalStoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9DC8C21D122A200EC2F5E /* LocalStoryModel.swift */; };
+		A4A9DC8F21D122C100EC2F5E /* LocalStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9DC8E21D122C100EC2F5E /* LocalStoryViewModel.swift */; };
 		A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */; };
 		A4B35E4F217A813C002496E7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E4E217A813C002496E7 /* UIImageExtension.swift */; };
 		A4B35E52217A8748002496E7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E51217A8748002496E7 /* AuthViewModel.swift */; };
@@ -289,6 +291,8 @@
 		A499E9802144413B001186A5 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A499E98521445A49001186A5 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		A4A9102D21285AD900652D25 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		A4A9DC8C21D122A200EC2F5E /* LocalStoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStoryModel.swift; sourceTree = "<group>"; };
+		A4A9DC8E21D122C100EC2F5E /* LocalStoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStoryViewModel.swift; sourceTree = "<group>"; };
 		A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		A4B35E4E217A813C002496E7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		A4B35E51217A8748002496E7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -911,6 +915,7 @@
 			isa = PBXGroup;
 			children = (
 				A4978E7D21D0E15000329AB2 /* LocalStoryViewController.swift */,
+				A4A9DC8B21D1228E00EC2F5E /* Model */,
 				A4978E7F21D0E15300329AB2 /* View */,
 			);
 			path = LocationStory;
@@ -969,6 +974,15 @@
 				A4978E8221D0E4E400329AB2 /* UIBarButtonItemExtension.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		A4A9DC8B21D1228E00EC2F5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4A9DC8C21D122A200EC2F5E /* LocalStoryModel.swift */,
+				A4A9DC8E21D122C100EC2F5E /* LocalStoryViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A4AA1E512119830E000121C0 /* UPCarouselFlowLayout */ = {
@@ -1389,6 +1403,7 @@
 				A4563AFD20F87FF500B65428 /* DI.swift in Sources */,
 				9F9B55DF21A294850016C577 /* CardSectionViewModel.swift in Sources */,
 				A4F3B1DC212ECB8A00F03E7B /* ViewControllerUI.swift in Sources */,
+				A4A9DC8D21D122A200EC2F5E /* LocalStoryModel.swift in Sources */,
 				A4B35E4F217A813C002496E7 /* UIImageExtension.swift in Sources */,
 				A4794284210C31B900ED0851 /* BaseTabBarController.swift in Sources */,
 				A4563ADC20F7DBD400B65428 /* LocalizationExtensions.swift in Sources */,
@@ -1402,6 +1417,7 @@
 				A499E9812144413B001186A5 /* UIViewExtension.swift in Sources */,
 				A4B35E56217A890F002496E7 /* AuthTextViewModel.swift in Sources */,
 				A4788AE1212D5F7D006D71FD /* CustomButton.swift in Sources */,
+				A4A9DC8F21D122C100EC2F5E /* LocalStoryViewModel.swift in Sources */,
 				A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */,
 				A47B355321A4823300C12A45 /* NetworkProtocol.swift in Sources */,
 				9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */,

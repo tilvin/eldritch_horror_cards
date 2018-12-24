@@ -12,9 +12,12 @@ class LocalStoryViewController: BaseViewController {
 	
 	private var customView: LocalStoryView { return view as! LocalStoryView }
 	
+	private let model: LocalStoryModel
+	
 	//MARK: - Lifecycle
 	
-	init() {
+	init(model: LocalStoryModel) {
+		self.model = model
 		super.init(nibName: nil, bundle: nil)
 		isHiddenBackButton = true
 		isHiddenNavigationBar = true
@@ -26,10 +29,14 @@ class LocalStoryViewController: BaseViewController {
 	}
 	
 	override func loadView() {
-		view = LocalStoryView(frame: UIScreen.main.bounds)
+		view = LocalStoryView(frame: UIScreen.main.bounds, viewModel: LocalStoryViewModel(model: model))
+		customView.delegate = self
 	}
+}
+
+extension LocalStoryViewController: LocalStoryViewDelegate {
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+	func backButtonPressed() {
+		dismiss(animated: true, completion: nil)
+	}
 }
