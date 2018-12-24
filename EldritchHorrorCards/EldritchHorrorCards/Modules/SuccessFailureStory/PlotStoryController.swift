@@ -8,10 +8,11 @@
 import UIKit
 
 class PlotStoryController: BaseViewController {
-	public var customView: PlotStoryView { return self.view as! PlotStoryView }
+	
+	private var customView: PlotStoryView { return self.view as! PlotStoryView }
 	private let provider = DI.providers.resolve(ExpeditionDataProviderProtocol.self)!
 	
-	// MARK: - View lifecycle
+	// MARK: - Lifecycle
 
 	override func loadView() {
 		isHiddenNavigationBar = true

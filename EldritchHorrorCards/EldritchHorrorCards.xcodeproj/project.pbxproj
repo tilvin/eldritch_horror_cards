@@ -103,6 +103,9 @@
 		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* DataParseService.swift */; };
 		A49043082145610200397AC9 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49043072145610200397AC9 /* UIScreenExtension.swift */; };
+		A4978E7E21D0E15000329AB2 /* LocalStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4978E7D21D0E15000329AB2 /* LocalStoryViewController.swift */; };
+		A4978E8121D0E16900329AB2 /* LocalStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4978E8021D0E16900329AB2 /* LocalStoryView.swift */; };
+		A4978E8321D0E4E400329AB2 /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4978E8221D0E4E400329AB2 /* UIBarButtonItemExtension.swift */; };
 		A499E9812144413B001186A5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499E9802144413B001186A5 /* UIViewExtension.swift */; };
 		A499E98621445A49001186A5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499E98521445A49001186A5 /* LoaderView.swift */; };
 		A4A9102E21285AD900652D25 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9102D21285AD900652D25 /* DescriptionViewController.swift */; };
@@ -280,6 +283,9 @@
 		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* DataParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParseService.swift; sourceTree = "<group>"; };
 		A49043072145610200397AC9 /* UIScreenExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
+		A4978E7D21D0E15000329AB2 /* LocalStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStoryViewController.swift; sourceTree = "<group>"; };
+		A4978E8021D0E16900329AB2 /* LocalStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStoryView.swift; sourceTree = "<group>"; };
+		A4978E8221D0E4E400329AB2 /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 		A499E9802144413B001186A5 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A499E98521445A49001186A5 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		A4A9102D21285AD900652D25 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
@@ -705,14 +711,14 @@
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				A4978E7C21D0D78C00329AB2 /* LocationStory */,
 				A4C2532F211DEE4400E0FF37 /* Additions */,
 				A499E97C214403B8001186A5 /* Auth */,
 				A42190A921985AC500AADC68 /* Cards */,
 				A4208356212BE06E0081E762 /* Description */,
-				9F61A1E8217074B800A5003C /* SuccessFailureStory */,
+				A4978E7C21D0D78C00329AB2 /* LocationStory */,
 				A441BBDA2109BC7000EAC5DD /* Main */,
 				A441BBDB2109BC7C00EAC5DD /* Menu */,
+				9F61A1E8217074B800A5003C /* SuccessFailureStory */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -776,11 +782,11 @@
 		A45E5660210B32C900590AE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A4978E7B21D0D12900329AB2 /* CardSectionView */,
 				A45E5661210B32F500590AE7 /* BaseScrollView.swift */,
 				A4788AE0212D5F7D006D71FD /* CustomButton.swift */,
 				A46704E021A5FFC100582ABB /* InternetStatusView.swift */,
 				A499E98521445A49001186A5 /* LoaderView.swift */,
+				A4978E7B21D0D12900329AB2 /* CardSectionView */,
 				A45D187F219E01F800F330D6 /* CollectionView */,
 				A420833C212B1B510081E762 /* TableView */,
 			);
@@ -904,8 +910,18 @@
 		A4978E7C21D0D78C00329AB2 /* LocationStory */ = {
 			isa = PBXGroup;
 			children = (
+				A4978E7D21D0E15000329AB2 /* LocalStoryViewController.swift */,
+				A4978E7F21D0E15300329AB2 /* View */,
 			);
 			path = LocationStory;
+			sourceTree = "<group>";
+		};
+		A4978E7F21D0E15300329AB2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4978E8021D0E16900329AB2 /* LocalStoryView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A499E97C214403B8001186A5 /* Auth */ = {
@@ -950,6 +966,7 @@
 				A45D1887219E078800F330D6 /* UITableViewExtension.swift */,
 				A47771AE214531DD007F2058 /* UITextFieldExtension.swift */,
 				A499E9802144413B001186A5 /* UIViewExtension.swift */,
+				A4978E8221D0E4E400329AB2 /* UIBarButtonItemExtension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1341,6 +1358,7 @@
 				A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */,
 				A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */,
 				A47B356421A4869600C12A45 /* NetworkService.swift in Sources */,
+				A4978E8121D0E16900329AB2 /* LocalStoryView.swift in Sources */,
 				A4FDB00C20D413DE00FA6E4B /* JFCardSelectionCell.swift in Sources */,
 				A479428B210C419F00ED0851 /* Fonts.swift in Sources */,
 				A4794280210C311500ED0851 /* TabBarControllersProviderProtocol.swift in Sources */,
@@ -1363,6 +1381,7 @@
 				A45D18C021A0527B00F330D6 /* StaticCollectionAdapter.swift in Sources */,
 				A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */,
 				A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */,
+				A4978E8321D0E4E400329AB2 /* UIBarButtonItemExtension.swift in Sources */,
 				A420833B212B1B0B0081E762 /* TableViewHeaderFooterConfiguration.swift in Sources */,
 				A47771AF214531DD007F2058 /* UITextFieldExtension.swift in Sources */,
 				A47B355221A4823300C12A45 /* Network.swift in Sources */,
@@ -1390,6 +1409,7 @@
 				A45D18BF21A0527B00F330D6 /* CollectionCellConfiguration.swift in Sources */,
 				A45D18C121A0527B00F330D6 /* BaseCollectionAdapter.swift in Sources */,
 				A4F3B1DD212ECB8A00F03E7B /* View.swift in Sources */,
+				A4978E7E21D0E15000329AB2 /* LocalStoryViewController.swift in Sources */,
 				9F61A1ED217079C800A5003C /* PlotStoryViewModel.swift in Sources */,
 				A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */,
 				A4B35E54217A879C002496E7 /* AuthTextView.swift in Sources */,

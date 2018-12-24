@@ -35,63 +35,63 @@ extension PlotStoryView {
 }
 
 class PlotStoryView: BaseScrollView {
-    
-    weak var delegate: ExpeditionViewDelegate?
-    private let appearance = Appearance()
-    
-    //MARK: - Private lazy variables
-    
-    private lazy var backButton: CustomButton = {
-        return CustomButton(type: .back)
-    }()
-    
-    private lazy var titleImageView: UIImageView = {
-        let view = UIImageView(with: .pyramids, contentMode: UIViewContentMode.scaleAspectFill )
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    private lazy var titleLabelView: UIView = {
-        let view = UIView(backgroundColor: .mako)
-        view.clipsToBounds = true
-        view.layer.cornerRadius = appearance.titleCornerRadius
-        view.layer.opacity = appearance.titleOpacity
-        return view
-    }()
-    
-    private lazy var titleLabel: UILabel = {
-        return UILabel(font: .bold24, textColor: .gallery)
-    }()
-    
-    private lazy var descriptionTextView: UITextView = {
-        let view = UITextView()
-        view.isEditable = false
-        view.textColor = .mako
-        view.textAlignment = .left
-        view.font = .bold14
-        view.isScrollEnabled = false
-        return view
-    }()
-    
-    private lazy var successView: CardSectionView = {
-        return CardSectionView()
-    }()
-    
-    private lazy var failureView: CardSectionView = {
-        return CardSectionView()
-    }()
-    
-    private lazy var failureTextView: UITextView = {
-        let view = UITextView()
-        view.isEditable = false
-        view.textColor = .mako
-        view.backgroundColor = .clear
-        view.textAlignment = .left
-        view.font = .regular14
-        return view
-    }()
-    
-    //MARK: - Init
+
+	public weak var delegate: ExpeditionViewDelegate?
+	private let appearance = Appearance()
+
+	//MARK: - Private lazy variables
+	
+	private lazy var backButton: CustomButton = {
+		return CustomButton(type: .back)
+	}()
+	
+	private lazy var titleImageView: UIImageView = {
+		let view = UIImageView(with: .pyramids, contentMode: UIViewContentMode.scaleAspectFill )
+		view.clipsToBounds = true
+		return view
+	}()
+	
+	private lazy var titleLabelView: UIView = {
+		let view = UIView(backgroundColor: .mako)
+		view.clipsToBounds = true
+		view.layer.cornerRadius = appearance.titleCornerRadius
+		view.layer.opacity = appearance.titleOpacity
+		return view
+	}()
+	
+	private lazy var titleLabel: UILabel = {
+		return UILabel(font: .bold24, textColor: .gallery)
+	}()
+	
+	private lazy var descriptionTextView: UITextView = {
+		let view = UITextView()
+		view.isEditable = false
+		view.textColor = .mako
+		view.textAlignment = .left
+		view.font = .bold14
+		view.isScrollEnabled = false
+		return view
+	}()
+	
+	private lazy var successView: CardSectionView = {
+		return CardSectionView()
+	}()
+	
+	private lazy var failureView: CardSectionView = {
+		return CardSectionView()
+	}()
+	
+	private lazy var failureTextView: UITextView = {
+		let view = UITextView()
+		view.isEditable = false
+		view.textColor = .mako
+		view.backgroundColor = .clear
+		view.textAlignment = .left
+		view.font = .regular14
+		return view
+	}()
+	
+    //MARK: - Lifecycle
     
     init(frame: CGRect = CGRect.zero, viewModel: PlotStoryViewModel) {
         super.init(frame: frame)
@@ -110,19 +110,19 @@ class PlotStoryView: BaseScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Public
-    
-    public func update(viewModel: PlotStoryViewModel) {
-        titleImageView.image = viewModel.image
-        titleLabel.text = viewModel.title
-        successView.update(viewModel: viewModel.successViewModel)
-        failureView.update(viewModel: viewModel.failureViewModel)
-        descriptionTextView.text = viewModel.story
-        backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
-    }
+	//MARK: - Public
+	
+	public func update(viewModel: PlotStoryViewModel) {
+		titleImageView.image = viewModel.image
+		titleLabel.text = viewModel.title
+		successView.update(viewModel: viewModel.successViewModel)
+		failureView.update(viewModel: viewModel.failureViewModel)
+		descriptionTextView.text = viewModel.story
+		backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+	}
     
     //MARK: - Private
-    
+	
     private func addSubviews() {
         addSubview(backButton)
         addSeparatorView(height: appearance.defaultSeparator)

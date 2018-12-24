@@ -76,7 +76,9 @@ extension CardsViewController: CardsViewDelegate {
 extension CardsViewController: CardsCollectionAdapterDelegate {
     
     func cardSelected(type: CardType) {
-		
+		let controller = LocalStoryViewController()
+		controller.modalTransitionStyle = .crossDissolve
+		appNavigator?.go(controller: controller, mode: .push)
 //        var provider = DI.providers.resolve(ExpeditionDataProviderProtocol.self)!
 //        let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 //        provider.expeditionType = type

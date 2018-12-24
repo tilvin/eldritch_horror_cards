@@ -33,6 +33,7 @@ extension UIFont {
 
 	//MARK: Light
 	
+	static var light22: UIFont { return UIFont.light(of: 22) }
 	static var light15: UIFont { return UIFont.light(of: 15) }
 	
 	//MARK: - Private

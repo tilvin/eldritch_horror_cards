@@ -12,16 +12,19 @@ struct CardSectionViewModel {
 	let text: String
 	let backgroundColor: UIColor
 	let textColor: UIColor
+	let isSelectable: Bool
 	
 	init(text: String, backgroundColor: UIColor, textColor: UIColor) {
 		self.text = text
 		self.backgroundColor = backgroundColor
-		self.textColor = textColor		
+		self.textColor = textColor
+		isSelectable = false
 	}
 	
 	init() {
 		text = ""
 		backgroundColor = .white
 		textColor = .mako
+		isSelectable = false
 	}
 }

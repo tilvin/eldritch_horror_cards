@@ -35,7 +35,6 @@ class BaseScrollView: UIView {
 		let view = UIStackView()
 		view.axis = .vertical
 		view.distribution = .fill
-		view.backgroundColor = .clear
 		return view
 	}()
 	
@@ -85,10 +84,6 @@ class BaseScrollView: UIView {
 		embedView.addSubview(view)
 		stackView.addArrangedSubview(embedView)
 		
-		view.snp.makeConstraints { make in
-			make.edges.equalToSuperview()
-		}
-		
 		embedView.snp.makeConstraints { (make) in
 			make.width.equalToSuperview()
 		}
@@ -128,7 +123,7 @@ class BaseScrollView: UIView {
 		stackView.snp.makeConstraints { make in
 			make.top.left.equalToSuperview()
 			make.width.equalToSuperview()
-			make.height.greaterThanOrEqualToSuperview()
+			make.bottom.equalTo(scrollView.snp.bottom)
 		}
 	}
 	

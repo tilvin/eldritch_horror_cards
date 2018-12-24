@@ -48,6 +48,7 @@ final class CardSectionView: UIView {
 	init(viewModel: CardSectionViewModel? = nil) {
 		super.init(frame: .zero)
 		let localVieModel = viewModel ?? CardSectionViewModel()
+		textView.isSelectable = localVieModel.isSelectable
 		update(viewModel: localVieModel)
 		addSubviews()
 		makeConstraints()
