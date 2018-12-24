@@ -39,9 +39,7 @@ extension UIView {
 		return loadNib(self)
 	}
 	
-	public func embed(subview: UIView,
-					  insets: UIEdgeInsets = UIEdgeInsets.zero,
-					  index: Int? = nil) {
+	public func embed(subview: UIView, insets: UIEdgeInsets = UIEdgeInsets.zero, index: Int? = nil) {
 		if let index = index {
 			self.insertSubview(subview, at: index)
 		}

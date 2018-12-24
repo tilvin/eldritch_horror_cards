@@ -12,7 +12,7 @@ protocol ExpeditionViewDelegate: class {
     func backButtonTap()
 }
 
-extension ExpeditionView {
+extension PlotStoryView {
     
     struct Appearance {
         let backButtonTopOffset: CGFloat = 50
@@ -34,7 +34,7 @@ extension ExpeditionView {
     }
 }
 
-class ExpeditionView: BaseScrollView {
+class PlotStoryView: BaseScrollView {
     
     weak var delegate: ExpeditionViewDelegate?
     private let appearance = Appearance()
@@ -73,12 +73,12 @@ class ExpeditionView: BaseScrollView {
         return view
     }()
     
-    private lazy var successView: SectionView = {
-        return SectionView(viewModel: nil)
+    private lazy var successView: CardSectionView = {
+        return CardSectionView()
     }()
     
-    private lazy var failureView: SectionView = {
-        return SectionView(viewModel: nil)
+    private lazy var failureView: CardSectionView = {
+        return CardSectionView()
     }()
     
     private lazy var failureTextView: UITextView = {
@@ -93,7 +93,7 @@ class ExpeditionView: BaseScrollView {
     
     //MARK: - Init
     
-    init(frame: CGRect = CGRect.zero, viewModel: ExpeditionViewModel) {
+    init(frame: CGRect = CGRect.zero, viewModel: PlotStoryViewModel) {
         super.init(frame: frame)
         titleImageView.image = viewModel.image
         titleLabel.text = viewModel.title
@@ -112,7 +112,7 @@ class ExpeditionView: BaseScrollView {
     
     //MARK: - Public
     
-    public func update(viewModel: ExpeditionViewModel) {
+    public func update(viewModel: PlotStoryViewModel) {
         titleImageView.image = viewModel.image
         titleLabel.text = viewModel.title
         successView.update(viewModel: viewModel.successViewModel)

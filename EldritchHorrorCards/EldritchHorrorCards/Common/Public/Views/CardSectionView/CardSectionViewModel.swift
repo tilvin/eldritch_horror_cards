@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SectionViewModel {
+struct CardSectionViewModel {
 	let text: String
 	let backgroundColor: UIColor
 	let textColor: UIColor
@@ -17,5 +17,11 @@ struct SectionViewModel {
 		self.text = text
 		self.backgroundColor = backgroundColor
 		self.textColor = textColor		
+	}
+	
+	init() {
+		text = ""
+		backgroundColor = .white
+		textColor = .mako
 	}
 }

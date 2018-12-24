@@ -16,14 +16,14 @@
 		9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322867210B855C00ECD4A4 /* ImageCell.swift */; };
 		9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9F3CBDA02110CB6F00E842A4 /* monsters.zip */; };
 		9F3E4578213522C4002DA88A /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E4577213522C4002DA88A /* Description.swift */; };
-		9F61A1E72170746C00A5003C /* ExpeditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1E62170746C00A5003C /* ExpeditionView.swift */; };
-		9F61A1EB2170751300A5003C /* ExpeditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EA2170751300A5003C /* ExpeditionViewController.swift */; };
-		9F61A1ED217079C800A5003C /* ExpeditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EC217079C800A5003C /* ExpeditionViewModel.swift */; };
+		9F61A1E72170746C00A5003C /* PlotStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1E62170746C00A5003C /* PlotStoryView.swift */; };
+		9F61A1EB2170751300A5003C /* PlotStoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EA2170751300A5003C /* PlotStoryController.swift */; };
+		9F61A1ED217079C800A5003C /* PlotStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EC217079C800A5003C /* PlotStoryViewModel.swift */; };
 		9F61A1EF2170841B00A5003C /* Expedition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1EE2170841B00A5003C /* Expedition.swift */; };
 		9F61A1F12171F90700A5003C /* ExpeditionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F61A1F02171F90700A5003C /* ExpeditionDataProvider.swift */; };
 		9F80B99B210C3C96007C4396 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B99A210C3C96007C4396 /* CardsViewController.swift */; };
-		9F9B55D121A1F1480016C577 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B55D021A1F1480016C577 /* SectionView.swift */; };
-		9F9B55DF21A294850016C577 /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B55DE21A294850016C577 /* SectionViewModel.swift */; };
+		9F9B55D121A1F1480016C577 /* CardSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B55D021A1F1480016C577 /* CardSectionView.swift */; };
+		9F9B55DF21A294850016C577 /* CardSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B55DE21A294850016C577 /* CardSectionViewModel.swift */; };
 		9FC7F668215AC90500A2A7B3 /* GameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F667215AC90500A2A7B3 /* GameProvider.swift */; };
 		9FC7F66A215AC9BE00A2A7B3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F669215AC9BE00A2A7B3 /* Game.swift */; };
 		A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CA69720D23EC600E2F817 /* AuthViewController.swift */; };
@@ -190,14 +190,14 @@
 		9F322867210B855C00ECD4A4 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		9F3CBDA02110CB6F00E842A4 /* monsters.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = monsters.zip; sourceTree = "<group>"; };
 		9F3E4577213522C4002DA88A /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
-		9F61A1E62170746C00A5003C /* ExpeditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionView.swift; sourceTree = "<group>"; };
-		9F61A1EA2170751300A5003C /* ExpeditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionViewController.swift; sourceTree = "<group>"; };
-		9F61A1EC217079C800A5003C /* ExpeditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionViewModel.swift; sourceTree = "<group>"; };
+		9F61A1E62170746C00A5003C /* PlotStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotStoryView.swift; sourceTree = "<group>"; };
+		9F61A1EA2170751300A5003C /* PlotStoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotStoryController.swift; sourceTree = "<group>"; };
+		9F61A1EC217079C800A5003C /* PlotStoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotStoryViewModel.swift; sourceTree = "<group>"; };
 		9F61A1EE2170841B00A5003C /* Expedition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expedition.swift; sourceTree = "<group>"; };
 		9F61A1F02171F90700A5003C /* ExpeditionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionDataProvider.swift; sourceTree = "<group>"; };
 		9F80B99A210C3C96007C4396 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
-		9F9B55D021A1F1480016C577 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
-		9F9B55DE21A294850016C577 /* SectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
+		9F9B55D021A1F1480016C577 /* CardSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSectionView.swift; sourceTree = "<group>"; };
+		9F9B55DE21A294850016C577 /* CardSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSectionViewModel.swift; sourceTree = "<group>"; };
 		9FC7F667215AC90500A2A7B3 /* GameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProvider.swift; sourceTree = "<group>"; };
 		9FC7F669215AC9BE00A2A7B3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EldritchHorrorCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,7 +392,7 @@
 		9F61A1E8217074B800A5003C /* SuccessFailureStory */ = {
 			isa = PBXGroup;
 			children = (
-				9F61A1EA2170751300A5003C /* ExpeditionViewController.swift */,
+				9F61A1EA2170751300A5003C /* PlotStoryController.swift */,
 				9F9B55DD21A294590016C577 /* Model */,
 				9F61A1E9217074D500A5003C /* View */,
 			);
@@ -402,9 +402,8 @@
 		9F61A1E9217074D500A5003C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9F61A1E62170746C00A5003C /* ExpeditionView.swift */,
-				9F9B55D021A1F1480016C577 /* SectionView.swift */,
-				9F61A1EC217079C800A5003C /* ExpeditionViewModel.swift */,
+				9F61A1E62170746C00A5003C /* PlotStoryView.swift */,
+				9F61A1EC217079C800A5003C /* PlotStoryViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -412,7 +411,6 @@
 		9F9B55DD21A294590016C577 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F9B55DE21A294850016C577 /* SectionViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -707,6 +705,7 @@
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A4978E7C21D0D78C00329AB2 /* LocationStory */,
 				A4C2532F211DEE4400E0FF37 /* Additions */,
 				A499E97C214403B8001186A5 /* Auth */,
 				A42190A921985AC500AADC68 /* Cards */,
@@ -777,6 +776,7 @@
 		A45E5660210B32C900590AE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A4978E7B21D0D12900329AB2 /* CardSectionView */,
 				A45E5661210B32F500590AE7 /* BaseScrollView.swift */,
 				A4788AE0212D5F7D006D71FD /* CustomButton.swift */,
 				A46704E021A5FFC100582ABB /* InternetStatusView.swift */,
@@ -890,6 +890,22 @@
 				A47B356321A4869600C12A45 /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A4978E7B21D0D12900329AB2 /* CardSectionView */ = {
+			isa = PBXGroup;
+			children = (
+				9F9B55DE21A294850016C577 /* CardSectionViewModel.swift */,
+				9F9B55D021A1F1480016C577 /* CardSectionView.swift */,
+			);
+			path = CardSectionView;
+			sourceTree = "<group>";
+		};
+		A4978E7C21D0D78C00329AB2 /* LocationStory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LocationStory;
 			sourceTree = "<group>";
 		};
 		A499E97C214403B8001186A5 /* Auth */ = {
@@ -1285,7 +1301,7 @@
 				A42190AC21985BD100AADC68 /* CardsView.swift in Sources */,
 				A4F3B1D8212ECB8A00F03E7B /* ViewController.swift in Sources */,
 				A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */,
-				9F61A1EB2170751300A5003C /* ExpeditionViewController.swift in Sources */,
+				9F61A1EB2170751300A5003C /* PlotStoryController.swift in Sources */,
 				9F171C58211D59DE005A8264 /* Addition.swift in Sources */,
 				A4FDB01320D413DE00FA6E4B /* ShadowAttributes.swift in Sources */,
 				A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */,
@@ -1333,7 +1349,7 @@
 				A47B355E21A4827C00C12A45 /* NetworkClientProvider.swift in Sources */,
 				A4B35E52217A8748002496E7 /* AuthViewModel.swift in Sources */,
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
-				9F9B55D121A1F1480016C577 /* SectionView.swift in Sources */,
+				9F9B55D121A1F1480016C577 /* CardSectionView.swift in Sources */,
 				A45E565F210B0C8800590AE7 /* Images.swift in Sources */,
 				9F61A1EF2170841B00A5003C /* Expedition.swift in Sources */,
 				A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */,
@@ -1352,7 +1368,7 @@
 				A47B355221A4823300C12A45 /* Network.swift in Sources */,
 				A4208333212B1AFB0081E762 /* BaseTableAdapter.swift in Sources */,
 				A4563AFD20F87FF500B65428 /* DI.swift in Sources */,
-				9F9B55DF21A294850016C577 /* SectionViewModel.swift in Sources */,
+				9F9B55DF21A294850016C577 /* CardSectionViewModel.swift in Sources */,
 				A4F3B1DC212ECB8A00F03E7B /* ViewControllerUI.swift in Sources */,
 				A4B35E4F217A813C002496E7 /* UIImageExtension.swift in Sources */,
 				A4794284210C31B900ED0851 /* BaseTabBarController.swift in Sources */,
@@ -1374,7 +1390,7 @@
 				A45D18BF21A0527B00F330D6 /* CollectionCellConfiguration.swift in Sources */,
 				A45D18C121A0527B00F330D6 /* BaseCollectionAdapter.swift in Sources */,
 				A4F3B1DD212ECB8A00F03E7B /* View.swift in Sources */,
-				9F61A1ED217079C800A5003C /* ExpeditionViewModel.swift in Sources */,
+				9F61A1ED217079C800A5003C /* PlotStoryViewModel.swift in Sources */,
 				A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */,
 				A4B35E54217A879C002496E7 /* AuthTextView.swift in Sources */,
 				A4FDB01520D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift in Sources */,
@@ -1408,7 +1424,7 @@
 				A46EE7CC2139244C00F47026 /* Keyboardable.swift in Sources */,
 				A420833A212B1B0B0081E762 /* TableCellConfiguration.swift in Sources */,
 				A4208342212B51C40081E762 /* AdditionsViewController.swift in Sources */,
-				9F61A1E72170746C00A5003C /* ExpeditionView.swift in Sources */,
+				9F61A1E72170746C00A5003C /* PlotStoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

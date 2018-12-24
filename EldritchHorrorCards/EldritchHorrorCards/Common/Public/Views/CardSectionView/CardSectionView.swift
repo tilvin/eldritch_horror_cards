@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension SectionView {
+extension CardSectionView {
 	
 	struct Appearance {
 		let defaultSideOffset: CGFloat = 25
@@ -18,7 +18,7 @@ extension SectionView {
 	}
 }
 
-final class SectionView: UIView {
+final class CardSectionView: UIView {
 	
 	//MARK: - Private variables
 	
@@ -45,9 +45,10 @@ final class SectionView: UIView {
 	
 	//MARK: - Init
 	
-	init(viewModel: SectionViewModel?) {
+	init(viewModel: CardSectionViewModel? = nil) {
 		super.init(frame: .zero)
-		update(viewModel: viewModel)
+		let localVieModel = viewModel ?? CardSectionViewModel()
+		update(viewModel: localVieModel)
 		addSubviews()
 		makeConstraints()
 	}
@@ -64,8 +65,7 @@ final class SectionView: UIView {
 	
 	//MARK: - Public
 	
-	public func update(viewModel: SectionViewModel?) {
-        guard let viewModel = viewModel else { return }
+	public func update(viewModel: CardSectionViewModel) {
         backgroundColor = viewModel.backgroundColor
         textView.text = viewModel.text
         textView.textColor = viewModel.textColor

@@ -7,26 +7,26 @@
 //
 import UIKit
 
-class ExpeditionViewController: BaseViewController {
-	public var customView: ExpeditionView { return self.view as! ExpeditionView }
+class PlotStoryController: BaseViewController {
+	public var customView: PlotStoryView { return self.view as! PlotStoryView }
 	private let provider = DI.providers.resolve(ExpeditionDataProviderProtocol.self)!
 	
 	// MARK: - View lifecycle
 
 	override func loadView() {
 		isHiddenNavigationBar = true
-		view = ExpeditionView(frame: UIScreen.main.bounds, viewModel: ExpeditionViewModel())
+		view = PlotStoryView(frame: UIScreen.main.bounds, viewModel: PlotStoryViewModel())
 		customView.delegate = self
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		guard let expedition = provider.expedition, let type = provider.expeditionType else { return }
-		customView.update(viewModel: ExpeditionViewModel(with: expedition, type: type))		
+		customView.update(viewModel: PlotStoryViewModel(with: expedition, type: type))		
 	}
 }
 
-extension ExpeditionViewController: ExpeditionViewDelegate {
+extension PlotStoryController: ExpeditionViewDelegate {
 	
 	func backButtonTap() {
 		close()
