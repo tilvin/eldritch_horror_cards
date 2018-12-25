@@ -87,7 +87,9 @@ extension CardsViewController: CardsCollectionAdapterDelegate {
 				controller.modalTransitionStyle = .crossDissolve
 				sSelf.appNavigator?.go(controller: controller, mode: .push)
 			case let .plotStory(model):
-				print(model)
+				let controller = PlotStoryController(model: model, type: type.rawValue)
+				controller.modalTransitionStyle = .crossDissolve
+				sSelf.appNavigator?.go(controller: controller, mode: .push)
 			case let .failure(error):
 				sSelf.showErrorAlert(message: error.message)
 			}

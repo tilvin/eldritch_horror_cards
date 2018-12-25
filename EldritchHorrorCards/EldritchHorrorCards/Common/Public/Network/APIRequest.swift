@@ -6,7 +6,7 @@
 import Foundation
 
 private extension URL {
-
+	
 	func appendingQueryParameters(_ parameters: [String: String]) -> URL {
 		var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
 		var items = urlComponents.queryItems ?? []
@@ -26,6 +26,10 @@ enum APIRequest {
 	case cards(gameId: Int)
 	case expedition(gameId: Int, type: String)
 	case generalContact(gameId: Int)
+	case otherWorldContact(gameId: Int)
+	case research(gameId: Int, type: String)
+	case special(gameId: Int, type: String)
+	case location(gameId: Int, type: String)
 }
 
 extension APIRequest {
@@ -111,6 +115,29 @@ extension APIRequest {
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			return components
+		case let .otherWorldContact(gameId):
+			components.path = "/other_world_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.asJson = false
+			return components
+		case let .research(gameId, type):
+			components.path = "/research_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.urlParameters["contact_type"] = "\(type)"
+			components.asJson = false
+			return components
+		case let .special(gameId, type):
+			components.path = "/special_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.urlParameters["contact_type"] = "\(type)"
+			components.asJson = false
+			return components
+		case let .location(gameId, type):
+			components.path = "/location_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.urlParameters["contact_type"] = "\(type)"
+			components.asJson = false
+			return components
 		}
 	}
 	
@@ -118,7 +145,7 @@ extension APIRequest {
 		switch self {
 		case .login, .games:
 			return "POST"
-		case .gameSets, .ancients, .cards, .expedition, .generalContact:
+		case .gameSets, .ancients, .cards, .expedition, .generalContact, .otherWorldContact, .research, .special, .location:
 			return "GET"
 		case .selectGameSets, .selectAncient:
 			return "PUT"
@@ -163,12 +190,21 @@ extension APIRequest {
 	
 	static func getRequest(cardType: CardType, gameId: Int) -> URLRequest {
 		switch cardType {
+			
 		case .general:
 			return APIRequest.generalContact(gameId: gameId).request
-		case .expeditionSydney:
+		case .expeditionAntarctica, .expeditionAmazonia, .expeditionHimalayas, .expeditionTunguska, .expeditionAfrica, .expeditionPyramid, .expeditionBuenosAires, .expeditionIstanbul, .expeditionTokyo, .expeditionRoma, .expeditionArkham, .expeditionSydney:
 			return APIRequest.expedition(gameId: gameId, type: cardType.rawValue).request
+			
+		case .otherWorldContact:
+			return APIRequest.otherWorldContact(gameId: gameId).request
+		case .yigResearchContact, .ithaquaResearchContact, .elderThingsResearchContact, .yogSothothResearchContact, .nephrenkaResearchContact, .azathothResearchContact, .cthulhuResearchContact, .abhothResearchContact, .shubNiggurathResearchContact, .hasturResearchContact:
+			return APIRequest.research(gameId: gameId, type: cardType.rawValue).request
+		case .knyanUnearthedSpecialContact, .exploringHyperboreaSpecialContact, .darkGodSpecialContact, .mysteriousDisappearancesSpecialContact, .keyAndGateSpecialContact, .voidBetweenWorldsSpecialContact, .darkPharaohSpecialContact, .blackWindSpecialContact, .rlyehRisenSpecialContact, .deepCavernsSpecialContact, .spawnOfAbhothSpecialContact, .citiesOnLakeSpecialContact, .unspeakableOneSpecialContact, .kingInYellowSpecialContact:
+			return APIRequest.special(gameId: gameId, type: cardType.rawValue).request
+		case .americaContact, .europeContact, .mountainsContact, .miskatonicExpeditionContact, .asiaAustraliaContact, .egyptContact, .africaeContact:
+			return APIRequest.location(gameId: gameId, type: cardType.rawValue).request
 		default:
-			//TODO: добавить остальные типы
 			fatalError()
 		}
 	}

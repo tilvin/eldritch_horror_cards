@@ -136,9 +136,9 @@ extension MenuViewController: MenuViewDelegate {
 	}
 	
 	func testButtonTap() {
-		let controller = PlotStoryController()
-		controller.modalTransitionStyle = .crossDissolve
-		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)
+//		let controller = PlotStoryController()
+//		controller.modalTransitionStyle = .crossDissolve
+//		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)
 	}
 	
 	func logoutButtonTap() {

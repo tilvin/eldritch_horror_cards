@@ -67,8 +67,10 @@ enum CardType: String {
 	
 	var viewType: CardViewType {
 		switch self {
-		case .general, .americaContact, .europeContact, .mountainsContact, .miskatonicExpeditionContact, .asiaAustraliaContact, .egyptContact, .africaeContact:
+		case .general, .americaContact, .europeContact, .mountainsContact, .miskatonicExpeditionContact, .asiaAustraliaContact, .egyptContact, .africaeContact, .yigResearchContact, .ithaquaResearchContact, .elderThingsResearchContact, .yogSothothResearchContact, .nephrenkaResearchContact, .azathothResearchContact, .cthulhuResearchContact, .abhothResearchContact, .shubNiggurathResearchContact, .hasturResearchContact:
 			return .locationStory
+		case .otherWorldContact, .expeditionAntarctica, .expeditionAmazonia, .expeditionHimalayas, .expeditionTunguska, .expeditionAfrica, .expeditionPyramid, .expeditionBuenosAires, .expeditionIstanbul, .expeditionTokyo, .expeditionRoma, .expeditionArkham, .expeditionSydney, .knyanUnearthedSpecialContact, .exploringHyperboreaSpecialContact, .darkGodSpecialContact, .mysteriousDisappearancesSpecialContact, .keyAndGateSpecialContact, .voidBetweenWorldsSpecialContact, .darkPharaohSpecialContact, .blackWindSpecialContact, .rlyehRisenSpecialContact, .deepCavernsSpecialContact, .spawnOfAbhothSpecialContact, .citiesOnLakeSpecialContact, .unspeakableOneSpecialContact, .kingInYellowSpecialContact:
+			return .plotStory
 		default:
 			return .plotStory
 		}

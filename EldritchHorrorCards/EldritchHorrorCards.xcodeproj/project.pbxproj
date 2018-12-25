@@ -417,7 +417,6 @@
 			isa = PBXGroup;
 			children = (
 				9F61A1E62170746C00A5003C /* PlotStoryView.swift */,
-				9F61A1EC217079C800A5003C /* PlotStoryViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -426,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				A4A9DC9421D1520B00EC2F5E /* PlotStoryModel.swift */,
+				9F61A1EC217079C800A5003C /* PlotStoryViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1234,7 +1234,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
@@ -1257,7 +1257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D0809C6E9947392F9159AC7 /* [CP] Check Pods Manifest.lock */ = {
@@ -1689,7 +1689,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LR9B6B36Z9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EldritchHorrorCards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1710,7 +1710,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LR9B6B36Z9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EldritchHorrorCards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

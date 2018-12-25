@@ -58,13 +58,12 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 					}
 				}
 			case .plotStory:
-				print("plotStory")
-//				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: PlotStoryModel.self, data: data) { [weak self] (result) in
-//					if let value = result {
-//						completion(.plotStory(model: value))
-//						return
-//					}
-//				}
+				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: PlotStoryModel.self, data: data) { [weak self] (result) in
+					if let value = result {
+						completion(.plotStory(model: value))
+						return
+					}
+				}
 			}
 		}
 		dataTask?.resume()
