@@ -10,11 +10,11 @@ import XCTest
 @testable import EldritchHorrorCards
 
 class CardDataProviderTests: XCTestCase {
-	var sut: CardDataProvider!
+	var sut: CardsCollectionDataProvider!
 	
     override func setUp() {
         super.setUp()
-		sut = CardDataProvider()
+		sut = CardsCollectionDataProvider()
     }
 
     override func tearDown() {

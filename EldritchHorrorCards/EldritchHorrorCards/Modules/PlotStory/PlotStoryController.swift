@@ -10,7 +10,6 @@ import UIKit
 class PlotStoryController: BaseViewController {
 	
 	private var customView: PlotStoryView { return self.view as! PlotStoryView }
-	private let provider = DI.providers.resolve(ExpeditionDataProviderProtocol.self)!
 	
 	// MARK: - Lifecycle
 
@@ -18,12 +17,6 @@ class PlotStoryController: BaseViewController {
 		isHiddenNavigationBar = true
 		view = PlotStoryView(frame: UIScreen.main.bounds, viewModel: PlotStoryViewModel())
 		customView.delegate = self
-	}
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		guard let expedition = provider.expedition, let type = provider.expeditionType else { return }
-		customView.update(viewModel: PlotStoryViewModel(with: expedition, type: type))		
 	}
 }
 

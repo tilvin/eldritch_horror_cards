@@ -22,7 +22,7 @@ protocol CardsCollectionAdapterDelegate: class {
 class CardsCollectionAdapter: BaseCollectionAdapter {
     private weak var delegate: CardsCollectionAdapterDelegate?
     private var viewModel: [CardCellViewModel] = []
-    private var cardProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
+    private var cardProvider = DI.providers.resolve(CardsCollectionDataProviderProtocol.self)!
     private var appearance = Appearance()
     
     func load(collectionView: UICollectionView, delegate: CardsCollectionAdapterDelegate?) {

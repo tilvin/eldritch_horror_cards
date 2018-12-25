@@ -11,9 +11,9 @@ import UIKit
 class CardsViewController: BaseViewController {
 	
 	private var customView: CardsView { return view as! CardsView }
-	private var provider = DI.providers.resolve(CardDataProviderProtocol.self)!
     private var adapter = CardsCollectionAdapter()
-    
+    private let provider = DI.providers.resolve(CardsCollectionDataProviderProtocol.self)!
+	
 	//MARK: - Init
 	
 	init() {
@@ -76,23 +76,21 @@ extension CardsViewController: CardsViewDelegate {
 extension CardsViewController: CardsCollectionAdapterDelegate {
     
     func cardSelected(type: CardType) {
-//		let controller = LocalStoryViewController(model: )
-//		controller.modalTransitionStyle = .crossDissolve
-//		appNavigator?.go(controller: controller, mode: .push)
-//        var provider = DI.providers.resolve(ExpeditionDataProviderProtocol.self)!
-//        let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
-//        provider.expeditionType = type
-//        provider.load(gameId: gameProvider.game.id, type: type) { [weak self] (success) in
-//            guard let sSelf = self else { return }
-//            if success {
-//
-//                let controller = ExpeditionViewController()
-//                controller.modalTransitionStyle = .crossDissolve
-//                sSelf.appNavigator?.go(controller: controller, mode: .push)
-//            }
-//            else {
-//                print("error!")
-//            }
-//        }
+		let provider = DI.providers.resolve(CardDataProviderProtocol.self)!
+        let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+		
+		provider.get(gameId: gameProvider.game.id, type: type) { [weak self] (result) in
+			guard let sSelf = self else { return }
+			switch result {
+			case let .localStory(model):
+				let controller = LocalStoryViewController(model: model)
+				controller.modalTransitionStyle = .crossDissolve
+				sSelf.appNavigator?.go(controller: controller, mode: .push)
+			case let .plotStory(model):
+				print(model)
+			case let .failure(error):
+				sSelf.showErrorAlert(message: error.message)
+			}
+		}
     }
 }

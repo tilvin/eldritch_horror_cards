@@ -25,6 +25,7 @@ enum APIRequest {
 	case selectAncient(gameId: Int, ancient: Int)
 	case cards(gameId: Int)
 	case expedition(gameId: Int, type: String)
+	case generalContact(gameId: Int)
 }
 
 extension APIRequest {
@@ -89,20 +90,25 @@ extension APIRequest {
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			return components
-		case .selectAncient(let gameId, let ancient):
+		case let .selectAncient(gameId, ancient):
 			components.path = "/games/\(gameId)"
 			components.parameters = ["game": ["ancient_id": ancient]]
 			return components
-		case .cards(let gameId):
+		case let .cards(gameId):
 			components.path = "/cards"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			components.headers = [:]
 			return components
-		case .expedition(let gameId, let type):
+		case let .expedition(gameId, type):
 			components.path = "/expedition_contacts"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.urlParameters["contact_type"] = "\(type)"
+			components.asJson = false
+			return components
+		case let .generalContact(gameId):
+			components.path = "/general_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			return components
 		}
@@ -112,7 +118,7 @@ extension APIRequest {
 		switch self {
 		case .login, .games:
 			return "POST"
-		case .gameSets, .ancients, .cards, .expedition:
+		case .gameSets, .ancients, .cards, .expedition, .generalContact:
 			return "GET"
 		case .selectGameSets, .selectAncient:
 			return "PUT"
@@ -150,5 +156,20 @@ extension APIRequest {
 			result = String(describing: string)
 		}
 		return result.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+	}
+}
+
+extension APIRequest {
+	
+	static func getRequest(cardType: CardType, gameId: Int) -> URLRequest {
+		switch cardType {
+		case .general:
+			return APIRequest.generalContact(gameId: gameId).request
+		case .expeditionSydney:
+			return APIRequest.expedition(gameId: gameId, type: cardType.rawValue).request
+		default:
+			//TODO: добавить остальные типы
+			fatalError()
+		}
 	}
 }

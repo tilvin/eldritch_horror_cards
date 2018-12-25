@@ -10,7 +10,7 @@ import Foundation
 
 enum CardViewType {
 	case locationStory
-	case successFailureStory
+	case plotStory
 }
 
 enum CardType: String {
@@ -70,7 +70,7 @@ enum CardType: String {
 		case .general, .americaContact, .europeContact, .mountainsContact, .miskatonicExpeditionContact, .asiaAustraliaContact, .egyptContact, .africaeContact:
 			return .locationStory
 		default:
-			return .successFailureStory
+			return .plotStory
 		}
 	}
 }

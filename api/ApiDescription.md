@@ -171,7 +171,7 @@
 ### 6.2 Пользователь выбрал портал
 * type: `get`
 * endpoint: `/other_world_contacts`
-* params: `{ "game_id": "1" }
+* params: `{ "game_id": "1" }`
 * response: 
 ``` JSON
 {

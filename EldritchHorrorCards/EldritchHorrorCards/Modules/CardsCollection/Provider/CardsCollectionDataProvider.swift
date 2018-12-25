@@ -7,12 +7,12 @@
 //
 import Foundation
 
-protocol CardDataProviderProtocol {
+protocol CardsCollectionDataProviderProtocol {
 	var cards: [Card] { get set }
 	func load(gameId: Int, completion: @escaping (Bool) -> Void)
 }
 
-final class CardDataProvider: NSObject, CardDataProviderProtocol {
+final class CardsCollectionDataProvider: NSObject, CardsCollectionDataProviderProtocol {
 	var cards: [Card] = []
 	lazy var session: URLSession = {
 		return URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
@@ -53,7 +53,7 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 	}
 }
 
-extension CardDataProvider: URLSessionDelegate {
+extension CardsCollectionDataProvider: URLSessionDelegate {
 	
 	func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
 		let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)

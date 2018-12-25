@@ -21,6 +21,8 @@ extension String {
 		case loadMonsterError
 		case cantSelectAncient
 		case cantLoadCards
+		case errorMessageTemplate
+		case errorNoData
 	}
 	
 	//MARK: - Inits
