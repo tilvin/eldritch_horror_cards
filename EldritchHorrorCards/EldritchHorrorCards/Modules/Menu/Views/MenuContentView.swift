@@ -96,7 +96,6 @@ class MenuContentView: BaseScrollView {
 		scrollView.backgroundColor =  UIColor.viridianTwo.withAlphaComponent(0.95)
 		addSubviews()
 		makeConstraints()
-		//layoutIfNeeded()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
