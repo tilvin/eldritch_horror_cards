@@ -10,13 +10,30 @@ import UIKit
 import SnapKit
 
 protocol MenuContentViewProtocol: class {
-	func turnHistoryPressed()
-	func locationPressed()
+	func turnsHistoryPressed()
+	func expeditionCurrentLocationPressed()
 	func logoutButtonPressed()
+}
+
+extension MenuContentView {
+	
+	struct Appearance {
+		let avatarTopSeparator: CGFloat = 50
+		let defaultSeparator: CGFloat = 10
+		let avatarBottomSeparator: CGFloat = 15
+		let logoutBottomSeparator: CGFloat = 34
+		let avatarWidthHeight: CGFloat = 150
+		let widthMultipliedBy: CGFloat = 0.9
+		let separatorLineViewHeight: CGFloat = 1
+		let buttonHeight: CGFloat = 24
+		let buttonLeadingOffset: CGFloat = 32
+		let scrollViewBottom: CGFloat = 64
+	}
 }
 
 class MenuContentView: BaseScrollView {
 	weak var delegate: MenuContentViewProtocol?
+	private let appearance = Appearance()
 	
 	public func update(name: String, avatar: UIImage?) {
 		avatarView.update(avatar: avatar)
@@ -45,27 +62,30 @@ class MenuContentView: BaseScrollView {
 		return view
 	}()
 	
-	private lazy var turnHistoryButton: UIButton = {
+	private lazy var turnsHistoryButton: UIButton = {
 		let button = UIButton()
-		button.setTitle("menu.turnHistory.button.label".localized, for: .normal)
+		button.setTitle(String(.turnHistory), for: .normal)
 		button.contentHorizontalAlignment = .left
 		button.setTitleColor(.wildSand, for: .normal)
+		button.addTarget(self, action: #selector(turnsHistoryButtonPressed), for: .touchUpInside)
 		return button
 	}()
 	
-	private lazy var locationButton: UIButton = {
+	private lazy var expeditionCurrentLocationButton: UIButton = {
 		let button = UIButton()
-		button.setTitle("menu.location.button.label".localized, for: .normal)
+		button.setTitle(String(.expeditionCurrentLocation), for: .normal)
 		button.contentHorizontalAlignment = .left
 		button.setTitleColor(.wildSand, for: .normal)
+		button.addTarget(self, action: #selector(expeditionCurrentLocationButtonPressed), for: .touchUpInside)
 		return button
 	}()
 	
 	private lazy var logoutButton: UIButton = {
 		let button = UIButton()
-		button.setTitle("menu.logout.button.label".localized, for: .normal)
+		button.setTitle(String(.logout), for: .normal)
 		button.titleLabel?.textAlignment = .left
 		button.setTitleColor(.wildSand, for: .normal)
+		button.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
 		return button
 	}()
 	
@@ -76,10 +96,7 @@ class MenuContentView: BaseScrollView {
 		scrollView.backgroundColor =  UIColor.viridianTwo.withAlphaComponent(0.95)
 		addSubviews()
 		makeConstraints()
-		layoutIfNeeded()
-		turnHistoryButton.addTarget(self, action: #selector(turnHistoryButtonPressed), for: .touchUpInside)
-		locationButton.addTarget(self, action: #selector(locationButtonPressed), for: .touchUpInside)
-		logoutButton.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
+		//layoutIfNeeded()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -89,74 +106,68 @@ class MenuContentView: BaseScrollView {
 	//MARK: - Private
 	
 	private func addSubviews() {
-		addSeparatorView(height: 50, expandable: false)
+		addSeparatorView(height: appearance.avatarTopSeparator, expandable: false)
 		addToStackView(view: avatarView, embed: true)
-		addSeparatorView(height: 15, expandable: false)
+		addSeparatorView(height: appearance.avatarBottomSeparator, expandable: false)
 		addToStackView(view: userName, embed: true)
-		addSeparatorView(height: 10, expandable: false)
+		addSeparatorView(height: appearance.defaultSeparator, expandable: false)
 		addToStackView(view: separatorLineView, embed: true)
-		addSeparatorView(height: 10, expandable: false)
-		addToStackView(view: turnHistoryButton, embed: true)
-		addSeparatorView(height: 10, expandable: false)
-		addToStackView(view: locationButton, embed: true)
-		addSeparatorView(height: 10, expandable: false)
+		addSeparatorView(height: appearance.defaultSeparator, expandable: false)
+		addToStackView(view: turnsHistoryButton, embed: true)
+		addSeparatorView(height: appearance.defaultSeparator, expandable: false)
+		addToStackView(view: expeditionCurrentLocationButton, embed: true)
+		addSeparatorView(height: appearance.defaultSeparator, expandable: false)
 		addToStackView(view: logoutButton, embed: true)
-		addSeparatorView(height: 34, expandable: false)
+		addSeparatorView(height: appearance.logoutBottomSeparator, expandable: false)
 	}
 	
 	private func makeConstraints() {
-		avatarView.snp.removeConstraints()
 		avatarView.snp.makeConstraints { (make) in
-			make.width.height.equalTo(150)
+			make.width.height.equalTo(appearance.avatarWidthHeight)
 			make.top.bottom.equalToSuperview()
 			make.centerX.equalToSuperview()
 		}
 		
-		userName.snp.removeConstraints()
 		userName.snp.makeConstraints { (make) in
-			make.width.equalToSuperview().multipliedBy(0.9)
+			make.width.equalToSuperview().multipliedBy(appearance.widthMultipliedBy)
 			make.top.bottom.equalToSuperview()
 			make.centerX.equalToSuperview()
 		}
 		
-		separatorLineView.snp.removeConstraints()
 		separatorLineView.snp.makeConstraints { (make) in
-			make.width.equalToSuperview().multipliedBy(0.9)
-			make.height.equalTo(1)
+			make.width.equalToSuperview().multipliedBy(appearance.widthMultipliedBy)
+			make.height.equalTo(appearance.separatorLineViewHeight)
 			make.top.bottom.equalToSuperview()
 			make.centerX.equalToSuperview()
 		}
 		
-		turnHistoryButton.snp.removeConstraints()
-		turnHistoryButton.snp.makeConstraints { make in
-			make.height.equalTo(24)
+		turnsHistoryButton.snp.makeConstraints { make in
+			make.height.equalTo(appearance.buttonHeight)
 			make.top.bottom.equalToSuperview()
 			make.width.equalToSuperview()
-			make.leading.equalToSuperview().offset(32)
+			make.leading.equalToSuperview().offset(appearance.buttonLeadingOffset)
 		}
 		
-		locationButton.snp.removeConstraints()
-		locationButton.snp.makeConstraints { make in
-			make.height.equalTo(24)
+		expeditionCurrentLocationButton.snp.makeConstraints { make in
+			make.height.equalTo(appearance.buttonHeight)
 			make.top.bottom.equalToSuperview()
 			make.width.equalToSuperview()
-			make.leading.equalToSuperview().offset(32)
+			make.leading.equalToSuperview().offset(appearance.buttonLeadingOffset)
 		}
 		
-		logoutButton.snp.removeConstraints()
 		logoutButton.snp.makeConstraints { make in
-			make.height.equalTo(24)
+			make.height.equalTo(appearance.buttonHeight)
 			make.top.bottom.equalToSuperview()
-			make.leading.equalToSuperview().offset(32)
+			make.leading.equalToSuperview().offset(appearance.buttonLeadingOffset)
 		}
 	}
 	
-	@objc private func turnHistoryButtonPressed() {
-		delegate?.turnHistoryPressed()
+	@objc private func turnsHistoryButtonPressed() {
+		delegate?.turnsHistoryPressed()
 	}
 	
-	@objc private func locationButtonPressed() {
-		delegate?.locationPressed()
+	@objc private func expeditionCurrentLocationButtonPressed() {
+		delegate?.expeditionCurrentLocationPressed()
 	}
 	
 	@objc private func logoutButtonPressed() {
@@ -164,6 +175,6 @@ class MenuContentView: BaseScrollView {
 	}
 	
 	override func updateHeight() {
-		scrollView.contentSize = CGSize(width: scrollView.frame.width, height: stackView.frame.height - 64)
+		scrollView.contentSize = CGSize(width: scrollView.frame.width, height: stackView.frame.height - appearance.scrollViewBottom)
 	}
 }

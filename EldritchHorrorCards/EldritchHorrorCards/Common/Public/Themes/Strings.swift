@@ -13,9 +13,9 @@ extension String {
 		case gameOverAlert
 		case warning
 		case cancel
-        case empty
-        case error
-        case unknownError
+		case empty
+		case error
+		case unknownError
 		case online
 		case offline
 		case loadMonsterError
@@ -23,6 +23,9 @@ extension String {
 		case cantLoadCards
 		case errorMessageTemplate
 		case errorNoData
+		case turnHistory
+		case expeditionCurrentLocation
+		case logout
 	}
 	
 	//MARK: - Inits

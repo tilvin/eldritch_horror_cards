@@ -10,9 +10,9 @@
 "additions.title" = "Выберите дополнения";
 "additions.button.continue" = "Продолжить";
 
-"menu.logout.button.label" = "Выход";
-"menu.turnHistory.button.label" = "История ходов";
-"menu.location.button.label" = "Текущая локация";
+"logout" = "Выход";
+"turnHistory" = "История ходов";
+"expeditionCurrentLocation" = "Текущая локация";
 "loadMonsterError" = "Ошибка при загрузке Древних.";
 "ok" = "Ок";
 

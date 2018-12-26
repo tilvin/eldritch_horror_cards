@@ -135,11 +135,11 @@ extension MenuViewController: MenuViewDelegate {
 		set(slided: false, animated: true, prepareToStart: false)
 	}
 	
-	func turnHistoryButtonTap() {
+	func turnsHistoryButtonTap() {
 		print(#function)
 	}
 	
-	func locationButtonTap() {
+	func expeditionCurrentLocationButtonTap() {
 		print(#function)
 	}
 	
