@@ -48,7 +48,7 @@ class MenuContentView: BaseScrollView {
 	private lazy var turnHistoryButton: UIButton = {
 		let button = UIButton()
 		button.setTitle("menu.turnHistory.button.label".localized, for: .normal)
-		button.titleLabel?.textAlignment = .left
+		button.contentHorizontalAlignment = .left
 		button.setTitleColor(.wildSand, for: .normal)
 		return button
 	}()
@@ -56,7 +56,7 @@ class MenuContentView: BaseScrollView {
 	private lazy var locationButton: UIButton = {
 		let button = UIButton()
 		button.setTitle("menu.location.button.label".localized, for: .normal)
-		button.titleLabel?.textAlignment = .left
+		button.contentHorizontalAlignment = .left
 		button.setTitleColor(.wildSand, for: .normal)
 		return button
 	}()
@@ -129,16 +129,18 @@ class MenuContentView: BaseScrollView {
 		
 		turnHistoryButton.snp.removeConstraints()
 		turnHistoryButton.snp.makeConstraints { make in
-			make.height.equalTo(50)
+			make.height.equalTo(24)
 			make.top.bottom.equalToSuperview()
 			make.width.equalToSuperview()
+			make.leading.equalToSuperview().offset(32)
 		}
 		
 		locationButton.snp.removeConstraints()
 		locationButton.snp.makeConstraints { make in
-			make.height.equalTo(50)
+			make.height.equalTo(24)
 			make.top.bottom.equalToSuperview()
 			make.width.equalToSuperview()
+			make.leading.equalToSuperview().offset(32)
 		}
 		
 		logoutButton.snp.removeConstraints()
