@@ -10,7 +10,8 @@ import UIKit
 import SnapKit
 
 protocol MenuContentViewProtocol: class {
-	func testButtonPressed()
+	func turnHistoryPressed()
+	func locationPressed()
 	func logoutButtonPressed()
 }
 
@@ -44,18 +45,26 @@ class MenuContentView: BaseScrollView {
 		return view
 	}()
 	
-	private lazy var testButton: UIButton = {
+	private lazy var turnHistoryButton: UIButton = {
 		let button = UIButton()
-		button.setTitle("TestButton", for: .normal)
-		button.backgroundColor = .darkGray
-		button.setTitleColor(.red, for: .normal)
+		button.setTitle("menu.turnHistory.button.label".localized, for: .normal)
+		button.titleLabel?.textAlignment = .left
+		button.setTitleColor(.wildSand, for: .normal)
+		return button
+	}()
+	
+	private lazy var locationButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("menu.location.button.label".localized, for: .normal)
+		button.titleLabel?.textAlignment = .left
+		button.setTitleColor(.wildSand, for: .normal)
 		return button
 	}()
 	
 	private lazy var logoutButton: UIButton = {
 		let button = UIButton()
 		button.setTitle("menu.logout.button.label".localized, for: .normal)
-		button.titleLabel?.textAlignment = .center
+		button.titleLabel?.textAlignment = .left
 		button.setTitleColor(.wildSand, for: .normal)
 		return button
 	}()
@@ -68,7 +77,8 @@ class MenuContentView: BaseScrollView {
 		addSubviews()
 		makeConstraints()
 		layoutIfNeeded()
-		testButton.addTarget(self, action: #selector(testButtonPressed), for: .touchUpInside)
+		turnHistoryButton.addTarget(self, action: #selector(turnHistoryButtonPressed), for: .touchUpInside)
+		locationButton.addTarget(self, action: #selector(locationButtonPressed), for: .touchUpInside)
 		logoutButton.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
 	}
 	
@@ -86,8 +96,10 @@ class MenuContentView: BaseScrollView {
 		addSeparatorView(height: 10, expandable: false)
 		addToStackView(view: separatorLineView, embed: true)
 		addSeparatorView(height: 10, expandable: false)
-		addToStackView(view: testButton, embed: true)
-		addSeparatorView(height: 10, expandable: true)
+		addToStackView(view: turnHistoryButton, embed: true)
+		addSeparatorView(height: 10, expandable: false)
+		addToStackView(view: locationButton, embed: true)
+		addSeparatorView(height: 10, expandable: false)
 		addToStackView(view: logoutButton, embed: true)
 		addSeparatorView(height: 34, expandable: false)
 	}
@@ -115,8 +127,17 @@ class MenuContentView: BaseScrollView {
 			make.centerX.equalToSuperview()
 		}
 		
-		testButton.snp.makeConstraints { make in
+		turnHistoryButton.snp.removeConstraints()
+		turnHistoryButton.snp.makeConstraints { make in
 			make.height.equalTo(50)
+			make.top.bottom.equalToSuperview()
+			make.width.equalToSuperview()
+		}
+		
+		locationButton.snp.removeConstraints()
+		locationButton.snp.makeConstraints { make in
+			make.height.equalTo(50)
+			make.top.bottom.equalToSuperview()
 			make.width.equalToSuperview()
 		}
 		
@@ -128,8 +149,12 @@ class MenuContentView: BaseScrollView {
 		}
 	}
 	
-	@objc private func testButtonPressed() {
-		delegate?.testButtonPressed()
+	@objc private func turnHistoryButtonPressed() {
+		delegate?.turnHistoryPressed()
+	}
+	
+	@objc private func locationButtonPressed() {
+		delegate?.locationPressed()
 	}
 	
 	@objc private func logoutButtonPressed() {

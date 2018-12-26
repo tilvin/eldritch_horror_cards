@@ -135,10 +135,12 @@ extension MenuViewController: MenuViewDelegate {
 		set(slided: false, animated: true, prepareToStart: false)
 	}
 	
-	func testButtonTap() {
-//		let controller = PlotStoryController()
-//		controller.modalTransitionStyle = .crossDissolve
-//		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)
+	func turnHistoryButtonTap() {
+		print(#function)
+	}
+	
+	func locationButtonTap() {
+		print(#function)
 	}
 	
 	func logoutButtonTap() {

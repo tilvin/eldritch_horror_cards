@@ -11,7 +11,8 @@ import SnapKit
 
 protocol MenuViewDelegate: class {
 	func backgroundTap()
-	func testButtonTap()
+	func turnHistoryButtonTap()
+	func locationButtonTap()
 	func logoutButtonTap()
 }
 
@@ -73,9 +74,12 @@ class MenuView: UIView {
 //MARK: - MenuContentViewProtocol
 
 extension MenuView: MenuContentViewProtocol {
+	func turnHistoryPressed() {
+		delegate?.turnHistoryButtonTap()
+	}
 	
-	func testButtonPressed() {
-		delegate?.testButtonTap()
+	func locationPressed() {
+		delegate?.locationButtonTap()
 	}
 	
 	func logoutButtonPressed() {
