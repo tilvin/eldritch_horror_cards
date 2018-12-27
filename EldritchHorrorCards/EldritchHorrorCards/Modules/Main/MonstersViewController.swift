@@ -51,9 +51,9 @@ final class MonstersViewController: JFCardSelectionViewController {
 		}
 		
 		menuButton.snp.makeConstraints { (make) in
-			make.left.equalToSuperview().inset(10)
-			make.top.equalToSuperview().inset(30)
-			make.width.height.equalTo(40)
+			make.left.equalToSuperview()
+			make.top.equalTo(view.safeAreaLayoutGuide)
+			make.width.height.equalTo(DefaultAppearance.menuButtonWidthHeight)
 		}
 	}
 	
