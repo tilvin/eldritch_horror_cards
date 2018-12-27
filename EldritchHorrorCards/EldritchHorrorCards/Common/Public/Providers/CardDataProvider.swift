@@ -15,7 +15,7 @@ enum CardDataResult {
 }
 
 protocol CardDataProviderProtocol {
-	func get(gameId: Int, type: CardType, completion: @escaping (CardDataResult) -> ())
+	func get(gameId: Int, type: CardType, completion: @escaping (CardDataResult) -> Void)
 }
 
 final class CardDataProvider: NSObject, CardDataProviderProtocol {
@@ -29,7 +29,7 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 		}
 	}
 
-	func get(gameId: Int, type: CardType, completion: @escaping (CardDataResult) -> ()) {
+	func get(gameId: Int, type: CardType, completion: @escaping (CardDataResult) -> Void) {
 		guard let session = session else { fatalError() }
 		dataTask?.cancel()
 		
@@ -51,14 +51,14 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 
 			switch type.viewType {
 			case .locationStory:
-				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: LocalStoryModel.self, data: data) { [weak self] (result) in
+				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: LocalStoryModel.self, data: data) { (result) in
 					if let value = result {
 						completion(.localStory(model: value))
 						return
 					}
 				}
 			case .plotStory:
-				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: PlotStoryModel.self, data: data) { [weak self] (result) in
+				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: PlotStoryModel.self, data: data) { (result) in
 					if let value = result {
 						completion(.plotStory(model: value))
 						return

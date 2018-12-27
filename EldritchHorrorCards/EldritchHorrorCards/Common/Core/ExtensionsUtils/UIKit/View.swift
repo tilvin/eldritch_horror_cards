@@ -63,10 +63,7 @@ extension UIView {
 			views: views))
 	}
 	
-	public func addConstraints(with format: String,
-							   views: [String: Any],
-							   options: NSLayoutFormatOptions = [],
-							   metrics: [String: Any]? = nil) {
+	public func addConstraints(with format: String, views: [String: Any], options: NSLayoutFormatOptions = [], metrics: [String: Any]? = nil) {
 		self.addConstraints(NSLayoutConstraint.constraints(
 			withVisualFormat: format,
 			options: options,
@@ -75,12 +72,7 @@ extension UIView {
 	}
 	
 	@discardableResult
-	public func addConstraint(with attr1: NSLayoutAttribute,
-							  relatedBy relation: NSLayoutRelation = .equal,
-							  toItem view2: Any? = nil,
-							  attribute attr2: NSLayoutAttribute = .notAnAttribute,
-							  multiplier: CGFloat = 1,
-							  constant c: CGFloat = 0) -> NSLayoutConstraint {
+	public func addConstraint(with attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation = .equal, toItem view2: Any? = nil, attribute attr2: NSLayoutAttribute = .notAnAttribute, multiplier: CGFloat = 1, constant c: CGFloat = 0) -> NSLayoutConstraint {
 		let constraint = NSLayoutConstraint(item: self,
 											attribute: attr1,
 											relatedBy: relation,
