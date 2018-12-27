@@ -105,19 +105,19 @@ class MenuContentView: BaseScrollView {
 	//MARK: - Private
 	
 	private func addSubviews() {
-		addSeparatorView(height: appearance.avatarTopSeparator, expandable: false)
+		addSeparatorView(height: appearance.avatarTopSeparator)
 		addToStackView(view: avatarView, embed: true)
-		addSeparatorView(height: appearance.avatarBottomSeparator, expandable: false)
+		addSeparatorView(height: appearance.avatarBottomSeparator)
 		addToStackView(view: userName, embed: true)
-		addSeparatorView(height: appearance.defaultSeparator, expandable: false)
+		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: separatorLineView, embed: true)
-		addSeparatorView(height: appearance.defaultSeparator, expandable: false)
+		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: turnsHistoryButton, embed: true)
-		addSeparatorView(height: appearance.defaultSeparator, expandable: false)
+		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: expeditionCurrentLocationButton, embed: true)
-		addSeparatorView(height: appearance.defaultSeparator, expandable: false)
+		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: logoutButton, embed: true)
-		addSeparatorView(height: appearance.logoutBottomSeparator, expandable: false)
+		addSeparatorView(height: appearance.logoutBottomSeparator)
 	}
 	
 	private func makeConstraints() {

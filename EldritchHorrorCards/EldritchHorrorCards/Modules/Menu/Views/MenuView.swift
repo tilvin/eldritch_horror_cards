@@ -16,9 +16,17 @@ protocol MenuViewDelegate: class {
 	func logoutButtonTap()
 }
 
+extension MenuView {
+	
+	struct Appearance {
+		let widthMultiply: CGFloat = 0.8
+	}
+}
+
 class MenuView: UIView {
 	weak var delegate: MenuViewDelegate?
 	private var viewModel: MenuViewModel!
+	private let appearance = Appearance()
 	
 	fileprivate(set) lazy var contentView: MenuContentView = {
 		return MenuContentView()
@@ -37,11 +45,7 @@ class MenuView: UIView {
 		layoutIfNeeded()
 		contentView.delegate = self
 	}
-
-	override init(frame: CGRect = CGRect.zero) {
-		super.init(frame: frame)
-	}
-
+	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
@@ -62,7 +66,7 @@ class MenuView: UIView {
 	private func makeConstraints() {
 		contentView.snp.makeConstraints { (make) in
 			make.left.top.bottom.equalToSuperview()
-			make.width.equalToSuperview().multipliedBy(0.8)
+			make.width.equalToSuperview().multipliedBy(appearance.widthMultiply)
 		}
 	}
 	
@@ -74,6 +78,7 @@ class MenuView: UIView {
 //MARK: - MenuContentViewProtocol
 
 extension MenuView: MenuContentViewProtocol {
+	
 	func turnsHistoryPressed() {
 		delegate?.turnsHistoryButtonTap()
 	}

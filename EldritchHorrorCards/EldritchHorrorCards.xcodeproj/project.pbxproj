@@ -720,14 +720,14 @@
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				A4978E7C21D0D78C00329AB2 /* LocationStory */,
-				9F61A1E8217074B800A5003C /* PlotStory */,
 				A4C2532F211DEE4400E0FF37 /* Additions */,
 				A499E97C214403B8001186A5 /* Auth */,
 				A42190A921985AC500AADC68 /* CardsCollection */,
 				A4208356212BE06E0081E762 /* Description */,
+				A4978E7C21D0D78C00329AB2 /* LocationStory */,
 				A441BBDA2109BC7000EAC5DD /* Main */,
 				A441BBDB2109BC7C00EAC5DD /* Menu */,
+				9F61A1E8217074B800A5003C /* PlotStory */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
