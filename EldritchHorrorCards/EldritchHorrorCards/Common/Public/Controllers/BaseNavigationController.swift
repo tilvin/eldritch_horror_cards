@@ -92,7 +92,7 @@ final class BaseNavigationController: UINavigationController {
 extension BaseNavigationController: UINavigationControllerDelegate {
 	
 	func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-		guard let _ = navigationController as? BaseNavigationController else { return }
+		guard let navigationController = navigationController as? BaseNavigationController else { return }
 		navigationController.interactivePopGestureRecognizer?.isEnabled = viewController != navigationController.viewControllers.first
 	}
 }

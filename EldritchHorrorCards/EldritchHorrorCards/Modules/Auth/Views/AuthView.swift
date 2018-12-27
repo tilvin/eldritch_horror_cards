@@ -47,8 +47,7 @@ final class AuthView: BaseScrollView {
 	//MARK: - Private variables
 	
 	private let appearance = Appearance()
-	
-	
+		
 	//MARK: - Public lazy variables
 	
 	lazy var emailTextView: AuthTextView = {
