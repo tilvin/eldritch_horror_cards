@@ -11,6 +11,6 @@ import UIKit
 struct DefaultAppearance {
 	static let lineHeight: CGFloat = 1
 	static let sideOffset: CGFloat = 15
-	static let backButtonWidth: CGFloat = 40
+	static let backButtonWidth: CGFloat = 20
 	static let statusBarHeight: CGFloat = 20
 }
