@@ -49,31 +49,27 @@ final class AdditionsListView: UIView {
 	}()
 	
 	lazy var menuContainer: UIView = {
-		let view = UIView()
-		view.backgroundColor = .clear
-		return view
+		return UIView(backgroundColor: .clear)
 	}()
 	
 	lazy var titleLabel: UILabel = {
-		let label = UILabel()
-		label.textColor = .mako
-		label.text = "additions.title".localized
-		label.font = UIFont.bold24
-		label.numberOfLines = 0
-		return label
+		let view = UILabel(font: .bold24, textColor: .mako)
+		view.text = String(.additionsTitle)
+		view.numberOfLines = 0
+		return view
 	}()
 	
 	lazy var tableView: UITableView = {
-		let view = UITableView()
-		view.backgroundColor = appearance.backgroundColor
+		let view = UITableView(backgroundColor: appearance.backgroundColor)
 		view.contentInset = appearance.tableViewContentInsets
 		return view
 	}()
 	
 	lazy var continueButton: CustomButton = {
-		let button = CustomButton(type: .darkGreenBlue)
-		button.setTitle("additions.button.continue".localized.capitalized, for: .normal)
-		return button
+		let view = CustomButton(type: .darkGreenBlue)
+		view.setTitle(String(.additionsButton), for: .normal)
+		view.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
+		return view
 	}()
 	
 	//MARK: - Init
@@ -84,8 +80,6 @@ final class AdditionsListView: UIView {
 		titleLabel.textAlignment = .center
 		addSubviews()
 		makeConstraints()
-		continueButton.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
-		layoutIfNeeded()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -137,7 +131,6 @@ final class AdditionsListView: UIView {
 	
 	@objc private func continueButtonPressed() {
 		delegate?.continueButtonAction()
-		
 	}
 	
 	@objc private func menuButtonAction() {

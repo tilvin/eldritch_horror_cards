@@ -580,6 +580,14 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
+		A42CC7FA21E3D9D000AE2168 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F171C57211D59DE005A8264 /* Addition.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A441BBCB2109BAA100EAC5DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,7 +717,6 @@
 			isa = PBXGroup;
 			children = (
 				A4B35E5F217BB92A002496E7 /* Realm */,
-				9F171C57211D59DE005A8264 /* Addition.swift */,
 				9F61A1EE2170841B00A5003C /* Expedition.swift */,
 				9F3E4577213522C4002DA88A /* Description.swift */,
 				A48C461420FD0DFD00DF1687 /* Monster.swift */,
@@ -1045,6 +1052,7 @@
 			isa = PBXGroup;
 			children = (
 				A4208341212B51C40081E762 /* AdditionsViewController.swift */,
+				A42CC7FA21E3D9D000AE2168 /* Model */,
 				A42190AD219871C000AADC68 /* Providers */,
 				A4E422812129A87D00244744 /* Views */,
 			);

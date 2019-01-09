@@ -20,6 +20,7 @@ protocol AuthTextViewDelegate: class {
 }
 
 extension AuthTextView {
+	
 	struct Appearance {
 		let stackViewSpacingHorizontal: CGFloat = 10
 		let stackViewSpacingVertical: CGFloat = 5
@@ -27,6 +28,7 @@ extension AuthTextView {
 }
 
 final class AuthTextView: UIView {
+	
 	weak var delegate: AuthTextViewDelegate?
 	private let appearance = Appearance()
 	var type: AuthTextViewType!
@@ -83,6 +85,9 @@ final class AuthTextView: UIView {
 		imageView.image = viewModel.image
 		textField.isSecureTextEntry = viewModel.isSecureTextField
 		textField.text = viewModel.text
+		textField.textContentType = viewModel.textFieldContentType
+		textField.autocapitalizationType = .none
+		
 		switch viewModel.state {
 		case .active:
 			underLineView.backgroundColor = .mako

@@ -7,8 +7,8 @@
 "call_monster" = "Вызвать этого монстра";
 "card.type.portal" = "Иные миры";
 
-"additions.title" = "Выберите дополнения";
-"additions.button.continue" = "Продолжить";
+"additionsTitle" = "Выберите дополнения";
+"additionsButton" = "ПРОДОЛЖИТЬ";
 
 "logout" = "Выход";
 "turnHistory" = "История ходов";
@@ -74,3 +74,4 @@
 "cantLoadCards" = "Не удалось получить список карт! Попробуйте еще!";
 "errorMessageTemplate" = "Сервер вернул ошибку: ";
 "errorNoData" = "Не удалось получить данные.";
+"gameInitError" = "Не удалось инициализировать игру!";

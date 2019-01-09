@@ -31,7 +31,7 @@ final class AppNavigator: NSObject, NavigatorProtocol {
 	}
 	
 	func goMain() {
-		let controller = AuthViewController()
+		let controller = AdditionsViewController()
 		self.app?.window?.rootViewController = controller
 		currentController = controller
 	}

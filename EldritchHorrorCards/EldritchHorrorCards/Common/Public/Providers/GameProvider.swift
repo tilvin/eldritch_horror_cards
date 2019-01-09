@@ -66,7 +66,6 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 			let realm = try! Realm()
 			try! realm.write {
 				realm.add(model, update: true)
-				debugPrint("write game model!")
 				completion(true)
 			}
 		}

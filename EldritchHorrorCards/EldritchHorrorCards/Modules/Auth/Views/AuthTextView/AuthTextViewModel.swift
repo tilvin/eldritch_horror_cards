@@ -15,6 +15,7 @@ struct AuthTextViewModel {
 	let image: UIImage
 	let isSecureTextField: Bool
 	let state: AuthTextViewState
+	let textFieldContentType: UITextContentType
 	
 	init(type: AuthTextViewType, text: String = "", state: AuthTextViewState = .normal) {
 		self.text = text
@@ -26,10 +27,12 @@ struct AuthTextViewModel {
 			placeholder = String(.email)
 			image = .email
 			isSecureTextField = false
+			textFieldContentType = .emailAddress
 		case .password:
 			placeholder = String(.password)
 			image = .password
 			isSecureTextField = true
+			textFieldContentType = .password
 		}
 	}
 }

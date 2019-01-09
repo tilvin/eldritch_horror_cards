@@ -39,6 +39,13 @@ final class DataParseService: DataParseServiceProtocol {
 			completion(data)
 			return
 		}
+		
+//		if let jsonString = String(data: data, encoding: .utf8),
+//			let data = jsonString.data(using: .utf8) {
+//			completion(try? JSONDecoder().decode(type, from: data))
+//			return
+//		}
+		
 		do {
 			let json = try JSONSerialization.jsonObject(with: data, options: [])
 			if let val = json as? T {

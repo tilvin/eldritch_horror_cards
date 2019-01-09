@@ -26,6 +26,9 @@ extension String {
 		case turnHistory
 		case expeditionCurrentLocation
 		case logout
+		case additionsTitle
+		case additionsButton
+		case gameInitError
 	}
 	
 	//MARK: - Inits

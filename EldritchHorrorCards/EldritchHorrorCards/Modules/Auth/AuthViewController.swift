@@ -50,6 +50,10 @@ final class AuthViewController: BaseViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		
+		//FIXME: переработать метод. Убрать загрузку gameID из данного контроллера. Это будет делать AdditionalVC.
+		showErrorAlert(message: "Need rework!")
+		
 		registerKeyboardNotifications()
 	}
 	

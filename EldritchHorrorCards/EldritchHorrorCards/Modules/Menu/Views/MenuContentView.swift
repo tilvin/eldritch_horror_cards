@@ -22,7 +22,7 @@ extension MenuContentView {
 		let defaultSeparator: CGFloat = 10
 		let avatarBottomSeparator: CGFloat = 15
 		let logoutBottomSeparator: CGFloat = 34
-		let avatarWidthHeight: CGFloat = 150
+		let avatarWidthHeight: CGFloat = 100
 		let widthMultipliedBy: CGFloat = 0.9
 		let separatorLineViewHeight: CGFloat = 1
 		let buttonHeight: CGFloat = 24
@@ -47,46 +47,42 @@ class MenuContentView: BaseScrollView {
 	}()
 	
 	private lazy var userName: UILabel = {
-		let label = UILabel()
-		label.font = UIFont.bold28
-		label.textAlignment = .center
-		label.numberOfLines = 0
-		label.textColor = UIColor.wildSand
-		label.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .vertical)
-		return label
-	}()
-	
-	private lazy var separatorLineView: UIView = {
-		let view = UIView()
-		view.backgroundColor = UIColor.wildSand
+		let view = UILabel(font: .bold28, textColor: .wildSand)
+		view.textAlignment = .center
+		view.numberOfLines = 0
+		view.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
 		return view
 	}()
 	
+	private lazy var separatorLineView: UIView = {
+		return UIView(backgroundColor: .wildSand)
+	}()
+	
 	private lazy var turnsHistoryButton: UIButton = {
-		let button = UIButton()
-		button.setTitle(String(.turnHistory), for: .normal)
-		button.contentHorizontalAlignment = .left
-		button.setTitleColor(.wildSand, for: .normal)
-		button.addTarget(self, action: #selector(turnsHistoryButtonPressed), for: .touchUpInside)
-		return button
+		let view = UIButton()
+		view.setTitle(String(.turnHistory), for: .normal)
+		view.contentHorizontalAlignment = .left
+		view.setTitleColor(.wildSand, for: .normal)
+		view.addTarget(self, action: #selector(turnsHistoryButtonPressed), for: .touchUpInside)
+		return view
 	}()
 	
 	private lazy var expeditionCurrentLocationButton: UIButton = {
-		let button = UIButton()
-		button.setTitle(String(.expeditionCurrentLocation), for: .normal)
-		button.contentHorizontalAlignment = .left
-		button.setTitleColor(.wildSand, for: .normal)
-		button.addTarget(self, action: #selector(expeditionCurrentLocationButtonPressed), for: .touchUpInside)
-		return button
+		let view = UIButton()
+		view.setTitle(String(.expeditionCurrentLocation), for: .normal)
+		view.contentHorizontalAlignment = .left
+		view.setTitleColor(.wildSand, for: .normal)
+		view.addTarget(self, action: #selector(expeditionCurrentLocationButtonPressed), for: .touchUpInside)
+		return view
 	}()
 	
 	private lazy var logoutButton: UIButton = {
-		let button = UIButton()
-		button.setTitle(String(.logout), for: .normal)
-		button.titleLabel?.textAlignment = .left
-		button.setTitleColor(.wildSand, for: .normal)
-		button.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
-		return button
+		let view = UIButton()
+		view.setTitle(String(.logout), for: .normal)
+		view.titleLabel?.textAlignment = .left
+		view.setTitleColor(.wildSand, for: .normal)
+		view.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
+		return view
 	}()
 	
 	//MARK: - Lifecycle
@@ -115,8 +111,8 @@ class MenuContentView: BaseScrollView {
 		addToStackView(view: turnsHistoryButton, embed: true)
 		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: expeditionCurrentLocationButton, embed: true)
-		addSeparatorView(height: appearance.defaultSeparator)
-		addToStackView(view: logoutButton, embed: true)
+//		addSeparatorView(height: appearance.defaultSeparator)
+//		addToStackView(view: logoutButton, embed: true)
 		addSeparatorView(height: appearance.logoutBottomSeparator)
 	}
 	
@@ -151,12 +147,6 @@ class MenuContentView: BaseScrollView {
 			make.height.equalTo(appearance.buttonHeight)
 			make.top.bottom.equalToSuperview()
 			make.width.equalToSuperview()
-			make.leading.equalToSuperview().offset(appearance.buttonLeadingOffset)
-		}
-		
-		logoutButton.snp.makeConstraints { make in
-			make.height.equalTo(appearance.buttonHeight)
-			make.top.bottom.equalToSuperview()
 			make.leading.equalToSuperview().offset(appearance.buttonLeadingOffset)
 		}
 	}

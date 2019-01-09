@@ -13,8 +13,8 @@ extension CardSectionView {
 	struct Appearance {
 		let defaultSideOffset: CGFloat = 25
 		let markViewDefault: CGFloat = 8
-		let textViewRight: CGFloat = ScreenType.item(for: (.inch4, 0), (.inch5_5, 24))
-		let textViewTopBottom: CGFloat = ScreenType.item(for: (.inch4, 0), (.inch5_5, 16))
+		let textViewRight: CGFloat = ScreenType.item(for: (.inch4, 10), (.inch5_5, 25))
+		let textViewTopBottom: CGFloat = ScreenType.item(for: (.inch4, 10), (.inch5_5, 20))
 	}
 }
 
@@ -35,9 +35,8 @@ final class CardSectionView: UIView {
 	}()
 	
 	private lazy var textView: UITextView = {
-		let view = UITextView()
+		let view = UITextView(backgroundColor: .clear)
 		view.isEditable = false
-		view.backgroundColor = .clear
 		view.textAlignment = .left
 		view.font = .regular14
 		return view

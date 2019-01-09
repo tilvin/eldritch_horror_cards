@@ -56,12 +56,18 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 						completion(.localStory(model: value))
 						return
 					}
+					else {
+						completion(.failure(error: NetworkErrorModel(message: "Can't parse model for type: \(type)")))
+					}
 				}
 			case .plotStory:
 				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: PlotStoryModel.self, data: data) { (result) in
 					if let value = result {
 						completion(.plotStory(model: value))
 						return
+					}
+					else {
+						completion(.failure(error: NetworkErrorModel(message: "Can't parse model for type: \(type)")))
 					}
 				}
 			}

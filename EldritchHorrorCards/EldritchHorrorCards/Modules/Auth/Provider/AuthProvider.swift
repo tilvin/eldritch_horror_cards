@@ -34,7 +34,15 @@ final class AuthProvider: AuthProviderProtocol {
 	//MARK: - Init
 	
 	init() {
-		loadData()
+		let user = User()
+		user.login = "Unknown user"
+		user.token = UUID().uuidString
+		user.userName = "Unknown user"
+		user.imageURL = "https://www.fakepersongenerator.com/Face/male/male20171086711834930.jpg"
+		user.image = .defaultAvatar
+		currentUser = user
+		
+//		loadData()
 	}
 	
 	//MARK: - Public
@@ -49,7 +57,7 @@ final class AuthProvider: AuthProviderProtocol {
 		let  user = User()
 		user.login = login
 		user.token = UUID().uuidString
-		user.userName = "Foo Bar"
+		user.userName = "Unknown user"
 		user.imageURL = "https://www.fakepersongenerator.com/Face/male/male20171086711834930.jpg"
 		
 		UIImage.loadImageWith(url: user.imageURL) { (image) in
