@@ -10,15 +10,12 @@ import UIKit
 import SnapKit
 
 protocol DescriptionViewDelegate: class {
-	func backButtonTap()
+	func closeButtonPressed()
 }
 
 extension DescriptionView {
 	
 	struct Appearance {
-		let backButtonTopOffset: CGFloat = 50
-		let backButtonLeftOffset: CGFloat = 30
-		let backButtonHeight: CGFloat = 30
 		let titleTopOffset: CGFloat =  27
 		let titleLeftOffset: CGFloat = 80
 		let textViewOffset: CGFloat = 30
@@ -31,9 +28,11 @@ class DescriptionView: UIView {
 	
 	private let appearance = Appearance()
 	private var viewModel: Description!
-	
-	private lazy var backButton: CustomButton = {
-        return CustomButton(type: .back)
+	private lazy var closeButton: CustomButton = {
+		let view = CustomButton(type: .close)
+		view.setImage(UIImage.closeButton, for: .normal)
+		view.addTarget(self, action: #selector(closeButtonPressed), for: .touchUpInside)
+		return view
 	}()
 	
 	private lazy var titleLabel: UILabel = {
@@ -61,8 +60,6 @@ class DescriptionView: UIView {
 		self.backgroundColor = .white
 		addSubviews()
 		makeConstraints()
-		backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
-		layoutIfNeeded()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -72,30 +69,31 @@ class DescriptionView: UIView {
 	//MARK: - Private
 	
 	private func addSubviews() {
-		addSubview(backButton)
+		addSubview(closeButton)
 		addSubview(titleLabel)
 		addSubview(textView)
 	}
 	
 	private func makeConstraints() {
-		backButton.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().inset(appearance.backButtonTopOffset)
-			make.left.equalToSuperview().inset(appearance.backButtonLeftOffset)
-			make.width.height.equalTo(appearance.backButtonHeight)
+		closeButton.snp.makeConstraints { (make) in
+			make.top.equalTo(safeAreaLayoutGuide.snp.topMargin).inset(DefaultAppearance.closeTopOffset)
+			make.right.equalToSuperview().inset(DefaultAppearance.closeRightOffset)
+			make.width.height.equalTo(DefaultAppearance.closeSizeWH)
 		}
 		
 		titleLabel.snp.makeConstraints { (make) in
-			make.top.equalTo(backButton.snp.bottom).inset(appearance.titleTopOffset)
+			make.top.equalTo(closeButton.snp.bottom).inset(appearance.titleTopOffset)
 			make.left.right.equalToSuperview().inset(appearance.titleLeftOffset)
 		}
 		
 		textView.snp.makeConstraints { (make) in
-			make.top.equalTo(backButton.snp.bottom).offset(appearance.textViewOffset)
+			make.top.equalTo(closeButton.snp.bottom).offset(appearance.textViewOffset)
 			make.left.right.bottom.equalToSuperview().inset(appearance.textViewOffset)
 		}
 	}
 	
-	@objc private func backButtonPressed() {
-		delegate?.backButtonTap()
+	@objc
+	private func closeButtonPressed() {
+		delegate?.closeButtonPressed()
 	}
 }

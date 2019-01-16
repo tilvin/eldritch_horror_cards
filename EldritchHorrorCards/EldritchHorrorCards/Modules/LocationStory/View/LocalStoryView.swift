@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LocalStoryViewDelegate: class {
-	func backButtonPressed()
+	func closeButtonPressed()
 }
 
 extension LocalStoryView {
@@ -19,7 +19,6 @@ extension LocalStoryView {
 		let verticalOffset: CGFloat = 15
 		let viewHeight: CGFloat = 150
 		let topOffset: CGFloat = 80
-		let backButtonTopOffset: CGFloat = 35
 	}
 }
 
@@ -33,8 +32,11 @@ class LocalStoryView: BaseScrollView {
 	
 	//MARK: - Private lazy variables
 	
-	private lazy var backButton: CustomButton = {
-		return CustomButton(type: .back)
+	private lazy var closeButton: CustomButton = {
+		let view = CustomButton(type: .close)
+		view.setImage(UIImage.closeButton, for: .normal)
+		view.addTarget(self, action: #selector(closeButtonPressed), for: .touchUpInside)
+		return view
 	}()
 	
 	private lazy var topTitleLabel: UILabel = {
@@ -72,7 +74,6 @@ class LocalStoryView: BaseScrollView {
 		middleView.update(viewModel: viewModel.middleViewModel)
 		bottomTitleLabel.text = viewModel.bottomTitle
 		bottomView.update(viewModel: viewModel.bottomViewModel)
-		backButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
 		addSubviews()
 		makeContraints()
 	}
@@ -84,7 +85,7 @@ class LocalStoryView: BaseScrollView {
 	//MARK: - Private
 	
 	private func addSubviews() {
-		addSubview(backButton)
+		addSubview(closeButton)
 		addSeparatorView(height: appearance.topOffset)
 		addToStackView(view: topTitleLabel, embed: true)
 		addSeparatorView(height: appearance.elementSpacing)
@@ -101,10 +102,10 @@ class LocalStoryView: BaseScrollView {
 	}
 	
 	private func makeContraints() {
-		backButton.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().inset(appearance.backButtonTopOffset)
-			make.left.equalToSuperview().inset(DefaultAppearance.sideOffset)
-			make.width.height.equalTo(DefaultAppearance.backButtonWidth)
+		closeButton.snp.makeConstraints { (make) in
+			make.top.equalTo(safeAreaLayoutGuide.snp.topMargin).inset(DefaultAppearance.closeTopOffset)
+			make.right.equalToSuperview().inset(DefaultAppearance.closeRightOffset)
+			make.width.height.equalTo(DefaultAppearance.closeSizeWH)
 		}
 		
 		topTitleLabel.snp.makeConstraints { (make) in
@@ -154,7 +155,7 @@ class LocalStoryView: BaseScrollView {
 	//MARK: - Handlers
 	
 	@objc
-	private func backButtonAction() {
-		delegate?.backButtonPressed()
+	private func closeButtonPressed() {
+		delegate?.closeButtonPressed()
 	}
 }

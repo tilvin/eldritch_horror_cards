@@ -37,7 +37,7 @@ class PlotStoryController: BaseViewController {
 
 extension PlotStoryController: ExpeditionViewDelegate {
 	
-	func backButtonTap() {
+	func closeButtonPressed() {
 		close()
 	}
 }

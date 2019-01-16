@@ -9,16 +9,12 @@
 import UIKit
 
 protocol ExpeditionViewDelegate: class {
-	func backButtonTap()
+	func closeButtonPressed()
 }
 
 extension PlotStoryView {
 	
 	struct Appearance {
-		let backButtonTopOffset: CGFloat = 50
-		let backButtonLeftOffset: CGFloat = 30
-		let backButtonHeight: CGFloat = 30
-		let backgroundColor = UIColor.clear
 		let defaultSideOffset: CGFloat = 25
 		let titleLabelViewOffset: CGFloat = 5
 		let titleLabelViewHeight: CGFloat = 40
@@ -41,8 +37,11 @@ class PlotStoryView: BaseScrollView {
 	
 	//MARK: - Private lazy variables
 	
-	private lazy var backButton: CustomButton = {
-		return CustomButton(type: .back)
+	private lazy var closeButton: CustomButton = {
+		let view = CustomButton(type: .close)
+		view.setImage(UIImage.closeButton, for: .normal)
+		view.addTarget(self, action: #selector(closeButtonPressed), for: .touchUpInside)
+		return view
 	}()
 	
 	private lazy var titleImageView: UIImageView = {
@@ -98,12 +97,9 @@ class PlotStoryView: BaseScrollView {
 		titleImageView.image = viewModel.image
 		titleLabel.text = viewModel.title
 		descriptionTextView.text = viewModel.story
-		backgroundColor = appearance.backgroundColor
 		update(viewModel: viewModel)
 		addSubviews()
 		makeConstraints()
-		backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
-		layoutIfNeeded()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -118,13 +114,12 @@ class PlotStoryView: BaseScrollView {
 		successView.update(viewModel: viewModel.successViewModel)
 		failureView.update(viewModel: viewModel.failureViewModel)
 		descriptionTextView.text = viewModel.story
-		backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
 	}
 	
 	//MARK: - Private
 	
 	private func addSubviews() {
-		addSubview(backButton)
+		addSubview(closeButton)
 		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: titleImageView, embed: true)
 		titleImageView.addSubview(titleLabelView)
@@ -139,10 +134,10 @@ class PlotStoryView: BaseScrollView {
 	}
 	
 	private func makeConstraints() {
-		backButton.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().inset(appearance.backButtonTopOffset)
-			make.left.equalToSuperview().inset(appearance.backButtonLeftOffset)
-			make.width.height.equalTo(appearance.backButtonHeight)
+		closeButton.snp.makeConstraints { (make) in
+			make.top.equalTo(safeAreaLayoutGuide.snp.topMargin).inset(DefaultAppearance.closeTopOffset)
+			make.right.equalToSuperview().inset(DefaultAppearance.closeRightOffset)
+			make.width.height.equalTo(DefaultAppearance.closeSizeWH)
 		}
 		
 		titleImageView.snp.remakeConstraints { (make) in
@@ -187,7 +182,8 @@ class PlotStoryView: BaseScrollView {
 	
 	//MARK: - Handlers
 	
-	@objc private func backButtonPressed() {
-		delegate?.backButtonTap()
+	@objc
+	private func closeButtonPressed() {
+		delegate?.closeButtonPressed()
 	}
 }

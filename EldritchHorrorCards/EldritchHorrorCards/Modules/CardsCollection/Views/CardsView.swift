@@ -15,9 +15,6 @@ protocol CardsViewDelegate: class {
 extension CardsView {
 	
 	struct Appearance {
-		let closeTopOffset: CGFloat = 30
-		let closeRightOffset: CGFloat = 10
-		let closeSizeWH: CGFloat = 25
 		let collectionViewTopOffset: CGFloat = 80
 		let itemSizeIndex: CGFloat = 0.6
 	}
@@ -72,9 +69,9 @@ final class CardsView: UIView {
 	
 	private func makeContraints() {
 		closeButton.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().inset(appearance.closeTopOffset)
-			make.right.equalToSuperview().inset(appearance.closeRightOffset)
-			make.width.height.equalTo(appearance.closeSizeWH)
+			make.top.equalTo(safeAreaLayoutGuide.snp.topMargin).inset(DefaultAppearance.closeTopOffset)
+			make.right.equalToSuperview().inset(DefaultAppearance.closeRightOffset)
+			make.width.height.equalTo(DefaultAppearance.closeSizeWH)
 		}
 		
 		cartCollectionView.snp.makeConstraints { (make) in

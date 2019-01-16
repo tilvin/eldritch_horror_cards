@@ -36,7 +36,7 @@ class LocalStoryViewController: BaseViewController {
 
 extension LocalStoryViewController: LocalStoryViewDelegate {
 	
-	func backButtonPressed() {
+	func closeButtonPressed() {
 		dismiss(animated: true, completion: nil)
 	}
 }
