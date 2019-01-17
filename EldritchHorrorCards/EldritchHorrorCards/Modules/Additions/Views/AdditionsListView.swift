@@ -19,7 +19,7 @@ extension AdditionsListView {
 	struct Appearance {
 		let tableViewContentInsets = UIEdgeInsetsMake(0, 0, 0, 0)
 		let backgroundColor = UIColor.clear
-		let titleLabelTopOffset: CGFloat = 52
+		let titleLabelTopOffset: CGFloat = 24
 		let titleLabelLeftOffset: CGFloat = 50
 		let titleLabelRightOffset: CGFloat = 20
 		let tableViewBottomOffset: CGFloat = -10
@@ -99,7 +99,7 @@ final class AdditionsListView: UIView {
 	
 	private func makeConstraints() {
 		titleLabel.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().inset(appearance.titleLabelTopOffset)
+			make.top.equalTo(safeAreaLayoutGuide).inset(appearance.titleLabelTopOffset)
 			make.left.equalTo(menuButton).offset(appearance.titleLabelLeftOffset)
 			make.right.equalToSuperview().inset(appearance.titleLabelRightOffset)
 		}
@@ -122,8 +122,8 @@ final class AdditionsListView: UIView {
 		
 		menuButton.snp.makeConstraints { (make) in
 			make.left.equalToSuperview()
-			make.top.equalToSuperview().inset(28)
-			make.width.height.equalTo(70)
+			make.top.equalTo(safeAreaLayoutGuide)
+			make.width.height.equalTo(DefaultAppearance.menuButtonWidthHeight)
 		}
 	}
 	
