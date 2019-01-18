@@ -47,8 +47,14 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	
 	public func loadGameId(completion: @escaping (Bool) -> Void) {
 		dataTask?.cancel()
+		
 		let realm = try! Realm()
-		guard realm.objects(Game.self).count == 0 else { self.game = realm.objects(Game.self).last; completion(true); return}
+		guard realm.objects(Game.self).count == 0 else {
+			self.game = realm.objects(Game.self).last
+			completion(true)
+			return
+		}
+		
 		dataTask = session.dataTask(with: APIRequest.games.request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			guard let data = data else {
