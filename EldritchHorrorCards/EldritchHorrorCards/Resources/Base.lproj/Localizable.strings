@@ -13,6 +13,7 @@
 "logout" = "Выход";
 "turnHistory" = "История ходов";
 "expeditionCurrentLocation" = "Текущая локация";
+"newGame" = "Начать новую игру";
 "loadMonsterError" = "Ошибка при загрузке Древних.";
 "ok" = "Ок";
 
@@ -63,6 +64,7 @@
 "special_contact_king_in_yellow" = "Король в желтом";
 "authError" = "Не удалось пройти авторизацию! Пробуйте еще!";
 "gameOverAlert" = "Закончить игру?";
+"newGameAlert" = "Закончить текущую игру и начать новую?";
 "warning" = "Внимание!";
 "cancel" = "Отмена";
 "empty" = "Пусто";

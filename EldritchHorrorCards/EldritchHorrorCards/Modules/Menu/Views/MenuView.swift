@@ -13,6 +13,7 @@ protocol MenuViewDelegate: class {
 	func backgroundTap()
 	func turnsHistoryButtonTap()
 	func expeditionCurrentLocationButtonTap()
+	func newGameButtonTap()
 	func logoutButtonTap()
 }
 
@@ -85,6 +86,10 @@ extension MenuView: MenuContentViewProtocol {
 	
 	func expeditionCurrentLocationPressed() {
 		delegate?.expeditionCurrentLocationButtonTap()
+	}
+	
+	func newGamePressed() {
+		delegate?.newGameButtonTap()
 	}
 	
 	func logoutButtonPressed() {

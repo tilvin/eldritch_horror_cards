@@ -29,6 +29,8 @@ extension String {
 		case additionsTitle
 		case additionsButton
 		case gameInitError
+		case newGame
+		case newGameAlert
 	}
 	
 	//MARK: - Inits

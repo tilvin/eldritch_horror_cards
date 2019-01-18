@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 protocol MenuEmbedProtocol: class {
 	var menuContainerView: UIView { get}
@@ -141,6 +142,21 @@ extension MenuViewController: MenuViewDelegate {
 	
 	func expeditionCurrentLocationButtonTap() {
 		print(#function)
+	}
+	
+	func newGameButtonTap() {
+		let alert = Alert(title: String(.warning), message: String(.newGameAlert), preferredStyle: .alert)
+		alert.addAction(title: String(.ok), style: .default) { [weak self] (_) in
+			let realm = try! Realm()
+			try! realm.write {
+				realm.deleteAll()
+			}
+			let additionVC = AdditionsViewController()
+			additionVC.modalTransitionStyle = .crossDissolve
+			self?.appNavigator?.go(controller: additionVC, mode: .replace)
+		}
+		alert.addAction(title: String(.cancel), style: .cancel)
+		alert.present(in: self)
 	}
 	
 	func logoutButtonTap() {

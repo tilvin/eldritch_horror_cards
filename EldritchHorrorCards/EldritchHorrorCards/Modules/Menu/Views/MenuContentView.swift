@@ -12,6 +12,7 @@ import SnapKit
 protocol MenuContentViewProtocol: class {
 	func turnsHistoryPressed()
 	func expeditionCurrentLocationPressed()
+	func newGamePressed()
 	func logoutButtonPressed()
 }
 
@@ -76,6 +77,15 @@ class MenuContentView: BaseScrollView {
 		return view
 	}()
 	
+	private lazy var newGameButton: UIButton = {
+		let view = UIButton()
+		view.setTitle(String(.newGame), for: .normal)
+		view.contentHorizontalAlignment = .left
+		view.setTitleColor(.wildSand, for: .normal)
+		view.addTarget(self, action: #selector(newGameButtonPressed), for: .touchUpInside)
+		return view
+	}()
+	
 	private lazy var logoutButton: UIButton = {
 		let view = UIButton()
 		view.setTitle(String(.logout), for: .normal)
@@ -111,8 +121,10 @@ class MenuContentView: BaseScrollView {
 		addToStackView(view: turnsHistoryButton, embed: true)
 		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: expeditionCurrentLocationButton, embed: true)
-//		addSeparatorView(height: appearance.defaultSeparator)
-//		addToStackView(view: logoutButton, embed: true)
+		addSeparatorView(height: appearance.defaultSeparator)
+		addToStackView(view: newGameButton, embed: true)
+		//		addSeparatorView(height: appearance.defaultSeparator)
+		//		addToStackView(view: logoutButton, embed: true)
 		addSeparatorView(height: appearance.logoutBottomSeparator)
 	}
 	
@@ -149,6 +161,13 @@ class MenuContentView: BaseScrollView {
 			make.width.equalToSuperview()
 			make.leading.equalToSuperview().offset(appearance.buttonLeadingOffset)
 		}
+		
+		newGameButton.snp.makeConstraints { make in
+			make.height.equalTo(appearance.buttonHeight)
+			make.top.bottom.equalToSuperview()
+			make.width.equalToSuperview()
+			make.leading.equalToSuperview().offset(appearance.buttonLeadingOffset)
+		}
 	}
 	
 	@objc private func turnsHistoryButtonPressed() {
@@ -157,6 +176,10 @@ class MenuContentView: BaseScrollView {
 	
 	@objc private func expeditionCurrentLocationButtonPressed() {
 		delegate?.expeditionCurrentLocationPressed()
+	}
+	
+	@objc private func newGameButtonPressed() {
+		delegate?.newGamePressed()
 	}
 	
 	@objc private func logoutButtonPressed() {
