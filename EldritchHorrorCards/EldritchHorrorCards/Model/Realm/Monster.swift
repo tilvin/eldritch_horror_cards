@@ -12,7 +12,7 @@ import ObjectMapper
 import ObjectMapper_Realm
 
 final class Monster: Object, Mappable {
-	@objc dynamic var uid: String = UUID().uuidString
+	@objc dynamic var uid: String = ""
 	@objc dynamic var id: Int = 0
 	@objc dynamic var imageURLString: String = ""
 	@objc dynamic var name: String = ""
@@ -35,6 +35,7 @@ final class Monster: Object, Mappable {
 		self.score <- map["score"]
 		self.desc <- map["description"]
 		self.slogan <- map["slogan"]
+		self.uid = "\(id)"
 	}
 }
 

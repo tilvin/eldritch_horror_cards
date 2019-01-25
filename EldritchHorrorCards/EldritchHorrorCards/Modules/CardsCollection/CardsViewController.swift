@@ -64,6 +64,9 @@ extension CardsViewController: CardsViewDelegate {
 	func closeButtonPressed() {
 		let alert = Alert(title: String(.warning), message: String(.gameOverAlert), preferredStyle: .alert)
 		alert.addAction(title: String(.ok), style: .default) { [weak self] (_) in
+			let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+			gameProvider.removeGame()
+			
 			let additionVC = AdditionsViewController()
 			additionVC.modalTransitionStyle = .crossDissolve
 			self?.appNavigator?.go(controller: additionVC, mode: .replace)

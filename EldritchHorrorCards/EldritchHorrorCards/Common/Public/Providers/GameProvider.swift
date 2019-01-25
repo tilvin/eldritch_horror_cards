@@ -15,6 +15,8 @@ protocol GameDataProviderProtocol {
 	var game: GameProtocol! { get set }
 	var isNewGame: Bool { get }
 	func loadGameId(completion: @escaping (Bool) -> Void)
+	func setSelectedAncient(ancient: Monster)
+	func removeGame()
 }
 
 class GameDataProvider: NSObject, GameDataProviderProtocol {
@@ -67,6 +69,21 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 				completion(success)
 			})
 		}
+	}
+	
+	public func setSelectedAncient(ancient: Monster) {
+		let realm = try! Realm()
+		try! realm.write {
+			game.selectedAncient = ancient
+		}
+	}
+	
+	public func removeGame() {
+		let realm = try! Realm()
+		try! realm.write {
+			realm.delete(realm.objects(Game.self))
+		}
+		loadLocalGame()
 	}
 	
 	//MARK: - Private

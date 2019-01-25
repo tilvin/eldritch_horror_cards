@@ -1,5 +1,4 @@
 import UIKit
-import RealmSwift
 
 protocol MenuEmbedProtocol: class {
 	var menuContainerView: UIView { get}
@@ -147,10 +146,9 @@ extension MenuViewController: MenuViewDelegate {
 	func newGameButtonTap() {
 		let alert = Alert(title: String(.warning), message: String(.newGameAlert), preferredStyle: .alert)
 		alert.addAction(title: String(.ok), style: .default) { [weak self] (_) in
-			let realm = try! Realm()
-			try! realm.write {
-				realm.deleteAll()
-			}
+			let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+			gameProvider.removeGame()
+			
 			let additionVC = AdditionsViewController()
 			additionVC.modalTransitionStyle = .crossDissolve
 			self?.appNavigator?.go(controller: additionVC, mode: .replace)
@@ -161,6 +159,10 @@ extension MenuViewController: MenuViewDelegate {
 	
 	func logoutButtonTap() {
 		authProvider.logout(error: nil)
+		
+		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+		gameProvider.removeGame()
+		
 		let controller = AuthViewController()
 		controller.modalTransitionStyle = .crossDissolve
 		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)

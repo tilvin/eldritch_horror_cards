@@ -12,9 +12,7 @@ import ObjectMapper
 import ObjectMapper_Realm
 
 protocol MonsterDataProviderProtocol {
-	var monsters: [Monster] { get set }
-	var selectedAncient: Monster? { get set }
-	
+	var monsters: [Monster] { get set }	
 	func load(gameId: Int, completion: @escaping (Bool) -> Void)
 	func selectAncient(gameId: Int, ancient: Monster, completion: @escaping (Bool) -> Void)
 }
@@ -25,7 +23,6 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 	
 	var monsters: [Monster]  = []
 	var session: URLSession?
-	var selectedAncient: Monster?
 	
 	//MARK: - Private variables
 	
@@ -71,6 +68,7 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 			let realm = try! Realm()
 			
 			try! realm.write {
+				realm.delete(realm.objects(Monster.self))
 				realm.add(model, update: true)
 			}
 			sSelf.monsters = Array(realm.objects(Monster.self))
@@ -81,8 +79,6 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 	
 	func selectAncient(gameId: Int, ancient: Monster, completion: @escaping (Bool) -> Void) {
 		guard let session = session else { fatalError() }
-		selectedAncient = ancient
-		
 		dataTask?.cancel()
 		dataTask = session.dataTask(with: APIRequest.selectAncient(gameId: gameId, ancient: ancient.id).request) { (_: Data?, response: URLResponse?, error: Error?) -> Void in
 			if let error = error {
