@@ -10,7 +10,6 @@ private class DownloadQueue {
 		}
 		return Static.instance
 	}
-
 	class func sharedQeueue() -> DownloadQueue {
 		return _sharedQeueue
 	}

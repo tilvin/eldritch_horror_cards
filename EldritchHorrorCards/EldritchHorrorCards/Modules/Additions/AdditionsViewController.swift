@@ -25,14 +25,21 @@ final class AdditionsViewController: BaseViewController {
 		super.viewDidLoad()
 		setupMenu()
 		view.showProccessing()
+		
 		gameProvider.loadGameId { [unowned self] (success) in
 			guard success else {
 				self.showErrorAlert(message: String(.gameInitError))
 				return
 			}
-			self.additionProvider.load { (additions) in
+			if self.gameProvider.isNewGame {
+				self.additionProvider.load { (additions) in
+					self.view.hideProccessing()
+					self.adapter.configure(with: additions)
+				}
+			}
+			else {
 				self.view.hideProccessing()
-				self.adapter.configure(with: additions)
+				print("show cards!")
 			}
 		}
 	}

@@ -5,7 +5,7 @@
 ## Восстановление сессии
 
 
-* type `get` 
+* type `get` $$
 * endpoint: `v1/games/restore`
 * url_params: `game_id=`
 
@@ -30,15 +30,15 @@
 ## 2 Показывает пользователю список доступных дополнений
 
 * type: `get`
-* endpoint `/game_sets`
+* endpoint `/game_sets`$$$$
 * response:
-    * id дополнения
+    * id дополнения$$
     * идентификатор дополнения
-
+$$
 ``` JSON
 [
     {
-        "id": 2,
+        "id": 2,$$
         "identity": "under_the_pyramids",
         "name": "Под пирамидами"
     },

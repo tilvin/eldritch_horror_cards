@@ -30,6 +30,7 @@ enum APIRequest {
 	case research(gameId: Int, type: String)
 	case special(gameId: Int, type: String)
 	case location(gameId: Int, type: String)
+	case restoreSession(gameId: Int)
 }
 
 extension APIRequest {
@@ -138,6 +139,12 @@ extension APIRequest {
 			components.urlParameters["contact_type"] = "\(type)"
 			components.asJson = false
 			return components
+		case let .restoreSession(gameId):
+			components.path = "/games/restore"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.asJson = false
+			components.headers = [:]
+			return components
 		}
 	}
 	
@@ -145,7 +152,7 @@ extension APIRequest {
 		switch self {
 		case .login, .games:
 			return "POST"
-		case .gameSets, .ancients, .cards, .expedition, .generalContact, .otherWorldContact, .research, .special, .location:
+		case .gameSets, .ancients, .cards, .expedition, .generalContact, .otherWorldContact, .research, .special, .location, .restoreSession:
 			return "GET"
 		case .selectGameSets, .selectAncient:
 			return "PUT"

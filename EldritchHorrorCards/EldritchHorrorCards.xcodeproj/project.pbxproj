@@ -430,6 +430,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A41AAC2821FB4BA00002C931 /* _UNUSED */ = {
+			isa = PBXGroup;
+			children = (
+				A499E97C214403B8001186A5 /* Auth */,
+			);
+			path = _UNUSED;
+			sourceTree = "<group>";
+		};
 		A4208330212B1AE50081E762 /* TableAdapter */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,8 +735,8 @@
 		A441BBD82109BC5200EAC5DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A41AAC2821FB4BA00002C931 /* _UNUSED */,
 				A4C2532F211DEE4400E0FF37 /* Additions */,
-				A499E97C214403B8001186A5 /* Auth */,
 				A42190A921985AC500AADC68 /* CardsCollection */,
 				A4208356212BE06E0081E762 /* Description */,
 				A441BBDA2109BC7000EAC5DD /* Main */,

@@ -12,7 +12,8 @@ import ObjectMapper_Realm
 import RealmSwift
 
 protocol GameDataProviderProtocol {
-	var game: GameProtocol! { get set }
+	var game: GameProtocol! { get }
+	var isNewGame: Bool { get }
 	func loadGameId(completion: @escaping (Bool) -> Void)
 }
 
@@ -28,6 +29,7 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	//MARK: - Public variables
 	
 	var game: GameProtocol!
+	var isNewGame: Bool { return isNewGameFlag }
 	
 	//MARK: - Private variables
 	
@@ -37,6 +39,7 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	
 	private var dataTask: URLSessionDataTask?
 	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
+	private var isNewGameFlag: Bool = true
 	
 	//MARK: - Public
 	
@@ -46,6 +49,54 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	}
 	
 	public func loadGameId(completion: @escaping (Bool) -> Void) {
+		if game == nil {
+			getNewGameId(completion: { (success) in
+				completion(success)
+			})
+		}
+		else {
+			restoreSession { [unowned self] (success) in
+				if success {
+					self.isNewGameFlag = false
+					completion(true)
+					return
+				}
+				
+				self.getNewGameId(completion: { (success) in
+					completion(success)
+				})
+			}
+		}
+	}
+	
+	//MARK: - Private
+	
+	private func loadLocalGame() {
+		let realm = try! Realm()
+		if realm.objects(Game.self).count == 0 {
+			try! realm.write {
+				realm.add(Game(), update: true)
+			}
+		}
+		
+		game = realm.objects(Game.self).first
+	}
+	
+	func restoreSession(completion: @escaping (Bool) -> ()) {
+		guard game != nil else { return }
+		
+		let restoreTask = session.dataTask(with: APIRequest.restoreSession(gameId: game.id).request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
+			guard let HTTPResponse = response as? HTTPURLResponse else { return }
+			guard HTTPResponse.statusCode == 200 else {
+				completion(false)
+				return
+			}
+			completion(true)
+		}
+		restoreTask.resume()
+	}
+	
+	private func getNewGameId(completion: @escaping (Bool) -> ()) {
 		dataTask?.cancel()
 		
 		let realm = try! Realm()
@@ -55,7 +106,8 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 			return
 		}
 		
-		dataTask = session.dataTask(with: APIRequest.games.request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
+		dataTask = session.dataTask(with: APIRequest.games.request) { [weak self] (data: Data?, response: URLResponse?, _: Error?) -> Void in
+			guard let sSelf = self else { return }
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			guard let data = data else {
 				completion(false)
@@ -70,7 +122,7 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 				let jsonObject = jsonData,
 				let model = Mapper<Game>().map(JSON: jsonObject) else { return }
 			
-			self.game = model
+			sSelf.game = model
 			let realm = try! Realm()
 			try! realm.write {
 				realm.add(model, update: true)
@@ -78,17 +130,6 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 			}
 		}
 		dataTask?.resume()
-	}
-	
-	private func loadLocalGame() {
-		let realm = try! Realm()
-		if realm.objects(Game.self).count == 0 {
-			try! realm.write {
-				realm.add(Game(), update: true)
-			}
-		}
-		
-		self.game = realm.objects(Game.self).first
 	}
 }
 
