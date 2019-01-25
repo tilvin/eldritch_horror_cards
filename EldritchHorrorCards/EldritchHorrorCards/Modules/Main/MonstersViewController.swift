@@ -7,13 +7,22 @@ protocol MonstersViewControllerDelegate: class {
 }
 
 final class MonstersViewController: JFCardSelectionViewController {
-	var menuContainerView: UIView { return self.menuContainer }
-	var menuAction: CommandWith<Command>!
-	var monsterDelegate: MonstersViewControllerDelegate?
-	
+    
+    //MARK: - Public variables
+    
+	public var menuContainerView: UIView { return self.menuContainer }
+	public var menuAction: CommandWith<Command>!
+	public var monsterDelegate: MonstersViewControllerDelegate?
+    public var showMessageHandler: ShowErrorHandler?
+    
+    //MARK: - Private variables
+    
 	private var monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 	private var monsters: [Monster] = []
-	
+    private let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+    
+    //MARK: - Private lazy variables
+    
 	private lazy var menuButton: UIButton = {
 		let button = UIButton()
 		button.setImage(UIImage.menuButton, for: .normal)
@@ -30,12 +39,22 @@ final class MonstersViewController: JFCardSelectionViewController {
 		delegate = self
 		selectionAnimationStyle = .slide
 		super.viewDidLoad()
-		self.navigationController?.isNavigationBarHidden = true
+		navigationController?.isNavigationBarHidden = true
 		addSubViews()
 		makeConstraints()
 		setupMenu()
 		navigationController?.setNavigationBarHidden(true, animated: false)
-		monsters = monsterProvider.monsters
+        view.showProccessing()
+        monsterProvider.load(gameId: gameProvider.game.id) { [weak self] (success) in
+            guard let sSelf = self else { return }
+			sSelf.view.hideProccessing()
+            if !success {
+                sSelf.showMessageHandler?(String(.additionContinueButtonError))
+                return
+            }
+            sSelf.monsters = sSelf.monsterProvider.monsters
+            sSelf.reloadData()
+        }
 		reloadData()
 		view.layoutIfNeeded()
 	}

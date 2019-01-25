@@ -29,6 +29,7 @@ extension String {
 		case additionsTitle
 		case additionsButton
 		case gameInitError
+		case additionContinueButtonError
 		case newGame
 		case newGameAlert
 	}

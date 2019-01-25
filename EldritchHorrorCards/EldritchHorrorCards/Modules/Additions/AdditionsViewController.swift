@@ -35,7 +35,6 @@ final class AdditionsViewController: BaseViewController {
 				self.adapter.configure(with: additions)
 			}
 		}
-		
 	}
 }
 
@@ -67,31 +66,19 @@ extension AdditionsViewController: AdditionsListViewDelegate {
 	
 	func continueButtonAction() {
 		let provider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
-		let monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let additions = provider.additions.filter { $0.isSelected}.map { String($0.id)}
 		let maps = provider.additions.filter { $0.isSelectedMap }.map { String($0.id)}
 		
 		provider.selectAdditions(gameId: gameProvider.game.id, additions: additions, maps: maps) { [weak self] (success) in
-			guard let sSelf = self else { return }
-			if success {
-				print("Additions sent...")
-				monsterProvider.load(gameId: sSelf.gameProvider.game.id) { (success) in
-					if success {
-						print("Monster is load!")
-						let controller = MainViewController()
-						controller.modalTransitionStyle = .crossDissolve
-						sSelf.appNavigator?.go(controller: controller, mode: .modal)
-					}
-					else {
-						//TODO: Алерт и переход к авторизации или выбору дополнений (как договоримся)
-						print("error! Something gone wrong!")
-					}
-				}
-			}
-			else {
-				//TODO: Алерт и переход к авторизации или выбору дополнений (как договоримся)
-				print("error!")
-			}
+            guard let sSelf = self else { return }
+			
+            if !success {
+                sSelf.showErrorAlert(message: String(.additionContinueButtonError))
+                return
+            }
+            let controller = MainViewController()
+            controller.modalTransitionStyle = .crossDissolve
+            sSelf.appNavigator?.go(controller: controller, mode: .modal)
 		}
 	}
 }

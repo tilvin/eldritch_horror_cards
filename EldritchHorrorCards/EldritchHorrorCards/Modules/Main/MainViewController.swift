@@ -8,18 +8,28 @@
 
 import UIKit
 
+typealias ShowErrorHandler = (String) -> ()
+
 class MainViewController: BaseViewController {
 	
-	//MARK: - Init
+	//MARK: - Private variables
+	
+    private var showErrorHandler: ShowErrorHandler?
+	
+	//MARK: - Lifecycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		isHiddenNavigationBar = true
 		let controller = MonstersViewController()
 		controller.monsterDelegate = self
+        controller.showMessageHandler = showErrorHandler
 		view.embed(subview: controller.view)
 		addChildViewController(controller)
 		controller.didMove(toParentViewController: self)
+        showErrorHandler = { [weak self] (message) in
+            self?.showErrorAlert(message: message)
+        }
 	}
 }
 

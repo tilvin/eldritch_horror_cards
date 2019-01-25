@@ -2,6 +2,14 @@
 
 `root url: URL: 82.202.236.16/api/mobile_app/v1`
 
+## Восстановление сессии
+
+
+* type `get` 
+* endpoint: `v1/games/restore`
+* url_params: `game_id=`
+
+
 ## 1.  Пользователь нажимает на кнопку "Старт"
 
 * type: `post`

@@ -77,3 +77,4 @@
 "errorMessageTemplate" = "Сервер вернул ошибку: ";
 "errorNoData" = "Не удалось получить данные.";
 "gameInitError" = "Не удалось инициализировать игру!";
+"additionContinueButtonError" = "Не удалось запросить монстров по выбранным дополнениям.";
