@@ -12,7 +12,7 @@ import ObjectMapper_Realm
 import RealmSwift
 
 protocol GameDataProviderProtocol {
-	var game: GameProtocol! { get }
+	var game: GameProtocol! { get set }
 	var isNewGame: Bool { get }
 	func loadGameId(completion: @escaping (Bool) -> Void)
 }
@@ -49,23 +49,23 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	}
 	
 	public func loadGameId(completion: @escaping (Bool) -> Void) {
-		if game == nil {
+		guard game.isValid else {
 			getNewGameId(completion: { (success) in
 				completion(success)
 			})
+			return
 		}
-		else {
-			restoreSession { [unowned self] (success) in
-				if success {
-					self.isNewGameFlag = false
-					completion(true)
-					return
-				}
-				
-				self.getNewGameId(completion: { (success) in
-					completion(success)
-				})
+		
+		restoreSession { [unowned self] (success) in
+			if success {
+				self.isNewGameFlag = false
+				completion(true)
+				return
 			}
+			
+			self.getNewGameId(completion: { (success) in
+				completion(success)
+			})
 		}
 	}
 	
@@ -78,14 +78,12 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 				realm.add(Game(), update: true)
 			}
 		}
-		
 		game = realm.objects(Game.self).first
 	}
 	
 	func restoreSession(completion: @escaping (Bool) -> ()) {
-		guard game != nil else { return }
-		
-		let restoreTask = session.dataTask(with: APIRequest.restoreSession(gameId: game.id).request) { (data: Data?, response: URLResponse?, _: Error?) -> Void in
+		guard game.isValid else { return }
+		let restoreTask = session.dataTask(with: APIRequest.restoreSession(gameId: game.id).request) { (_, response: URLResponse?, _: Error?) -> Void in
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			guard HTTPResponse.statusCode == 200 else {
 				completion(false)
@@ -98,10 +96,9 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	
 	private func getNewGameId(completion: @escaping (Bool) -> ()) {
 		dataTask?.cancel()
-		
 		let realm = try! Realm()
-		guard realm.objects(Game.self).count == 0 else {
-			self.game = realm.objects(Game.self).last
+		game = realm.objects(Game.self).first
+		if game.isValid {
 			completion(true)
 			return
 		}
@@ -122,12 +119,13 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 				let jsonObject = jsonData,
 				let model = Mapper<Game>().map(JSON: jsonObject) else { return }
 			
-			sSelf.game = model
 			let realm = try! Realm()
 			try! realm.write {
+				realm.delete(realm.objects(Game.self))
 				realm.add(model, update: true)
 				completion(true)
 			}
+			sSelf.game = realm.objects(Game.self).first
 		}
 		dataTask?.resume()
 	}

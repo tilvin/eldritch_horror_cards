@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
+import ObjectMapper
+import ObjectMapper_Realm
 
 protocol MonsterDataProviderProtocol {
 	var monsters: [Monster] { get set }
@@ -43,7 +46,8 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 	func load(gameId: Int, completion: @escaping (Bool) -> Void) {
 		guard let session = session else { fatalError() }
 		dataTask?.cancel()
-		dataTask = session.dataTask(with: APIRequest.ancients(gameId: gameId).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+		dataTask = session.dataTask(with: APIRequest.ancients(gameId: gameId).request) { [weak self] (data: Data?, response: URLResponse?, error: Error?) -> Void in
+			guard let sSelf = self else { return }
 			if let error = error {
 				print(error.localizedDescription)
 				completion(false)
@@ -60,13 +64,17 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 				return
 			}
 			
-			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: [Monster].self, data: data) { [weak self] (result) in
-				if let value = result {
-					self?.monsters = value
-					completion(true)
-					return
-				}
+			guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) as? [[String: Any]],
+				let jsonObject = jsonData else { return }
+			
+			let model = Mapper<Monster>().mapArray(JSONArray: jsonObject)
+			let realm = try! Realm()
+			
+			try! realm.write {
+				realm.add(model, update: true)
 			}
+			sSelf.monsters = Array(realm.objects(Monster.self))
+			completion(sSelf.monsters.count > 0)
 		}
 		dataTask?.resume()
 	}

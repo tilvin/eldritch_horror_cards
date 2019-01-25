@@ -26,6 +26,7 @@
 		9F9B55DF21A294850016C577 /* CardSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B55DE21A294850016C577 /* CardSectionViewModel.swift */; };
 		9FC7F668215AC90500A2A7B3 /* GameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F667215AC90500A2A7B3 /* GameProvider.swift */; };
 		9FC7F66A215AC9BE00A2A7B3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F669215AC9BE00A2A7B3 /* Game.swift */; };
+		A41AAC2A21FB6FAB0002C931 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41AAC2921FB6FAB0002C931 /* Monster.swift */; };
 		A41CA69820D23EC600E2F817 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CA69720D23EC600E2F817 /* AuthViewController.swift */; };
 		A4208333212B1AFB0081E762 /* BaseTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208331212B1AFB0081E762 /* BaseTableAdapter.swift */; };
 		A4208334212B1AFB0081E762 /* StaticTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208332212B1AFB0081E762 /* StaticTableAdapter.swift */; };
@@ -100,7 +101,6 @@
 		A47B356421A4869600C12A45 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B356321A4869600C12A45 /* NetworkService.swift */; };
 		A47B356721A4870B00C12A45 /* NotificationExtantion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B356621A4870B00C12A45 /* NotificationExtantion.swift */; };
 		A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */; };
-		A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461420FD0DFD00DF1687 /* Monster.swift */; };
 		A48C461720FD0F5300DF1687 /* DataParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C461620FD0F5300DF1687 /* DataParseService.swift */; };
 		A49043082145610200397AC9 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49043072145610200397AC9 /* UIScreenExtension.swift */; };
 		A4978E7E21D0E15000329AB2 /* LocalStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4978E7D21D0E15000329AB2 /* LocalStoryViewController.swift */; };
@@ -208,6 +208,7 @@
 		9FC7F667215AC90500A2A7B3 /* GameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProvider.swift; sourceTree = "<group>"; };
 		9FC7F669215AC9BE00A2A7B3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EldritchHorrorCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A41AAC2921FB6FAB0002C931 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A41CA69720D23EC600E2F817 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A4208331212B1AFB0081E762 /* BaseTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableAdapter.swift; sourceTree = "<group>"; };
 		A4208332212B1AFB0081E762 /* StaticTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableAdapter.swift; sourceTree = "<group>"; };
@@ -284,7 +285,6 @@
 		A47B356321A4869600C12A45 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A47B356621A4870B00C12A45 /* NotificationExtantion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtantion.swift; sourceTree = "<group>"; };
 		A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataProvider.swift; sourceTree = "<group>"; };
-		A48C461420FD0DFD00DF1687 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A48C461620FD0F5300DF1687 /* DataParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParseService.swift; sourceTree = "<group>"; };
 		A49043072145610200397AC9 /* UIScreenExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 		A4978E7D21D0E15000329AB2 /* LocalStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStoryViewController.swift; sourceTree = "<group>"; };
@@ -727,7 +727,6 @@
 				A4B35E5F217BB92A002496E7 /* Realm */,
 				9F61A1EE2170841B00A5003C /* Expedition.swift */,
 				9F3E4577213522C4002DA88A /* Description.swift */,
-				A48C461420FD0DFD00DF1687 /* Monster.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1052,6 +1051,7 @@
 			children = (
 				9F0E79F32112FDED0080C907 /* User.swift */,
 				9FC7F669215AC9BE00A2A7B3 /* Game.swift */,
+				A41AAC2921FB6FAB0002C931 /* Monster.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -1391,7 +1391,6 @@
 				A45D1890219E0B1900F330D6 /* TableEmptyView.swift in Sources */,
 				9F61A1F12171F90700A5003C /* CardDataProvider.swift in Sources */,
 				A4FDB00F20D413DE00FA6E4B /* AccessoryIndicator.swift in Sources */,
-				A48C461520FD0DFD00DF1687 /* Monster.swift in Sources */,
 				A4B92D9020FCCA37002C9936 /* AuthProvider.swift in Sources */,
 				A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */,
 				A47B356421A4869600C12A45 /* NetworkService.swift in Sources */,
@@ -1418,6 +1417,7 @@
 				A45D18C021A0527B00F330D6 /* StaticCollectionAdapter.swift in Sources */,
 				A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */,
 				A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */,
+				A41AAC2A21FB6FAB0002C931 /* Monster.swift in Sources */,
 				A4978E8321D0E4E400329AB2 /* UIBarButtonItemExtension.swift in Sources */,
 				A420833B212B1B0B0081E762 /* TableViewHeaderFooterConfiguration.swift in Sources */,
 				A47771AF214531DD007F2058 /* UITextFieldExtension.swift in Sources */,

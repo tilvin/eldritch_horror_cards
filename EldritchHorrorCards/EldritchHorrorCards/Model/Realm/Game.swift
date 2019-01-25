@@ -16,6 +16,7 @@ protocol GameProtocol: class {
 	var token: String { get set }
 	var expeditionLocation: String { get set }
 	var isSessionActive: Bool { get }
+	var isValid: Bool { get }
 }
 
 final class Game: Object, Mappable {
@@ -24,6 +25,8 @@ final class Game: Object, Mappable {
 	@objc dynamic var token: String = ""
 	@objc dynamic var expeditionLocation: String = ""
 	@objc dynamic var expireDate: Date = Date().adjust(.day, offset: 2)
+	
+	var isValid: Bool { return id > 0 }
 	
 	var isSessionActive: Bool {
 		return Date() > expireDate || token.isEmpty

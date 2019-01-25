@@ -20,7 +20,7 @@ protocol UserProtocol: class {
 	var image: UIImage? { get set }
 }
 
-class User: Object, Mappable {
+final class User: Object, Mappable {
 	@objc dynamic var token: String = ""
 	@objc dynamic var login: String = ""
 	@objc dynamic var userName: String = ""
