@@ -32,6 +32,7 @@ extension String {
 		case additionContinueButtonError
 		case newGame
 		case newGameAlert
+		case callMonster
 	}
 	
 	//MARK: - Inits

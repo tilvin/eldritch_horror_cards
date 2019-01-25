@@ -10,15 +10,26 @@ import Foundation
 
 protocol MonsterDataProviderProtocol {
 	var monsters: [Monster] { get set }
+	var selectedAncient: Monster? { get set }
+	
 	func load(gameId: Int, completion: @escaping (Bool) -> Void)
-	func selectAncient(gameId: Int, ancient: Int, completion: @escaping (Bool) -> Void)
+	func selectAncient(gameId: Int, ancient: Monster, completion: @escaping (Bool) -> Void)
 }
 
 final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
+	
+	//MARK:- Public variables
+	
 	var monsters: [Monster]  = []
 	var session: URLSession?
+	var selectedAncient: Monster?
+	
+	//MARK: - Private variables
+	
 	private var dataTask: URLSessionDataTask?
 	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
+	
+	//MARK:- Init
 	
 	override init() {
 		super.init()
@@ -26,6 +37,8 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 			session  = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
 		}
 	}
+	
+	//MARK: - Public
 	
 	func load(gameId: Int, completion: @escaping (Bool) -> Void) {
 		guard let session = session else { fatalError() }
@@ -58,10 +71,12 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 		dataTask?.resume()
 	}
 	
-	func selectAncient(gameId: Int, ancient: Int, completion: @escaping (Bool) -> Void) {
+	func selectAncient(gameId: Int, ancient: Monster, completion: @escaping (Bool) -> Void) {
 		guard let session = session else { fatalError() }
+		selectedAncient = ancient
+		
 		dataTask?.cancel()
-		dataTask = session.dataTask(with: APIRequest.selectAncient(gameId: gameId, ancient: ancient).request) { (_: Data?, response: URLResponse?, error: Error?) -> Void in
+		dataTask = session.dataTask(with: APIRequest.selectAncient(gameId: gameId, ancient: ancient.id).request) { (_: Data?, response: URLResponse?, error: Error?) -> Void in
 			if let error = error {
 				print(error.localizedDescription)
 				completion(false)

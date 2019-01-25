@@ -4,7 +4,7 @@
 "authSignup" = "Создать аккаунт";
 "authTitle" = "Eldritch Horror\nCards";
 
-"call_monster" = "Вызвать этого монстра";
+"callMonster" = "Вызвать этого монстра";
 "card.type.portal" = "Иные миры";
 
 "additionsTitle" = "Выберите дополнения";
@@ -78,3 +78,4 @@
 "errorNoData" = "Не удалось получить данные.";
 "gameInitError" = "Не удалось инициализировать игру!";
 "additionContinueButtonError" = "Не удалось запросить монстров по выбранным дополнениям.";
+

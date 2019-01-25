@@ -30,7 +30,7 @@ struct Monster: Codable {
 extension Monster: CardPresentable {
 	
 	var placeholderImage: UIImage? {
-		return #imageLiteral(resourceName: "placeholder_image")
+		return UIImage(named: "placeholder_image")!
 	}
 	
 	var nameText: String {
@@ -38,7 +38,7 @@ extension Monster: CardPresentable {
 	}
 	
 	var dialLabel: String {
-		guard let char = nameText.first else { return "A" }
+		guard let char = nameText.first else { return "" }
 		return String(char).capitalized
 	}
 	
@@ -47,6 +47,6 @@ extension Monster: CardPresentable {
 	}
 	
 	var action: CardAction? {
-		return CardAction(title: "call_monster".localized)
+		return CardAction(title: String(.callMonster))
 	}
 }
