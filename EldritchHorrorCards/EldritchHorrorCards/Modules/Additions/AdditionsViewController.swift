@@ -38,8 +38,7 @@ final class AdditionsViewController: BaseViewController {
 				}
 			}
 			else {
-//				let cardController = CardsViewController
-				print("show cards!")
+				self.appNavigator?.go(controller: CardsViewController(), mode: .push, animated: true)
 			}
 		}
 	}

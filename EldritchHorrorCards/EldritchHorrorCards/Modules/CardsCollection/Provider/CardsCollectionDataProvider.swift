@@ -72,7 +72,7 @@ final class CardsCollectionDataProvider: NSObject, CardsCollectionDataProviderPr
 			cards = []
 			return
 		}
-		cards = gameProvider.game.cardTypesAsString().map { return Card(type: $0) }
+		cards = gameProvider.game.cardTypesAsString().sorted().map { return Card(type: $0) }
 	}
 }
 

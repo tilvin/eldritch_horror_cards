@@ -66,12 +66,27 @@ enum CardType: String {
 	case unknown
 	
 	var viewType: CardViewType {
-		switch self {		case .general, .americaContact, .europeContact, .mountainsContact, .miskatonicExpeditionContact, .asiaAustraliaContact, .egyptContact, .africaeContact, .yigResearchContact, .ithaquaResearchContact, .elderThingsResearchContact, .yogSothothResearchContact, .nephrenkaResearchContact, .azathothResearchContact, .cthulhuResearchContact, .abhothResearchContact, .shubNiggurathResearchContact, .hasturResearchContact:
+		switch self {
+		case .general, .americaContact, .europeContact, .mountainsContact, .miskatonicExpeditionContact, .asiaAustraliaContact,
+			 .egyptContact, .africaeContact, .yigResearchContact, .ithaquaResearchContact, .elderThingsResearchContact, .yogSothothResearchContact,
+			 .nephrenkaResearchContact, .azathothResearchContact, .cthulhuResearchContact, .abhothResearchContact, .shubNiggurathResearchContact,
+			 .hasturResearchContact:
 			return .locationStory
 		case .otherWorldContact, .expeditionAntarctica, .expeditionAmazonia, .expeditionHimalayas, .expeditionTunguska, .expeditionAfrica, .expeditionPyramid, .expeditionBuenosAires, .expeditionIstanbul, .expeditionTokyo, .expeditionRoma, .expeditionArkham, .expeditionSydney, .knyanUnearthedSpecialContact, .exploringHyperboreaSpecialContact, .darkGodSpecialContact, .mysteriousDisappearancesSpecialContact, .keyAndGateSpecialContact, .voidBetweenWorldsSpecialContact, .darkPharaohSpecialContact, .blackWindSpecialContact, .rlyehRisenSpecialContact, .deepCavernsSpecialContact, .spawnOfAbhothSpecialContact, .citiesOnLakeSpecialContact, .unspeakableOneSpecialContact, .kingInYellowSpecialContact:
 			return .plotStory
 		case .unknown:
 			fatalError()
+		}
+	}
+	
+	var isExpedition: Bool {
+		switch self {
+		case .expeditionAntarctica, .expeditionAmazonia, .expeditionHimalayas,
+			 .expeditionTunguska, .expeditionAfrica, .expeditionPyramid, .expeditionBuenosAires, .expeditionIstanbul,
+			 .expeditionTokyo, .expeditionRoma, .expeditionArkham, .expeditionSydney:
+			return true
+		default:
+			return false
 		}
 	}
 }
