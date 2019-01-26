@@ -14,12 +14,21 @@ protocol CardsCollectionDataProviderProtocol {
 
 final class CardsCollectionDataProvider: NSObject, CardsCollectionDataProviderProtocol {
 	var cards: [Card] = []
+	
 	lazy var session: URLSession = {
 		return URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
 	}()
 	
 	private var dataTask: URLSessionDataTask?
 	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
+	private var gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+	
+	//MARK: - Public
+	
+	override init() {
+		super.init()
+		loadCards()
+	}
 	
 	func load(gameId: Int, completion: @escaping (Bool) -> Void) {
 		dataTask?.cancel()
@@ -44,12 +53,26 @@ final class CardsCollectionDataProvider: NSObject, CardsCollectionDataProviderPr
 					completion(false)
 					return
 				}
-				self.cards = values.map { return Card(type: $0) }
+				var dict: [String: Any] = [:]
+				values.forEach { dict[$0] = "" }
+				
+				self.cards = Array(dict.keys).map { return Card(type: $0) }
+				self.gameProvider.game.setCardTypes(cardTypes: self.cards)
 				completion(true)
 				return
 			}
 		}
 		dataTask?.resume()
+	}
+	
+	//MARK: - Private
+	
+	private func loadCards() {
+		guard !gameProvider.isNewGame else {
+			cards = []
+			return
+		}
+		cards = gameProvider.game.cardTypesAsString().map { return Card(type: $0) }
 	}
 }
 

@@ -12,7 +12,8 @@ class CardsViewController: BaseViewController {
 	
 	private var customView: CardsView { return view as! CardsView }
     private var adapter = CardsCollectionAdapter()
-    private let provider = DI.providers.resolve(CardsCollectionDataProviderProtocol.self)!
+    private var provider = DI.providers.resolve(CardsCollectionDataProviderProtocol.self)!
+	private let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 	
 	//MARK: - Init
 	
@@ -33,17 +34,20 @@ class CardsViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 		
-		provider.load(gameId: gameProvider.game.id) { [weak self] (success) in
-			guard let sSelf = self else { return }
-			guard success else {
-				sSelf.showErrorAlert(message: String(.cantLoadCards))
-				return
-			}
-			sSelf.updateViewModel()
+		defer {
+			updateViewModel()
 		}
-		updateViewModel()
+		if provider.cards.count == 0 {
+			provider.load(gameId: gameProvider.game.id) { [weak self] (success) in
+				guard let sSelf = self else { return }
+				guard success else {
+					sSelf.showErrorAlert(message: String(.cantLoadCards))
+					return
+				}
+			}
+			return
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +56,7 @@ class CardsViewController: BaseViewController {
 	}
 	
 	private func updateViewModel() {
+		print("updateViewModel()")
 		let viewModel = provider.cards.map({ (card) -> CardCellViewModel in
 			return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue))
 		})

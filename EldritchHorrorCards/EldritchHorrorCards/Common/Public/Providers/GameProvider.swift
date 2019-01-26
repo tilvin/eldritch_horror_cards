@@ -48,6 +48,7 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	override init() {
 		super.init()
 		loadLocalGame()
+		game.setCardTypes(cardTypes: [])
 	}
 	
 	public func loadGameId(completion: @escaping (Bool) -> Void) {
@@ -83,6 +84,7 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 		try! realm.write {
 			realm.delete(realm.objects(Game.self))
 		}
+		isNewGameFlag = true
 		loadLocalGame()
 	}
 	
