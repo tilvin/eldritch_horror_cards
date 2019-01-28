@@ -31,7 +31,7 @@ class MonsterDetailViewController: BaseViewController {
 	}
 	
 	@IBAction private func infoAboutMonster(_ sender: Any) {
-		let controller = DescriptionViewController(with: Description.init(name: monster.name, description: monster.description))
+		let controller = DescriptionViewController(with: Description.init(name: monster.name, description: monster.desc))
 		appNavigator?.go(controller: controller, mode: .push)
 	}
 }
