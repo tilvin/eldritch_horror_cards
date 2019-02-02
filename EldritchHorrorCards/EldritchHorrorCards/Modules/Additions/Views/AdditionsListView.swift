@@ -1,9 +1,9 @@
 //
 //  PartnersListView.swift
-//  Ebs
+//  EldritchHorrorCards
 //
-//  Created by Ильнур Ягудин on 19.07.2018.
-//  Copyright © 2018 Vitalii Poponov. All rights reserved.
+//  Created by Torlopov Andrey on 01.02.2019.
+//  Copyright © 2019 Torlopov Andrey. All rights reserved.
 //
 
 import UIKit

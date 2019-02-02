@@ -1,9 +1,9 @@
 //
 //  NetworkSettingsProvider.swift
-//  Ebs
+//  EldritchHorrorCards
 //
-//  Created by Vitalii Poponov on 11.04.2018.
-//  Copyright © 2018 Vitalii Poponov. All rights reserved.
+//  Created by Torlopov Andrey on 01.02.2019.
+//  Copyright © 2019 Torlopov Andrey. All rights reserved.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ enum ContentTypes: String {
 	case urlEncoded = "application/x-www-form-urlencoded"
 	case json = "application/json;charset=UTF-8"
 	case formData = "multipart/form-data"
-	case accept = "application/vnd.ebs.v1.mobile.ios+json"
+	case accept = "application/json"
 	case userAgent = "Mozilla/5.0 (iPad; CPU OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16A5354b"
 }
 
