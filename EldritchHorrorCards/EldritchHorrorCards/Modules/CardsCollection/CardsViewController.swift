@@ -63,7 +63,7 @@ class CardsViewController: BaseViewController {
 	}
 	
 	private func updateCards() {
-		provider.updateCards(isUseOnlyRealm: true) { [weak self] (success) in
+		provider.updateCards(isUseOnlyRealm: true) { [weak self] (_) in
 			guard let sSelf = self else { return }
 			sSelf.updateViewModel()
 		}

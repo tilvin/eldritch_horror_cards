@@ -12,18 +12,22 @@ import XCTest
 class CardTests: XCTestCase {
 
     override func setUp() {
+		super.setUp()
+		
     }
 
     override func tearDown() {
+		
+		super.tearDown()
     }
 
 	func testInitCardWithType() {
-		let card = Card(type: "Foo")
-		XCTAssertNotNil(card)
+		let sut = Card(type: "Foo")
+		XCTAssertNotNil(sut)
 	}
 	
 	func testWhenGivenTypeSetsType() {
-		let card = Card(type: "general_contacts")
-		XCTAssertEqual(card.type, CardType.general)
+		let sut = Card(type: CardType.general.rawValue)
+		XCTAssertEqual(sut.type, CardType.general)
 	}
 }
