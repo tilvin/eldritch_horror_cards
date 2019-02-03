@@ -20,6 +20,7 @@ protocol GameProtocol: class {
 	var selectedAncient: Monster? { get set }
 	func cardTypesAsString() -> [String]
 	func setCardTypes(cardTypes: [Card])
+	func updateExpedition(location: String, completion: @escaping () -> ())
 }
 
 final class ROCardType: Object {
@@ -78,6 +79,25 @@ final class Game: Object, Mappable {
 	
 	func cardTypesAsString() -> [String] {
 		return cardTypes.map { return $0.type }
+	}
+
+	func updateExpedition(location: String, completion: @escaping () -> ()) {
+		let realm = try! Realm()
+		
+		let cards: [String] = cardTypes.map { return $0.type == self.expeditionLocation ? location  : $0.type }
+		
+		let roCards = cards.map { (string) -> ROCardType in
+			let value = ROCardType()
+			value.type = string
+			return value
+		}
+		
+		try! realm.write {
+			self.cardTypes.removeAll()
+			self.cardTypes.append(objectsIn: roCards)
+			self.expeditionLocation = location
+		}
+		completion()
 	}
 }
 

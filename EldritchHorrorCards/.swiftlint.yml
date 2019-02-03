@@ -22,6 +22,7 @@ disabled_rules: # rule identifiers to exclude from running
   - weak_delegate
   - discarded_notification_center_observer
   - line_length
+  - void_return
 opt_in_rules: # some rules are only opt-in
   - closing_brace
   - opening_brace

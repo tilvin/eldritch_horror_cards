@@ -14,6 +14,7 @@ class CardsViewController: BaseViewController {
     private var adapter = CardsCollectionAdapter()
     private var provider = DI.providers.resolve(CardsCollectionDataProviderProtocol.self)!
 	private let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+	private let cardDataProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
 	
 	//MARK: - Init
 	
@@ -36,7 +37,7 @@ class CardsViewController: BaseViewController {
 		super.viewDidLoad()
 		
 		if provider.cards.count == 0 {
-			provider.load(gameId: gameProvider.game.id) { [weak self] (success) in
+			provider.load() { [weak self] (success) in
 				guard let sSelf = self else { return }
 				guard success else {
 					sSelf.showErrorAlert(message: String(.cantLoadCards))
@@ -60,6 +61,13 @@ class CardsViewController: BaseViewController {
 		})
 		adapter.configure(with: viewModel)
 	}
+	
+	private func updateCards() {
+		provider.updateCards(isUseOnlyRealm: true) { [weak self] (success) in
+			guard let sSelf = self else { return }
+			sSelf.updateViewModel()
+		}
+	}
 }
 
 extension CardsViewController: CardsViewDelegate {
@@ -82,21 +90,21 @@ extension CardsViewController: CardsViewDelegate {
 extension CardsViewController: CardsCollectionAdapterDelegate {
     
     func cardSelected(type: CardType) {
-		if type.isExpedition {
-			print("expedition!")
-		}
-		
-		let provider = DI.providers.resolve(CardDataProviderProtocol.self)!
-        let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
-		
-		provider.get(gameId: gameProvider.game.id, type: type) { [weak self] (result) in
+		cardDataProvider.get(gameId: gameProvider.game.id, type: type) { [weak self] (result) in
 			guard let sSelf = self else { return }
+
 			switch result {
 			case let .localStory(model):
 				let controller = LocalStoryViewController(model: model)
 				controller.modalTransitionStyle = .crossDissolve
 				sSelf.appNavigator?.go(controller: controller, mode: .push)
 			case let .plotStory(model):
+				if type.isExpedition,
+					let nextExpedition = model.nextLocation {
+					sSelf.gameProvider.setNextExpedition(location: nextExpedition) {
+						sSelf.updateCards()
+					}
+				}
 				let controller = PlotStoryController(model: model, type: type.rawValue)
 				controller.modalTransitionStyle = .crossDissolve
 				sSelf.appNavigator?.go(controller: controller, mode: .push)

@@ -12,10 +12,12 @@ struct PlotStoryModel: Codable {
 	let initialEffect: String
 	let passEffect: String
 	let failEffect: String
+	let nextLocation: String?
 	
 	enum CodingKeys: String, CodingKey {
 		case initialEffect = "initial_effect"
 		case passEffect = "pass_effect"
 		case failEffect = "fail_effect"
+		case nextLocation = "next_expedition_location"
 	}
 }

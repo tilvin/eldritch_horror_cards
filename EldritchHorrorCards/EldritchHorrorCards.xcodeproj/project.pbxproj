@@ -46,6 +46,7 @@
 		A429ABB821B344DD004DBEA2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429ABB721B344DD004DBEA2 /* Card.swift */; };
 		A429ABBB21B3B675004DBEA2 /* CardDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429ABBA21B3B675004DBEA2 /* CardDataProviderTests.swift */; };
 		A441BBBE2108BDB800EAC5DD /* CardsCollectionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A441BBBD2108BDB800EAC5DD /* CardsCollectionDataProvider.swift */; };
+		A44F2D542206F301000AF018 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44F2D532206F301000AF018 /* Realm.swift */; };
 		A4563ADC20F7DBD400B65428 /* LocalizationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */; };
 		A4563ADF20F7DBF500B65428 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563ADD20F7DBF500B65428 /* String.swift */; };
 		A4563AF220F7DD4C00B65428 /* Queues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AF120F7DD4C00B65428 /* Queues.swift */; };
@@ -230,6 +231,7 @@
 		A429ABB721B344DD004DBEA2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A429ABBA21B3B675004DBEA2 /* CardDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProviderTests.swift; sourceTree = "<group>"; };
 		A441BBBD2108BDB800EAC5DD /* CardsCollectionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionDataProvider.swift; sourceTree = "<group>"; };
+		A44F2D532206F301000AF018 /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		A4563ADB20F7DBD400B65428 /* LocalizationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationExtensions.swift; sourceTree = "<group>"; };
 		A4563ADD20F7DBF500B65428 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A4563AF120F7DD4C00B65428 /* Queues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queues.swift; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				A4C25332211DEEAD00E0FF37 /* TableRowBuilder.swift */,
 				A4208355212B57EC0081E762 /* Foundation */,
 				A4208354212B57D80081E762 /* UIKit */,
+				A44F2D532206F301000AF018 /* Realm.swift */,
 			);
 			path = ExtensionsUtils;
 			sourceTree = "<group>";
@@ -1401,6 +1404,7 @@
 				A4794281210C311500ED0851 /* TabBarControllersProvider.swift in Sources */,
 				A4563AF820F87F8B00B65428 /* Command.swift in Sources */,
 				A47B355E21A4827C00C12A45 /* NetworkClientProvider.swift in Sources */,
+				A44F2D542206F301000AF018 /* Realm.swift in Sources */,
 				A4B35E52217A8748002496E7 /* AuthViewModel.swift in Sources */,
 				A4FE642020D0111D0064E52E /* AppDelegate.swift in Sources */,
 				9F9B55D121A1F1480016C577 /* CardSectionView.swift in Sources */,

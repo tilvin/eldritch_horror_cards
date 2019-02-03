@@ -197,12 +197,10 @@ extension APIRequest {
 	
 	static func getRequest(cardType: CardType, gameId: Int) -> URLRequest {
 		switch cardType {
-			
 		case .general:
 			return APIRequest.generalContact(gameId: gameId).request
 		case .expeditionAntarctica, .expeditionAmazonia, .expeditionHimalayas, .expeditionTunguska, .expeditionAfrica, .expeditionPyramid, .expeditionBuenosAires, .expeditionIstanbul, .expeditionTokyo, .expeditionRoma, .expeditionArkham, .expeditionSydney:
 			return APIRequest.expedition(gameId: gameId, type: cardType.rawValue).request
-			
 		case .otherWorldContact:
 			return APIRequest.otherWorldContact(gameId: gameId).request
 		case .yigResearchContact, .ithaquaResearchContact, .elderThingsResearchContact, .yogSothothResearchContact, .nephrenkaResearchContact, .azathothResearchContact, .cthulhuResearchContact, .abhothResearchContact, .shubNiggurathResearchContact, .hasturResearchContact:
@@ -211,7 +209,7 @@ extension APIRequest {
 			return APIRequest.special(gameId: gameId, type: cardType.rawValue).request
 		case .americaContact, .europeContact, .mountainsContact, .miskatonicExpeditionContact, .asiaAustraliaContact, .egyptContact, .africaeContact:
 			return APIRequest.location(gameId: gameId, type: cardType.rawValue).request
-		default:
+		case .unknown:
 			fatalError()
 		}
 	}

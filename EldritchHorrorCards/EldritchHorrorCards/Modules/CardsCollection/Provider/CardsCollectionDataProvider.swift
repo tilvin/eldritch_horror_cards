@@ -9,11 +9,13 @@ import Foundation
 
 protocol CardsCollectionDataProviderProtocol {
 	var cards: [Card] { get set }
-	func load(gameId: Int, completion: @escaping (Bool) -> Void)
+	func load(completion: @escaping (Bool) -> Void)
+	func updateCards(isUseOnlyRealm: Bool, completion: @escaping (Bool) -> Void)
 }
 
 final class CardsCollectionDataProvider: NSObject, CardsCollectionDataProviderProtocol {
 	var cards: [Card] = []
+	var gameId: Int = 0
 	
 	lazy var session: URLSession = {
 		return URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
@@ -30,9 +32,9 @@ final class CardsCollectionDataProvider: NSObject, CardsCollectionDataProviderPr
 		loadCards()
 	}
 	
-	func load(gameId: Int, completion: @escaping (Bool) -> Void) {
+	func load(completion: @escaping (Bool) -> Void) {
 		dataTask?.cancel()
-		dataTask = session.dataTask(with: APIRequest.cards(gameId: gameId).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+		dataTask = session.dataTask(with: APIRequest.cards(gameId: gameProvider.game.id).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
 			if let error = error {
 				print(error.localizedDescription)
 				completion(false)
@@ -63,6 +65,16 @@ final class CardsCollectionDataProvider: NSObject, CardsCollectionDataProviderPr
 			}
 		}
 		dataTask?.resume()
+	}
+	
+	func updateCards(isUseOnlyRealm: Bool = true, completion: @escaping (Bool) -> Void) {
+		if isUseOnlyRealm {
+			cards = gameProvider.game.cardTypesAsString().sorted().map { return Card(type: $0) }
+			completion(true)
+		}
+		else {
+			load(completion: completion)
+		}
 	}
 	
 	//MARK: - Private

@@ -17,11 +17,12 @@ protocol GameDataProviderProtocol {
 	func loadGameId(completion: @escaping (Bool) -> Void)
 	func setSelectedAncient(ancient: Monster)
 	func removeGame()
+	func setNextExpedition(location: String, completion: @escaping () -> ())
 }
 
 class GameDataProvider: NSObject, GameDataProviderProtocol {
 	
-	struct Constants {
+	private struct Constants {
 		static let idKey = "game_id_key"
 		static let tokenKey = "game_token"
 		static let expeditionKey = "expedition_Location"
@@ -86,6 +87,10 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 		}
 		isNewGameFlag = true
 		loadLocalGame()
+	}
+
+	func setNextExpedition(location: String, completion: @escaping () -> ()) {
+		self.game.updateExpedition(location: location, completion: completion)
 	}
 	
 	//MARK: - Private
