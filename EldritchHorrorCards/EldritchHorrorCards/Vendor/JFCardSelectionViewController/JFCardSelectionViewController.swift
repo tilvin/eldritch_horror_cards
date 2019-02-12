@@ -319,7 +319,7 @@ open class JFCardSelectionViewController: UIViewController {
 	}
 	
 	func shake() {
-		var startX: CGFloat = self.showingImageViewOne ? self.focusedView.center.x : self.focusedViewTwo.center.x
+		let startX: CGFloat = self.showingImageViewOne ? self.focusedView.center.x : self.focusedViewTwo.center.x
 		
 		UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: UIViewKeyframeAnimationOptions(), animations: { () -> Void in
 			UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.125) {

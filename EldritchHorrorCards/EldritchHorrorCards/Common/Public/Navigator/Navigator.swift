@@ -1,9 +1,9 @@
 //
 //  Navigator.swift
-//  Ebs
+//  EldritchHorrorCards
 //
-//  Created by Vitalii Poponov on 11.04.2018.
-//  Copyright © 2018 Vitalii Poponov. All rights reserved.
+//  Created by Torlopov Andrey on 01.02.2019.
+//  Copyright © 2019 Torlopov Andrey. All rights reserved.
 //
 
 import UIKit
@@ -31,7 +31,7 @@ final class AppNavigator: NSObject, NavigatorProtocol {
 	}
 	
 	func goMain() {
-		let controller = AuthViewController()
+		let controller = AdditionsViewController()
 		self.app?.window?.rootViewController = controller
 		currentController = controller
 	}

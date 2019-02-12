@@ -17,31 +17,21 @@ class MonsterDetailViewController: BaseViewController {
 	@IBAction func callMonsterAction(_ sender: AnyObject) {
 		let provider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
-		let cardProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
-		let ancient = monster.id
 		
-		provider.selectAncient(gameId: gameProvider.game.id, ancient: ancient) { [weak self] (success) in
-			if success {
-				cardProvider .load(gameId: gameProvider.game.id) { [weak self] (success) in
-					guard let sSelf = self else { return }
-					if success {
-						let controller = CardsViewController()
-						controller.modalTransitionStyle = .crossDissolve
-						sSelf.appNavigator?.go(controller: controller, mode: .modal)
-					}
-					else {
-						print("error!")
-					}
-				}
+		provider.selectAncient(gameId: gameProvider.game.id, ancient: monster) { [weak self] (success) in
+			guard let sSelf = self else { return }
+			guard success else {
+				sSelf.showErrorAlert(message: String(.cantSelectAncient))
+				return
 			}
-			else {
-				print("error!")
-			}
+			let controller = CardsViewController()
+			controller.modalTransitionStyle = .crossDissolve
+			sSelf.appNavigator?.go(controller: controller, mode: .modal)
 		}
 	}
 	
 	@IBAction private func infoAboutMonster(_ sender: Any) {
-		let controller = DescriptionViewController(with: Description.init(name: monster.name, description: monster.description))
+		let controller = DescriptionViewController(with: Description.init(name: monster.name, description: monster.desc))
 		appNavigator?.go(controller: controller, mode: .push)
 	}
 }

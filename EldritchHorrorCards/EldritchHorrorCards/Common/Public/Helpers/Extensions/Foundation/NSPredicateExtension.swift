@@ -1,9 +1,9 @@
 //
 //  NSPredicateExtension.swift
-//  Ebs
+//  EldritchHorrorCards
 //
-//  Created by Andrey Torlopov on 10/7/18.
-//  Copyright © 2018 Vitalii Poponov. All rights reserved.
+//  Created by Torlopov Andrey on 01.02.2019.
+//  Copyright © 2019 Torlopov Andrey. All rights reserved.
 //
 
 import Foundation

@@ -14,6 +14,7 @@ protocol DataParseServiceProtocol {
 }
 
 final class DataParseService: DataParseServiceProtocol {
+	
 	func parse<T: Codable>(type: T.Type, json: Any, completion: @escaping (T?) -> Void) {
 		guard let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []),
 			let jsonStr = String(data: jsonData, encoding: .utf8) else {
@@ -38,8 +39,15 @@ final class DataParseService: DataParseServiceProtocol {
 			completion(data)
 			return
 		}
+		
+//		if let jsonString = String(data: data, encoding: .utf8),
+//			let data = jsonString.data(using: .utf8) {
+//			completion(try? JSONDecoder().decode(type, from: data))
+//			return
+//		}
+		
 		do {
-			let json = try JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers])
+			let json = try JSONSerialization.jsonObject(with: data, options: [])
 			if let val = json as? T {
 				completion(val)
 			}

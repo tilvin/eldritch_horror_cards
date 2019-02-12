@@ -22,7 +22,8 @@ class DescriptionViewController: BaseViewController {
 
 extension DescriptionViewController: DescriptionViewDelegate {
 	
-	func backButtonTap() {
+	func closeButtonPressed() {
 		close()
 	}
 }
+

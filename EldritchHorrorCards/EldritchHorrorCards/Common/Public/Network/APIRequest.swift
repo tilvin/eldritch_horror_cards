@@ -6,7 +6,7 @@
 import Foundation
 
 private extension URL {
-
+	
 	func appendingQueryParameters(_ parameters: [String: String]) -> URL {
 		var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
 		var items = urlComponents.queryItems ?? []
@@ -25,6 +25,12 @@ enum APIRequest {
 	case selectAncient(gameId: Int, ancient: Int)
 	case cards(gameId: Int)
 	case expedition(gameId: Int, type: String)
+	case generalContact(gameId: Int)
+	case otherWorldContact(gameId: Int)
+	case research(gameId: Int, type: String)
+	case special(gameId: Int, type: String)
+	case location(gameId: Int, type: String)
+	case restoreSession(gameId: Int)
 }
 
 extension APIRequest {
@@ -41,7 +47,9 @@ extension APIRequest {
 		
 		request.httpMethod = self.method
 		
-		request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+		components.headers.forEach { (key: String, value: String) in
+			request.setValue(value, forHTTPHeaderField: key)
+		}
 		
 		if components.asJson {
 			request.httpBody = try! JSONSerialization.data(withJSONObject: components.parameters, options: [])
@@ -57,7 +65,7 @@ extension APIRequest {
 		var path: String!
 		var parameters: [String: Any] = [:]
 		var urlParameters: [String: String] = [:]
-		var headers: [String: String] = [:]
+		var headers: [String: String] = ["Content-Type": "application/json; charset=utf-8"]
 		var emptyBody: Bool = false
 		var asJson: Bool = true
 	}
@@ -87,20 +95,55 @@ extension APIRequest {
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			return components
-		case .selectAncient(let gameId, let ancient):
+		case let .selectAncient(gameId, ancient):
 			components.path = "/games/\(gameId)"
 			components.parameters = ["game": ["ancient_id": ancient]]
 			return components
-		case .cards(let gameId):
+		case let .cards(gameId):
 			components.path = "/cards"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
+			components.headers = [:]
 			return components
-		case .expedition(let gameId, let type):
+		case let .expedition(gameId, type):
 			components.path = "/expedition_contacts"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.urlParameters["contact_type"] = "\(type)"
 			components.asJson = false
+			return components
+		case let .generalContact(gameId):
+			components.path = "/general_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.asJson = false
+			return components
+		case let .otherWorldContact(gameId):
+			components.path = "/other_world_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.asJson = false
+			return components
+		case let .research(gameId, type):
+			components.path = "/research_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.urlParameters["contact_type"] = "\(type)"
+			components.asJson = false
+			return components
+		case let .special(gameId, type):
+			components.path = "/special_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.urlParameters["contact_type"] = "\(type)"
+			components.asJson = false
+			return components
+		case let .location(gameId, type):
+			components.path = "/location_contacts"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.urlParameters["contact_type"] = "\(type)"
+			components.asJson = false
+			return components
+		case let .restoreSession(gameId):
+			components.path = "/games/restore"
+			components.urlParameters["game_id"] = "\(gameId)"
+			components.asJson = false
+			components.headers = [:]
 			return components
 		}
 	}
@@ -109,7 +152,7 @@ extension APIRequest {
 		switch self {
 		case .login, .games:
 			return "POST"
-		case .gameSets, .ancients, .cards, .expedition:
+		case .gameSets, .ancients, .cards, .expedition, .generalContact, .otherWorldContact, .research, .special, .location, .restoreSession:
 			return "GET"
 		case .selectGameSets, .selectAncient:
 			return "PUT"
@@ -147,5 +190,27 @@ extension APIRequest {
 			result = String(describing: string)
 		}
 		return result.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+	}
+}
+
+extension APIRequest {
+	
+	static func getRequest(cardType: CardType, gameId: Int) -> URLRequest {
+		switch cardType {
+		case .general:
+			return APIRequest.generalContact(gameId: gameId).request
+		case .expeditionAntarctica, .expeditionAmazonia, .expeditionHimalayas, .expeditionTunguska, .expeditionAfrica, .expeditionPyramid, .expeditionBuenosAires, .expeditionIstanbul, .expeditionTokyo, .expeditionRoma, .expeditionArkham, .expeditionSydney:
+			return APIRequest.expedition(gameId: gameId, type: cardType.rawValue).request
+		case .otherWorldContact:
+			return APIRequest.otherWorldContact(gameId: gameId).request
+		case .yigResearchContact, .ithaquaResearchContact, .elderThingsResearchContact, .yogSothothResearchContact, .nephrenkaResearchContact, .azathothResearchContact, .cthulhuResearchContact, .abhothResearchContact, .shubNiggurathResearchContact, .hasturResearchContact:
+			return APIRequest.research(gameId: gameId, type: cardType.rawValue).request
+		case .knyanUnearthedSpecialContact, .exploringHyperboreaSpecialContact, .darkGodSpecialContact, .mysteriousDisappearancesSpecialContact, .keyAndGateSpecialContact, .voidBetweenWorldsSpecialContact, .darkPharaohSpecialContact, .blackWindSpecialContact, .rlyehRisenSpecialContact, .deepCavernsSpecialContact, .spawnOfAbhothSpecialContact, .citiesOnLakeSpecialContact, .unspeakableOneSpecialContact, .kingInYellowSpecialContact:
+			return APIRequest.special(gameId: gameId, type: cardType.rawValue).request
+		case .americaContact, .europeContact, .mountainsContact, .miskatonicExpeditionContact, .asiaAustraliaContact, .egyptContact, .africaeContact:
+			return APIRequest.location(gameId: gameId, type: cardType.rawValue).request
+		case .unknown:
+			fatalError()
+		}
 	}
 }

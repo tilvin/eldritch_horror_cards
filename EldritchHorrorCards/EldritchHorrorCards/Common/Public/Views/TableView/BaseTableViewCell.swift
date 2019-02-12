@@ -1,10 +1,10 @@
 //
 //  BaseTableViewCell.swift
-//  App-demo
 //
-//  Created by Ильнур Ягудин on 21.04.2018.
-//  Copyright © 2018 Vitalii Poponov. All rights reserved.
+// Created by Andrey Torlopov on 9/4/18.
+// Copyright (c) 2018 Andrey Torlopov. All rights reserved.
 //
+
 
 import UIKit
 

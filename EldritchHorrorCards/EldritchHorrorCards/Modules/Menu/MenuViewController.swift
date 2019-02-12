@@ -135,14 +135,34 @@ extension MenuViewController: MenuViewDelegate {
 		set(slided: false, animated: true, prepareToStart: false)
 	}
 	
-	func testButtonTap() {
-		let controller = ExpeditionViewController()
-		controller.modalTransitionStyle = .crossDissolve
-		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)
+	func turnsHistoryButtonTap() {
+		print(#function)
+	}
+	
+	func expeditionCurrentLocationButtonTap() {
+		print(#function)
+	}
+	
+	func newGameButtonTap() {
+		let alert = Alert(title: String(.warning), message: String(.newGameAlert), preferredStyle: .alert)
+		alert.addAction(title: String(.ok), style: .default) { [weak self] (_) in
+			let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+			gameProvider.removeGame()
+			
+			let additionVC = AdditionsViewController()
+			additionVC.modalTransitionStyle = .crossDissolve
+			self?.appNavigator?.go(controller: additionVC, mode: .replace)
+		}
+		alert.addAction(title: String(.cancel), style: .cancel)
+		alert.present(in: self)
 	}
 	
 	func logoutButtonTap() {
 		authProvider.logout(error: nil)
+		
+		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+		gameProvider.removeGame()
+		
 		let controller = AuthViewController()
 		controller.modalTransitionStyle = .crossDissolve
 		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)

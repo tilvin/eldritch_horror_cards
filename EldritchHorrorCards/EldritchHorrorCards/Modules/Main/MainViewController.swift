@@ -8,18 +8,28 @@
 
 import UIKit
 
+typealias ShowErrorHandler = (String) -> ()
+
 class MainViewController: BaseViewController {
 	
-	//MARK: - Init
+	//MARK: - Private variables
+	
+    private var showErrorHandler: ShowErrorHandler?
+	
+	//MARK: - Lifecycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		isHiddenNavigationBar = true
 		let controller = MonstersViewController()
 		controller.monsterDelegate = self
+        controller.showMessageHandler = showErrorHandler
 		view.embed(subview: controller.view)
 		addChildViewController(controller)
 		controller.didMove(toParentViewController: self)
+        showErrorHandler = { [weak self] (message) in
+            self?.showErrorAlert(message: message)
+        }
 	}
 }
 
@@ -28,26 +38,17 @@ extension MainViewController: MonstersViewControllerDelegate {
 	func call(monster: Monster) {
 		let provider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
-		let cardProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
-		let ancient = monster.id
 		
-		provider.selectAncient(gameId: gameProvider.game.id, ancient: ancient) { [weak self] (success) in
+		gameProvider.setSelectedAncient(ancient: monster)
+		provider.selectAncient(gameId: gameProvider.game.id, ancient: monster) { [weak self] (success) in
+			guard let sSelf = self else { return }
 			if success {
-				cardProvider .load(gameId: gameProvider.game.id) { [weak self] (success) in
-					guard let sSelf = self else { return }
-					if success {
-						let controller = CardsViewController()
-						controller.modalTransitionStyle = .crossDissolve
-						sSelf.appNavigator?.go(controller: controller, mode: .modal)
-					}
-					else {
-						print("error!")
-					}
-				}
+				let controller = CardsViewController()
+				controller.modalTransitionStyle = .crossDissolve
+				sSelf.appNavigator?.go(controller: controller, mode: .modal)
 			}
 			else {
-				//				Alert(alert: String(.loadMonsterError), actions: String(.ok)).present(in: self)
-				//				print("error!")
+				sSelf.showErrorAlert(message: String(.loadMonsterError))
 			}
 		}
 	}

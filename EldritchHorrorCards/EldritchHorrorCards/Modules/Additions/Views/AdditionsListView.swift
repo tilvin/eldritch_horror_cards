@@ -1,9 +1,9 @@
 //
 //  PartnersListView.swift
-//  Ebs
+//  EldritchHorrorCards
 //
-//  Created by Ильнур Ягудин on 19.07.2018.
-//  Copyright © 2018 Vitalii Poponov. All rights reserved.
+//  Created by Torlopov Andrey on 01.02.2019.
+//  Copyright © 2019 Torlopov Andrey. All rights reserved.
 //
 
 import UIKit
@@ -19,8 +19,9 @@ extension AdditionsListView {
 	struct Appearance {
 		let tableViewContentInsets = UIEdgeInsetsMake(0, 0, 0, 0)
 		let backgroundColor = UIColor.clear
-		let titleLabelTopOffset: CGFloat = 52
-		let titleLabelLeftOffset: CGFloat = 20
+		let titleLabelTopOffset: CGFloat = 24
+		let titleLabelLeftOffset: CGFloat = 50
+		let titleLabelRightOffset: CGFloat = 20
 		let tableViewBottomOffset: CGFloat = -10
 		let continueButtonHeight: CGFloat = 50
 		let continueButtonLeftOffset: CGFloat = 30
@@ -48,31 +49,27 @@ final class AdditionsListView: UIView {
 	}()
 	
 	lazy var menuContainer: UIView = {
-		let view = UIView()
-		view.backgroundColor = .clear
-		return view
+		return UIView(backgroundColor: .clear)
 	}()
 	
 	lazy var titleLabel: UILabel = {
-		let label = UILabel()
-		label.textColor = .mako
-		label.text = "additions.title".localized
-		label.font = UIFont.bold24
-		label.numberOfLines = 0
-		return label
+		let view = UILabel(font: .bold24, textColor: .mako)
+		view.text = String(.additionsTitle)
+		view.numberOfLines = 0
+		return view
 	}()
 	
 	lazy var tableView: UITableView = {
-		let view = UITableView()
-		view.backgroundColor = appearance.backgroundColor
+		let view = UITableView(backgroundColor: appearance.backgroundColor)
 		view.contentInset = appearance.tableViewContentInsets
 		return view
 	}()
 	
 	lazy var continueButton: CustomButton = {
-		let button = CustomButton(type: .darkGreenBlue)
-		button.setTitle("additions.button.continue".localized.capitalized, for: .normal)
-		return button
+		let view = CustomButton(type: .darkGreenBlue)
+		view.setTitle(String(.additionsButton), for: .normal)
+		view.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
+		return view
 	}()
 	
 	//MARK: - Init
@@ -83,8 +80,6 @@ final class AdditionsListView: UIView {
 		titleLabel.textAlignment = .center
 		addSubviews()
 		makeConstraints()
-		continueButton.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
-		layoutIfNeeded()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -104,8 +99,9 @@ final class AdditionsListView: UIView {
 	
 	private func makeConstraints() {
 		titleLabel.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().inset(appearance.titleLabelTopOffset)
-			make.left.right.equalToSuperview().inset(appearance.titleLabelLeftOffset)
+			make.top.equalTo(safeAreaLayoutGuide).inset(appearance.titleLabelTopOffset)
+			make.left.equalTo(menuButton).offset(appearance.titleLabelLeftOffset)
+			make.right.equalToSuperview().inset(appearance.titleLabelRightOffset)
 		}
 		
 		tableView.snp.makeConstraints { (make) in
@@ -126,8 +122,8 @@ final class AdditionsListView: UIView {
 		
 		menuButton.snp.makeConstraints { (make) in
 			make.left.equalToSuperview()
-			make.top.equalToSuperview().inset(28)
-			make.width.height.equalTo(70)
+			make.top.equalTo(safeAreaLayoutGuide)
+			make.width.height.equalTo(DefaultAppearance.menuButtonWidthHeight)
 		}
 	}
 	
@@ -135,7 +131,6 @@ final class AdditionsListView: UIView {
 	
 	@objc private func continueButtonPressed() {
 		delegate?.continueButtonAction()
-		
 	}
 	
 	@objc private func menuButtonAction() {

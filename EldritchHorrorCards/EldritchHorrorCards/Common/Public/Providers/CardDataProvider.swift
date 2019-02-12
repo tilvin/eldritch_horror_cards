@@ -1,22 +1,26 @@
 //
-//  CardDataProvider.swift
+//  ExpeditionDataProvider.swift
 //  EldritchHorrorCards
 //
-//  Created by Andrey Torlopov on 7/25/18.
+//  Created by Вероника Садовская on 13/10/2018.
 //  Copyright © 2018 Andrey Torlopov. All rights reserved.
 //
+
 import Foundation
 
+enum CardDataResult {
+	case localStory(model: LocalStoryModel)
+	case plotStory(model: PlotStoryModel)
+	case failure(error: NetworkErrorModel)
+}
+
 protocol CardDataProviderProtocol {
-	var cards: Cards? { get set }
-	func load(gameId: Int, completion: @escaping (Bool) -> Void)
+	func get(gameId: Int, type: CardType, completion: @escaping (CardDataResult) -> Void)
 }
 
 final class CardDataProvider: NSObject, CardDataProviderProtocol {
-	var cards: Cards?
 	var session: URLSession?
 	private var dataTask: URLSessionDataTask?
-	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
 	
 	override init() {
 		super.init()
@@ -24,31 +28,47 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 			session  = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
 		}
 	}
-	
-	func load(gameId: Int, completion: @escaping (Bool) -> Void) {
+
+	func get(gameId: Int, type: CardType, completion: @escaping (CardDataResult) -> Void) {
 		guard let session = session else { fatalError() }
 		dataTask?.cancel()
-		dataTask = session.dataTask(with: APIRequest.cards(gameId: gameId).request) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+		
+		dataTask = session.dataTask(with: APIRequest.getRequest(cardType: type, gameId: gameId)) { (data: Data?, response: URLResponse?, error: Error?) -> Void in
 			if let error = error {
 				print(error.localizedDescription)
-				completion(false)
+				completion(.failure(error: NetworkErrorModel(error: error)))
 				return
 			}
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
 			guard let data = data else {
-				completion(false)
+				completion(.failure(error: NetworkErrorModel(message: String(.errorNoData))))
 				return
 			}
 			guard HTTPResponse.status == .ok else {
-				completion(false)
+				completion(.failure(error: NetworkErrorModel(message: String(.unknownError))))
 				return
 			}
-			
-			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: Cards.self, data: data) { [weak self] (result) in
-				if let value = result {
-					self?.cards = value
-					completion(true)
-					return
+
+			switch type.viewType {
+			case .locationStory:
+				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: LocalStoryModel.self, data: data) { (result) in
+					if let value = result {
+						completion(.localStory(model: value))
+						return
+					}
+					else {
+						completion(.failure(error: NetworkErrorModel(message: "Can't parse model for type: \(type)")))
+					}
+				}
+			case .plotStory:
+				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: PlotStoryModel.self, data: data) { (result) in
+					if let value = result {
+						completion(.plotStory(model: value))
+						return
+					}
+					else {
+						completion(.failure(error: NetworkErrorModel(message: "Can't parse model for type: \(type)")))
+					}
 				}
 			}
 		}

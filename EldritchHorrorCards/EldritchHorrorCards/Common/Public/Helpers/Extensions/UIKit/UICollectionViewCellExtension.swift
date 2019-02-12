@@ -9,10 +9,9 @@
 import UIKit
 
 extension UICollectionViewCell {
-    
-    public static var identifier: String {
-        return "\(self)"
-    }
+	
+	public static var identifier: String {
+		return "\(self)"
+	}
 }
-
 

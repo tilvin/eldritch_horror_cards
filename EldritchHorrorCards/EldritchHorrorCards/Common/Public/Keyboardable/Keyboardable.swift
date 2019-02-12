@@ -3,7 +3,7 @@
 //  ObserveKeyboardNotifications
 //
 //  Created by Andrey Torlopov on 8/31/18.
-//  Copyright © 2018 ShengHua Wu. All rights reserved.
+//  Copyright © 2018 Andrey Torlopov. All rights reserved.
 //
 
 import UIKit

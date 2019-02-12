@@ -1,9 +1,9 @@
 //
 //  CustomButton.swift
-//  Ebs
+//  EldritchHorrorCards
 //
-//  Created by Vitalii Poponov on 13.04.2018.
-//  Copyright © 2018 Vitalii Poponov. All rights reserved.
+//  Created by Torlopov Andrey on 01.02.2019.
+//  Copyright © 2019 Torlopov Andrey. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ enum CustomButtonType {
 	case darkGreenBlue
 	case light
 	case close
-    case back
+	case back
 }
 
 extension CustomButton {
@@ -30,13 +30,13 @@ extension CustomButton {
 final class CustomButton: UIButton {
 	
 	private let appearance = Appearance()
-
+	
 	public var isFrozen: Bool = false {
 		didSet {
 			self.updateAppearance()
 		}
 	}
-
+	
 	//MARK: - Private variables
 	
 	private let type: CustomButtonType
@@ -49,11 +49,11 @@ final class CustomButton: UIButton {
 			return self.isHighlighted ? UIColor.gallery : UIColor.white
 		case .close:
 			return self.isHighlighted ? UIColor.black.withAlphaComponent(appearance.closeButtonAlpha * 2) : UIColor.black.withAlphaComponent(appearance.closeButtonAlpha)
-        case .back:
-            return UIColor.clear
+		case .back:
+			return UIColor.clear
 		}
 	}
-
+	
 	private var buttonBackgroundFrozenColor: UIColor {
 		switch self.type {
 		case .darkGreenBlue:
@@ -62,8 +62,8 @@ final class CustomButton: UIButton {
 			return self.isHighlighted ? UIColor.gallery : UIColor.white
 		case .close:
 			return self.isHighlighted ? UIColor.black.withAlphaComponent(appearance.closeButtonAlpha * 2) : UIColor.black.withAlphaComponent(appearance.closeButtonAlpha)
-        case .back:
-            return UIColor.clear
+		case .back:
+			return UIColor.clear
 		}
 	}
 	
@@ -75,8 +75,8 @@ final class CustomButton: UIButton {
 			return .black
 		case .close:
 			return .black
-        case .back:
-            return .clear
+		case .back:
+			return .clear
 		}
 	}
 	
@@ -85,16 +85,16 @@ final class CustomButton: UIButton {
 	init(type: CustomButtonType) {
 		self.type = type
 		super.init(frame: .zero)
-        
-        switch type {
-        case .back:
-            setImage(UIImage.backButton, for: .normal)
-            self.titleLabel?.isHidden = true
-        default:
-            self.titleLabel?.font = UIFont.bold16
-            self.titleLabel?.lineBreakMode = .byWordWrapping
-            self.titleLabel?.textAlignment = .center
-        }
+		
+		switch type {
+		case .back:
+			setImage(UIImage.backButton, for: .normal)
+			self.titleLabel?.isHidden = true
+		default:
+			self.titleLabel?.font = UIFont.bold16
+			self.titleLabel?.lineBreakMode = .byWordWrapping
+			self.titleLabel?.textAlignment = .center
+		}
 		
 	}
 	
@@ -115,7 +115,7 @@ final class CustomButton: UIButton {
 		updateAppearance()
 		updateStyles()
 	}
-
+	
 	//MARK: - Private
 	
 	private func updateAppearance() {
@@ -130,12 +130,12 @@ final class CustomButton: UIButton {
 			layer.shadowOpacity = 1
 			layer.shadowColor = UIColor.black.withAlphaComponent(appearance.closeButtonAlpha).cgColor
 			layer.masksToBounds = false
-        case .back:
-            layer.shadowOpacity = 1
-            layer.shadowRadius = 5
-            layer.shadowColor = UIColor.black.cgColor
-            layer.shadowOffset = CGSize(width: 0, height: 0)
-            layer.masksToBounds = false
+		case .back:
+			layer.shadowOpacity = 1
+			layer.shadowRadius = 5
+			layer.shadowColor = UIColor.black.cgColor
+			layer.shadowOffset = CGSize(width: 0, height: 0)
+			layer.masksToBounds = false
 		default:
 			layer.cornerRadius = appearance.cornerRadius
 			layer.shadowOpacity = 0

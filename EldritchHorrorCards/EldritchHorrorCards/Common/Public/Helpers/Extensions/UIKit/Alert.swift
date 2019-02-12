@@ -2,6 +2,19 @@ import UIKit
 
 typealias Alert = UIAlertController
 
+enum AlertType {
+    case warning, error
+    
+    var title: String {
+        switch self {
+        case .error:
+            return String(.error)
+        case .warning:
+            return String(.warning)
+        }
+    }
+}
+
 extension Alert {
 	
 	public convenience init(alert: String?, preferredStyle: UIAlertControllerStyle = .alert, actions: String ...) {

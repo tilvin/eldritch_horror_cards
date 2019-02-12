@@ -10,7 +10,6 @@ private class DownloadQueue {
 		}
 		return Static.instance
 	}
-
 	class func sharedQeueue() -> DownloadQueue {
 		return _sharedQeueue
 	}
@@ -36,19 +35,23 @@ private struct Download {
 
 public extension UIImageView {
 
-	public func set(image: UIImage, duration: CGFloat = 1.5, animation: Bool = true) {
+	func set(image: UIImage, duration: CGFloat = 1.5, animation: Bool = true) {
 		let imageView = UIImageView(frame: self.frame)
 		imageView.image = image
 		imageView.alpha = 0
 		if animation {
 			self.addSubview(imageView)
-			UIView.animate(withDuration: TimeInterval(duration),
-						   animations: {
-							imageView.alpha = 1.0
-			}) { (_) in
+			
+			let animation: (() -> Void) = {
+				imageView.alpha = 1.0
+			}
+
+			let completion: ((Bool) -> Void) = { (_) in
 				self.image = image
 				imageView.removeFromSuperview()
 			}
+			
+			UIView.animate(withDuration: TimeInterval(duration), animations: animation, completion: completion)
 		}
 		else {
 			imageView.alpha = 1
@@ -56,11 +59,11 @@ public extension UIImageView {
 		}
 	}
 
-	public func loadImageAtURL(_ imageURL: String, withDefaultImage defaultImage: UIImage?) {
+	func loadImageAtURL(_ imageURL: String, withDefaultImage defaultImage: UIImage?) {
 		loadImageAtURL(imageURL, withDefaultImage: defaultImage, completion: nil)
 	}
 
-	public func loadImageAtURL(_ imageURL: String, withDefaultImage defaultImage: UIImage?, completion: (() -> Void)?) {
+	func loadImageAtURL(_ imageURL: String, withDefaultImage defaultImage: UIImage?, completion: (() -> Void)?) {
 		if let _defaultImage = defaultImage { image = _defaultImage }
 
 		let request = URLRequest(url: URL(string: imageURL)!)
@@ -78,7 +81,7 @@ public extension UIImageView {
 		downloadTask.resume()
 	}
 
-	public func cancelImageLoadForImageURL(_ imageURL: String) {
+	func cancelImageLoadForImageURL(_ imageURL: String) {
 		if let _download = DownloadQueue.sharedQeueue().downloadForImageURL(imageURL + "\(hash)") {
 			_download.task?.cancel()
 		}

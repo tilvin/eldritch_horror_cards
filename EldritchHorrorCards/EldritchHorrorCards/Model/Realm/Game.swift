@@ -16,6 +16,19 @@ protocol GameProtocol: class {
 	var token: String { get set }
 	var expeditionLocation: String { get set }
 	var isSessionActive: Bool { get }
+	var isValid: Bool { get }
+	var selectedAncient: Monster? { get set }
+	func cardTypesAsString() -> [String]
+	func setCardTypes(cardTypes: [Card])
+	func updateExpedition(location: String, completion: @escaping () -> ())
+}
+
+final class ROCardType: Object {
+	@objc dynamic var type: String = ""
+	
+	required convenience init?(map: Map) {
+		self.init()
+	}
 }
 
 final class Game: Object, Mappable {
@@ -24,6 +37,11 @@ final class Game: Object, Mappable {
 	@objc dynamic var token: String = ""
 	@objc dynamic var expeditionLocation: String = ""
 	@objc dynamic var expireDate: Date = Date().adjust(.day, offset: 2)
+	@objc dynamic var selectedAncient: Monster?
+	
+	var cardTypes = List<ROCardType>()
+	
+	var isValid: Bool { return id > 0 }
 	
 	var isSessionActive: Bool {
 		return Date() > expireDate || token.isEmpty
@@ -43,6 +61,43 @@ final class Game: Object, Mappable {
 		self.id <- map["id"]
 		self.token <- map["token"]
 		self.expeditionLocation <- map["expedition_location"]
+	}
+	
+	func setCardTypes(cardTypes: [Card]) {
+		let realm = try! Realm()
+		let uniqTypes = cardTypes.map { (type) -> ROCardType in
+			let cardType = ROCardType()
+			cardType.type = type.type.rawValue
+			return cardType
+		}
+	
+		try! realm.write {
+			self.cardTypes.removeAll()
+			self.cardTypes.append(objectsIn: uniqTypes)
+		}
+	}
+	
+	func cardTypesAsString() -> [String] {
+		return cardTypes.map { return $0.type }
+	}
+
+	func updateExpedition(location: String, completion: @escaping () -> ()) {
+		let realm = try! Realm()
+		
+		let cards: [String] = cardTypes.map { return $0.type == self.expeditionLocation ? location  : $0.type }
+		
+		let roCards = cards.map { (string) -> ROCardType in
+			let value = ROCardType()
+			value.type = string
+			return value
+		}
+		
+		try! realm.write {
+			self.cardTypes.removeAll()
+			self.cardTypes.append(objectsIn: roCards)
+			self.expeditionLocation = location
+		}
+		completion()
 	}
 }
 

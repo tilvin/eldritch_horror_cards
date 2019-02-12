@@ -8,6 +8,8 @@ final class AdditionsViewController: BaseViewController {
 	var menuContainerView: UIView { return customView.menuContainer }
 	
 	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
+	private let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
+	private var additionProvider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
 	
 	// MARK: - View lifecycle
 	
@@ -22,6 +24,23 @@ final class AdditionsViewController: BaseViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupMenu()
+		view.showProccessing()
+		
+		gameProvider.loadGameId { [unowned self] (success) in
+			self.view.hideProccessing()
+			guard success else {
+				self.showErrorAlert(message: String(.gameInitError))
+				return
+			}
+			if self.gameProvider.isNewGame {
+				self.additionProvider.load { (additions) in
+					self.adapter.configure(with: additions)
+				}
+			}
+			else {
+				self.appNavigator?.go(controller: CardsViewController(), mode: .push, animated: true)
+			}
+		}
 	}
 }
 
@@ -30,6 +49,13 @@ extension AdditionsViewController: AdditionsListTableAdapterDelegate {
 	func didTapInfo(with model: Addition) {
 		let controller = DescriptionViewController(with: Description.init(name: model.name, description: model.description))
 		appNavigator?.go(controller: controller, mode: .push)
+	}
+	
+	func update(with model: Addition) {
+		guard let item = additionProvider.additions.enumerated().filter({ (_, item) -> Bool in
+			return item.id == model.id
+		}).first else { return }
+		additionProvider.additions[item.offset] = model
 	}
 }
 
@@ -46,32 +72,19 @@ extension AdditionsViewController: AdditionsListViewDelegate {
 	
 	func continueButtonAction() {
 		let provider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
-		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
-		let monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let additions = provider.additions.filter { $0.isSelected}.map { String($0.id)}
 		let maps = provider.additions.filter { $0.isSelectedMap }.map { String($0.id)}
 		
 		provider.selectAdditions(gameId: gameProvider.game.id, additions: additions, maps: maps) { [weak self] (success) in
-			guard let sSelf = self else { return }
-			if success {
-				print("Additions sent...")
-				monsterProvider.load(gameId: gameProvider.game.id) { (success) in
-					if success {
-						print("Monster is load!")
-						let controller = MainViewController()
-						controller.modalTransitionStyle = .crossDissolve
-						sSelf.appNavigator?.go(controller: controller, mode: .modal)
-					}
-					else {
-						//TODO: Алерт и переход к авторизации или выбору дополнений (как договоримся)
-						print("error! Something gone wrong!")
-					}
-				}
-			}
-			else {
-				//TODO: Алерт и переход к авторизации или выбору дополнений (как договоримся)
-				print("error!")
-			}
+            guard let sSelf = self else { return }
+			
+            if !success {
+                sSelf.showErrorAlert(message: String(.additionContinueButtonError))
+                return
+            }
+            let controller = MainViewController()
+            controller.modalTransitionStyle = .crossDissolve
+            sSelf.appNavigator?.go(controller: controller, mode: .modal)
 		}
 	}
 }

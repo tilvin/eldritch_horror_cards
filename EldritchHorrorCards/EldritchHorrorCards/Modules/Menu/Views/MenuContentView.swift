@@ -10,12 +10,31 @@ import UIKit
 import SnapKit
 
 protocol MenuContentViewProtocol: class {
-	func testButtonPressed()
+	func turnsHistoryPressed()
+	func expeditionCurrentLocationPressed()
+	func newGamePressed()
 	func logoutButtonPressed()
+}
+
+extension MenuContentView {
+	
+	struct Appearance {
+		let avatarTopSeparator: CGFloat = 50
+		let defaultSeparator: CGFloat = 10
+		let avatarBottomSeparator: CGFloat = 15
+		let logoutBottomSeparator: CGFloat = 34
+		let avatarWidthHeight: CGFloat = 100
+		let widthMultipliedBy: CGFloat = 0.9
+		let separatorLineViewHeight: CGFloat = 1
+		let buttonHeight: CGFloat = 24
+		let buttonLeadingOffset: CGFloat = 32
+		let scrollViewBottom: CGFloat = 64
+	}
 }
 
 class MenuContentView: BaseScrollView {
 	weak var delegate: MenuContentViewProtocol?
+	private let appearance = Appearance()
 	
 	public func update(name: String, avatar: UIImage?) {
 		avatarView.update(avatar: avatar)
@@ -29,35 +48,51 @@ class MenuContentView: BaseScrollView {
 	}()
 	
 	private lazy var userName: UILabel = {
-		let label = UILabel()
-		label.font = UIFont.bold28
-		label.textAlignment = .center
-		label.numberOfLines = 0
-		label.textColor = UIColor.wildSand
-		label.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .vertical)
-		return label
-	}()
-	
-	private lazy var separatorLineView: UIView = {
-		let view = UIView()
-		view.backgroundColor = UIColor.wildSand
+		let view = UILabel(font: .bold28, textColor: .wildSand)
+		view.textAlignment = .center
+		view.numberOfLines = 0
+		view.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
 		return view
 	}()
 	
-	private lazy var testButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("TestButton", for: .normal)
-		button.backgroundColor = .darkGray
-		button.setTitleColor(.red, for: .normal)
-		return button
+	private lazy var separatorLineView: UIView = {
+		return UIView(backgroundColor: .wildSand)
+	}()
+	
+	private lazy var turnsHistoryButton: UIButton = {
+		let view = UIButton()
+		view.setTitle(String(.turnHistory), for: .normal)
+		view.contentHorizontalAlignment = .left
+		view.setTitleColor(.wildSand, for: .normal)
+		view.addTarget(self, action: #selector(turnsHistoryButtonPressed), for: .touchUpInside)
+		return view
+	}()
+	
+	private lazy var expeditionCurrentLocationButton: UIButton = {
+		let view = UIButton()
+		view.setTitle(String(.expeditionCurrentLocation), for: .normal)
+		view.contentHorizontalAlignment = .left
+		view.setTitleColor(.wildSand, for: .normal)
+		view.addTarget(self, action: #selector(expeditionCurrentLocationButtonPressed), for: .touchUpInside)
+		return view
+	}()
+	
+	private lazy var newGameButton: UIButton = {
+		let view = UIButton()
+		view.setTitle(String(.newGame), for: .normal)
+		view.contentHorizontalAlignment = .left
+		view.setTitleColor(.wildSand, for: .normal)
+		view.addTarget(self, action: #selector(newGameButtonPressed), for: .touchUpInside)
+		return view
 	}()
 	
 	private lazy var logoutButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("menu.logout.button.label".localized, for: .normal)
-		button.titleLabel?.textAlignment = .center
-		button.setTitleColor(.wildSand, for: .normal)
-		return button
+		let view = UIButton()
+		view.setTitle(String(.logout), for: .normal)
+		view.titleLabel?.textAlignment = .left
+		view.setTitleColor(.wildSand, for: .normal)
+		view.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
+		return view
 	}()
 	
 	//MARK: - Lifecycle
@@ -67,9 +102,6 @@ class MenuContentView: BaseScrollView {
 		scrollView.backgroundColor =  UIColor.viridianTwo.withAlphaComponent(0.95)
 		addSubviews()
 		makeConstraints()
-		layoutIfNeeded()
-		testButton.addTarget(self, action: #selector(testButtonPressed), for: .touchUpInside)
-		logoutButton.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -79,57 +111,75 @@ class MenuContentView: BaseScrollView {
 	//MARK: - Private
 	
 	private func addSubviews() {
-		addSeparatorView(height: 50, expandable: false)
+		addSeparatorView(height: appearance.avatarTopSeparator)
 		addToStackView(view: avatarView, embed: true)
-		addSeparatorView(height: 15, expandable: false)
+		addSeparatorView(height: appearance.avatarBottomSeparator)
 		addToStackView(view: userName, embed: true)
-		addSeparatorView(height: 10, expandable: false)
+		addSeparatorView(height: appearance.defaultSeparator)
 		addToStackView(view: separatorLineView, embed: true)
-		addSeparatorView(height: 10, expandable: false)
-		addToStackView(view: testButton, embed: true)
-		addSeparatorView(height: 10, expandable: true)
-		addToStackView(view: logoutButton, embed: true)
-		addSeparatorView(height: 34, expandable: false)
+		addSeparatorView(height: appearance.defaultSeparator)
+		addToStackView(view: turnsHistoryButton, embed: true)
+		addSeparatorView(height: appearance.defaultSeparator)
+		addToStackView(view: expeditionCurrentLocationButton, embed: true)
+		addSeparatorView(height: appearance.defaultSeparator)
+		addToStackView(view: newGameButton, embed: true)
+		//		addSeparatorView(height: appearance.defaultSeparator)
+		//		addToStackView(view: logoutButton, embed: true)
+		addSeparatorView(height: appearance.logoutBottomSeparator)
 	}
 	
 	private func makeConstraints() {
-		avatarView.snp.removeConstraints()
 		avatarView.snp.makeConstraints { (make) in
-			make.width.height.equalTo(150)
+			make.width.height.equalTo(appearance.avatarWidthHeight)
 			make.top.bottom.equalToSuperview()
 			make.centerX.equalToSuperview()
 		}
 		
-		userName.snp.removeConstraints()
 		userName.snp.makeConstraints { (make) in
-			make.width.equalToSuperview().multipliedBy(0.9)
+			make.width.equalToSuperview().multipliedBy(appearance.widthMultipliedBy)
 			make.top.bottom.equalToSuperview()
 			make.centerX.equalToSuperview()
 		}
 		
-		separatorLineView.snp.removeConstraints()
 		separatorLineView.snp.makeConstraints { (make) in
-			make.width.equalToSuperview().multipliedBy(0.9)
-			make.height.equalTo(1)
+			make.width.equalToSuperview().multipliedBy(appearance.widthMultipliedBy)
+			make.height.equalTo(appearance.separatorLineViewHeight)
 			make.top.bottom.equalToSuperview()
 			make.centerX.equalToSuperview()
 		}
 		
-		testButton.snp.makeConstraints { make in
-			make.height.equalTo(50)
+		turnsHistoryButton.snp.makeConstraints { make in
+			make.height.equalTo(appearance.buttonHeight)
+			make.top.bottom.equalToSuperview()
 			make.width.equalToSuperview()
+			make.leading.equalToSuperview().offset(appearance.buttonLeadingOffset)
 		}
 		
-		logoutButton.snp.removeConstraints()
-		logoutButton.snp.makeConstraints { make in
-			make.height.equalTo(24)
+		expeditionCurrentLocationButton.snp.makeConstraints { make in
+			make.height.equalTo(appearance.buttonHeight)
 			make.top.bottom.equalToSuperview()
-			make.leading.equalToSuperview().offset(32)
+			make.width.equalToSuperview()
+			make.leading.equalToSuperview().offset(appearance.buttonLeadingOffset)
+		}
+		
+		newGameButton.snp.makeConstraints { make in
+			make.height.equalTo(appearance.buttonHeight)
+			make.top.bottom.equalToSuperview()
+			make.width.equalToSuperview()
+			make.leading.equalToSuperview().offset(appearance.buttonLeadingOffset)
 		}
 	}
 	
-	@objc private func testButtonPressed() {
-		delegate?.testButtonPressed()
+	@objc private func turnsHistoryButtonPressed() {
+		delegate?.turnsHistoryPressed()
+	}
+	
+	@objc private func expeditionCurrentLocationButtonPressed() {
+		delegate?.expeditionCurrentLocationPressed()
+	}
+	
+	@objc private func newGameButtonPressed() {
+		delegate?.newGamePressed()
 	}
 	
 	@objc private func logoutButtonPressed() {
@@ -137,6 +187,6 @@ class MenuContentView: BaseScrollView {
 	}
 	
 	override func updateHeight() {
-		scrollView.contentSize = CGSize(width: scrollView.frame.width, height: stackView.frame.height - 64)
+		scrollView.contentSize = CGSize(width: scrollView.frame.width, height: stackView.frame.height - appearance.scrollViewBottom)
 	}
 }

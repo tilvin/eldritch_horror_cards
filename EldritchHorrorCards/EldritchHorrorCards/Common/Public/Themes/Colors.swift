@@ -24,6 +24,8 @@ extension UIColor {
 	static var errorBorder: UIColor { return UIColor(hexString: "D34747") }
 	static var paleSalmon: UIColor { return UIColor(hexString: "FEB4B2") }
 	static var whiteTwo: UIColor { return UIColor(hexString: "FFFFFF") }
+	static var shadowGreen: UIColor { return UIColor(hexString: "9DC3C1") }
+	static var pigeonPost: UIColor { return UIColor(hexString: "A5C6DB") }
 	
 	//MARK: - Inits
 	

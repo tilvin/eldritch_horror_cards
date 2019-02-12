@@ -1,21 +1,14 @@
 //
 //  PartnerCell.swift
-//  Ebs
+//  EldritchHorrorCards
 //
-//  Created by Ильнур Ягудин on 20.07.2018.
-//  Copyright © 2018 Vitalii Poponov. All rights reserved.
+//  Created by Torlopov Andrey on 01.02.2019.
+//  Copyright © 2019 Torlopov Andrey. All rights reserved.
 //
 
 import UIKit
 
-extension AdditionCell {
-	
-	struct Appearance {
-		//		let backgroundColor = UIColor.clear
-		//		let cornerRadius: CGFloat = 8
-		//		let shadowColor = UIColor.black
-	}
-}
+//TODO: need refactoring
 
 protocol AdditionCellDelegate: class {
 	func update(with model: Addition)
@@ -24,7 +17,6 @@ protocol AdditionCellDelegate: class {
 
 class AdditionCell: BaseTableViewCell {
 	
-	let appearance = Appearance()
 	var model: Addition!
 	var delegate: AdditionCellDelegate?
 	
