@@ -8,14 +8,7 @@
 
 import UIKit
 
-extension AdditionCell {
-	
-	struct Appearance {
-		//		let backgroundColor = UIColor.clear
-		//		let cornerRadius: CGFloat = 8
-		//		let shadowColor = UIColor.black
-	}
-}
+//TODO: need refactoring
 
 protocol AdditionCellDelegate: class {
 	func update(with model: Addition)
@@ -24,7 +17,6 @@ protocol AdditionCellDelegate: class {
 
 class AdditionCell: BaseTableViewCell {
 	
-	let appearance = Appearance()
 	var model: Addition!
 	var delegate: AdditionCellDelegate?
 	
