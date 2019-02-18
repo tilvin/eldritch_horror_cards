@@ -1149,12 +1149,12 @@
 		A4FE641E20D0111D0064E52E /* EldritchHorrorCards */ = {
 			isa = PBXGroup;
 			children = (
-				A49433AE2212AD3C0035A9A3 /* Supporting files */,
 				A4FE641F20D0111D0064E52E /* AppDelegate.swift */,
 				A441BBCE2109BB1000EAC5DD /* Common */,
 				A441BBD62109BC3C00EAC5DD /* Model */,
 				A441BBD82109BC5200EAC5DD /* Modules */,
 				A441BBCB2109BAA100EAC5DD /* Resources */,
+				A49433AE2212AD3C0035A9A3 /* Supporting files */,
 				A441BBCC2109BAE000EAC5DD /* Vendor */,
 			);
 			path = EldritchHorrorCards;

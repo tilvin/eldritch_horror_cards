@@ -56,9 +56,14 @@ class CardsViewController: BaseViewController {
 	}
 	
 	private func updateViewModel() {
-		let viewModel = provider.cards.map({ (card) -> CardCellViewModel in
-			return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue))
-		})
+		//TODO: записать в сокращенной форме sorter(... $0.type
+		let viewModel = provider.cards
+			.sorted(by: { (f, s) -> Bool in
+				return f.type.isExpedition
+			})
+			.map({ (card) -> CardCellViewModel in
+				return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue))
+			})
 		adapter.configure(with: viewModel)
 	}
 	
