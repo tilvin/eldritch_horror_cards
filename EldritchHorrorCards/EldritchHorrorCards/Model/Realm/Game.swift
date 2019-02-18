@@ -82,15 +82,15 @@ final class Game: Object, Mappable {
 	}
 
 	func updateExpedition(location: String, completion: @escaping () -> ()) {
-		let realm = try! Realm()
+		guard let realm = self.realm else { return }
 		
 		let cards: [String] = cardTypes.map { return $0.type == self.expeditionLocation ? location  : $0.type }
 		
-		let roCards = cards.map { (string) -> ROCardType in
+		let roCards = cards.map({ (string) -> ROCardType in
 			let value = ROCardType()
 			value.type = string
 			return value
-		}
+		})
 		
 		try! realm.write {
 			self.cardTypes.removeAll()
