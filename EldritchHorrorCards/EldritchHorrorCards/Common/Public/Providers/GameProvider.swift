@@ -7,14 +7,11 @@
 //
 
 import Foundation
-import ObjectMapper
-import ObjectMapper_Realm
-import RealmSwift
 
 protocol GameDataProviderProtocol {
-	var game: GameProtocol! { get set }
+	var game: GameProtocol { get set }
 	var isNewGame: Bool { get }
-	func loadGameId(completion: @escaping (Bool) -> Void)
+	func loadGame(completion: @escaping (Bool) -> Void)
 	func setSelectedAncient(ancient: Monster)
 	func removeGame()
 	func setNextExpedition(location: String, completion: @escaping () -> ())
@@ -27,11 +24,13 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 		static let tokenKey = "game_token"
 		static let expeditionKey = "expedition_Location"
 		static let expireDateKey = "game_date"
+		static let gameStoreKey = "game_store_key"
+		static let gameObjectKey = "game_object_key"
 	}
 	
 	//MARK: - Public variables
 	
-	var game: GameProtocol!
+	var game: GameProtocol = Game()
 	var isNewGame: Bool { return isNewGameFlag }
 	
 	//MARK: - Private variables
@@ -43,16 +42,16 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	private var dataTask: URLSessionDataTask?
 	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
 	private var isNewGameFlag: Bool = true
+	private let persistentService = DI.providers.resolve(PersistentServiceProtocol.self)!
 	
 	//MARK: - Public
 	
 	override init() {
 		super.init()
 		loadLocalGame()
-		game.setCardTypes(cardTypes: [])
 	}
 	
-	public func loadGameId(completion: @escaping (Bool) -> Void) {
+	public func loadGame(completion: @escaping (Bool) -> Void) {
 		guard game.isValid else {
 			getNewGameId(completion: { (success) in
 				completion(success)
@@ -74,17 +73,12 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	}
 	
 	public func setSelectedAncient(ancient: Monster) {
-		let realm = try! Realm()
-		try! realm.write {
-			game.selectedAncient = ancient
-		}
+		game.selectedAncient = ancient
 	}
 	
 	public func removeGame() {
-		let realm = try! Realm()
-		try! realm.write {
-			realm.delete(realm.objects(Game.self))
-		}
+//		persistentService.save(objects: nil, for: Constants.gameStoreKey)
+		game = Game()
 		isNewGameFlag = true
 		loadLocalGame()
 	}
@@ -96,19 +90,22 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	//MARK: - Private
 	
 	private func loadLocalGame() {
-		let realm = try! Realm()
-		if realm.objects(Game.self).count == 0 {
-			try! realm.write {
-				realm.add(Game(), update: true)
-			}
+		let result = persistentService.get(type: .game)
+		switch result {
+		case .game(let game):
+			self.game = game
+		case .failure(let message):
+			print("error with message: \(message)")
+		default:
+			break
 		}
-		game = realm.objects(Game.self).first
 	}
 	
 	func restoreSession(completion: @escaping (Bool) -> ()) {
 		guard game.isValid else { return }
 		let restoreTask = session.dataTask(with: APIRequest.restoreSession(gameId: game.id).request) { (_, response: URLResponse?, _: Error?) -> Void in
 			guard let HTTPResponse = response as? HTTPURLResponse else { return }
+			//TODO: убрать хардкод 200.
 			guard HTTPResponse.statusCode == 200 else {
 				completion(false)
 				return
@@ -120,8 +117,9 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	
 	private func getNewGameId(completion: @escaping (Bool) -> ()) {
 		dataTask?.cancel()
-		let realm = try! Realm()
-		game = realm.objects(Game.self).first
+	
+		//TODO: load from storage?
+//		game = realm.objects(Game.self).first
 		if game.isValid {
 			completion(true)
 			return
@@ -140,16 +138,17 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 			}
 			
 			guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) as? [String: Any],
-				let jsonObject = jsonData,
-				let model = Mapper<Game>().map(JSON: jsonObject) else { return }
+				let jsonObject = jsonData else { return }
+			//TODO: parse
+//				let model = Mapper<Game>().map(JSON: jsonObject) else { return }
 			
-			let realm = try! Realm()
-			try! realm.write {
-				realm.delete(realm.objects(Game.self))
-				realm.add(model, update: true)
-				completion(true)
-			}
-			sSelf.game = realm.objects(Game.self).first
+			
+//			try! realm.write {
+//				realm.delete(realm.objects(Game.self))
+//				realm.add(model, update: true)
+//				completion(true)
+//			}
+//			sSelf.game = realm.objects(Game.self).first
 		}
 		dataTask?.resume()
 	}

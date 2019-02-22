@@ -7,9 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
-import ObjectMapper
-import ObjectMapper_Realm
 
 protocol MonsterDataProviderProtocol {
 	var monsters: [Monster] { get set }	
@@ -63,15 +60,18 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 			
 			guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) as? [[String: Any]],
 				let jsonObject = jsonData else { return }
-			
-			let model = Mapper<Monster>().mapArray(JSONArray: jsonObject)
-			let realm = try! Realm()
-			
-			try! realm.write {
-				realm.delete(realm.objects(Monster.self))
-				realm.add(model, update: true)
-			}
-			sSelf.monsters = Array(realm.objects(Monster.self))
+			let parser = DI.providers.resolve(DataParseServiceProtocol.self)!
+			parser.parse(type: [Monster].self, json: jsonObject, completion: { (monsters) in
+				print(monsters)
+			})
+//			let model = Mapper<Monster>().mapArray(JSONArray: jsonObject)
+//			let realm = try! Realm()
+//
+//			try! realm.write {
+//				realm.delete(realm.objects(Monster.self))
+//				realm.add(model, update: true)
+//			}
+//			sSelf.monsters = Array(realm.objects(Monster.self))
 			completion(sSelf.monsters.count > 0)
 		}
 		dataTask?.resume()

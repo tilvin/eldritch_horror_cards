@@ -25,7 +25,6 @@ final class MenuViewController: BaseViewController {
 	private var setupAction: (() -> Void)?
 	private var backgroundTapCmd: Command?
 	private var isSlided: Bool = false
-	private var authProvider = DI.providers.resolve(AuthProviderProtocol.self)!
 	
 	init() {
 		super.init(nibName: nil, bundle: nil)
@@ -38,12 +37,7 @@ final class MenuViewController: BaseViewController {
 	}
 	
 	override func loadView() {
-		//FIXME: ошибка с потоками.
-		guard let currentUser = authProvider.currentUser else {
-			print("can't load user!")
-			return
-		}
-		let viewModel = MenuViewModel(userName: (currentUser.userName), avatar: UIImage.defaultAvatar)
+		let viewModel = MenuViewModel(userName: "", avatar: UIImage.defaultAvatar)
 		let view = MenuView(frame: UIScreen.main.bounds, viewModel: viewModel)
 		view.delegate = self
 		self.view = view
@@ -123,9 +117,7 @@ extension MenuViewController {
 	
 	private func reloadMenu() {
 		guard let menuView = view as? MenuView else { return }
-		//FIXME: тут просто дергаю метод с провайдера. Но походу его надо будет выше прописать.
-		let user = DI.providers.resolve(AuthProviderProtocol.self)!.currentUser
-		menuView.update(viewModel: MenuViewModel(userName: user?.userName ?? "???", avatar: user?.image))
+		menuView.update(viewModel: MenuViewModel(userName: "???", avatar: nil))
 	}
 }
 
@@ -158,13 +150,6 @@ extension MenuViewController: MenuViewDelegate {
 	}
 	
 	func logoutButtonTap() {
-		authProvider.logout(error: nil)
-		
-		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
-		gameProvider.removeGame()
-		
-		let controller = AuthViewController()
-		controller.modalTransitionStyle = .crossDissolve
-		DI.providers.resolve(NavigatorProtocol.self)?.go(controller: controller, mode: .push)
+		print(#function)
 	}
 }

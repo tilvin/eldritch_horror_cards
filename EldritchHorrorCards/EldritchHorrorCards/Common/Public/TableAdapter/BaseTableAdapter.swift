@@ -5,7 +5,6 @@
 // Copyright (c) 2018 Andrey Torlopov. All rights reserved.
 //
 
-
 import UIKit
 
 class BaseTableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {

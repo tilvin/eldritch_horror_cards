@@ -18,7 +18,6 @@ class DI {
 		container.register(UserDefaultsDataStoreProtocol.self) { UserDefaultsDataStore() }
 		container.register(NavigatorProtocol.self, asSingleTone: true) { AppNavigator()  }
 		container.register(ConfigProviderProtocol.self, asSingleTone: true) { ConfigProvider() }
-		container.register(AuthProviderProtocol.self, asSingleTone: true) { AuthProvider() }
 		container.register(MonsterDataProviderProtocol.self, asSingleTone: true) { MonsterDataProvider() }
 		container.register(CardsCollectionDataProviderProtocol.self, asSingleTone: true) { CardsCollectionDataProvider() }
 		container.register(AdditionDataProviderProtocol.self, asSingleTone: true) { AdditionDataProvider() }
@@ -28,5 +27,6 @@ class DI {
 		container.register(NetworkServiceProtocol.self, asSingleTone: true) { NetworkService() }
         container.register(NetworkServiceProtocol.self, asSingleTone: true) { NetworkService() }
 		container.register(CardDataProviderProtocol.self) { CardDataProvider() }
+		container.register(PersistentServiceProtocol.self) { PersistentService() }
 	}
 }

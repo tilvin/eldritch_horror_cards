@@ -35,6 +35,7 @@ class CardsViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		adapter.load(collectionView: customView.cartCollectionView, delegate: self)
 		
 		if provider.cards.count == 0 {
 			provider.load() { [weak self] (success) in
@@ -47,18 +48,15 @@ class CardsViewController: BaseViewController {
 			}
 			return
 		}
-		updateViewModel()
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		adapter.load(collectionView: customView.cartCollectionView, delegate: self)
+		else {
+			updateViewModel()
+		}
 	}
 	
 	private func updateViewModel() {
 		//TODO: записать в сокращенной форме sorter(... $0.type
 		let viewModel = provider.cards
-			.sorted(by: { (f, s) -> Bool in
+			.sorted(by: { (f, _) -> Bool in
 				return f.type.isExpedition
 			})
 			.map({ (card) -> CardCellViewModel in
@@ -95,6 +93,7 @@ extension CardsViewController: CardsViewDelegate {
 extension CardsViewController: CardsCollectionAdapterDelegate {
     
     func cardSelected(type: CardType) {
+		print(#function)
 		cardDataProvider.get(gameId: gameProvider.game.id, type: type) { [weak self] (result) in
 			guard let sSelf = self else { return }
 

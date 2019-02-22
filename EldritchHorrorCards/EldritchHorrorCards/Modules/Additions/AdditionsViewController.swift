@@ -26,7 +26,7 @@ final class AdditionsViewController: BaseViewController {
 		setupMenu()
 		view.showProccessing()
 		
-		gameProvider.loadGameId { [unowned self] (success) in
+		gameProvider.loadGame() { [unowned self] (success) in
 			self.view.hideProccessing()
 			guard success else {
 				self.showErrorAlert(message: String(.gameInitError))
