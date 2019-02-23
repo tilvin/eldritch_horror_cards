@@ -69,6 +69,8 @@
 		A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5661210B32F500590AE7 /* BaseScrollView.swift */; };
 		A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5664210B33DC00590AE7 /* MenuView.swift */; };
 		A45E5667210B53B100590AE7 /* MenuContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5666210B53B100590AE7 /* MenuContentView.swift */; };
+		A45FBB47222186D800483412 /* MonsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB46222186D800483412 /* MonsterTests.swift */; };
+		A45FBB4922219BB700483412 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB4822219BB700483412 /* GameTests.swift */; };
 		A46704E121A5FFC100582ABB /* InternetStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46704E021A5FFC100582ABB /* InternetStatusView.swift */; };
 		A46EE7CC2139244C00F47026 /* Keyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7C92139244C00F47026 /* Keyboardable.swift */; };
 		A46EE7CD2139244C00F47026 /* KeyboardPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7CA2139244C00F47026 /* KeyboardPayload.swift */; };
@@ -249,6 +251,8 @@
 		A45E5661210B32F500590AE7 /* BaseScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 		A45E5664210B33DC00590AE7 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A45E5666210B53B100590AE7 /* MenuContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentView.swift; sourceTree = "<group>"; };
+		A45FBB46222186D800483412 /* MonsterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterTests.swift; sourceTree = "<group>"; };
+		A45FBB4822219BB700483412 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		A46704E021A5FFC100582ABB /* InternetStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetStatusView.swift; sourceTree = "<group>"; };
 		A46EE7C92139244C00F47026 /* Keyboardable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardable.swift; sourceTree = "<group>"; };
 		A46EE7CA2139244C00F47026 /* KeyboardPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPayload.swift; sourceTree = "<group>"; };
@@ -533,6 +537,7 @@
 		A429ABA821B2E939004DBEA2 /* EldritchHorrorCardsTests */ = {
 			isa = PBXGroup;
 			children = (
+				A45FBB45222186C800483412 /* Model */,
 				A429ABAB21B2E939004DBEA2 /* Info.plist */,
 				A44F2D55220726A9000AF018 /* Additions */,
 				A429ABB321B33D42004DBEA2 /* Cards */,
@@ -827,6 +832,15 @@
 				A479428E210C8F6000ED0851 /* MenuViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A45FBB45222186C800483412 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A45FBB4822219BB700483412 /* GameTests.swift */,
+				A45FBB46222186D800483412 /* MonsterTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A46EE7C82139243D00F47026 /* Keyboardable */ = {
@@ -1289,6 +1303,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A45FBB4922219BB700483412 /* GameTests.swift in Sources */,
+				A45FBB47222186D800483412 /* MonsterTests.swift in Sources */,
 				A429ABB221B2E951004DBEA2 /* CardsViewControllerTests.swift in Sources */,
 				A4D42A7A220729D300574B9D /* AdditionDataProviderTests.swift in Sources */,
 				A44F2D5722072706000AF018 /* AdditionTests.swift in Sources */,
