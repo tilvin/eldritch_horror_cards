@@ -8,18 +8,6 @@
 
 import Foundation
 
-protocol GameProtocol {
-	var id: Int { get set }
-	var token: String { get set }
-	var expeditionLocation: String { get set }
-	var isSessionActive: Bool { get }
-	var isValid: Bool { get }
-	var selectedAncient: Monster? { get set }
-	func cardTypesAsString() -> [String]
-	mutating func setCardTypes(cardTypes: [Card])
-	mutating func updateExpedition(location: String, completion: @escaping () -> ())
-}
-
 struct Game: Equatable {
 	var id: Int = 0
 	var token: String = ""
@@ -29,6 +17,7 @@ struct Game: Equatable {
 	var isValid: Bool { return id > 0 }
 	var isSessionActive: Bool { return Date() > expireDate || token.isEmpty }
 	var cards: [Card] = []
+	var isNewGame: Bool = true
 }
 
 extension Game: Codable {
@@ -40,6 +29,7 @@ extension Game: Codable {
 		case expireDate = "expireDate"
 		case selectedAncient = "selectedAncient"
 		case cards = "cards"
+		case isNewGame = "isNewGame"
 	}
 	
 	init(from decoder: Decoder) throws {
@@ -66,6 +56,10 @@ extension Game: Codable {
 		if let value = try? values.decode([Card].self, forKey: .cards) {
 			self.cards = value
 		}
+		
+		if let value = try? values.decode(Bool.self, forKey: .isNewGame) {
+			self.isNewGame = value
+		}
 	}
 	
 	func encode(to encoder: Encoder) throws {
@@ -76,11 +70,9 @@ extension Game: Codable {
 		try container.encode(expireDate, forKey: .expireDate)
 		try container.encode(selectedAncient, forKey: .selectedAncient)
 		try container.encode(cards, forKey: .cards)
+		try container.encode(isNewGame, forKey: .isNewGame)
 	}
-}
-
-extension Game: GameProtocol {
-	
+ 
 	mutating func setCardTypes(cardTypes: [Card]) {
 		cards = cardTypes
 	}

@@ -9,15 +9,19 @@
 import Foundation
 
 protocol GameDataProviderProtocol {
-	var game: GameProtocol { get set }
-	var isNewGame: Bool { get }
-	func loadGame(completion: @escaping (Bool) -> Void)
+	var game: Game { get set }
+	func loadGame(completion: @escaping (GameDataProviderResults) -> Void)
 	func setSelectedAncient(ancient: Monster)
 	func removeGame()
-	func setNextExpedition(location: String, completion: @escaping () -> ())
+	func setNextExpedition(location: String, completion: @escaping () -> Void)
 }
 
-class GameDataProvider: NSObject, GameDataProviderProtocol {
+enum GameDataProviderResults {
+	case success
+	case failure(error: NetworkErrorModel)
+}
+
+final class GameDataProvider: GameDataProviderProtocol {
 	
 	private struct Constants {
 		static let idKey = "game_id_key"
@@ -30,44 +34,50 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	
 	//MARK: - Public variables
 	
-	var game: GameProtocol = Game()
-	var isNewGame: Bool { return isNewGameFlag }
+	var game = Game()
 	
 	//MARK: - Private variables
 	
-	private lazy var session: URLSession = {
-		return URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
-	}()
-	
-	private var dataTask: URLSessionDataTask?
-	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
-	private var isNewGameFlag: Bool = true
-	private let persistentService = DI.providers.resolve(PersistentServiceProtocol.self)!
+	private var gameDataStoreService: GameDataStoreServiceProtocol
+	private var gameNetworkService: GameNetworkServiceProtocol
 	
 	//MARK: - Public
 	
-	override init() {
-		super.init()
-		loadLocalGame()
+	init(gameDataStoreService: GameDataStoreServiceProtocol = GameDataStoreService(),
+		 gameNetworkService: GameNetworkServiceProtocol = GameNetworkService()) {
+		self.gameDataStoreService = gameDataStoreService
+		self.gameNetworkService = gameNetworkService
+		self.game = self.gameDataStoreService.loadGame() ?? Game()
 	}
 	
-	public func loadGame(completion: @escaping (Bool) -> Void) {
+	public func loadGame(completion: @escaping (GameDataProviderResults) -> Void) {
 		guard game.isValid else {
-			getNewGameId(completion: { (success) in
-				completion(success)
+			gameNetworkService.startNewGame(completion: { [unowned self] (result) in
+				switch result {
+				case .failure(let error):
+					completion(.failure(error: error))
+				case .success(let game):
+					self.game = game
+					self.gameDataStoreService.save(self.game)
+					completion(.success)
+				}
 			})
 			return
 		}
 		
-		restoreSession { [unowned self] (success) in
+		gameNetworkService.hasUnfinishedGame(gameId: game.id) { [unowned self] (success) in
 			if success {
-				self.isNewGameFlag = false
-				completion(true)
+				completion(.success)
 				return
 			}
-			
-			self.getNewGameId(completion: { (success) in
-				completion(success)
+			self.gameNetworkService.startNewGame(completion: { (result) in
+				switch result {
+				case .failure(let error):
+					completion(.failure(error: error))
+				case .success(let game):
+					self.game = game
+					completion(.success)
+				}
 			})
 		}
 	}
@@ -77,87 +87,12 @@ class GameDataProvider: NSObject, GameDataProviderProtocol {
 	}
 	
 	public func removeGame() {
-//		persistentService.save(objects: nil, for: Constants.gameStoreKey)
 		game = Game()
-		isNewGameFlag = true
-		loadLocalGame()
+		gameDataStoreService.removeGame()
 	}
 
 	func setNextExpedition(location: String, completion: @escaping () -> ()) {
 		self.game.updateExpedition(location: location, completion: completion)
 	}
-	
-	//MARK: - Private
-	
-	private func loadLocalGame() {
-		let result = persistentService.get(type: .game)
-		switch result {
-		case .game(let game):
-			self.game = game
-		case .failure(let message):
-			print("error with message: \(message)")
-		default:
-			break
-		}
-	}
-	
-	func restoreSession(completion: @escaping (Bool) -> ()) {
-		guard game.isValid else { return }
-		let restoreTask = session.dataTask(with: APIRequest.restoreSession(gameId: game.id).request) { (_, response: URLResponse?, _: Error?) -> Void in
-			guard let HTTPResponse = response as? HTTPURLResponse else { return }
-			//TODO: убрать хардкод 200.
-			guard HTTPResponse.statusCode == 200 else {
-				completion(false)
-				return
-			}
-			completion(true)
-		}
-		restoreTask.resume()
-	}
-	
-	private func getNewGameId(completion: @escaping (Bool) -> ()) {
-		dataTask?.cancel()
-	
-		//TODO: load from storage?
-//		game = realm.objects(Game.self).first
-		if game.isValid {
-			completion(true)
-			return
-		}
-		
-		dataTask = session.dataTask(with: APIRequest.games.request) { [weak self] (data: Data?, response: URLResponse?, _: Error?) -> Void in
-			guard let sSelf = self else { return }
-			guard let HTTPResponse = response as? HTTPURLResponse else { return }
-			guard let data = data else {
-				completion(false)
-				return
-			}
-			guard HTTPResponse.statusCode == 200 else {
-				completion(false)
-				return
-			}
-			
-			guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) as? [String: Any],
-				let jsonObject = jsonData else { return }
-			//TODO: parse
-//				let model = Mapper<Game>().map(JSON: jsonObject) else { return }
-			
-			
-//			try! realm.write {
-//				realm.delete(realm.objects(Game.self))
-//				realm.add(model, update: true)
-//				completion(true)
-//			}
-//			sSelf.game = realm.objects(Game.self).first
-		}
-		dataTask?.resume()
-	}
 }
 
-extension GameDataProvider: URLSessionDelegate {
-	
-	func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-		let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-		completionHandler(.useCredential, urlCredential)
-	}
-}

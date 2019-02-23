@@ -3,20 +3,15 @@
 "authSignin" = "Войти";
 "authSignup" = "Создать аккаунт";
 "authTitle" = "Eldritch Horror\nCards";
-
 "callMonster" = "Вызвать этого монстра";
 "card.type.portal" = "Иные миры";
-
 "additionsTitle" = "Выберите дополнения";
 "additionsButton" = "ПРОДОЛЖИТЬ";
-
 "logout" = "Выход";
 "turnHistory" = "История ходов";
 "expeditionCurrentLocation" = "Текущая локация";
 "newGame" = "Начать новую игру";
-"loadMonsterError" = "Ошибка при загрузке Древних.";
 "ok" = "Ок";
-
 "expedition_location_amazonia" = "Амазония";
 "expedition_location_antarctica" = "Антарктика";
 "expedition_location_himalayas" = "Гималаи";
@@ -72,10 +67,12 @@
 "unknownError" = "Неизвестная ошибка.";
 "online" = "Интернет подключен";
 "offline" = "Нет связи с интернетом";
-"cantSelectAncient" = "Ошибка при выборе древненго! Попробуйте еще!";
 "cantLoadCards" = "Не удалось получить список карт! Попробуйте еще!";
 "errorMessageTemplate" = "Сервер вернул ошибку: ";
 "errorNoData" = "Не удалось получить данные.";
-"gameInitError" = "Не удалось инициализировать игру!";
-"additionContinueButtonError" = "Не удалось запросить монстров по выбранным дополнениям.";
-
+"cantGetNewGameData" = "Не удалось получить данные по новой игре";
+"httpStatusCodeError" = "Получили некорректный http статус.";
+"cantParseModel" = "Неудалось распарсить модель";
+"cantGetMonsterData" = "Не удалось запросить монстров по выбранным дополнениям.";
+"cantGetAdditionData" = "Не удалось получить дополнения к игре";
+"cantSelectAdditions" = "Ошибка при выборе дополнений";

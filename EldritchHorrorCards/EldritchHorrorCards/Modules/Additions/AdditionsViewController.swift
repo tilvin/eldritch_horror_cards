@@ -1,7 +1,7 @@
 import UIKit
 
 final class AdditionsViewController: BaseViewController {
-
+	
 	var customView: AdditionsListView { return self.view as! AdditionsListView }
 	var adapter = AdditionsListTableAdapter()
 	var menuAction: CommandWith<Command>!
@@ -26,19 +26,25 @@ final class AdditionsViewController: BaseViewController {
 		setupMenu()
 		view.showProccessing()
 		
-		gameProvider.loadGame() { [unowned self] (success) in
+		gameProvider.loadGame() { [unowned self] (result) in
 			self.view.hideProccessing()
-			guard success else {
-				self.showErrorAlert(message: String(.gameInitError))
-				return
-			}
-			if self.gameProvider.isNewGame {
-				self.additionProvider.load { (additions) in
-					self.adapter.configure(with: additions)
+			switch result {
+			case .failure(let error):
+				self.showErrorAlert(message: error.message)
+			case .success:
+				guard self.gameProvider.game.isNewGame else {
+					self.appNavigator?.go(controller: CardsViewController(), mode: .push, animated: true)
+					return
 				}
-			}
-			else {
-				self.appNavigator?.go(controller: CardsViewController(), mode: .push, animated: true)
+				self.additionProvider.load(completion: { (result) in
+					switch result {
+					case .success(let additions):
+						self.additionProvider.additions = additions
+						self.adapter.configure(with: additions)
+					case .failure(let error):
+						self.showErrorAlert(message: error.message)
+					}
+				})
 			}
 		}
 	}
@@ -75,16 +81,17 @@ extension AdditionsViewController: AdditionsListViewDelegate {
 		let additions = provider.additions.filter { $0.isSelected}.map { String($0.id)}
 		let maps = provider.additions.filter { $0.isSelectedMap }.map { String($0.id)}
 		
-		provider.selectAdditions(gameId: gameProvider.game.id, additions: additions, maps: maps) { [weak self] (success) in
-            guard let sSelf = self else { return }
+		provider.selectAdditions(gameId: gameProvider.game.id, additions: additions, maps: maps) { [weak self] (result) in
+			guard let sSelf = self else { return }
 			
-            if !success {
-                sSelf.showErrorAlert(message: String(.additionContinueButtonError))
-                return
-            }
-            let controller = MainViewController()
-            controller.modalTransitionStyle = .crossDissolve
-            sSelf.appNavigator?.go(controller: controller, mode: .modal)
+			switch result {
+			case .success:
+				let controller = MainViewController()
+				controller.modalTransitionStyle = .crossDissolve
+				sSelf.appNavigator?.go(controller: controller, mode: .modal)
+			case .failure(let error):
+				sSelf.showErrorAlert(message: error.message)
+			}
 		}
 	}
 }

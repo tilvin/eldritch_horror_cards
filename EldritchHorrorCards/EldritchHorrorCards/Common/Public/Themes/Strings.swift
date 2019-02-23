@@ -18,8 +18,6 @@ extension String {
 		case unknownError
 		case online
 		case offline
-		case loadMonsterError
-		case cantSelectAncient
 		case cantLoadCards
 		case errorMessageTemplate
 		case errorNoData
@@ -28,11 +26,15 @@ extension String {
 		case logout
 		case additionsTitle
 		case additionsButton
-		case gameInitError
-		case additionContinueButtonError
 		case newGame
 		case newGameAlert
 		case callMonster
+		case cantGetNewGameData
+		case httpStatusCodeError
+		case cantParseModel
+		case cantGetMonsterData
+		case cantGetAdditionData
+		case cantSelectAdditions
 	}
 	
 	//MARK: - Inits

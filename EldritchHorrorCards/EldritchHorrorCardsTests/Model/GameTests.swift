@@ -20,7 +20,7 @@ class GameTests: XCTestCase {
 	}
 	
 	func testCodable() {
-		let monster = Monster(id: 0, imageURLString: "url_1", name: "Foo", score: 10, desc: "Bar", tagline: "Baz")
+		let monster = Monster(id: 1, imageURLString: "url_1", name: "Foo", score: 10, desc: "Bar", tagline: "Baz")
 		let card = Card(type: CardType.general.rawValue)
 		guard let date = Date(fromString: "22-02-2019", format: .custom("dd-MM-yyyy")) else {
 			XCTFail()

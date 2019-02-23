@@ -9,95 +9,54 @@
 import Foundation
 
 protocol MonsterDataProviderProtocol {
-	var monsters: [Monster] { get set }	
-	func load(gameId: Int, completion: @escaping (Bool) -> Void)
-	func selectAncient(gameId: Int, ancient: Monster, completion: @escaping (Bool) -> Void)
+	func load(gameId: Int, completion: @escaping (MonsterDataProviderLoadResult) -> Void)
+	func selectAncient(gameId: Int, ancient: Monster, completion: @escaping (MonsterDataProviderSelectResult) -> Void)
+}
+
+enum MonsterDataProviderLoadResult {
+	case success([Monster])
+	case failure(error: NetworkErrorModel)
+}
+
+enum MonsterDataProviderSelectResult {
+	case success
+	case failure(error: NetworkErrorModel)
 }
 
 final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 	
-	//MARK:- Public variables
-	
-	var monsters: [Monster]  = []
-	var session: URLSession?
-	
 	//MARK: - Private variables
 	
-	private var dataTask: URLSessionDataTask?
-	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
+	private var monsterNetworkService: MonsterNetworkServiceProtocol
 	
 	//MARK:- Init
 	
-	override init() {
-		super.init()
-		if session == nil {
-			session  = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
-		}
+	init(monsterNetworkService: MonsterNetworkServiceProtocol = MonsterNetworkService()) {
+		self.monsterNetworkService = monsterNetworkService
 	}
 	
 	//MARK: - Public
 	
-	func load(gameId: Int, completion: @escaping (Bool) -> Void) {
-		guard let session = session else { fatalError() }
-		dataTask?.cancel()
-		dataTask = session.dataTask(with: APIRequest.ancients(gameId: gameId).request) { [weak self] (data: Data?, response: URLResponse?, error: Error?) -> Void in
-			guard let sSelf = self else { return }
-			if let error = error {
-				print(error.localizedDescription)
-				completion(false)
-				return
+	func load(gameId: Int, completion: @escaping (MonsterDataProviderLoadResult) -> Void) {
+		monsterNetworkService.load(gameId: gameId) { (result) in
+			switch result {
+			case .success(let monsters):
+				completion(.success(monsters))
+			case .failure(let error):
+				completion(.failure(error: error))
 			}
-			guard let HTTPResponse = response as? HTTPURLResponse else { return }
-			guard let data = data else {
-				completion(false)
-				return
-			}
-			guard HTTPResponse.status == .ok else {
-				print(HTTPResponse.statusCode)
-				completion(false)
-				return
-			}
-			
-			guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) as? [[String: Any]],
-				let jsonObject = jsonData else { return }
-			let parser = DI.providers.resolve(DataParseServiceProtocol.self)!
-			parser.parse(type: [Monster].self, json: jsonObject, completion: { (monsters) in
-				print(monsters)
-			})
-//			let model = Mapper<Monster>().mapArray(JSONArray: jsonObject)
-//			let realm = try! Realm()
-//
-//			try! realm.write {
-//				realm.delete(realm.objects(Monster.self))
-//				realm.add(model, update: true)
-//			}
-//			sSelf.monsters = Array(realm.objects(Monster.self))
-			completion(sSelf.monsters.count > 0)
 		}
-		dataTask?.resume()
 	}
 	
-	func selectAncient(gameId: Int, ancient: Monster, completion: @escaping (Bool) -> Void) {
-		guard let session = session else { fatalError() }
-		dataTask?.cancel()
-		dataTask = session.dataTask(with: APIRequest.selectAncient(gameId: gameId, ancient: ancient.id).request) { (_: Data?, response: URLResponse?, error: Error?) -> Void in
-			if let error = error {
-				print(error.localizedDescription)
-				completion(false)
-				return
+	func selectAncient(gameId: Int, ancient: Monster, completion: @escaping (MonsterDataProviderSelectResult) -> Void) {
+		monsterNetworkService.selectAncient(gameId: gameId, ancient: ancient) { (result) in
+			switch result {
+			case .success:
+				completion(.success)
+			case .failure(let error):
+				completion(.failure(error: error))
 			}
-			guard let HTTPResponse = response as? HTTPURLResponse else { return }
-			completion(HTTPResponse.status == .ok)
-			return
 		}
-		dataTask?.resume()
 	}
 }
 
-extension MonsterDataProvider: URLSessionDelegate {
-	
-	func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-		let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-		completionHandler(.useCredential, urlCredential)
-	}
-}

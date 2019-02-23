@@ -18,15 +18,17 @@ class MonsterDetailViewController: BaseViewController {
 		let provider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 		
-		provider.selectAncient(gameId: gameProvider.game.id, ancient: monster) { [weak self] (success) in
+		provider.selectAncient(gameId: gameProvider.game.id, ancient: monster) { [weak self] (result) in
 			guard let sSelf = self else { return }
-			guard success else {
-				sSelf.showErrorAlert(message: String(.cantSelectAncient))
-				return
+			
+			switch result {
+			case .success:
+				let controller = CardsViewController()
+				controller.modalTransitionStyle = .crossDissolve
+				sSelf.appNavigator?.go(controller: controller, mode: .modal)
+			case .failure(let error):
+				sSelf.showErrorAlert(message: error.message)
 			}
-			let controller = CardsViewController()
-			controller.modalTransitionStyle = .crossDissolve
-			sSelf.appNavigator?.go(controller: controller, mode: .modal)
 		}
 	}
 	

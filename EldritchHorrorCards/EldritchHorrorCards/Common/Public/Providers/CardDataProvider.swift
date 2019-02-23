@@ -57,7 +57,7 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 						return
 					}
 					else {
-						completion(.failure(error: NetworkErrorModel(message: "Can't parse model for type: \(type)")))
+						completion(.failure(error: NetworkErrorModel(message: "\(String(.cantParseModel)) :\(type)")))
 					}
 				}
 			case .plotStory:
@@ -67,7 +67,7 @@ final class CardDataProvider: NSObject, CardDataProviderProtocol {
 						return
 					}
 					else {
-						completion(.failure(error: NetworkErrorModel(message: "Can't parse model for type: \(type)")))
+						completion(.failure(error: NetworkErrorModel(message: "\(String(.cantParseModel)) :\(type)")))
 					}
 				}
 			}

@@ -54,7 +54,6 @@
 		A4563B0120F880BB00B65428 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563AFF20F880BB00B65428 /* Navigator.swift */; };
 		A4563B0220F880BB00B65428 /* NavigatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0020F880BB00B65428 /* NavigatorProtocol.swift */; };
 		A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4563B0A20F8846100B65428 /* ConfigProvider.swift */; };
-		A45646A622208AF900FEDADB /* PersistentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45646A522208AF900FEDADB /* PersistentService.swift */; };
 		A45D1881219E021400F330D6 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D1880219E021400F330D6 /* BaseCollectionViewCell.swift */; };
 		A45D1888219E078800F330D6 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D1887219E078800F330D6 /* UITableViewExtension.swift */; };
 		A45D188A219E07A400F330D6 /* UICollectionViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D1889219E07A400F330D6 /* UICollectionViewCellExtension.swift */; };
@@ -71,6 +70,10 @@
 		A45E5667210B53B100590AE7 /* MenuContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E5666210B53B100590AE7 /* MenuContentView.swift */; };
 		A45FBB47222186D800483412 /* MonsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB46222186D800483412 /* MonsterTests.swift */; };
 		A45FBB4922219BB700483412 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB4822219BB700483412 /* GameTests.swift */; };
+		A45FBB4D2221AED900483412 /* GameDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB4C2221AED900483412 /* GameDataStoreService.swift */; };
+		A45FBB502221AF6F00483412 /* GameNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB4F2221AF6F00483412 /* GameNetworkService.swift */; };
+		A45FBB532221C36900483412 /* MonsterNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB522221C36900483412 /* MonsterNetworkService.swift */; };
+		A45FBB562221CEAD00483412 /* AdditionNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB552221CEAD00483412 /* AdditionNetworkService.swift */; };
 		A46704E121A5FFC100582ABB /* InternetStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46704E021A5FFC100582ABB /* InternetStatusView.swift */; };
 		A46EE7CC2139244C00F47026 /* Keyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7C92139244C00F47026 /* Keyboardable.swift */; };
 		A46EE7CD2139244C00F47026 /* KeyboardPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7CA2139244C00F47026 /* KeyboardPayload.swift */; };
@@ -236,7 +239,6 @@
 		A4563AFF20F880BB00B65428 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		A4563B0020F880BB00B65428 /* NavigatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatorProtocol.swift; sourceTree = "<group>"; };
 		A4563B0A20F8846100B65428 /* ConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigProvider.swift; sourceTree = "<group>"; };
-		A45646A522208AF900FEDADB /* PersistentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentService.swift; sourceTree = "<group>"; };
 		A45D1880219E021400F330D6 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A45D1887219E078800F330D6 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		A45D1889219E07A400F330D6 /* UICollectionViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellExtension.swift; sourceTree = "<group>"; };
@@ -253,6 +255,10 @@
 		A45E5666210B53B100590AE7 /* MenuContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentView.swift; sourceTree = "<group>"; };
 		A45FBB46222186D800483412 /* MonsterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterTests.swift; sourceTree = "<group>"; };
 		A45FBB4822219BB700483412 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
+		A45FBB4C2221AED900483412 /* GameDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataStoreService.swift; sourceTree = "<group>"; };
+		A45FBB4F2221AF6F00483412 /* GameNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetworkService.swift; sourceTree = "<group>"; };
+		A45FBB522221C36900483412 /* MonsterNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterNetworkService.swift; sourceTree = "<group>"; };
+		A45FBB552221CEAD00483412 /* AdditionNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionNetworkService.swift; sourceTree = "<group>"; };
 		A46704E021A5FFC100582ABB /* InternetStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetStatusView.swift; sourceTree = "<group>"; };
 		A46EE7C92139244C00F47026 /* Keyboardable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardable.swift; sourceTree = "<group>"; };
 		A46EE7CA2139244C00F47026 /* KeyboardPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPayload.swift; sourceTree = "<group>"; };
@@ -537,10 +543,10 @@
 		A429ABA821B2E939004DBEA2 /* EldritchHorrorCardsTests */ = {
 			isa = PBXGroup;
 			children = (
-				A45FBB45222186C800483412 /* Model */,
 				A429ABAB21B2E939004DBEA2 /* Info.plist */,
 				A44F2D55220726A9000AF018 /* Additions */,
 				A429ABB321B33D42004DBEA2 /* Cards */,
+				A45FBB45222186C800483412 /* Model */,
 			);
 			path = EldritchHorrorCardsTests;
 			sourceTree = "<group>";
@@ -673,6 +679,9 @@
 			isa = PBXGroup;
 			children = (
 				A48C461620FD0F5300DF1687 /* DataParseService.swift */,
+				A45FBB542221CE9300483412 /* Addition */,
+				A45FBB4E2221AF6200483412 /* Game */,
+				A45FBB512221C34600483412 /* Monster */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -843,6 +852,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A45FBB4E2221AF6200483412 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				A45FBB4C2221AED900483412 /* GameDataStoreService.swift */,
+				A45FBB4F2221AF6F00483412 /* GameNetworkService.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		A45FBB512221C34600483412 /* Monster */ = {
+			isa = PBXGroup;
+			children = (
+				A45FBB522221C36900483412 /* MonsterNetworkService.swift */,
+			);
+			path = Monster;
+			sourceTree = "<group>";
+		};
+		A45FBB542221CE9300483412 /* Addition */ = {
+			isa = PBXGroup;
+			children = (
+				A45FBB552221CEAD00483412 /* AdditionNetworkService.swift */,
+			);
+			path = Addition;
+			sourceTree = "<group>";
+		};
 		A46EE7C82139243D00F47026 /* Keyboardable */ = {
 			isa = PBXGroup;
 			children = (
@@ -925,7 +959,6 @@
 			isa = PBXGroup;
 			children = (
 				A47B356321A4869600C12A45 /* NetworkService.swift */,
-				A45646A522208AF900FEDADB /* PersistentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1324,6 +1357,7 @@
 				A4F3B1E4212ECB9F00F03E7B /* DateHelper.swift in Sources */,
 				A4208340212B1B8D0081E762 /* BaseTableViewCell.swift in Sources */,
 				A45D1888219E078800F330D6 /* UITableViewExtension.swift in Sources */,
+				A45FBB4D2221AED900483412 /* GameDataStoreService.swift in Sources */,
 				A4A9DC9721D156B300EC2F5E /* NetworkErrorModel.swift in Sources */,
 				A42190AC21985BD100AADC68 /* CardsView.swift in Sources */,
 				A4F3B1D8212ECB8A00F03E7B /* ViewController.swift in Sources */,
@@ -1365,7 +1399,6 @@
 				A4FDB00F20D413DE00FA6E4B /* AccessoryIndicator.swift in Sources */,
 				A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */,
 				A47B356421A4869600C12A45 /* NetworkService.swift in Sources */,
-				A45646A622208AF900FEDADB /* PersistentService.swift in Sources */,
 				A4978E8121D0E16900329AB2 /* LocalStoryView.swift in Sources */,
 				A4FDB00C20D413DE00FA6E4B /* JFCardSelectionCell.swift in Sources */,
 				A479428B210C419F00ED0851 /* Fonts.swift in Sources */,
@@ -1388,6 +1421,7 @@
 				A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */,
 				A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */,
 				A41AAC2A21FB6FAB0002C931 /* Monster.swift in Sources */,
+				A45FBB562221CEAD00483412 /* AdditionNetworkService.swift in Sources */,
 				A4978E8321D0E4E400329AB2 /* UIBarButtonItemExtension.swift in Sources */,
 				A420833B212B1B0B0081E762 /* TableViewHeaderFooterConfiguration.swift in Sources */,
 				A47771AF214531DD007F2058 /* UITextFieldExtension.swift in Sources */,
@@ -1418,6 +1452,7 @@
 				A45D18C121A0527B00F330D6 /* BaseCollectionAdapter.swift in Sources */,
 				A4A9DC9521D1520B00EC2F5E /* PlotStoryModel.swift in Sources */,
 				A4F3B1DD212ECB8A00F03E7B /* View.swift in Sources */,
+				A45FBB532221C36900483412 /* MonsterNetworkService.swift in Sources */,
 				A4978E7E21D0E15000329AB2 /* LocalStoryViewController.swift in Sources */,
 				9F61A1ED217079C800A5003C /* PlotStoryViewModel.swift in Sources */,
 				A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */,
@@ -1434,6 +1469,7 @@
 				A420833F212B1B8D0081E762 /* BaseTableViewHeaderFooterView.swift in Sources */,
 				9F0E79F42112FDED0080C907 /* User.swift in Sources */,
 				A4FDB01020D413DE00FA6E4B /* JFCardSelectionViewController.swift in Sources */,
+				A45FBB502221AF6F00483412 /* GameNetworkService.swift in Sources */,
 				A4FDB01120D413DE00FA6E4B /* JFCardSelectionViewController+JFFocusedCardViewDelegate.swift in Sources */,
 				A4563AF220F7DD4C00B65428 /* Queues.swift in Sources */,
 				A4B35E5A217A8A4A002496E7 /* DefaultAppearance.swift in Sources */,

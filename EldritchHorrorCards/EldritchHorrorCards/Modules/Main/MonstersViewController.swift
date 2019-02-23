@@ -45,15 +45,17 @@ final class MonstersViewController: JFCardSelectionViewController {
 		setupMenu()
 		navigationController?.setNavigationBarHidden(true, animated: false)
         view.showProccessing()
-        monsterProvider.load(gameId: gameProvider.game.id) { [weak self] (success) in
+        monsterProvider.load(gameId: gameProvider.game.id) { [weak self] (result) in
             guard let sSelf = self else { return }
 			sSelf.view.hideProccessing()
-            if !success {
-                sSelf.showMessageHandler?(String(.additionContinueButtonError))
-                return
-            }
-            sSelf.monsters = sSelf.monsterProvider.monsters
-            sSelf.reloadData()
+			
+			switch result {
+			case .success(let monsters):
+				sSelf.monsters = monsters
+				sSelf.reloadData()
+			case .failure(let error):
+				sSelf.showMessageHandler?(error.message)
+			}
         }
 		reloadData()
 		view.layoutIfNeeded()

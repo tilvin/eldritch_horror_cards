@@ -80,7 +80,7 @@ final class CardsCollectionDataProvider: NSObject, CardsCollectionDataProviderPr
 	//MARK: - Private
 	
 	private func loadCards() {
-		guard !gameProvider.isNewGame else {
+		guard !gameProvider.game.isNewGame else {
 			cards = []
 			return
 		}

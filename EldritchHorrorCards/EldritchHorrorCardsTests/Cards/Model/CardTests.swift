@@ -30,4 +30,15 @@ class CardTests: XCTestCase {
 		let sut = Card(type: CardType.general.rawValue)
 		XCTAssertEqual(sut.type, CardType.general)
 	}
+	
+	func testCodable() {
+		let sut = Card(type: CardType.general.rawValue)
+		let data = try? PropertyListEncoder().encode(sut)
+		guard let sutData = data else {
+			XCTFail()
+			return
+		}
+		let decodeSut = try? PropertyListDecoder().decode(Card.self, from: sutData)
+		XCTAssertEqual(decodeSut, sut)
+	}
 }

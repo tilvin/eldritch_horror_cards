@@ -27,6 +27,5 @@ class DI {
 		container.register(NetworkServiceProtocol.self, asSingleTone: true) { NetworkService() }
         container.register(NetworkServiceProtocol.self, asSingleTone: true) { NetworkService() }
 		container.register(CardDataProviderProtocol.self) { CardDataProvider() }
-		container.register(PersistentServiceProtocol.self) { PersistentService() }
 	}
 }
