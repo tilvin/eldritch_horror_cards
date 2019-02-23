@@ -25,8 +25,7 @@ final class GameDataStoreService: GameDataStoreServiceProtocol {
 	//MARK: - Public
 	
 	func save(_ game: Game) {
-		print(#function)
-		print("save game into userdefaults!")
+		userdefaults.set(key: Constants.gameKey, value: try? PropertyListEncoder().encode(game))
 	}
 	
 	func loadGame() -> Game? {

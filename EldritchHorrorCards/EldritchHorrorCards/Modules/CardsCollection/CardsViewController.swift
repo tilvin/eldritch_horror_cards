@@ -11,8 +11,8 @@ import UIKit
 class CardsViewController: BaseViewController {
 	
 	private var customView: CardsView { return view as! CardsView }
-    private var adapter = CardsCollectionAdapter()
-    private var provider = DI.providers.resolve(CardsCollectionDataProviderProtocol.self)!
+	private var adapter = CardsCollectionAdapter()
+	private var provider = DI.providers.resolve(CardsCollectionDataProviderProtocol.self)!
 	private let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 	private let cardDataProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
 	
@@ -36,26 +36,25 @@ class CardsViewController: BaseViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		adapter.load(collectionView: customView.cartCollectionView, delegate: self)
-		
-		if provider.cards.count == 0 {
-			provider.load() { [weak self] (success) in
-				guard let sSelf = self else { return }
-				guard success else {
-					sSelf.showErrorAlert(message: String(.cantLoadCards))
-					return
-				}
-				sSelf.updateViewModel()
-			}
-			return
-		}
-		else {
-			updateViewModel()
-		}
 	}
 	
-	private func updateViewModel() {
-		//TODO: записать в сокращенной форме sorter(... $0.type
-		let viewModel = provider.cards
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		provider.load(gameId: gameProvider.game.id) { [weak self] (result) in
+			guard let sSelf = self else { return }
+			switch result {
+			case .failure(let error):
+				sSelf.showErrorAlert(message: error.message)
+			case .success(let cards):
+				sSelf.updateViewModel(cards: cards)
+			}
+		}
+		updateViewModel(cards: [])
+	}
+	
+	private func updateViewModel(cards: [Card]) {
+		let viewModel = cards
 			.sorted(by: { (f, _) -> Bool in
 				return f.type.isExpedition
 			})
@@ -63,13 +62,6 @@ class CardsViewController: BaseViewController {
 				return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue))
 			})
 		adapter.configure(with: viewModel)
-	}
-	
-	private func updateCards() {
-		provider.updateCards(isUseOnlyRealm: true) { [weak self] (_) in
-			guard let sSelf = self else { return }
-			sSelf.updateViewModel()
-		}
 	}
 }
 
@@ -91,24 +83,17 @@ extension CardsViewController: CardsViewDelegate {
 }
 
 extension CardsViewController: CardsCollectionAdapterDelegate {
-    
-    func cardSelected(type: CardType) {
-		print(#function)
+	
+	func cardSelected(type: CardType) {
 		cardDataProvider.get(gameId: gameProvider.game.id, type: type) { [weak self] (result) in
 			guard let sSelf = self else { return }
-
+			
 			switch result {
 			case let .localStory(model):
 				let controller = LocalStoryViewController(model: model)
 				controller.modalTransitionStyle = .crossDissolve
 				sSelf.appNavigator?.go(controller: controller, mode: .push)
 			case let .plotStory(model):
-				if type.isExpedition,
-					let nextExpedition = model.nextLocation {
-					sSelf.gameProvider.setNextExpedition(location: nextExpedition) {
-						sSelf.updateCards()
-					}
-				}
 				let controller = PlotStoryController(model: model, type: type.rawValue)
 				controller.modalTransitionStyle = .crossDissolve
 				sSelf.appNavigator?.go(controller: controller, mode: .push)
@@ -116,5 +101,5 @@ extension CardsViewController: CardsCollectionAdapterDelegate {
 				sSelf.showErrorAlert(message: error.message)
 			}
 		}
-    }
+	}
 }

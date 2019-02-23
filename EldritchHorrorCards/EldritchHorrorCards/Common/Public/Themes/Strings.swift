@@ -35,6 +35,7 @@ extension String {
 		case cantGetMonsterData
 		case cantGetAdditionData
 		case cantSelectAdditions
+		case cantGetCardsCollection
 	}
 	
 	//MARK: - Inits

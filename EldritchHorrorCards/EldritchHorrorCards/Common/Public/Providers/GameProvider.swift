@@ -13,7 +13,6 @@ protocol GameDataProviderProtocol {
 	func loadGame(completion: @escaping (GameDataProviderResults) -> Void)
 	func setSelectedAncient(ancient: Monster)
 	func removeGame()
-	func setNextExpedition(location: String, completion: @escaping () -> Void)
 }
 
 enum GameDataProviderResults {
@@ -90,9 +89,14 @@ final class GameDataProvider: GameDataProviderProtocol {
 		game = Game()
 		gameDataStoreService.removeGame()
 	}
-
-	func setNextExpedition(location: String, completion: @escaping () -> ()) {
-		self.game.updateExpedition(location: location, completion: completion)
-	}
+	
+//	func setNextExpedition(location: String, completion: @escaping () -> ()) {
+//		if let card = self.game.currentLocationCard,
+//			let index = self.game.cards.firstIndex(of: card) {
+//			self.game.cards.remove(at: index)
+//		}
+//		self.game.cards.insert(Card(type: location), at: 0)
+//		completion()
+//	}
 }
 

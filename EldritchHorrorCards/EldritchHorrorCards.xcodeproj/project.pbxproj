@@ -74,6 +74,8 @@
 		A45FBB502221AF6F00483412 /* GameNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB4F2221AF6F00483412 /* GameNetworkService.swift */; };
 		A45FBB532221C36900483412 /* MonsterNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB522221C36900483412 /* MonsterNetworkService.swift */; };
 		A45FBB562221CEAD00483412 /* AdditionNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB552221CEAD00483412 /* AdditionNetworkService.swift */; };
+		A45FBB932221F3E500483412 /* CardNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB922221F3E500483412 /* CardNetworkService.swift */; };
+		A45FBB962221F6EE00483412 /* CardsCollectionNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FBB952221F6EE00483412 /* CardsCollectionNetworkService.swift */; };
 		A46704E121A5FFC100582ABB /* InternetStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46704E021A5FFC100582ABB /* InternetStatusView.swift */; };
 		A46EE7CC2139244C00F47026 /* Keyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7C92139244C00F47026 /* Keyboardable.swift */; };
 		A46EE7CD2139244C00F47026 /* KeyboardPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46EE7CA2139244C00F47026 /* KeyboardPayload.swift */; };
@@ -259,6 +261,8 @@
 		A45FBB4F2221AF6F00483412 /* GameNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetworkService.swift; sourceTree = "<group>"; };
 		A45FBB522221C36900483412 /* MonsterNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterNetworkService.swift; sourceTree = "<group>"; };
 		A45FBB552221CEAD00483412 /* AdditionNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionNetworkService.swift; sourceTree = "<group>"; };
+		A45FBB922221F3E500483412 /* CardNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNetworkService.swift; sourceTree = "<group>"; };
+		A45FBB952221F6EE00483412 /* CardsCollectionNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionNetworkService.swift; sourceTree = "<group>"; };
 		A46704E021A5FFC100582ABB /* InternetStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetStatusView.swift; sourceTree = "<group>"; };
 		A46EE7C92139244C00F47026 /* Keyboardable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardable.swift; sourceTree = "<group>"; };
 		A46EE7CA2139244C00F47026 /* KeyboardPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPayload.swift; sourceTree = "<group>"; };
@@ -679,6 +683,8 @@
 			isa = PBXGroup;
 			children = (
 				A48C461620FD0F5300DF1687 /* DataParseService.swift */,
+				A45FBB942221F6BA00483412 /* Cards */,
+				A45FBB912221F3AF00483412 /* Card */,
 				A45FBB542221CE9300483412 /* Addition */,
 				A45FBB4E2221AF6200483412 /* Game */,
 				A45FBB512221C34600483412 /* Monster */,
@@ -875,6 +881,22 @@
 				A45FBB552221CEAD00483412 /* AdditionNetworkService.swift */,
 			);
 			path = Addition;
+			sourceTree = "<group>";
+		};
+		A45FBB912221F3AF00483412 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				A45FBB922221F3E500483412 /* CardNetworkService.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		A45FBB942221F6BA00483412 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				A45FBB952221F6EE00483412 /* CardsCollectionNetworkService.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		A46EE7C82139243D00F47026 /* Keyboardable */ = {
@@ -1370,6 +1392,7 @@
 				A49043082145610200397AC9 /* UIScreenExtension.swift in Sources */,
 				A4A9102E21285AD900652D25 /* DescriptionViewController.swift in Sources */,
 				9FC7F668215AC90500A2A7B3 /* GameProvider.swift in Sources */,
+				A45FBB932221F3E500483412 /* CardNetworkService.swift in Sources */,
 				A47771AD21453044007F2058 /* UILabelExtension.swift in Sources */,
 				A479427D210C2FED00ED0851 /* MainViewController.swift in Sources */,
 				A4794286210C31C300ED0851 /* BaseNavigationController.swift in Sources */,
@@ -1464,6 +1487,7 @@
 				A47B355C21A4827C00C12A45 /* NetworkRoute.swift in Sources */,
 				A4208344212B51CB0081E762 /* AdditionsListView.swift in Sources */,
 				A4FDAFA520D3E7DF00FA6E4B /* MonsterDetailViewController.swift in Sources */,
+				A45FBB962221F6EE00483412 /* CardsCollectionNetworkService.swift in Sources */,
 				A45D1892219E0B3700F330D6 /* CollectionEmptyView.swift in Sources */,
 				A46EE7CE2139244C00F47026 /* NotificationDescriptor.swift in Sources */,
 				A420833F212B1B8D0081E762 /* BaseTableViewHeaderFooterView.swift in Sources */,

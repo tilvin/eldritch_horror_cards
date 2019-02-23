@@ -18,6 +18,7 @@ struct Game: Equatable {
 	var isSessionActive: Bool { return Date() > expireDate || token.isEmpty }
 	var cards: [Card] = []
 	var isNewGame: Bool = true
+	var currentLocationCard: Card? { return Card(type: expeditionLocation) }
 }
 
 extension Game: Codable {
@@ -79,15 +80,5 @@ extension Game: Codable {
 	
 	func cardTypesAsString() -> [String] {
 		return self.cards.map { $0.type.rawValue }
-	}
-	
-	mutating func updateExpedition(location: String, completion: @escaping () -> ()) {
-		if let index = self.cards.firstIndex(where: { (card) -> Bool in
-			return card.type.rawValue == self.expeditionLocation
-		}) {
-			self.cards.remove(at: index)
-		}
-		self.cards.insert(Card(type: location), at: 0)
-		completion()
 	}
 }

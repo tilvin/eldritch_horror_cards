@@ -76,3 +76,4 @@
 "cantGetMonsterData" = "Не удалось запросить монстров по выбранным дополнениям.";
 "cantGetAdditionData" = "Не удалось получить дополнения к игре";
 "cantSelectAdditions" = "Ошибка при выборе дополнений";
+"cantGetCardsCollection" = "Не удалось получить список карт.";
