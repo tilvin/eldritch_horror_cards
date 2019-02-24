@@ -8,4 +8,6 @@ target 'EldritchHorrorCards' do
 	pod 'SnapKit'
 	pod 'Zip'
 	pod "SwiftLint"
+	
+#	pod 'Reveal-SDK', :configurations => ['Debug']
 end

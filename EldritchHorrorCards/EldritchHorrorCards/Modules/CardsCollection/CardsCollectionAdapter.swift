@@ -38,14 +38,7 @@ class CardsCollectionAdapter: BaseCollectionAdapter {
 	
     func configure(with models: [CardCellViewModel]) {
         viewModel = models
-        collectionView?.reloadData()
-        
-        if models.isEmpty {
-            collectionView?.showEmptyView(title: String(.empty), at: .top(offset: appearance.emptyViewTopOffset))
-        }
-        else {
-            collectionView?.hideEmptyView()
-        }
+        collectionView?.reloadData()        
     }
     
     // MARK: - DataSource and Delegate
