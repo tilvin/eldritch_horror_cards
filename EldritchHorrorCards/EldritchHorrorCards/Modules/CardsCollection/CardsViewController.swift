@@ -15,6 +15,7 @@ class CardsViewController: BaseViewController {
 	private var provider = DI.providers.resolve(CardsCollectionDataProviderProtocol.self)!
 	private let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 	private let cardDataProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
+	private var selectedIndexPath: IndexPath?
 	
 	//MARK: - Init
 	
@@ -41,6 +42,7 @@ class CardsViewController: BaseViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
+		//TODO: подумать на текму стоит ли каждый раз тянуть с сети карточки
 		provider.load(gameId: gameProvider.game.id) { [weak self] (result) in
 			guard let sSelf = self else { return }
 			switch result {
@@ -62,6 +64,10 @@ class CardsViewController: BaseViewController {
 				return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue))
 			})
 		adapter.configure(with: viewModel)
+		if let row = selectedIndexPath?.row,
+			row < viewModel.count {
+			adapter.collectionView?.selectItem(at: selectedIndexPath, animated: true, scrollPosition: .centeredHorizontally)
+		}
 	}
 }
 
@@ -84,10 +90,10 @@ extension CardsViewController: CardsViewDelegate {
 
 extension CardsViewController: CardsCollectionAdapterDelegate {
 	
-	func cardSelected(type: CardType) {
+	func cardSelected(type: CardType, indexPath: IndexPath?) {
+		selectedIndexPath = indexPath
 		cardDataProvider.get(gameId: gameProvider.game.id, type: type) { [weak self] (result) in
 			guard let sSelf = self else { return }
-			
 			switch result {
 			case let .localStory(model):
 				let controller = LocalStoryViewController(model: model)

@@ -5,7 +5,7 @@ protocol AdditionsListTableAdapterDelegate: class {
 	func update(with model: Addition)
 }
 
-class AdditionsListTableAdapter: StaticTableAdapter {
+final class AdditionsListTableAdapter: StaticTableAdapter {
 	
 	weak var delegate: AdditionsListTableAdapterDelegate?
 

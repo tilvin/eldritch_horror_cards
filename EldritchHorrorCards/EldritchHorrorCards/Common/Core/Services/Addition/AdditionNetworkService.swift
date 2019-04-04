@@ -50,6 +50,9 @@ final class AdditionNetworkService: NSObject, AdditionNetworkServiceProtocol {
 				if let value = result {
 					completion(.success(value))
 				}
+				else {
+					completion(.failure(error: NetworkErrorModel(message: String(.cantParseModel))))
+				}
 			}
 		}
 		dataTask.resume()
