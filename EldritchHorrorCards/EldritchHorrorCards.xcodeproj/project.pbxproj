@@ -1735,14 +1735,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 79798GRSHW;
+				DEVELOPMENT_TEAM = 6PQJ88HC63;
 				INFOPLIST_FILE = "$(SRCROOT)/EldritchHorrorCards/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cubux.ios.ver2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.waveaccess.Ebs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
@@ -1756,14 +1756,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 79798GRSHW;
+				DEVELOPMENT_TEAM = 6PQJ88HC63;
 				INFOPLIST_FILE = "$(SRCROOT)/EldritchHorrorCards/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cubux.ios.ver2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.waveaccess.Ebs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;

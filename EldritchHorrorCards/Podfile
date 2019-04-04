@@ -4,10 +4,10 @@ target 'EldritchHorrorCards' do
 	use_frameworks!
 	inhibit_all_warnings!
 	
-    pod 'Alamofire'
+	pod 'Alamofire'
 	pod 'SnapKit'
 	pod 'Zip'
 	pod "SwiftLint"
 	
-#	pod 'Reveal-SDK', :configurations => ['Debug']
+	#	pod 'Reveal-SDK', :configurations => ['Debug']
 end

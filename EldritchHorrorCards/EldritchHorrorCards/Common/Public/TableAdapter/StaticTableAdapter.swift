@@ -91,8 +91,6 @@ class StaticTableAdapter: BaseTableAdapter {
 	func setSections(_ sections: [TableSectionConfigurationProtocol]) {
 		self.sections = sections
 		self.tableView?.reloadData()
-		
 	}
-	
 }
 
