@@ -42,7 +42,6 @@ class CardsViewController: BaseViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		//TODO: подумать на текму стоит ли каждый раз тянуть с сети карточки
 		provider.load(gameId: gameProvider.game.id) { [weak self] (result) in
 			guard let sSelf = self else { return }
 			switch result {
@@ -57,17 +56,20 @@ class CardsViewController: BaseViewController {
 	
 	private func updateViewModel(cards: [Card]) {
 		let viewModel = cards
-			.sorted(by: { (f, _) -> Bool in
-				return f.type.isExpedition
-			})
 			.map({ (card) -> CardCellViewModel in
-				return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue))
+				return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue), isExpedition: card.type.isExpedition)
 			})
-		adapter.configure(with: viewModel)
-		if let row = selectedIndexPath?.row,
-			row < viewModel.count {
-			adapter.collectionView?.selectItem(at: selectedIndexPath, animated: true, scrollPosition: .centeredHorizontally)
+			.sorted { (first, second) -> Bool in
+					return first.isExpedition || (first.title < second.title)
 		}
+		
+		adapter.configure(with: viewModel)
+//		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//			if let row = self.selectedIndexPath?.row,
+//				row < viewModel.count {
+//				self.adapter.collectionView?.selectItem(at: self.selectedIndexPath, animated: true, scrollPosition: .centeredHorizontally)
+//			}
+//		}
 	}
 }
 
