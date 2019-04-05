@@ -8,7 +8,9 @@
 
 import UIKit
 
-class CardsViewController: BaseViewController {
+final class CardsViewController: BaseViewController {
+	
+	//MARK: - Private variables
 	
 	private var customView: CardsView { return view as! CardsView }
 	private var adapter = CardsCollectionAdapter()
@@ -17,7 +19,7 @@ class CardsViewController: BaseViewController {
 	private let cardDataProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
 	private var selectedIndexPath: IndexPath?
 	
-	//MARK: - Init
+	//MARK: - Lifecycle
 	
 	init() {
 		super.init(nibName: nil, bundle: nil)
@@ -54,22 +56,19 @@ class CardsViewController: BaseViewController {
 		updateViewModel(cards: [])
 	}
 	
+	//MARK: - Private
+	
 	private func updateViewModel(cards: [Card]) {
 		let viewModel = cards
 			.map({ (card) -> CardCellViewModel in
 				return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue), isExpedition: card.type.isExpedition)
 			})
-			.sorted { (first, second) -> Bool in
-					return first.isExpedition || (first.title < second.title)
-		}
 		
 		adapter.configure(with: viewModel)
-//		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//			if let row = self.selectedIndexPath?.row,
-//				row < viewModel.count {
-//				self.adapter.collectionView?.selectItem(at: self.selectedIndexPath, animated: true, scrollPosition: .centeredHorizontally)
-//			}
-//		}
+			if let row = self.selectedIndexPath?.row,
+				row < viewModel.count {
+				self.adapter.collectionView?.selectItem(at: self.selectedIndexPath, animated: false, scrollPosition: .centeredHorizontally)
+			}
 	}
 }
 

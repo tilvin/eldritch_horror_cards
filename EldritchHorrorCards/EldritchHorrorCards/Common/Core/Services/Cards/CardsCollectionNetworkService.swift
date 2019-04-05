@@ -45,10 +45,10 @@ final class CardsCollectionNetworkService: NSObject, CardsCollectionNetworkServi
 					completion(.failure(error: NetworkErrorModel(message: "\(String(.cantParseModel))")))
 					return
 				}
-				var dict: [String: Any] = [:]
-				values.forEach { dict[$0] = "" }
-				
-				let cards = Array(dict.keys).map { return Card(type: $0) }
+//				var dict: [String: Any] = [:]
+//				values.forEach { dict[$0] = "" }
+//
+				let cards = values.map { return Card(type: $0) }
 				completion(.success(cards))
 			}
 		}
