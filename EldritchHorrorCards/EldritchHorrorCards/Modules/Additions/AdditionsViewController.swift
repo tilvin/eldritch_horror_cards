@@ -69,29 +69,31 @@ extension AdditionsViewController: MenuEmbedProtocol {}
 
 extension AdditionsViewController: AdditionsListViewDelegate {
 	
-	func menuButtonAction() {
+	func menuButtonPressed() {
 		let reloadCmd = Command {  (_) in
 			print("reload view!")
 		}
 		menuAction?.perform(with: reloadCmd)
 	}
 	
-	func continueButtonAction() {
-		let provider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
-		let additions = provider.additions.filter { $0.isSelected}.map { String($0.id)}
-		let maps = provider.additions.filter { $0.isSelectedMap }.map { String($0.id)}
+	func continueButtonPressed() {
 		
-		provider.selectAdditions(gameId: gameProvider.game.id, additions: additions, maps: maps) { [weak self] (result) in
-			guard let sSelf = self else { return }
-			
-			switch result {
-			case .success:
-				let controller = MainViewController()
-				controller.modalTransitionStyle = .crossDissolve
-				sSelf.appNavigator?.go(controller: controller, mode: .modal)
-			case .failure(let error):
-				sSelf.showErrorAlert(message: error.message)
-			}
-		}
+		appNavigator?.go(controller: AuthViewController(), mode: .push, animated: true)
+//		let provider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
+//		let additions = provider.additions.filter { $0.isSelected}.map { String($0.id)}
+//		let maps = provider.additions.filter { $0.isSelectedMap }.map { String($0.id)}
+//
+//		provider.selectAdditions(gameId: gameProvider.game.id, additions: additions, maps: maps) { [weak self] (result) in
+//			guard let sSelf = self else { return }
+//
+//			switch result {
+//			case .success:
+//				let controller = MainViewController()
+//				controller.modalTransitionStyle = .crossDissolve
+//				sSelf.appNavigator?.go(controller: controller, mode: .modal)
+//			case .failure(let error):
+//				sSelf.showErrorAlert(message: error.message)
+//			}
+//		}
 	}
 }

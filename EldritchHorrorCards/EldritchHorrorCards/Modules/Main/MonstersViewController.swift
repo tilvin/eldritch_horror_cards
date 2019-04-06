@@ -26,7 +26,7 @@ final class MonstersViewController: JFCardSelectionViewController {
 	private lazy var menuButton: UIButton = {
 		let button = UIButton()
 		button.setImage(UIImage.menuButton, for: .normal)
-		button.addTarget(self, action: #selector(MonstersViewController.menuButtonAction), for: .touchUpInside)
+		button.addTarget(self, action: #selector(menuButtonPressed), for: .touchUpInside)
 		return button
 	}()
 	
@@ -78,7 +78,7 @@ final class MonstersViewController: JFCardSelectionViewController {
 		}
 	}
 	
-	@objc func menuButtonAction(_ sender: UIButton) {
+	@objc private func menuButtonPressed() {
 		let reloadCmd = Command {  (_) in
 			print("reload view!")
 		}
