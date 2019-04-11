@@ -10,8 +10,8 @@ import UIKit
 import SnapKit
 
 protocol AdditionsListViewDelegate: class {
-	func menuButtonAction()
-	func continueButtonAction()
+	func menuButtonPressed()
+	func continueButtonPressed()
 }
 
 extension AdditionsListView {
@@ -44,7 +44,7 @@ final class AdditionsListView: UIView {
 	private lazy var menuButton: UIButton = {
 		let button = UIButton()
 		button.setImage(UIImage.menuButton, for: .normal)
-		button.addTarget(self, action: #selector(menuButtonAction), for: .touchUpInside)
+		button.addTarget(self, action: #selector(menuButtonPressed), for: .touchUpInside)
 		return button
 	}()
 	
@@ -130,10 +130,10 @@ final class AdditionsListView: UIView {
 	//MARK: - Handlers
 	
 	@objc private func continueButtonPressed() {
-		delegate?.continueButtonAction()
+		delegate?.continueButtonPressed()
 	}
 	
-	@objc private func menuButtonAction() {
-		delegate?.menuButtonAction()
+	@objc private func menuButtonPressed() {
+		delegate?.menuButtonPressed()
 	}
 }

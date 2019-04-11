@@ -15,6 +15,7 @@ extension BaseScrollView {
 		let animamtionDuration: TimeInterval = 0.5
 	}
 }
+
 class BaseScrollView: UIView {
 	
 	//MARK: - Private variables
@@ -94,12 +95,12 @@ class BaseScrollView: UIView {
 	private func removeViewFromStack(_ view: UIView, animated: Bool) {
 		let block = {
 			UIView.animate(withDuration: self.appearance.animamtionDuration,
-						   animations: {
-							view.isHidden = true },
-						   completion: { isFinished in
-							guard isFinished else { return }
-							view.removeFromSuperview()
-							self.updateHeight() })
+										 animations: {
+											view.isHidden = true },
+										 completion: { isFinished in
+											guard isFinished else { return }
+											view.removeFromSuperview()
+											self.updateHeight() })
 		}
 		
 		if animated {

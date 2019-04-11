@@ -69,21 +69,23 @@ extension AdditionsViewController: MenuEmbedProtocol {}
 
 extension AdditionsViewController: AdditionsListViewDelegate {
 	
-	func menuButtonAction() {
+	func menuButtonPressed() {
 		let reloadCmd = Command {  (_) in
 			print("reload view!")
 		}
 		menuAction?.perform(with: reloadCmd)
 	}
 	
-	func continueButtonAction() {
+	func continueButtonPressed() {
+		
+//		appNavigator?.go(controller: AuthViewController(), mode: .push, animated: true)
 		let provider = DI.providers.resolve(AdditionDataProviderProtocol.self)!
 		let additions = provider.additions.filter { $0.isSelected}.map { String($0.id)}
 		let maps = provider.additions.filter { $0.isSelectedMap }.map { String($0.id)}
-		
+
 		provider.selectAdditions(gameId: gameProvider.game.id, additions: additions, maps: maps) { [weak self] (result) in
 			guard let sSelf = self else { return }
-			
+
 			switch result {
 			case .success:
 				let controller = MainViewController()
