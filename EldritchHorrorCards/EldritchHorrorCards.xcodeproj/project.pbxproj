@@ -789,10 +789,10 @@
 		A441BBD62109BC3C00EAC5DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F0E79F32112FDED0080C907 /* User.swift */,
+				9F3E4577213522C4002DA88A /* Description.swift */,
 				9FC7F669215AC9BE00A2A7B3 /* Game.swift */,
 				A41AAC2921FB6FAB0002C931 /* Monster.swift */,
-				9F3E4577213522C4002DA88A /* Description.swift */,
+				9F0E79F32112FDED0080C907 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
