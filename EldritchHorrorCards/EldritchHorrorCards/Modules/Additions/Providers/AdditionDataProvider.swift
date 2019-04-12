@@ -9,13 +9,13 @@
 import Foundation
 
 protocol AdditionDataProviderProtocol {
-	var additions: [Addition] { get set }
+	var additions: [AdditionModel] { get set }
 	func load(completion: @escaping (AdditionDataProviderLoadResult) -> Void)
 	func selectAdditions(gameId: Int, additions: [String], maps: [String], completion: @escaping (AdditionDataProviderSelectResult) -> Void)
 }
 
 enum AdditionDataProviderLoadResult {
-	case success([Addition])
+	case success([AdditionModel])
 	case failure(error: NetworkErrorModel)
 }
 
@@ -25,7 +25,7 @@ enum AdditionDataProviderSelectResult {
 }
 
 final class AdditionDataProvider: AdditionDataProviderProtocol {
-	var additions: [Addition] = []
+	var additions: [AdditionModel] = []
 	var session: URLSession?
 	private var dataTask: URLSessionDataTask?
 	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!

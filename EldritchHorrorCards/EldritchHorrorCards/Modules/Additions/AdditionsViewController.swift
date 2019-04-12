@@ -52,12 +52,12 @@ final class AdditionsViewController: BaseViewController {
 
 extension AdditionsViewController: AdditionsListTableAdapterDelegate {
 	
-	func didTapInfo(with model: Addition) {
+	func didTapInfo(with model: AdditionModel) {
 		let controller = DescriptionViewController(with: Description.init(name: model.name, description: model.description))
 		appNavigator?.go(controller: controller, mode: .push)
 	}
 	
-	func update(with model: Addition) {
+	func update(with model: AdditionModel) {
 		guard let item = additionProvider.additions.enumerated().filter({ (_, item) -> Bool in
 			return item.id == model.id
 		}).first else { return }

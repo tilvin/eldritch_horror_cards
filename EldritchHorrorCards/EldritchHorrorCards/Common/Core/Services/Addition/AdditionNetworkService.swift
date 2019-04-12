@@ -14,7 +14,7 @@ protocol AdditionNetworkServiceProtocol {
 }
 
 enum AdditionNetworkServiceLoadResult {
-	case success([Addition])
+	case success([AdditionModel])
 	case failure(error: NetworkErrorModel)
 }
 
@@ -45,14 +45,11 @@ final class AdditionNetworkService: NSObject, AdditionNetworkServiceProtocol {
 				return
 			}
 			
-			let parser = DI.providers.resolve(DataParseServiceProtocol.self)!
-			parser.parse(type: [Addition].self, data: data) { result in
-				if let value = result {
-					completion(.success(value))
-				}
-				else {
-					completion(.failure(error: NetworkErrorModel(message: String(.cantParseModel))))
-				}
+			if let collection = try? JSONDecoder().decode(AdditionModelContainer<AdditionModel>.self, from: data) {
+					completion(.success(collection.data))
+			}
+			else {
+				completion(.failure(error: NetworkErrorModel(message: String(.cantParseModel))))
 			}
 		}
 		dataTask.resume()

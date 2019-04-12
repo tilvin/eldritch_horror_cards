@@ -11,7 +11,7 @@
 		5581953C9BCA2678DA8B3DFB /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55819F9357AE6E6CD4A64D19 /* APIRequest.swift */; };
 		55819C1F418C92A5B34A1CAE /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581983F398902734317516E /* UserDefaultsDataStore.swift */; };
 		9F0E79F42112FDED0080C907 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E79F32112FDED0080C907 /* User.swift */; };
-		9F171C58211D59DE005A8264 /* Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C57211D59DE005A8264 /* Addition.swift */; };
+		9F171C58211D59DE005A8264 /* AdditionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C57211D59DE005A8264 /* AdditionModel.swift */; };
 		9F171C5A211D5AB6005A8264 /* AdditionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */; };
 		9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F322867210B855C00ECD4A4 /* ImageCell.swift */; };
 		9F3CBDA12110CB6F00E842A4 /* monsters.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9F3CBDA02110CB6F00E842A4 /* monsters.zip */; };
@@ -202,7 +202,7 @@
 		55819F9357AE6E6CD4A64D19 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		7E173171A603D8BE45B3DF16 /* Pods-EldritchHorrorCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EldritchHorrorCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-EldritchHorrorCards/Pods-EldritchHorrorCards.release.xcconfig"; sourceTree = "<group>"; };
 		9F0E79F32112FDED0080C907 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		9F171C57211D59DE005A8264 /* Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addition.swift; sourceTree = "<group>"; };
+		9F171C57211D59DE005A8264 /* AdditionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionModel.swift; sourceTree = "<group>"; };
 		9F171C59211D5AB6005A8264 /* AdditionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionDataProvider.swift; sourceTree = "<group>"; };
 		9F322867210B855C00ECD4A4 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		9F3CBDA02110CB6F00E842A4 /* monsters.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = monsters.zip; sourceTree = "<group>"; };
@@ -652,7 +652,7 @@
 		A42CC7FA21E3D9D000AE2168 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F171C57211D59DE005A8264 /* Addition.swift */,
+				9F171C57211D59DE005A8264 /* AdditionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1447,7 +1447,7 @@
 				A4F3B1D8212ECB8A00F03E7B /* ViewController.swift in Sources */,
 				A4B8161120D01D6000FC5651 /* BaseViewController.swift in Sources */,
 				9F61A1EB2170751300A5003C /* PlotStoryController.swift in Sources */,
-				9F171C58211D59DE005A8264 /* Addition.swift in Sources */,
+				9F171C58211D59DE005A8264 /* AdditionModel.swift in Sources */,
 				A4FDB01320D413DE00FA6E4B /* ShadowAttributes.swift in Sources */,
 				A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */,
 				9F80B99B210C3C96007C4396 /* CardsViewController.swift in Sources */,
