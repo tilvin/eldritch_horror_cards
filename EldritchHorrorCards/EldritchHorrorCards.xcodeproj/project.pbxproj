@@ -26,12 +26,6 @@
 		9FC7F668215AC90500A2A7B3 /* GameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F667215AC90500A2A7B3 /* GameProvider.swift */; };
 		9FC7F66A215AC9BE00A2A7B3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7F669215AC9BE00A2A7B3 /* Game.swift */; };
 		A415C7E622586BE20043EC93 /* KeyboardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A415C7E422586BE20043EC93 /* KeyboardScrollView.swift */; };
-		A4196D1C2257CB55002E1CA1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4196D122257CB55002E1CA1 /* AuthViewController.swift */; };
-		A4196D1D2257CB55002E1CA1 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4196D142257CB55002E1CA1 /* AuthProvider.swift */; };
-		A4196D1E2257CB55002E1CA1 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4196D162257CB55002E1CA1 /* AuthViewModel.swift */; };
-		A4196D1F2257CB55002E1CA1 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4196D182257CB55002E1CA1 /* AuthView.swift */; };
-		A4196D202257CB55002E1CA1 /* AuthTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4196D1A2257CB55002E1CA1 /* AuthTextViewModel.swift */; };
-		A4196D212257CB55002E1CA1 /* AuthTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4196D1B2257CB55002E1CA1 /* AuthTextView.swift */; };
 		A41AAC2A21FB6FAB0002C931 /* MonsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41AAC2921FB6FAB0002C931 /* MonsterModel.swift */; };
 		A4208333212B1AFB0081E762 /* BaseTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208331212B1AFB0081E762 /* BaseTableAdapter.swift */; };
 		A4208334212B1AFB0081E762 /* StaticTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208332212B1AFB0081E762 /* StaticTableAdapter.swift */; };
@@ -139,6 +133,12 @@
 		A4D220922168B6DE00EF790F /* HTTPURLResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D220912168B6DE00EF790F /* HTTPURLResponseExtension.swift */; };
 		A4D220942168CAAD00EF790F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D220932168CAAD00EF790F /* Alert.swift */; };
 		A4D42A7A220729D300574B9D /* AdditionDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D42A79220729D300574B9D /* AdditionDataProviderTests.swift */; };
+		A4D60ED7226109930092424F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D60ECD226109930092424F /* AuthViewController.swift */; };
+		A4D60ED8226109930092424F /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D60ECF226109930092424F /* AuthProvider.swift */; };
+		A4D60ED9226109930092424F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D60ED1226109930092424F /* AuthViewModel.swift */; };
+		A4D60EDA226109930092424F /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D60ED3226109930092424F /* AuthView.swift */; };
+		A4D60EDB226109930092424F /* AuthTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D60ED5226109930092424F /* AuthTextViewModel.swift */; };
+		A4D60EDC226109930092424F /* AuthTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D60ED6226109930092424F /* AuthTextView.swift */; };
 		A4F288522173DEC9004CBA25 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F288512173DEC9004CBA25 /* Strings.swift */; };
 		A4F3B1D6212ECB8A00F03E7B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3B1CB212ECB8A00F03E7B /* Color.swift */; };
 		A4F3B1D7212ECB8A00F03E7B /* ViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3B1CC212ECB8A00F03E7B /* ViewAnimation.swift */; };
@@ -218,12 +218,6 @@
 		9FC7F669215AC9BE00A2A7B3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		9FDEF5729FBE4F69CDD80823 /* Pods_EldritchHorrorCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EldritchHorrorCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A415C7E422586BE20043EC93 /* KeyboardScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardScrollView.swift; sourceTree = "<group>"; };
-		A4196D122257CB55002E1CA1 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		A4196D142257CB55002E1CA1 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
-		A4196D162257CB55002E1CA1 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		A4196D182257CB55002E1CA1 /* AuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		A4196D1A2257CB55002E1CA1 /* AuthTextViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTextViewModel.swift; sourceTree = "<group>"; };
-		A4196D1B2257CB55002E1CA1 /* AuthTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTextView.swift; sourceTree = "<group>"; };
 		A41AAC2921FB6FAB0002C931 /* MonsterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterModel.swift; sourceTree = "<group>"; };
 		A4208331212B1AFB0081E762 /* BaseTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableAdapter.swift; sourceTree = "<group>"; };
 		A4208332212B1AFB0081E762 /* StaticTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableAdapter.swift; sourceTree = "<group>"; };
@@ -334,6 +328,12 @@
 		A4D220912168B6DE00EF790F /* HTTPURLResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPURLResponseExtension.swift; sourceTree = "<group>"; };
 		A4D220932168CAAD00EF790F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A4D42A79220729D300574B9D /* AdditionDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionDataProviderTests.swift; sourceTree = "<group>"; };
+		A4D60ECD226109930092424F /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		A4D60ECF226109930092424F /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		A4D60ED1226109930092424F /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		A4D60ED3226109930092424F /* AuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		A4D60ED5226109930092424F /* AuthTextViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTextViewModel.swift; sourceTree = "<group>"; };
+		A4D60ED6226109930092424F /* AuthTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTextView.swift; sourceTree = "<group>"; };
 		A4F288512173DEC9004CBA25 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A4F3B1CB212ECB8A00F03E7B /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A4F3B1CC212ECB8A00F03E7B /* ViewAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAnimation.swift; sourceTree = "<group>"; };
@@ -448,52 +448,6 @@
 				9F61A1EC217079C800A5003C /* PlotStoryViewModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A4196D112257CB55002E1CA1 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				A4196D122257CB55002E1CA1 /* AuthViewController.swift */,
-				A4196D152257CB55002E1CA1 /* Model */,
-				A4196D132257CB55002E1CA1 /* Provider */,
-				A4196D172257CB55002E1CA1 /* Views */,
-			);
-			name = Auth;
-			path = ../../../tmp/_UNUSED/Auth;
-			sourceTree = "<group>";
-		};
-		A4196D132257CB55002E1CA1 /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				A4196D142257CB55002E1CA1 /* AuthProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
-		A4196D152257CB55002E1CA1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A4196D162257CB55002E1CA1 /* AuthViewModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A4196D172257CB55002E1CA1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A4196D182257CB55002E1CA1 /* AuthView.swift */,
-				A4196D192257CB55002E1CA1 /* AuthTextView */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		A4196D192257CB55002E1CA1 /* AuthTextView */ = {
-			isa = PBXGroup;
-			children = (
-				A4196D1A2257CB55002E1CA1 /* AuthTextViewModel.swift */,
-				A4196D1B2257CB55002E1CA1 /* AuthTextView.swift */,
-			);
-			path = AuthTextView;
 			sourceTree = "<group>";
 		};
 		A4208330212B1AE50081E762 /* TableAdapter */ = {
@@ -799,7 +753,7 @@
 			isa = PBXGroup;
 			children = (
 				A4C2532F211DEE4400E0FF37 /* Additions */,
-				A4196D112257CB55002E1CA1 /* Auth */,
+				A4D60ECC226109930092424F /* Auth */,
 				A42190A921985AC500AADC68 /* CardsCollection */,
 				A4208356212BE06E0081E762 /* Description */,
 				A4978E7C21D0D78C00329AB2 /* LocationStory */,
@@ -1190,6 +1144,51 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
+		A4D60ECC226109930092424F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A4D60ECD226109930092424F /* AuthViewController.swift */,
+				A4D60ECE226109930092424F /* Provider */,
+				A4D60ED0226109930092424F /* Model */,
+				A4D60ED2226109930092424F /* Views */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		A4D60ECE226109930092424F /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				A4D60ECF226109930092424F /* AuthProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		A4D60ED0226109930092424F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4D60ED1226109930092424F /* AuthViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A4D60ED2226109930092424F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4D60ED3226109930092424F /* AuthView.swift */,
+				A4D60ED4226109930092424F /* AuthTextView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4D60ED4226109930092424F /* AuthTextView */ = {
+			isa = PBXGroup;
+			children = (
+				A4D60ED5226109930092424F /* AuthTextViewModel.swift */,
+				A4D60ED6226109930092424F /* AuthTextView.swift */,
+			);
+			path = AuthTextView;
+			sourceTree = "<group>";
+		};
 		A4E422812129A87D00244744 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1468,7 +1467,6 @@
 				A4563B0B20F8846100B65428 /* ConfigProvider.swift in Sources */,
 				9F80B99B210C3C96007C4396 /* CardsViewController.swift in Sources */,
 				A49043082145610200397AC9 /* UIScreenExtension.swift in Sources */,
-				A4196D1C2257CB55002E1CA1 /* AuthViewController.swift in Sources */,
 				A4A9102E21285AD900652D25 /* DescriptionViewController.swift in Sources */,
 				9FC7F668215AC90500A2A7B3 /* GameProvider.swift in Sources */,
 				A45FBB932221F3E500483412 /* CardNetworkService.swift in Sources */,
@@ -1493,9 +1491,8 @@
 				A479428F210C8F6000ED0851 /* MenuViewModel.swift in Sources */,
 				A4F3B1DB212ECB8A00F03E7B /* Inspectable.swift in Sources */,
 				A48C461320FD0D8000DF1687 /* MonsterDataProvider.swift in Sources */,
-				A4196D202257CB55002E1CA1 /* AuthTextViewModel.swift in Sources */,
+				A4D60ED8226109930092424F /* AuthProvider.swift in Sources */,
 				A47B356721A4870B00C12A45 /* NotificationExtantion.swift in Sources */,
-				A4196D1E2257CB55002E1CA1 /* AuthViewModel.swift in Sources */,
 				A4F3B1DE212ECB8A00F03E7B /* ExtTextField.swift in Sources */,
 				A479428D210C776500ED0851 /* AvatarView.swift in Sources */,
 				A45D1890219E0B1900F330D6 /* TableEmptyView.swift in Sources */,
@@ -1515,6 +1512,7 @@
 				A45E565F210B0C8800590AE7 /* Images.swift in Sources */,
 				A4B816CE20D021DC00FC5651 /* MenuViewController.swift in Sources */,
 				A4208334212B1AFB0081E762 /* StaticTableAdapter.swift in Sources */,
+				A4D60EDC226109930092424F /* AuthTextView.swift in Sources */,
 				A4FDB01420D413DE00FA6E4B /* PointerLayer.swift in Sources */,
 				A415C7E622586BE20043EC93 /* KeyboardScrollView.swift in Sources */,
 				A4FDAFA020D3BC9200FA6E4B /* MonstersViewController.swift in Sources */,
@@ -1524,6 +1522,7 @@
 				A46704E121A5FFC100582ABB /* InternetStatusView.swift in Sources */,
 				A45D18C021A0527B00F330D6 /* StaticCollectionAdapter.swift in Sources */,
 				A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */,
+				A4D60EDA226109930092424F /* AuthView.swift in Sources */,
 				A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */,
 				A41AAC2A21FB6FAB0002C931 /* MonsterModel.swift in Sources */,
 				A45FBB562221CEAD00483412 /* AdditionNetworkService.swift in Sources */,
@@ -1552,19 +1551,17 @@
 				A45E5665210B33DC00590AE7 /* MenuView.swift in Sources */,
 				A47B355321A4823300C12A45 /* NetworkProtocol.swift in Sources */,
 				9F322868210B855C00ECD4A4 /* ImageCell.swift in Sources */,
+				A4D60ED7226109930092424F /* AuthViewController.swift in Sources */,
 				A47B354D21A4734E00C12A45 /* AlertHelper.swift in Sources */,
 				A45D18BF21A0527B00F330D6 /* CollectionCellConfiguration.swift in Sources */,
 				A45D18C121A0527B00F330D6 /* BaseCollectionAdapter.swift in Sources */,
 				A4A9DC9521D1520B00EC2F5E /* PlotStoryModel.swift in Sources */,
 				A4F3B1DD212ECB8A00F03E7B /* View.swift in Sources */,
 				A45FBB532221C36900483412 /* MonsterNetworkService.swift in Sources */,
-				A4196D1F2257CB55002E1CA1 /* AuthView.swift in Sources */,
-				A4196D212257CB55002E1CA1 /* AuthTextView.swift in Sources */,
 				A4978E7E21D0E15000329AB2 /* LocalStoryViewController.swift in Sources */,
 				9F61A1ED217079C800A5003C /* PlotStoryViewModel.swift in Sources */,
 				A45E5662210B32F500590AE7 /* BaseScrollView.swift in Sources */,
 				A4FDB01520D413DE00FA6E4B /* JFCardSelectionViewFlowLayout.swift in Sources */,
-				A4196D1D2257CB55002E1CA1 /* AuthProvider.swift in Sources */,
 				A4B35E5C217B421C002496E7 /* NSPredicateExtension.swift in Sources */,
 				A4563ADF20F7DBF500B65428 /* String.swift in Sources */,
 				A4563B0120F880BB00B65428 /* Navigator.swift in Sources */,
@@ -1594,8 +1591,10 @@
 				5581953C9BCA2678DA8B3DFB /* APIRequest.swift in Sources */,
 				A4F3B1D9212ECB8A00F03E7B /* UIViewControllerExtension.swift in Sources */,
 				A4F3B1E0212ECB8A00F03E7B /* Window.swift in Sources */,
+				A4D60ED9226109930092424F /* AuthViewModel.swift in Sources */,
 				A46EE7CC2139244C00F47026 /* Keyboardable.swift in Sources */,
 				A420833A212B1B0B0081E762 /* TableCellConfiguration.swift in Sources */,
+				A4D60EDB226109930092424F /* AuthTextViewModel.swift in Sources */,
 				A4208342212B51C40081E762 /* AdditionsViewController.swift in Sources */,
 				9F61A1E72170746C00A5003C /* PlotStoryView.swift in Sources */,
 			);
