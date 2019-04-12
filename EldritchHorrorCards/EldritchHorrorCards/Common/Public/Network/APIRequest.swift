@@ -161,7 +161,7 @@ extension APIRequest {
 	
 	private var apiVersionPath: String {
 		switch self {
-		case .gameSets:
+		case .gameSets, .ancients:
 			return "/v2"
 		default:
 			return "/v1"

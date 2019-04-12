@@ -35,7 +35,7 @@ class MainViewController: BaseViewController {
 
 extension MainViewController: MonstersViewControllerDelegate {
 	
-	func call(monster: Monster) {
+	func call(monster: MonsterModel) {
 		let provider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 		
@@ -53,7 +53,7 @@ extension MainViewController: MonstersViewControllerDelegate {
 		}
 	}
 	
-	func showDetail(monster: Monster) {
+	func showDetail(monster: MonsterModel) {
 		let controller = MonsterDetailViewController.controllerFromStoryboard(.main)
 		controller.monster = monster
 		appNavigator?.go(controller: controller, mode: .push)

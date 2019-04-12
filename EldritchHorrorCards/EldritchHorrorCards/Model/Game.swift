@@ -13,7 +13,7 @@ struct Game: Equatable {
 	var token: String = ""
 	var expeditionLocation: String = ""
 	var expireDate: Date = Date().adjust(.day, offset: 2)
-	var selectedAncient: Monster?
+	var selectedAncient: MonsterModel?
 	var isValid: Bool { return id > 0 }
 	var isSessionActive: Bool { return Date() > expireDate || token.isEmpty }
 	var cards: [Card] = []
@@ -52,7 +52,7 @@ extension Game: Codable {
 			self.expireDate = value
 		}
 		
-		self.selectedAncient = try? values.decode(Monster.self, forKey: .selectedAncient)
+		self.selectedAncient = try? values.decode(MonsterModel.self, forKey: .selectedAncient)
 		
 		if let value = try? values.decode([Card].self, forKey: .cards) {
 			self.cards = value
@@ -73,7 +73,7 @@ extension Game: Codable {
 		try container.encode(cards, forKey: .cards)
 		try container.encode(isNewGame, forKey: .isNewGame)
 	}
- 
+	
 	mutating func setCardTypes(cardTypes: [Card]) {
 		cards = cardTypes
 	}

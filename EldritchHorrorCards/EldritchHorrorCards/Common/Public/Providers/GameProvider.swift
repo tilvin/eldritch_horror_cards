@@ -11,7 +11,7 @@ import Foundation
 protocol GameDataProviderProtocol {
 	var game: Game { get set }
 	func loadGame(completion: @escaping (GameDataProviderResults) -> Void)
-	func setSelectedAncient(ancient: Monster)
+	func setSelectedAncient(ancient: MonsterModel)
 	func removeGame()
 }
 
@@ -81,7 +81,7 @@ final class GameDataProvider: GameDataProviderProtocol {
 		}
 	}
 	
-	public func setSelectedAncient(ancient: Monster) {
+	public func setSelectedAncient(ancient: MonsterModel) {
 		game.selectedAncient = ancient
 	}
 	

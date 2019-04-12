@@ -55,15 +55,15 @@ final class GameNetworkService: NSObject, GameNetworkServiceProtocol {
 				return
 			}
 			
-			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: Game.self, data: data) { (result) in
-				if let value = result {
-					completion(.success(value))
-					return
-				}
-				else {
-					completion(.failure(error: NetworkErrorModel(message: "\(String(.cantParseModel))")))
-				}
-			}
+//			DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: Game.self, data: data) { (result) in
+//				if let value = result {
+//					completion(.success(value))
+//					return
+//				}
+//				else {
+//					completion(.failure(error: NetworkErrorModel(message: "\(String(.cantParseModel))")))
+//				}
+//			}
 		}
 		dataTask?.resume()
 	}

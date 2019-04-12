@@ -32,7 +32,7 @@
 		A4196D1F2257CB55002E1CA1 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4196D182257CB55002E1CA1 /* AuthView.swift */; };
 		A4196D202257CB55002E1CA1 /* AuthTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4196D1A2257CB55002E1CA1 /* AuthTextViewModel.swift */; };
 		A4196D212257CB55002E1CA1 /* AuthTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4196D1B2257CB55002E1CA1 /* AuthTextView.swift */; };
-		A41AAC2A21FB6FAB0002C931 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41AAC2921FB6FAB0002C931 /* Monster.swift */; };
+		A41AAC2A21FB6FAB0002C931 /* MonsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41AAC2921FB6FAB0002C931 /* MonsterModel.swift */; };
 		A4208333212B1AFB0081E762 /* BaseTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208331212B1AFB0081E762 /* BaseTableAdapter.swift */; };
 		A4208334212B1AFB0081E762 /* StaticTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208332212B1AFB0081E762 /* StaticTableAdapter.swift */; };
 		A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4208336212B1B0B0081E762 /* TableSectionConfiguration.swift */; };
@@ -224,7 +224,7 @@
 		A4196D182257CB55002E1CA1 /* AuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		A4196D1A2257CB55002E1CA1 /* AuthTextViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTextViewModel.swift; sourceTree = "<group>"; };
 		A4196D1B2257CB55002E1CA1 /* AuthTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTextView.swift; sourceTree = "<group>"; };
-		A41AAC2921FB6FAB0002C931 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
+		A41AAC2921FB6FAB0002C931 /* MonsterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterModel.swift; sourceTree = "<group>"; };
 		A4208331212B1AFB0081E762 /* BaseTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableAdapter.swift; sourceTree = "<group>"; };
 		A4208332212B1AFB0081E762 /* StaticTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableAdapter.swift; sourceTree = "<group>"; };
 		A4208336212B1B0B0081E762 /* TableSectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionConfiguration.swift; sourceTree = "<group>"; };
@@ -780,7 +780,6 @@
 				9F61A1F02171F90700A5003C /* CardDataProvider.swift */,
 				A4563B0A20F8846100B65428 /* ConfigProvider.swift */,
 				9FC7F667215AC90500A2A7B3 /* GameProvider.swift */,
-				A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */,
 				A47B355421A4827C00C12A45 /* Network */,
 			);
 			path = Providers;
@@ -791,7 +790,6 @@
 			children = (
 				9F3E4577213522C4002DA88A /* Description.swift */,
 				9FC7F669215AC9BE00A2A7B3 /* Game.swift */,
-				A41AAC2921FB6FAB0002C931 /* Monster.swift */,
 				9F0E79F32112FDED0080C907 /* User.swift */,
 			);
 			path = Model;
@@ -818,6 +816,8 @@
 				A479427C210C2FED00ED0851 /* MainViewController.swift */,
 				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
 				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
+				A4D60EC22260D2C80092424F /* Provider */,
+				A4D60EC12260D29E0092424F /* Model */,
 				A4FE642320D0111D0064E52E /* Main.storyboard */,
 			);
 			path = Main;
@@ -1174,6 +1174,22 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
+		A4D60EC12260D29E0092424F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A41AAC2921FB6FAB0002C931 /* MonsterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A4D60EC22260D2C80092424F /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				A48C461220FD0D8000DF1687 /* MonsterDataProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
 		A4E422812129A87D00244744 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1509,7 +1525,7 @@
 				A45D18C021A0527B00F330D6 /* StaticCollectionAdapter.swift in Sources */,
 				A4FDB00D20D413DE00FA6E4B /* JFCardSelectionViewController+CollectionView.swift in Sources */,
 				A4208339212B1B0B0081E762 /* TableSectionConfiguration.swift in Sources */,
-				A41AAC2A21FB6FAB0002C931 /* Monster.swift in Sources */,
+				A41AAC2A21FB6FAB0002C931 /* MonsterModel.swift in Sources */,
 				A45FBB562221CEAD00483412 /* AdditionNetworkService.swift in Sources */,
 				A4978E8321D0E4E400329AB2 /* UIBarButtonItemExtension.swift in Sources */,
 				A420833B212B1B0B0081E762 /* TableViewHeaderFooterConfiguration.swift in Sources */,

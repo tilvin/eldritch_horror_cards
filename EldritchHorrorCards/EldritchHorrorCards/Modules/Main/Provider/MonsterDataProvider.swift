@@ -10,11 +10,11 @@ import Foundation
 
 protocol MonsterDataProviderProtocol {
 	func load(gameId: Int, completion: @escaping (MonsterDataProviderLoadResult) -> Void)
-	func selectAncient(gameId: Int, ancient: Monster, completion: @escaping (MonsterDataProviderSelectResult) -> Void)
+	func selectAncient(gameId: Int, ancient: MonsterModel, completion: @escaping (MonsterDataProviderSelectResult) -> Void)
 }
 
 enum MonsterDataProviderLoadResult {
-	case success([Monster])
+	case success([MonsterModel])
 	case failure(error: NetworkErrorModel)
 }
 
@@ -48,7 +48,7 @@ final class MonsterDataProvider: NSObject, MonsterDataProviderProtocol {
 		}
 	}
 	
-	func selectAncient(gameId: Int, ancient: Monster, completion: @escaping (MonsterDataProviderSelectResult) -> Void) {
+	func selectAncient(gameId: Int, ancient: MonsterModel, completion: @escaping (MonsterDataProviderSelectResult) -> Void) {
 		monsterNetworkService.selectAncient(gameId: gameId, ancient: ancient) { (result) in
 			switch result {
 			case .success:

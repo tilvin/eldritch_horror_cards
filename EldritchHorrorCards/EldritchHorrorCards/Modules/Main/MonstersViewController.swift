@@ -2,8 +2,8 @@ import UIKit
 import SnapKit
 
 protocol MonstersViewControllerDelegate: class {
-	func call(monster: Monster)
-	func showDetail(monster: Monster)
+	func call(monster: MonsterModel)
+	func showDetail(monster: MonsterModel)
 }
 
 final class MonstersViewController: JFCardSelectionViewController {
@@ -18,7 +18,7 @@ final class MonstersViewController: JFCardSelectionViewController {
     //MARK: - Private variables
     
 	private var monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
-	private var monsters: [Monster] = []
+	private var monsters: [MonsterModel] = []
     private let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
     
     //MARK: - Private lazy variables
