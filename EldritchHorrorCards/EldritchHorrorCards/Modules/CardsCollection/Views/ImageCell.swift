@@ -5,6 +5,9 @@ extension ImageCell {
 	
 	struct Appearance {
 		let spacing: CGFloat = 10
+		let shadowOpacity: CGFloat = 1
+		let shadowRadius: CGFloat = 4
+		let numberOfLines: Int = 0
 	}
 }
 
@@ -59,10 +62,10 @@ final class ImageCell: BaseCollectionViewCell {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		self.shadowOffset = CGPoint.zero
-		self.shadowOpacity = 1
-		self.shadowRadius = 4
+		self.shadowOpacity = appearance.shadowOpacity
+		self.shadowRadius = appearance.shadowRadius
 		self.shadowColor = UIColor.darkGray
-		self.typeLabel.numberOfLines = 0
+		self.typeLabel.numberOfLines = appearance.numberOfLines
 	}
 	
 	//MARK: - Public

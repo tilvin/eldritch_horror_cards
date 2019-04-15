@@ -17,6 +17,10 @@ extension CardsView {
 	struct Appearance {
 		let collectionViewTopOffset: CGFloat = 80
 		let itemSizeIndex: CGFloat = 0.6
+		let itemAlpha: CGFloat = 0.6
+		let itemScale: CGFloat = 0.8
+		let collectionViewSpacingMode: CGFloat = 10
+		let collectionViewContentInset = UIEdgeInsetsMake(0, 30, 0, 30)
 	}
 }
 
@@ -36,13 +40,13 @@ final class CardsView: UIView {
 	lazy var cartCollectionView: UICollectionView = {
 		let layout = UPCarouselFlowLayout()
 		layout.scrollDirection = .horizontal
-		layout.sideItemAlpha = 0.6
-		layout.sideItemScale = 0.8
-		layout.spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 10)
+		layout.sideItemAlpha = appearance.itemAlpha
+		layout.sideItemScale = appearance.itemScale
+		layout.spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: appearance.collectionViewSpacingMode)
 		layout.itemSize = CGSize(width: UIScreen.main.bounds.width * appearance.itemSizeIndex, height: UIScreen.main.bounds.height * appearance.itemSizeIndex)
 		let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
 		view.backgroundColor = UIColor.wildSand
-		view.contentInset = UIEdgeInsetsMake(0, 30, 0, 30)
+		view.contentInset = appearance.collectionViewContentInset
 		view.decelerationRate = UIScrollViewDecelerationRateFast
 		return view
 	}()

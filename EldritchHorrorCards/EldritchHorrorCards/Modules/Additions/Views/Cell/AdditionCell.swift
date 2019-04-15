@@ -15,6 +15,19 @@ protocol AdditionCellDelegate: class {
 	func infoPressed(with model: AdditionModel)
 }
 
+extension AdditionCell {
+	
+	struct Appearance {
+		let titleStackSpacing: CGFloat = 5
+		let buttonStackSpacing: CGFloat = 20
+		let buttonAlphaEnebled: CGFloat = 1
+		let buttonAlphaDisabled: CGFloat = 0.5
+		let stackViewLeftRightTopBottomOffset: CGFloat = 20
+		let separateLineHeight: CGFloat = 1
+		let separateLineLeftOffset: CGFloat = 20
+	}
+}
+
 final class AdditionCell: BaseTableViewCell {
 	
 	var model: AdditionModel!
@@ -22,6 +35,8 @@ final class AdditionCell: BaseTableViewCell {
 	var delegate: AdditionCellDelegate?
 	
 	var titleLabel = UILabel(font: .bold16, textColor: .mako)
+	
+	private let appearance = Appearance()
 	
 	lazy var selectSwitch: UISwitch = {
 		let view = UISwitch()
@@ -55,7 +70,7 @@ final class AdditionCell: BaseTableViewCell {
 		titleStack.axis = .horizontal
 		titleStack.distribution = .fill
 		titleStack.alignment = .center
-		titleStack.spacing = 5
+		titleStack.spacing = appearance.titleStackSpacing
 		
 		titleStack.addArrangedSubview(titleLabel)
 		titleStack.addArrangedSubview(selectSwitch)
@@ -63,7 +78,7 @@ final class AdditionCell: BaseTableViewCell {
 		var buttonStack = UIStackView()
 		buttonStack.axis = .horizontal
 		buttonStack.distribution = .fill
-		buttonStack.spacing = 20
+		buttonStack.spacing = appearance.buttonStackSpacing
 		
 		buttonStack.addArrangedSubview(infoButton)
 		buttonStack.addArrangedSubview(mapButton)
@@ -95,7 +110,7 @@ final class AdditionCell: BaseTableViewCell {
 	public func update(with viewModel: AdditionModel) {
 		model = viewModel
 		titleLabel.text = model.name
-		mapButton.alpha = model.isSelectedMap ? 1 : 0.5
+		mapButton.alpha = model.isSelectedMap ? appearance.buttonAlphaEnebled : appearance.buttonAlphaDisabled
 		mapButton.isHidden = !model.hasMap
 		selectSwitch.isOn = model.isSelected
 	}
@@ -107,15 +122,15 @@ final class AdditionCell: BaseTableViewCell {
 	
 	private func makeConstraints() {
 		stackView.snp.makeConstraints { (make) in
-			make.left.right.equalToSuperview().inset(20)
-			make.top.equalToSuperview().inset(20)
-			make.bottom.equalToSuperview().inset(20)
+			make.left.right.equalToSuperview().inset(appearance.stackViewLeftRightTopBottomOffset)
+			make.top.equalToSuperview().inset(appearance.stackViewLeftRightTopBottomOffset)
+			make.bottom.equalToSuperview().inset(appearance.stackViewLeftRightTopBottomOffset)
 		}
 		
 		separateLine.snp.makeConstraints { (make) in
-			make.height.equalTo(1)
+			make.height.equalTo(appearance.separateLineHeight)
 			make.bottom.equalToSuperview()
-			make.left.equalToSuperview().inset(20)
+			make.left.equalToSuperview().inset(appearance.separateLineLeftOffset)
 			make.right.equalToSuperview()
 		}
 	}
@@ -132,8 +147,8 @@ final class AdditionCell: BaseTableViewCell {
 	}
 	
 	@objc private func mapPressed() {
-		mapButton.alpha = mapButton.alpha == 1 ? 0.5 : 1
-		model.isSelectedMap = mapButton.alpha == 1
+		mapButton.alpha = mapButton.alpha == appearance.buttonAlphaEnebled ? appearance.buttonAlphaDisabled : appearance.buttonAlphaEnebled
+		model.isSelectedMap = mapButton.alpha == appearance.buttonAlphaEnebled
 		if !selectSwitch.isOn, model.isSelectedMap {
 			selectSwitch.isOn = true
 			model.isSelected = true

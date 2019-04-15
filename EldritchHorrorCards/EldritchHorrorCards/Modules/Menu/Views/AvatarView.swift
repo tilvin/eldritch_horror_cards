@@ -9,13 +9,25 @@
 import UIKit
 import SnapKit
 
+extension AvatarView {
+	
+	struct Appearance {
+		let borderWidth: CGFloat = 5
+		let shadowOpacity: CGFloat = 1
+		let shadowRadius: CGFloat = 4
+		let shadowOffset = CGPoint(x: 0, y: 0)
+	}
+}
+
 class AvatarView: DesignableView {
+	
+	private let appearance = Appearance()
 	
 	private lazy var avatarContentView: DesignableView = {
 		let view = DesignableView()
 		view.backgroundColor = .white
 		view.borderColor = UIColor.wildSand
-		view.borderWidth = 5
+		view.borderWidth = appearance.borderWidth
 		view.computeCornerRadius = true
 		view.clipsToBounds = true
 		return view
@@ -55,9 +67,9 @@ class AvatarView: DesignableView {
 	private func setAppearence() {
 		backgroundColor = UIColor.wildSand
 		computeCornerRadius = true
-		shadowOpacity = 1
-		shadowRadius = 4
-		shadowOffset = CGPoint(x: 0, y: 0)
+		shadowOpacity = appearance.shadowOpacity
+		shadowRadius = appearance.shadowRadius
+		shadowOffset = appearance.shadowOffset
 		shadowColor = .black
 	}
 	
