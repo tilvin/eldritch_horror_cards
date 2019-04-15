@@ -121,6 +121,7 @@
 		A4A9DC9521D1520B00EC2F5E /* PlotStoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9DC9421D1520B00EC2F5E /* PlotStoryModel.swift */; };
 		A4A9DC9721D156B300EC2F5E /* NetworkErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9DC9621D156B300EC2F5E /* NetworkErrorModel.swift */; };
 		A4AA1E532119831E000121C0 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */; };
+		A4B0B45622649BB2001D62A4 /* ModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0B45522649BB2001D62A4 /* ModelContainer.swift */; };
 		A4B35E4F217A813C002496E7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E4E217A813C002496E7 /* UIImageExtension.swift */; };
 		A4B35E5A217A8A4A002496E7 /* DefaultAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E59217A8A4A002496E7 /* DefaultAppearance.swift */; };
 		A4B35E5C217B421C002496E7 /* NSPredicateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35E5B217B421C002496E7 /* NSPredicateExtension.swift */; };
@@ -315,6 +316,7 @@
 		A4A9DC9421D1520B00EC2F5E /* PlotStoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotStoryModel.swift; sourceTree = "<group>"; };
 		A4A9DC9621D156B300EC2F5E /* NetworkErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorModel.swift; sourceTree = "<group>"; };
 		A4AA1E522119831E000121C0 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
+		A4B0B45522649BB2001D62A4 /* ModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainer.swift; sourceTree = "<group>"; };
 		A4B35E4E217A813C002496E7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		A4B35E59217A8A4A002496E7 /* DefaultAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppearance.swift; sourceTree = "<group>"; };
 		A4B35E5B217B421C002496E7 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
@@ -744,6 +746,7 @@
 			children = (
 				9F3E4577213522C4002DA88A /* Description.swift */,
 				9FC7F669215AC9BE00A2A7B3 /* Game.swift */,
+				A4B0B45522649BB2001D62A4 /* ModelContainer.swift */,
 				9F0E79F32112FDED0080C907 /* User.swift */,
 			);
 			path = Model;
@@ -770,9 +773,9 @@
 				A479427C210C2FED00ED0851 /* MainViewController.swift */,
 				A4FDAFA420D3E7DE00FA6E4B /* MonsterDetailViewController.swift */,
 				A4FDAF9F20D3BC9200FA6E4B /* MonstersViewController.swift */,
-				A4D60EC22260D2C80092424F /* Provider */,
-				A4D60EC12260D29E0092424F /* Model */,
 				A4FE642320D0111D0064E52E /* Main.storyboard */,
+				A4D60EC12260D29E0092424F /* Model */,
+				A4D60EC22260D2C80092424F /* Provider */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1591,6 +1594,7 @@
 				5581953C9BCA2678DA8B3DFB /* APIRequest.swift in Sources */,
 				A4F3B1D9212ECB8A00F03E7B /* UIViewControllerExtension.swift in Sources */,
 				A4F3B1E0212ECB8A00F03E7B /* Window.swift in Sources */,
+				A4B0B45622649BB2001D62A4 /* ModelContainer.swift in Sources */,
 				A4D60ED9226109930092424F /* AuthViewModel.swift in Sources */,
 				A46EE7CC2139244C00F47026 /* Keyboardable.swift in Sources */,
 				A420833A212B1B0B0081E762 /* TableCellConfiguration.swift in Sources */,

@@ -7,11 +7,7 @@
 //
 
 import Foundation
-
-struct AdditionModelContainer<T: Decodable>: Decodable {
-	let data: [T]
-}
-
+ 
 struct AdditionModel {
 	let id: String
 	let name: String

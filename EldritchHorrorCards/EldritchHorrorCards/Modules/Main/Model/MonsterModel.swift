@@ -8,10 +8,6 @@
 
 import UIKit
 
-struct MonsterModelContainer<T: Decodable>: Decodable {
-	let data: [T]
-}
-
 struct MonsterModel: Equatable {
 	
 	private struct Attributes: Decodable {

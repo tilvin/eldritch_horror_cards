@@ -45,7 +45,7 @@ final class AdditionNetworkService: NSObject, AdditionNetworkServiceProtocol {
 				return
 			}
 			
-			if let collection = try? JSONDecoder().decode(AdditionModelContainer<AdditionModel>.self, from: data) {
+			if let collection = try? JSONDecoder().decode(ModelContainer<AdditionModel>.self, from: data) {
 					completion(.success(collection.data))
 			}
 			else {

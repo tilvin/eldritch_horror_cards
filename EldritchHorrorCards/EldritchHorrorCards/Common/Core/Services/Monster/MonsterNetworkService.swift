@@ -51,7 +51,7 @@ final class MonsterNetworkService: NSObject, MonsterNetworkServiceProtocol {
 				return
 			}
 			
-			if let collection = try? JSONDecoder().decode(MonsterModelContainer<MonsterModel>.self, from: data) {
+			if let collection = try? JSONDecoder().decode(ModelContainer<MonsterModel>.self, from: data) {
 				completion(.success(collection.data))
 			}
 			else {

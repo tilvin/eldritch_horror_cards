@@ -58,7 +58,7 @@ extension AuthViewController: AuthViewDelegate {
 //		guard authProvider.allFieldIsValid else {
 //			Alert(alert: String(.authError), actions: String(.ok)).present(in: self)
 //			return
-//		}
+//		}containerView.contentInsetAdjustmentBehavior = .never
 //
 //		authProvider.authorize(with: login, password: password) { [weak self] (result) in
 //			guard let sSelf = self, result else {

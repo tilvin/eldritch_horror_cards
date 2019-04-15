@@ -43,14 +43,13 @@ final class CardNetworkService: NSObject, CardNetworkServiceProtocol {
 			
 			switch type.viewType {
 			case .locationStory:
-				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: LocalStoryModel.self, data: data) { (result) in
-					if let value = result {
-						completion(.localStory(model: value))
-						return
-					}
-					else {
-						completion(.failure(error: NetworkErrorModel(message: "\(String(.cantParseModel)) :\(type)")))
-					}
+				
+				if let collection = try? JSONDecoder().decode(ModelContainer<LocalStoryModel>.self, from: data),
+					let first = collection.data.first {
+					completion(.localStory(model: first))
+				}
+				else {
+					completion(.failure(error: NetworkErrorModel(message: String(.cantParseModel))))
 				}
 			case .plotStory:
 				DI.providers.resolve(DataParseServiceProtocol.self)!.parse(type: PlotStoryModel.self, data: data) { (result) in
