@@ -9,25 +9,25 @@
 import UIKit
 
 extension UILabel {
-
+	
 	convenience init(font: UIFont, textColor: UIColor) {
 		self.init()
 		self.font = font
 		self.textColor = textColor
 	}
-
+	
 	func setLineHeight(lineHeight: CGFloat) {
 		let paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.lineSpacing = 1.0
 		paragraphStyle.lineHeightMultiple = lineHeight
 		paragraphStyle.alignment = self.textAlignment
-
+		
 		let attrString = NSMutableAttributedString(string: self.text!)
 		attrString.addAttribute(NSAttributedStringKey.font, value: self.font, range: NSMakeRange(0, attrString.length))
 		attrString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
 		self.attributedText = attrString
 	}
-
+	
 	func halfTextColorChange (fullText: String, changeText: String ) {
 		let strNumber: NSString = fullText as NSString
 		let range = (strNumber).range(of: changeText)
@@ -35,7 +35,7 @@ extension UILabel {
 		attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.red, range: range)
 		self.attributedText = attribute
 	}
-
+	
 	/// Метод задающий для UILabel текст, высоту строки и кернинг
 	/// - Parameters:
 	/// 	- text: текст для UILabel
