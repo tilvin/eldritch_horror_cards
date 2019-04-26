@@ -9,6 +9,7 @@
 import UIKit
 
 struct CardCellViewModel {
-    let title: String
-    let image: UIImage?
+	let title: String
+	let image: UIImage?
+	let isExpedition: Bool
 }

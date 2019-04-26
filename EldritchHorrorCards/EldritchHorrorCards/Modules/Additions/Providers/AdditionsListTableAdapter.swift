@@ -1,11 +1,11 @@
 import UIKit
 
 protocol AdditionsListTableAdapterDelegate: class {
-	func didTapInfo(with model: Addition)
-	func update(with model: Addition)
+	func didTapInfo(with model: AdditionModel)
+	func update(with model: AdditionModel)
 }
 
-class AdditionsListTableAdapter: StaticTableAdapter {
+final class AdditionsListTableAdapter: StaticTableAdapter {
 	
 	weak var delegate: AdditionsListTableAdapterDelegate?
 
@@ -21,7 +21,7 @@ class AdditionsListTableAdapter: StaticTableAdapter {
 		configure(with: [])
 	}
 	
-	func configure(with models: [Addition]) {
+	func configure(with models: [AdditionModel]) {
 		let section = TableSectionConfiguration()
 		section.headerConfiguration.height = 0
 		section.footerConfiguration.height = 0
@@ -42,11 +42,11 @@ class AdditionsListTableAdapter: StaticTableAdapter {
 
 extension AdditionsListTableAdapter: AdditionCellDelegate {
  
-	func update(with model: Addition) {
+	func update(with model: AdditionModel) {
 		delegate?.update(with: model)
 	}
 	
-	func infoPressed(with model: Addition) {
+	func infoPressed(with model: AdditionModel) {
 		delegate?.didTapInfo(with: model)
 	}
 }

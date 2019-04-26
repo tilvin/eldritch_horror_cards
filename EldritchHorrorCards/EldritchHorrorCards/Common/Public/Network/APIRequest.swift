@@ -34,7 +34,7 @@ enum APIRequest {
 }
 
 extension APIRequest {
-	static private let apiURL: URL = URL(string: "http://82.202.236.16/api/mobile_app/v1")!
+	static private let apiURL: URL = URL(string: "http://82.202.236.16/api/mobile_app")!
 	static private let userAgent: String = {
 		return "EldritchHorrorCards:ios"
 	}()
@@ -75,72 +75,72 @@ extension APIRequest {
 		
 		switch self {
 		case .login(let login, let password):
-			components.path = "/login"
+			components.path = "\(apiVersionPath)/login"
 			components.parameters["login"] = login
 			components.parameters["password"] = password
 			return components
 		case .games:
-			components.path = "/games"
+			components.path = "\(apiVersionPath)/games"
 			return components
 		case .gameSets:
-			components.path = "/game_sets"
+			components.path = "\(apiVersionPath)/game_sets"
 			components.asJson = false
 			return components
 		case .selectGameSets(let gameId, let addons, let maps):
-			components.path = "/games/\(gameId)"
+			components.path = "\(apiVersionPath)/games/\(gameId)"
 			components.parameters = ["game": ["game_set_identity": addons, "with_map": maps]]
 			return components
 		case .ancients(let gameId):
-			components.path = "/ancients"
+			components.path = "\(apiVersionPath)/ancients"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			return components
 		case let .selectAncient(gameId, ancient):
-			components.path = "/games/\(gameId)"
+			components.path = "\(apiVersionPath)/games/\(gameId)"
 			components.parameters = ["game": ["ancient_id": ancient]]
 			return components
 		case let .cards(gameId):
-			components.path = "/cards"
+			components.path = "\(apiVersionPath)/cards"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			components.headers = [:]
 			return components
 		case let .expedition(gameId, type):
-			components.path = "/expedition_contacts"
+			components.path = "\(apiVersionPath)/expedition_contacts"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.urlParameters["contact_type"] = "\(type)"
 			components.asJson = false
 			return components
 		case let .generalContact(gameId):
-			components.path = "/general_contacts"
+			components.path = "\(apiVersionPath)/general_contacts"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			return components
 		case let .otherWorldContact(gameId):
-			components.path = "/other_world_contacts"
+			components.path = "\(apiVersionPath)/other_world_contacts"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			return components
 		case let .research(gameId, type):
-			components.path = "/research_contacts"
+			components.path = "\(apiVersionPath)/research_contacts"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.urlParameters["contact_type"] = "\(type)"
 			components.asJson = false
 			return components
 		case let .special(gameId, type):
-			components.path = "/special_contacts"
+			components.path = "\(apiVersionPath)/special_contacts"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.urlParameters["contact_type"] = "\(type)"
 			components.asJson = false
 			return components
 		case let .location(gameId, type):
-			components.path = "/location_contacts"
+			components.path = "\(apiVersionPath)/location_contacts"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.urlParameters["contact_type"] = "\(type)"
 			components.asJson = false
 			return components
 		case let .restoreSession(gameId):
-			components.path = "/games/restore"
+			components.path = "\(apiVersionPath)/games/restore"
 			components.urlParameters["game_id"] = "\(gameId)"
 			components.asJson = false
 			components.headers = [:]
@@ -156,6 +156,15 @@ extension APIRequest {
 			return "GET"
 		case .selectGameSets, .selectAncient:
 			return "PUT"
+		}
+	}
+	
+	private var apiVersionPath: String {
+		switch self {
+		case .gameSets, .ancients, .generalContact:
+			return "/v2"
+		default:
+			return "/v1"
 		}
 	}
 	

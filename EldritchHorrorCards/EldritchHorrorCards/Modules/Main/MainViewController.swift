@@ -35,25 +35,25 @@ class MainViewController: BaseViewController {
 
 extension MainViewController: MonstersViewControllerDelegate {
 	
-	func call(monster: Monster) {
+	func call(monster: MonsterModel) {
 		let provider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
 		let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 		
 		gameProvider.setSelectedAncient(ancient: monster)
-		provider.selectAncient(gameId: gameProvider.game.id, ancient: monster) { [weak self] (success) in
+		provider.selectAncient(gameId: gameProvider.game.id, ancient: monster) { [weak self] (result) in
 			guard let sSelf = self else { return }
-			if success {
+			switch result {
+			case .success:
 				let controller = CardsViewController()
 				controller.modalTransitionStyle = .crossDissolve
 				sSelf.appNavigator?.go(controller: controller, mode: .modal)
-			}
-			else {
-				sSelf.showErrorAlert(message: String(.loadMonsterError))
+			case .failure(let error):
+				sSelf.showErrorAlert(message: error.message)
 			}
 		}
 	}
 	
-	func showDetail(monster: Monster) {
+	func showDetail(monster: MonsterModel) {
 		let controller = MonsterDetailViewController.controllerFromStoryboard(.main)
 		controller.monster = monster
 		appNavigator?.go(controller: controller, mode: .push)

@@ -17,8 +17,8 @@ final class ImageCell: BaseCollectionViewCell {
 	
 	private lazy var imageView: UIImageView = {
 		let view = UIImageView()
-		view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-		view.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+		view.setContentHuggingPriority(.required, for: .horizontal)
+		view.setContentCompressionResistancePriority(.required, for: .horizontal)
 		view.contentMode = .scaleAspectFill
 		return view
 	}()
@@ -27,6 +27,7 @@ final class ImageCell: BaseCollectionViewCell {
 		let view = UILabel(font: .regular18, textColor: UIColor.darkGreenBlue)
 		view.setContentHuggingPriority(.defaultLow, for: .horizontal)
 		view.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+		view.textAlignment = .center
 		return view
 	}()
 	
@@ -83,6 +84,10 @@ final class ImageCell: BaseCollectionViewCell {
 	private func makeConstraints() {
 		stackView.snp.makeConstraints { (make) in
 			make.edges.equalToSuperview()
+		}
+		
+		typeLabel.snp.makeConstraints { (make) in
+			make.width.equalTo(imageView.snp.width)
 		}
 	}
 }

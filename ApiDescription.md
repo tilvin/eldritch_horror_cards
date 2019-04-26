@@ -294,3 +294,45 @@ $$
     "content_three": "Констебль замечает, что вы засмотрелись на забытое кем-то.."
 }
 ```
+
+## 7. Создание пользователя
+
+* type: `post`
+* endpoint: `/users/`
+* params:
+```JSON 
+{"user" : {
+    "email": "kate@homy.gmail.com", 
+    "password": "[FILTERED]", 
+    "name": "kate", 
+    "avatar": "file data..."
+    }
+}
+```
+* response:
+```JSON 
+ { "token": "1q1w2e3r..." }
+```
+
+## 8. Получение токена по логину-паролю
+
+* type: `post`
+* endpoint: `/users/login`
+* params: 
+```JSON
+{ 
+   "email": "email@e.ru", "password": "mysecretpassword"  
+}
+``` 
+
+## 9. Добавить ссылку на аватар.
+
+* type: `post`
+* endpoint: `/users/login`
+* params: 
+```JSON
+{ 
+   "email": "email@e.ru", "password": "mysecretpassword"  
+}
+```
+

@@ -2,8 +2,8 @@ import UIKit
 import SnapKit
 
 protocol MonstersViewControllerDelegate: class {
-	func call(monster: Monster)
-	func showDetail(monster: Monster)
+	func call(monster: MonsterModel)
+	func showDetail(monster: MonsterModel)
 }
 
 final class MonstersViewController: JFCardSelectionViewController {
@@ -18,7 +18,7 @@ final class MonstersViewController: JFCardSelectionViewController {
     //MARK: - Private variables
     
 	private var monsterProvider = DI.providers.resolve(MonsterDataProviderProtocol.self)!
-	private var monsters: [Monster] = []
+	private var monsters: [MonsterModel] = []
     private let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
     
     //MARK: - Private lazy variables
@@ -26,7 +26,7 @@ final class MonstersViewController: JFCardSelectionViewController {
 	private lazy var menuButton: UIButton = {
 		let button = UIButton()
 		button.setImage(UIImage.menuButton, for: .normal)
-		button.addTarget(self, action: #selector(MonstersViewController.menuButtonAction), for: .touchUpInside)
+		button.addTarget(self, action: #selector(menuButtonPressed), for: .touchUpInside)
 		return button
 	}()
 	
@@ -45,15 +45,17 @@ final class MonstersViewController: JFCardSelectionViewController {
 		setupMenu()
 		navigationController?.setNavigationBarHidden(true, animated: false)
         view.showProccessing()
-        monsterProvider.load(gameId: gameProvider.game.id) { [weak self] (success) in
+        monsterProvider.load(gameId: gameProvider.game.id) { [weak self] (result) in
             guard let sSelf = self else { return }
 			sSelf.view.hideProccessing()
-            if !success {
-                sSelf.showMessageHandler?(String(.additionContinueButtonError))
-                return
-            }
-            sSelf.monsters = sSelf.monsterProvider.monsters
-            sSelf.reloadData()
+			
+			switch result {
+			case .success(let monsters):
+				sSelf.monsters = monsters
+				sSelf.reloadData()
+			case .failure(let error):
+				sSelf.showMessageHandler?(error.message)
+			}
         }
 		reloadData()
 		view.layoutIfNeeded()
@@ -76,7 +78,7 @@ final class MonstersViewController: JFCardSelectionViewController {
 		}
 	}
 	
-	@objc func menuButtonAction(_ sender: UIButton) {
+	@objc private func menuButtonPressed() {
 		let reloadCmd = Command {  (_) in
 			print("reload view!")
 		}

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 enum AuthTextViewState {
 	case normal, active, error
@@ -97,7 +96,6 @@ final class AuthTextView: UIView {
 			underLineView.backgroundColor = .errorBorder
 			textField.shake()
 		}
-		
 	}
 	
 	//MARK: - Private
@@ -129,8 +127,7 @@ final class AuthTextView: UIView {
 	
 	//MARK: - Handlers
 	
-	@objc
-	private func textChanged() {
+	@objc private func textChanged() {
 		delegate?.valueChanged(fieldType: self.type, text: textField.text ?? "")
 	}
 }

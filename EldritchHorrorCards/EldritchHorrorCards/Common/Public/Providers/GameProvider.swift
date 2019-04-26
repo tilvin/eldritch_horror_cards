@@ -7,158 +7,96 @@
 //
 
 import Foundation
-import ObjectMapper
-import ObjectMapper_Realm
-import RealmSwift
 
 protocol GameDataProviderProtocol {
-	var game: GameProtocol! { get set }
-	var isNewGame: Bool { get }
-	func loadGameId(completion: @escaping (Bool) -> Void)
-	func setSelectedAncient(ancient: Monster)
+	var game: Game { get set }
+	func loadGame(completion: @escaping (GameDataProviderResults) -> Void)
+	func setSelectedAncient(ancient: MonsterModel)
 	func removeGame()
-	func setNextExpedition(location: String, completion: @escaping () -> ())
 }
 
-class GameDataProvider: NSObject, GameDataProviderProtocol {
+enum GameDataProviderResults {
+	case success
+	case failure(error: NetworkErrorModel)
+}
+
+final class GameDataProvider: GameDataProviderProtocol {
 	
 	private struct Constants {
 		static let idKey = "game_id_key"
 		static let tokenKey = "game_token"
 		static let expeditionKey = "expedition_Location"
 		static let expireDateKey = "game_date"
+		static let gameStoreKey = "game_store_key"
+		static let gameObjectKey = "game_object_key"
 	}
 	
 	//MARK: - Public variables
 	
-	var game: GameProtocol!
-	var isNewGame: Bool { return isNewGameFlag }
+	var game = Game()
 	
 	//MARK: - Private variables
 	
-	private lazy var session: URLSession = {
-		return URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
-	}()
-	
-	private var dataTask: URLSessionDataTask?
-	private let userDefaultsProvider = DI.providers.resolve(UserDefaultsDataStoreProtocol.self)!
-	private var isNewGameFlag: Bool = true
+	private var gameDataStoreService: GameDataStoreServiceProtocol
+	private var gameNetworkService: GameNetworkServiceProtocol
 	
 	//MARK: - Public
 	
-	override init() {
-		super.init()
-		loadLocalGame()
-		game.setCardTypes(cardTypes: [])
+	init(gameDataStoreService: GameDataStoreServiceProtocol = GameDataStoreService(),
+		 gameNetworkService: GameNetworkServiceProtocol = GameNetworkService()) {
+		self.gameDataStoreService = gameDataStoreService
+		self.gameNetworkService = gameNetworkService
+		self.game = self.gameDataStoreService.loadGame() ?? Game()
 	}
 	
-	public func loadGameId(completion: @escaping (Bool) -> Void) {
+	public func loadGame(completion: @escaping (GameDataProviderResults) -> Void) {
 		guard game.isValid else {
-			getNewGameId(completion: { (success) in
-				completion(success)
+			gameNetworkService.startNewGame(completion: { [unowned self] (result) in
+				switch result {
+				case .failure(let error):
+					completion(.failure(error: error))
+				case .success(let game):
+					self.game = game
+					self.gameDataStoreService.save(self.game)
+					completion(.success)
+				}
 			})
 			return
 		}
 		
-		restoreSession { [unowned self] (success) in
+		gameNetworkService.hasUnfinishedGame(gameId: game.id) { [unowned self] (success) in
 			if success {
-				self.isNewGameFlag = false
-				completion(true)
+				completion(.success)
 				return
 			}
-			
-			self.getNewGameId(completion: { (success) in
-				completion(success)
+			self.gameNetworkService.startNewGame(completion: { (result) in
+				switch result {
+				case .failure(let error):
+					completion(.failure(error: error))
+				case .success(let game):
+					self.game = game
+					completion(.success)
+				}
 			})
 		}
 	}
 	
-	public func setSelectedAncient(ancient: Monster) {
-		let realm = try! Realm()
-		try! realm.write {
-			game.selectedAncient = ancient
-		}
+	public func setSelectedAncient(ancient: MonsterModel) {
+		game.selectedAncient = ancient
 	}
 	
 	public func removeGame() {
-		let realm = try! Realm()
-		try! realm.write {
-			realm.delete(realm.objects(Game.self))
-		}
-		isNewGameFlag = true
-		loadLocalGame()
-	}
-
-	func setNextExpedition(location: String, completion: @escaping () -> ()) {
-		self.game.updateExpedition(location: location, completion: completion)
+		game = Game()
+		gameDataStoreService.removeGame()
 	}
 	
-	//MARK: - Private
-	
-	private func loadLocalGame() {
-		let realm = try! Realm()
-		if realm.objects(Game.self).count == 0 {
-			try! realm.write {
-				realm.add(Game(), update: true)
-			}
-		}
-		game = realm.objects(Game.self).first
-	}
-	
-	func restoreSession(completion: @escaping (Bool) -> ()) {
-		guard game.isValid else { return }
-		let restoreTask = session.dataTask(with: APIRequest.restoreSession(gameId: game.id).request) { (_, response: URLResponse?, _: Error?) -> Void in
-			guard let HTTPResponse = response as? HTTPURLResponse else { return }
-			guard HTTPResponse.statusCode == 200 else {
-				completion(false)
-				return
-			}
-			completion(true)
-		}
-		restoreTask.resume()
-	}
-	
-	private func getNewGameId(completion: @escaping (Bool) -> ()) {
-		dataTask?.cancel()
-		let realm = try! Realm()
-		game = realm.objects(Game.self).first
-		if game.isValid {
-			completion(true)
-			return
-		}
-		
-		dataTask = session.dataTask(with: APIRequest.games.request) { [weak self] (data: Data?, response: URLResponse?, _: Error?) -> Void in
-			guard let sSelf = self else { return }
-			guard let HTTPResponse = response as? HTTPURLResponse else { return }
-			guard let data = data else {
-				completion(false)
-				return
-			}
-			guard HTTPResponse.statusCode == 200 else {
-				completion(false)
-				return
-			}
-			
-			guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) as? [String: Any],
-				let jsonObject = jsonData,
-				let model = Mapper<Game>().map(JSON: jsonObject) else { return }
-			
-			let realm = try! Realm()
-			try! realm.write {
-				realm.delete(realm.objects(Game.self))
-				realm.add(model, update: true)
-				completion(true)
-			}
-			sSelf.game = realm.objects(Game.self).first
-		}
-		dataTask?.resume()
-	}
+//	func setNextExpedition(location: String, completion: @escaping () -> ()) {
+//		if let card = self.game.currentLocationCard,
+//			let index = self.game.cards.firstIndex(of: card) {
+//			self.game.cards.remove(at: index)
+//		}
+//		self.game.cards.insert(Card(type: location), at: 0)
+//		completion()
+//	}
 }
 
-extension GameDataProvider: URLSessionDelegate {
-	
-	func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-		let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-		completionHandler(.useCredential, urlCredential)
-	}
-}

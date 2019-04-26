@@ -91,10 +91,33 @@ enum CardType: String {
 	}
 }
 
-struct Card {
+struct Card: Equatable {
 	let type: CardType
 	
 	init(type: String) {
 		self.type = CardType(rawValue: type) ?? .unknown
+	}
+}
+
+extension Card: Codable {
+	
+	enum CodingKeys: String, CodingKey {
+		case type = "type"
+	}
+	
+	init(from decoder: Decoder) throws {
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		
+		if let value = try? values.decode(String.self, forKey: .type) {
+			self.type = CardType(rawValue: value) ?? .unknown
+		}
+		else {
+			type = .unknown
+		}
+	}
+	
+	func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(type.rawValue, forKey: .type)
 	}
 }

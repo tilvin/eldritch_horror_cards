@@ -34,7 +34,7 @@ extension UIImage {
 	static var secretShub_Niggugat: UIImage { return UIImage(named: "secretShub_Niggugat")! }
 	static var secretYog_Sotot: UIImage { return UIImage(named: "secretYog_Sotot")! }
 	static var specialContactCthulhu: UIImage { return UIImage(named: "specialContactCthulhu")! }
-    static var specialContactYogSotot: UIImage { return UIImage(named: "specialContactYog_Sotot")! }
+	static var specialContactYogSotot: UIImage { return UIImage(named: "specialContactYog_Sotot")! }
 	static var closeButton: UIImage { return UIImage(named: "close_button")! }
 	static var info: UIImage { return UIImage(named: "info")! }
 	static var map: UIImage { return UIImage(named: "map")! }
@@ -43,5 +43,6 @@ extension UIImage {
 	static var email: UIImage { return UIImage(named: "email")! }
 	static var password: UIImage { return UIImage(named: "password")! }
 	static var pyramids: UIImage { return UIImage(named: "pyramids")! }
-    static var menuButton: UIImage { return UIImage(named: "menu")! }
+	static var menuButton: UIImage { return UIImage(named: "menu")! }
+	static var monsterPlaceholder: UIImage { return UIImage(named: "placeholder_image")! }
 }

@@ -11,21 +11,17 @@ import UIKit
 //TODO: need refactoring
 
 protocol AdditionCellDelegate: class {
-	func update(with model: Addition)
-	func infoPressed(with model: Addition)
+	func update(with model: AdditionModel)
+	func infoPressed(with model: AdditionModel)
 }
 
-class AdditionCell: BaseTableViewCell {
+final class AdditionCell: BaseTableViewCell {
 	
-	var model: Addition!
+	var model: AdditionModel!
+	
 	var delegate: AdditionCellDelegate?
 	
-	lazy var titleLabel: UILabel = {
-		let view = UILabel()
-		view.font = UIFont.bold16
-		view.textColor = UIColor.mako
-		return view
-	}()
+	var titleLabel = UILabel(font: .bold16, textColor: .mako)
 	
 	lazy var selectSwitch: UISwitch = {
 		let view = UISwitch()
@@ -48,11 +44,7 @@ class AdditionCell: BaseTableViewCell {
 		return view
 	}()
 	
-	lazy var separateLine: UIView = {
-		let view = UIView()
-		view.backgroundColor = .alto
-		return view
-	}()
+	var separateLine: UIView = UIView(backgroundColor: .alto)
 	
 	lazy var stackView: UIStackView = {
 		var verticalStack = UIStackView()
@@ -100,11 +92,11 @@ class AdditionCell: BaseTableViewCell {
 		layoutIfNeeded()
 	}
 	
-	public func update(with viewModel: Addition) {
+	public func update(with viewModel: AdditionModel) {
 		model = viewModel
 		titleLabel.text = model.name
 		mapButton.alpha = model.isSelectedMap ? 1 : 0.5
-		mapButton.isHidden = !model.isMap
+		mapButton.isHidden = !model.hasMap
 		selectSwitch.isOn = model.isSelected
 	}
 	
@@ -127,6 +119,8 @@ class AdditionCell: BaseTableViewCell {
 			make.right.equalToSuperview()
 		}
 	}
+	
+	//MARK: Handlers
 	
 	@objc private func switchPressed() {
 		model.isSelected = selectSwitch.isOn

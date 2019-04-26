@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import SnapKit
 
 protocol AuthViewDelegate: class {
 	func loginButtonPressed(login: String, password: String)
 	func signupButtonPressed()
 	func validateActiveField(type: AuthTextViewType, text: String)
-	
 	func beginEditing(fieldType: AuthTextViewType, text: String)
 	func endEditing(fieldType: AuthTextViewType, text: String)
 	func valueChanged(fieldType: AuthTextViewType, text: String)
@@ -26,22 +24,23 @@ enum AuthErrorType {
 extension AuthView {
 	
 	struct Appearance {
-		let errorColor: UIColor = UIColor.errorBorder
-		let normalColor: UIColor = UIColor.mako
 		let textFieldSideOffset: CGFloat = ScreenType.item(for: (.inch4, 50), (.inch5_5, 70))
 		let buttonSideOffset: CGFloat = ScreenType.item(for: (.inch4, 30), (.inch5_5, 50))
 		let avatarBottomSeparatorHeight: CGFloat = ScreenType.item(for: (.inch4, 30), (.inch5_5, 70))
 		let stackViewSpacingHorizontal: CGFloat = 10
 		let stackViewSpacingVertical: CGFloat = 3
 		let titleTopOffset: CGFloat = ScreenType.item(for: (.inch4, 30), (.inch5_8, 60))
+		let separatorHeight: CGFloat = 25
+		let avatarWidth: CGFloat = 150
+		let buttonHeight: CGFloat = 45
 	}
 }
 
-final class AuthView: BaseScrollView {
+final class AuthView: KeyboardScrollView {
 	
 	//MARK: - Public variables
 	
-	var delegate: AuthViewDelegate?
+	weak var delegate: AuthViewDelegate?
 	var viewModel: AuthViewModel!
 	
 	//MARK: - Private variables
@@ -62,7 +61,9 @@ final class AuthView: BaseScrollView {
 		return view
 	}()
 	
-	//MARK: - Private lazy variables
+	//MARK: - Private outlets
+	
+	private let avatarView: AvatarView = AvatarView()
 	
 	private lazy var titleLabel: UILabel = {
 		let view = UILabel(font: .bold32, textColor: .darkGreenBlue)
@@ -70,10 +71,6 @@ final class AuthView: BaseScrollView {
 		view.textAlignment = .center
 		view.text = String(.authTitle)
 		return view
-	}()
-	
-	private lazy var avatarView: AvatarView = {
-		return AvatarView()
 	}()
 	
 	private lazy var signUpButton: UIButton = {
@@ -107,6 +104,8 @@ final class AuthView: BaseScrollView {
 		addSubviews()
 		makeConstraints()
 		emailTextView.becomeFirstResponder()
+		scrollView.delegate = self
+		scrollView.bounces = true
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -135,13 +134,13 @@ final class AuthView: BaseScrollView {
 		insertSubview(authBackgroundImageView, at: 0)
 		addSeparatorView(height: appearance.titleTopOffset)
 		addToStackView(view: titleLabel, embed: true)
-		addSeparatorView(height: 30)
+		addSeparatorView(height: appearance.separatorHeight)
 		addToStackView(view: avatarView, embed: true)
 		addSeparatorView(height: appearance.avatarBottomSeparatorHeight)
 		addToStackView(view: emailTextView, embed: true)
-		addSeparatorView(height: 25)
+		addSeparatorView(height: appearance.separatorHeight)
 		addToStackView(view: passwordTextView, embed: true)
-		addSeparatorView(height: 25)
+		addSeparatorView(height: appearance.separatorHeight)
 		addToStackView(view: loginButton, embed: true)
 		addSeparatorView(expandable: true)
 		addToStackView(view: signUpButton, embed: false)
@@ -155,7 +154,7 @@ final class AuthView: BaseScrollView {
 		
 		avatarView.snp.removeConstraints()
 		avatarView.snp.makeConstraints { (make) in
-			make.width.height.equalTo(150)
+			make.width.height.equalTo(appearance.avatarWidth)
 			make.centerY.centerX.equalToSuperview()
 			make.top.bottom.equalToSuperview()
 		}
@@ -172,7 +171,7 @@ final class AuthView: BaseScrollView {
 		
 		loginButton.snp.remakeConstraints { (make) in
 			make.left.right.equalToSuperview().inset(appearance.buttonSideOffset)
-			make.height.equalTo(45)
+			make.height.equalTo(appearance.buttonHeight)
 			make.top.bottom.equalToSuperview()
 		}
 	}
@@ -213,5 +212,12 @@ extension AuthView: AuthTextViewDelegate {
 	
 	func valueChanged(fieldType: AuthTextViewType, text: String) {
 		delegate?.valueChanged(fieldType: fieldType, text: text)
+	}
+}
+
+extension AuthView: UIScrollViewDelegate {
+	
+	func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+		dismissKeyboard()
 	}
 }

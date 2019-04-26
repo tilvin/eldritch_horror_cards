@@ -8,15 +8,18 @@
 
 import UIKit
 
-class CardsViewController: BaseViewController {
+final class CardsViewController: BaseViewController {
+	
+	//MARK: - Private variables
 	
 	private var customView: CardsView { return view as! CardsView }
-    private var adapter = CardsCollectionAdapter()
-    private var provider = DI.providers.resolve(CardsCollectionDataProviderProtocol.self)!
+	private var adapter = CardsCollectionAdapter()
+	private var provider = DI.providers.resolve(CardsCollectionDataProviderProtocol.self)!
 	private let gameProvider = DI.providers.resolve(GameDataProviderProtocol.self)!
 	private let cardDataProvider = DI.providers.resolve(CardDataProviderProtocol.self)!
+	private var selectedIndexPath: IndexPath?
 	
-	//MARK: - Init
+	//MARK: - Lifecycle
 	
 	init() {
 		super.init(nibName: nil, bundle: nil)
@@ -35,43 +38,37 @@ class CardsViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		if provider.cards.count == 0 {
-			provider.load() { [weak self] (success) in
-				guard let sSelf = self else { return }
-				guard success else {
-					sSelf.showErrorAlert(message: String(.cantLoadCards))
-					return
-				}
-				sSelf.updateViewModel()
-			}
-			return
-		}
-		updateViewModel()
+		adapter.load(collectionView: customView.cartCollectionView, delegate: self)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		adapter.load(collectionView: customView.cartCollectionView, delegate: self)
-	}
-	
-	private func updateViewModel() {
-		//TODO: записать в сокращенной форме sorter(... $0.type
-		let viewModel = provider.cards
-			.sorted(by: { (f, s) -> Bool in
-				return f.type.isExpedition
-			})
-			.map({ (card) -> CardCellViewModel in
-				return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue))
-			})
-		adapter.configure(with: viewModel)
-	}
-	
-	private func updateCards() {
-		provider.updateCards(isUseOnlyRealm: true) { [weak self] (_) in
+		
+		provider.load(gameId: gameProvider.game.id) { [weak self] (result) in
 			guard let sSelf = self else { return }
-			sSelf.updateViewModel()
+			switch result {
+			case .failure(let error):
+				sSelf.showErrorAlert(message: error.message)
+			case .success(let cards):
+				sSelf.updateViewModel(cards: cards)
+			}
 		}
+		updateViewModel(cards: [])
+	}
+	
+	//MARK: - Private
+	
+	private func updateViewModel(cards: [Card]) {
+		let viewModel = cards
+			.map({ (card) -> CardCellViewModel in
+				return CardCellViewModel.init(title: card.type.rawValue, image: UIImage(named: card.type.rawValue), isExpedition: card.type.isExpedition)
+			})
+		
+		adapter.configure(with: viewModel)
+			if let row = self.selectedIndexPath?.row,
+				row < viewModel.count {
+				self.adapter.collectionView?.selectItem(at: self.selectedIndexPath, animated: false, scrollPosition: .centeredHorizontally)
+			}
 	}
 }
 
@@ -93,23 +90,17 @@ extension CardsViewController: CardsViewDelegate {
 }
 
 extension CardsViewController: CardsCollectionAdapterDelegate {
-    
-    func cardSelected(type: CardType) {
+	
+	func cardSelected(type: CardType, indexPath: IndexPath?) {
+		selectedIndexPath = indexPath
 		cardDataProvider.get(gameId: gameProvider.game.id, type: type) { [weak self] (result) in
 			guard let sSelf = self else { return }
-
 			switch result {
 			case let .localStory(model):
 				let controller = LocalStoryViewController(model: model)
 				controller.modalTransitionStyle = .crossDissolve
 				sSelf.appNavigator?.go(controller: controller, mode: .push)
 			case let .plotStory(model):
-				if type.isExpedition,
-					let nextExpedition = model.nextLocation {
-					sSelf.gameProvider.setNextExpedition(location: nextExpedition) {
-						sSelf.updateCards()
-					}
-				}
 				let controller = PlotStoryController(model: model, type: type.rawValue)
 				controller.modalTransitionStyle = .crossDissolve
 				sSelf.appNavigator?.go(controller: controller, mode: .push)
@@ -117,5 +108,5 @@ extension CardsViewController: CardsCollectionAdapterDelegate {
 				sSelf.showErrorAlert(message: error.message)
 			}
 		}
-    }
+	}
 }
